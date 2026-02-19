@@ -20,7 +20,8 @@ if (-not (Test-Path $BatchFile)) {
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutPath)
 
-$Shortcut.TargetPath       = $BatchFile
+$Shortcut.TargetPath       = "$env:SystemRoot\System32\cmd.exe"
+$Shortcut.Arguments        = "/c `"$BatchFile`""
 $Shortcut.WorkingDirectory = $RepoPath
 $Shortcut.Description      = "Ascended33 - Lance Kali VM, hexstrike-ai, Obsidian et le dashboard"
 $Shortcut.WindowStyle      = 1
