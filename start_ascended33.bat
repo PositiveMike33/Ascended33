@@ -23,6 +23,9 @@ if "!KALI_USER!"=="" set KALI_USER=kali
 :: Chemin vers le .vmx Kali (si vide = auto-detection dans :find_vmx)
 :: Ne pas modifier ici — definir dans config\local.bat a la place
 
+:: Obsidian vault (defaut D:\Vault si non defini dans local.bat)
+if "!OBSIDIAN_VAULT_PATH!"=="" set OBSIDIAN_VAULT_PATH=D:\Vault
+
 :: ================================================================
 :: DETECTION AUTOMATIQUE DES OUTILS
 :: ================================================================
@@ -83,15 +86,46 @@ call :open_obsidian
 call :launch_dashboard
 
 :: ================================================================
-:: RESUME FINAL
+:: RESUME FINAL — statut reel de chaque service
 :: ================================================================
 echo.
 echo  +==========================================+
-echo  ^|   ASCENDED33 OPERATIONNEL                ^|
+echo  ^|   ASCENDED33 WORKSPACE                   ^|
 echo  +------------------------------------------+
-echo  ^|  Dashboard  : http://localhost:8501      ^|
-echo  ^|  HexStrike  : http://%KALI_IP%:8888     ^|
-echo  ^|  Obsidian   : Vault                      ^|
+
+:: Dashboard Streamlit
+netstat -ano 2>nul | findstr ":8501" >nul 2>&1
+if not errorlevel 1 (
+    echo  ^|  [OK] Dashboard  : http://localhost:8501  ^|
+) else (
+    echo  ^|  [--] Dashboard  : non demarre           ^|
+)
+
+:: hexstrike-ai
+if "!KALI_IP!"=="" (
+    echo  ^|  [--] hexstrike  : KALI_IP non defini    ^|
+) else if "!HEXSTRIKE_OK!"=="1" (
+    echo  ^|  [OK] hexstrike  : http://!KALI_IP!:8888 ^|
+) else (
+    echo  ^|  [--] hexstrike  : non confirme           ^|
+)
+
+:: Obsidian
+tasklist 2>nul | findstr /I "Obsidian.exe" >nul 2>&1
+if not errorlevel 1 (
+    echo  ^|  [OK] Obsidian   : Vault ouvert           ^|
+) else (
+    echo  ^|  [--] Obsidian   : non detecte            ^|
+)
+
+:: REST API Obsidian
+curl -s -o nul -w "%%{http_code}" http://localhost:27123/ 2>nul | findstr /R "^[24]" >nul 2>&1
+if not errorlevel 1 (
+    echo  ^|  [OK] REST API   : http://localhost:27123 ^|
+) else (
+    echo  ^|  [--] REST API   : plugin non active      ^|
+)
+
 echo  +==========================================+
 echo.
 echo  Ferme cette fenetre quand tu as fini.
@@ -176,6 +210,13 @@ exit /b 0
 :: ================================================================
 echo [2/4] hexstrike-ai sur Kali %KALI_IP%...
 
+:: Verifier que KALI_IP est defini avant de tenter SSH
+if "!KALI_IP!"=="" (
+    echo  [SKIP] KALI_IP non defini — hexstrike-ai non demarre.
+    echo  Definis KALI_IP dans config\local.bat pour activer cette etape.
+    exit /b 0
+)
+
 :: Attendre SSH (max 90s = 45 essais x 2s)
 set /a _tries=0
 :_ssh_loop
@@ -199,7 +240,25 @@ if "%HEX_STATUS%"=="1" (
 
 :: Lancer hexstrike
 ssh -i "%KALI_KEY%" -o StrictHostKeyChecking=accept-new -o BatchMode=yes %KALI_USER%@%KALI_IP% "cd ~/hexstrike-ai && source hexstrike-env/bin/activate && nohup python3 hexstrike_server.py > ~/hexstrike.log 2>&1 &" >nul 2>&1
-echo  [OK] hexstrike-ai demarre ^(port 8888^).
+
+:: Attendre que le serveur soit pret (max 20s = 10 essais x 2s)
+echo  Verification hexstrike-ai sur port 8888...
+set /a _hex_tries=0
+:_hex_check
+set /a _hex_tries+=1
+if %_hex_tries% GTR 10 (
+    echo  [WARN] hexstrike-ai ne repond pas sur :8888 apres 20s.
+    echo  Verifie avec : ssh kali@!KALI_IP! "tail ~/hexstrike.log"
+    set HEXSTRIKE_OK=0
+    exit /b 0
+)
+curl -s -o nul -w "%%{http_code}" http://!KALI_IP!:8888/ 2>nul | findstr /R "^[24]" >nul 2>&1
+if errorlevel 1 (
+    timeout /t 2 /nobreak >nul
+    goto :_hex_check
+)
+set HEXSTRIKE_OK=1
+echo  [OK] hexstrike-ai operationnel sur http://!KALI_IP!:8888
 exit /b 0
 
 
@@ -213,15 +272,38 @@ if not exist "!OBSIDIAN_EXE!" (
     exit /b 0
 )
 
-:: Obsidian deja ouvert ?
-tasklist | findstr /I "Obsidian.exe" >nul 2>&1
-if not errorlevel 1 (
-    echo  [OK] Obsidian deja ouvert.
+:: Verifier que le vault existe
+if not exist "!OBSIDIAN_VAULT_PATH!" (
+    echo  [WARN] Vault introuvable : !OBSIDIAN_VAULT_PATH!
+    echo  Verifie OBSIDIAN_VAULT_PATH dans config\local.bat
+    echo  Lancement Obsidian sans vault specifique...
+    start "" "!OBSIDIAN_EXE!"
     exit /b 0
 )
 
-start "" "!OBSIDIAN_EXE!"
-echo  [OK] Obsidian lance.
+:: Obsidian deja ouvert ?
+tasklist | findstr /I "Obsidian.exe" >nul 2>&1
+if not errorlevel 1 (
+    echo  [OK] Obsidian deja ouvert ^(Vault: !OBSIDIAN_VAULT_PATH!^).
+    exit /b 0
+)
+
+:: Ouvrir Obsidian sur le vault specifique
+start "" "!OBSIDIAN_EXE!" "!OBSIDIAN_VAULT_PATH!"
+echo  [OK] Obsidian lance sur : !OBSIDIAN_VAULT_PATH!
+
+:: Attendre 5s pour que le plugin Local REST API s initialise ^(port 27123^)
+echo  Attente initialisation plugin REST API Obsidian...
+timeout /t 5 /nobreak >nul
+
+:: Verifier si la REST API repond (curl Windows natif — disponible Windows 10+)
+curl -s -o nul -w "%%{http_code}" http://localhost:27123/ 2>nul | findstr /R "^[24]" >nul 2>&1
+if not errorlevel 1 (
+    echo  [OK] Obsidian REST API active ^(port 27123^).
+) else (
+    echo  [INFO] REST API non detectee — normal si plugin pas encore configure.
+    echo  Pour l activer : Obsidian ^> Parametres ^> Community plugins ^> Local REST API
+)
 exit /b 0
 
 

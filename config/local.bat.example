@@ -16,3 +16,6 @@ set KALI_VMX=
 
 :: Utilisateur SSH Kali (generalement "kali")
 set KALI_USER=kali
+
+:: Chemin du vault Obsidian (le dossier contenant tes notes)
+set OBSIDIAN_VAULT_PATH=D:\Vault
