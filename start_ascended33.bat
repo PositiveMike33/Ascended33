@@ -12,7 +12,7 @@ echo.
 
 :: --- Chemin vers le repo (modifie si necessaire) ---
 set REPO_PATH=D:\Vault\Vault\Ascended33
-set PYTHON=python
+set PYTHON=C:\Users\th3th\AppData\Local\Programs\Python\Python313\python.exe
 
 :: --- Verifier que Python existe ---
 %PYTHON% --version >nul 2>&1
