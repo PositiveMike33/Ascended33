@@ -26,6 +26,20 @@ opsec:
   require_tor_for_darkweb: true
   vpn_check_url: "https://check.torproject.org/api/ip"
   allowed_exit_countries: []         # Leave empty to allow any VPN exit
+  # home_ip: Set to your real public IP (without VPN) for reliable VPN detection.
+  # Run once WITHOUT VPN: python3 -c "import requests; print(requests.get('https://httpbin.org/ip').json()['origin'])"
+  # Then fill below. NEVER commit config.yaml — it is gitignored.
+  home_ip: "YOUR_REAL_IP"            # pragma: allowlist secret
+
+# Identity guard — PII protection
+identity_guard:
+  # Custom keywords to detect as PII (client names, codenames, personal identifiers)
+  # These are loaded at runtime — never leave real names in config.example.yaml
+  custom_keywords: []
+  # Examples (put real values in config.yaml, never here):
+  #   - "ClientName"
+  #   - "ProjectCodename"
+  #   - "your.email@example.com"
 
 # Report output
 reporting:
