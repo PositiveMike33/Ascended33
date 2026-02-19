@@ -28,7 +28,7 @@ import requests
 logger = logging.getLogger(__name__)
 
 HIBP_BASE = "https://haveibeenpwned.com/api/v3"
-HIBP_PWNED_PASSWORDS = "https://api.pwnedpasswords.com/range/{prefix}"
+HIBP_PWNED_PASSWORDS = "https://api.pwnedpasswords.com/range/{prefix}"  # pragma: allowlist secret
 REQUEST_TIMEOUT = 15
 
 

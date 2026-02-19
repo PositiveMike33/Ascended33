@@ -1,0 +1,78 @@
+# ================================================================
+# Ascended33 — Pre-commit hooks de sécurité
+# Installe avec: pre-commit install
+# Lance manuellement: pre-commit run --all-files
+# ================================================================
+
+repos:
+  # ----------------------------------------------------------------
+  # 1. DETECT-SECRETS — bloque les secrets avant chaque commit
+  # ----------------------------------------------------------------
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        name: "Scan secrets (detect-secrets)"
+        args:
+          - "--baseline"
+          - ".secrets.baseline"
+        exclude: |
+          (?x)^(
+            config/config\.example\.yaml|
+            config/local\.bat\.example|
+            \.secrets\.baseline
+          )$
+
+  # ----------------------------------------------------------------
+  # 2. CHECKS BASIQUES — fichiers corrompus, whitespace, etc.
+  # ----------------------------------------------------------------
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-merge-conflict
+        name: "Vérif conflits git non résolus"
+      - id: check-yaml
+        name: "Vérif syntaxe YAML"
+      - id: check-json
+        name: "Vérif syntaxe JSON"
+      - id: end-of-file-fixer
+        name: "Fin de fichier propre"
+      - id: trailing-whitespace
+        name: "Espaces de fin de ligne"
+      - id: check-added-large-files
+        name: "Fichiers trop volumineux (>1MB)"
+        args: ["--maxkb=1024"]
+      - id: detect-private-key
+        name: "Détection clés privées SSH/RSA"
+      - id: check-case-conflict
+        name: "Conflits de noms de fichiers (case)"
+
+  # ----------------------------------------------------------------
+  # 3. PII & PATTERNS PERSONNALISÉS — username, IPs, chemins perso
+  # ----------------------------------------------------------------
+  - repo: local
+    hooks:
+      - id: no-hardcoded-ips
+        name: "Pas d'IP privées hardcodées (192.168.x.x / 10.x.x.x)"
+        language: pygrep
+        entry: '\b(192\.168\.\d{1,3}\.\d{1,3}|10\.\d{1,3}\.\d{1,3}\.\d{1,3}|172\.(1[6-9]|2[0-9]|3[01])\.\d{1,3}\.\d{1,3})\b'
+        files: \.(py|yaml|yml|json|bat|ps1|sh|md)$
+        exclude: |
+          (?x)^(
+            config/config\.example\.yaml|
+            config/local\.bat\.example|
+            CLAUDE\.md|
+            \.pre-commit-config\.yaml
+          )$
+
+      - id: no-windows-userpath
+        name: "Pas de chemins Windows personnels (C:\\Users\\...)"
+        language: pygrep
+        entry: 'C:\\Users\\[^%{}\s]+'
+        files: \.(py|yaml|yml|json|sh|md)$
+        exclude: |
+          (?x)^(
+            config/config\.example\.yaml|
+            config/local\.bat\.example|
+            CLAUDE\.md
+          )$

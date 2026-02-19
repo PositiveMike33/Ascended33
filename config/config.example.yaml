@@ -5,7 +5,7 @@
 vault:
   mode: "rest_api"                   # Options: "rest_api" | "filesystem"
   base_url: "http://localhost:27123" # Obsidian Local REST API plugin URL
-  api_key: "YOUR_OBSIDIAN_API_KEY"   # Set in Obsidian plugin settings
+  api_key: "YOUR_OBSIDIAN_API_KEY"   # Set in Obsidian plugin settings  # pragma: allowlist secret
   vault_path: "D:/Vault"             # Filesystem path (used in "filesystem" mode)
 
 # hexstrike-ai MCP Server

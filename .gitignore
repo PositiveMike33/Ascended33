@@ -1,25 +1,82 @@
-# Secrets & config (NEVER commit)
+# ================================================================
+# SECRETS & CONFIG SENSIBLE — JAMAIS COMMITER
+# ================================================================
 config/config.yaml
+config/local.bat
 config/ssh/
 *.key
 *.pem
+*.p12
+*.pfx
 *.env
-.env*
+.env
+.env.*
+secrets.yaml
+secrets.json
+*.secret
 
-# Output & cache
+# Baseline detect-secrets (peut contenir des faux positifs — garder gitignore si besoin)
+# .secrets.baseline  <- NE PAS ignorer ce fichier, il doit etre commite
+
+# ================================================================
+# OUTPUT & CACHE OPERATIONS
+# ================================================================
 output/
 *.log
+streamlit.log
 vault_sync/cache/
+.osint_cache/
+scan_results/
+nmap_output/
+
+# ================================================================
+# PYTHON
+# ================================================================
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
 .pytest_cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
 
-# Python environments
+# ================================================================
+# ENVIRONNEMENTS VIRTUELS
+# ================================================================
 venv/
 .venv/
+env/
 hexstrike-env/
 
-# OS artifacts
+# ================================================================
+# OS ARTIFACTS
+# ================================================================
 .DS_Store
 Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# ================================================================
+# EDITEURS
+# ================================================================
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ================================================================
+# RAPPORTS & DONNEES SENSIBLES
+# ================================================================
+reports/
+*.pcap
+*.cap
+wordlists/
+loot/

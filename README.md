@@ -1,6 +1,6 @@
 # 🌀 Spiral template
 
-A simple Streamlit app that draws a spiral. 
+A simple Streamlit app that draws a spiral.
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://basic-template.streamlit.app/)
 

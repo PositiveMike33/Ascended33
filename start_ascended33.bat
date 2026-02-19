@@ -10,12 +10,18 @@ setlocal enabledelayedexpansion
 set REPO_PATH=%~dp0
 set REPO_PATH=!REPO_PATH:~0,-1!
 
-:: Kali VM
-set KALI_IP=192.168.157.128
-set KALI_USER=kali
+:: ================================================================
+:: CONFIG LOCALE (gitignored) — charge config/local.bat si present
+:: Copier config/local.bat.example vers config/local.bat et editer
+:: ================================================================
+if exist "!REPO_PATH!\config\local.bat" call "!REPO_PATH!\config\local.bat"
 
-:: Chemin vers le .vmx Kali (si vide = auto-detection)
-set KALI_VMX=C:\Users\th3th\Downloads\kali-linux-2025.4-vmware-amd64\kali-linux-2025.4-vmware-amd64.vmwarevm\kali-linux-2025.4-vmware-amd64.vmx
+:: Kali VM (valeurs par defaut si non definies dans local.bat)
+:: KALI_IP intentionnellement vide si non defini — le launcher gere gracieusement
+if "!KALI_USER!"=="" set KALI_USER=kali
+
+:: Chemin vers le .vmx Kali (si vide = auto-detection dans :find_vmx)
+:: Ne pas modifier ici — definir dans config\local.bat a la place
 
 :: ================================================================
 :: DETECTION AUTOMATIQUE DES OUTILS
@@ -99,6 +105,12 @@ exit /b 0
 :: ================================================================
 echo [1/4] VMware / Kali Linux...
 
+:: KALI_IP doit etre defini dans config\local.bat
+if "!KALI_IP!"=="" (
+    echo  [WARN] KALI_IP non defini. Copier config\local.bat.example vers config\local.bat et configurer.
+    exit /b 0
+)
+
 :: VM deja reachable ?
 ping -n 1 -w 1000 %KALI_IP% >nul 2>&1
 if not errorlevel 1 (
@@ -172,21 +184,21 @@ if %_tries% GTR 45 (
     echo  [WARN] SSH timeout apres 90s. hexstrike-ai non demarre.
     exit /b 0
 )
-ssh -i "%KALI_KEY%" -o StrictHostKeyChecking=no -o ConnectTimeout=2 -o BatchMode=yes %KALI_USER%@%KALI_IP% "exit" >nul 2>&1
+ssh -i "%KALI_KEY%" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=2 -o BatchMode=yes %KALI_USER%@%KALI_IP% "exit" >nul 2>&1
 if errorlevel 1 (
     timeout /t 2 /nobreak >nul
     goto :_ssh_loop
 )
 
 :: hexstrike deja running ?
-for /f %%i in ('ssh -i "%KALI_KEY%" -o StrictHostKeyChecking^=no -o BatchMode^=yes %KALI_USER%@%KALI_IP% "pgrep -f hexstrike_server.py > /dev/null 2>&1 && echo 1 || echo 0" 2^>nul') do set HEX_STATUS=%%i
+for /f %%i in ('ssh -i "%KALI_KEY%" -o StrictHostKeyChecking^=accept-new -o BatchMode^=yes %KALI_USER%@%KALI_IP% "pgrep -f hexstrike_server.py > /dev/null 2>&1 && echo 1 || echo 0" 2^>nul') do set HEX_STATUS=%%i
 if "%HEX_STATUS%"=="1" (
     echo  [OK] hexstrike-ai deja en cours.
     exit /b 0
 )
 
 :: Lancer hexstrike
-ssh -i "%KALI_KEY%" -o StrictHostKeyChecking=no -o BatchMode=yes %KALI_USER%@%KALI_IP% "cd ~/hexstrike-ai && source hexstrike-env/bin/activate && nohup python3 hexstrike_server.py > ~/hexstrike.log 2>&1 &" >nul 2>&1
+ssh -i "%KALI_KEY%" -o StrictHostKeyChecking=accept-new -o BatchMode=yes %KALI_USER%@%KALI_IP% "cd ~/hexstrike-ai && source hexstrike-env/bin/activate && nohup python3 hexstrike_server.py > ~/hexstrike.log 2>&1 &" >nul 2>&1
 echo  [OK] hexstrike-ai demarre ^(port 8888^).
 exit /b 0
 
