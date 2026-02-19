@@ -22,7 +22,7 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutPath)
 
 $Shortcut.TargetPath       = $BatchFile
 $Shortcut.WorkingDirectory = $RepoPath
-$Shortcut.Description      = "Ascended33 — Lance Kali VM, hexstrike-ai, Obsidian et le dashboard"
+$Shortcut.Description      = "Ascended33 - Lance Kali VM, hexstrike-ai, Obsidian et le dashboard"
 $Shortcut.WindowStyle      = 1  # Fenetre normale
 
 # Icone : VMware en priorite, sinon PowerShell, sinon cmd
