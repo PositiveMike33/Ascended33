@@ -1,0 +1,34 @@
+# config.example.yaml — Copy to config.yaml and fill in your values.
+# config.yaml is gitignored — NEVER commit real credentials.
+
+# Obsidian Vault integration
+vault:
+  mode: "rest_api"                   # Options: "rest_api" | "filesystem"
+  base_url: "http://localhost:27123" # Obsidian Local REST API plugin URL
+  api_key: "YOUR_OBSIDIAN_API_KEY"   # Set in Obsidian plugin settings
+  vault_path: "D:/Vault"             # Filesystem path (used in "filesystem" mode)
+
+# hexstrike-ai MCP Server
+hexstrike:
+  mcp_url: "http://localhost:8888"
+  timeout_seconds: 30
+
+# Kali Linux VM (SSH)
+kali_vm:
+  host: "kali-lab"                   # SSH Host alias from ~/.ssh/config
+  user: "kali"
+  key_file: "~/.ssh/kali_lab_key"   # Absolute path to SSH key
+  mcp_port: 8888                     # hexstrike-ai MCP port on the VM
+
+# OPSEC settings
+opsec:
+  require_vpn: true
+  require_tor_for_darkweb: true
+  vpn_check_url: "https://check.torproject.org/api/ip"
+  allowed_exit_countries: []         # Leave empty to allow any VPN exit
+
+# Report output
+reporting:
+  default_output: "vault"            # Options: "vault" | "local" | "both"
+  local_output_dir: "./output/"
+  vault_base_path: "Security"
