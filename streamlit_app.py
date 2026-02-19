@@ -97,6 +97,41 @@ def check_hexstrike() -> dict:
         return {"status": "offline", "error": str(e), "url": url}
 
 
+@st.cache_data(ttl=15)
+def check_docker_containers() -> dict:
+    """Check status of Ascended33 Docker containers (tor, kali, hexstrike)."""
+    import shutil
+    import subprocess
+
+    docker = shutil.which("docker")
+    if not docker:
+        return {"available": False, "reason": "docker not found in PATH"}
+
+    containers = {
+        "tor": "ascended33_tor",
+        "kali": "ascended33_kali",
+        "hexstrike": "ascended33_hexstrike",
+    }
+    result: dict = {"available": True}
+    for name, cname in containers.items():
+        try:
+            r = subprocess.run(
+                [docker, "inspect", "--format",
+                 "{{.State.Status}} {{.State.Health.Status}}", cname],
+                capture_output=True, text=True, timeout=5,
+            )
+            if r.returncode == 0:
+                parts = r.stdout.strip().split()
+                state = parts[0] if parts else "unknown"
+                health = parts[1] if len(parts) > 1 else ""
+                result[name] = {"state": state, "health": health}
+            else:
+                result[name] = {"state": "not found", "health": ""}
+        except (subprocess.TimeoutExpired, FileNotFoundError, OSError):
+            result[name] = {"state": "error", "health": ""}
+    return result
+
+
 @st.cache_data(ttl=30)
 def check_vault() -> dict:
     try:
@@ -136,25 +171,66 @@ with st.sidebar:
     st.markdown("**Mission Control**")
     st.markdown("---")
 
-    st.markdown("### System Status")
+    # ── Docker containers ─────────────────────────────────────────────────────
+    st.markdown("### Docker")
+    docker = check_docker_containers()
+
+    if not docker.get("available"):
+        st.markdown('<span class="status-warn">⚠ Docker indisponible</span>', unsafe_allow_html=True)
+    else:
+        def _container_badge(info: dict) -> str:
+            state = info.get("state", "unknown")
+            health = info.get("health", "")
+            if state == "running" and health in ("healthy", ""):
+                return '<span class="status-ok">● running</span>'
+            if state == "running" and health == "starting":
+                return '<span class="status-warn">● starting</span>'
+            if state == "not found":
+                return '<span class="status-err">● not found</span>'
+            return f'<span class="status-err">● {state}</span>'
+
+        tor_info = docker.get("tor", {})
+        kali_info = docker.get("kali", {})
+        hex_info = docker.get("hexstrike", {})
+
+        st.markdown(f"**Tor:** {_container_badge(tor_info)}", unsafe_allow_html=True)
+        if tor_info.get("health") == "healthy":
+            st.caption("Circuit actif — trafic anonymisé")
+        elif tor_info.get("state") == "running":
+            st.caption("Bootstrap en cours…")
+
+        st.markdown(f"**Kali:** {_container_badge(kali_info)}", unsafe_allow_html=True)
+        st.markdown(f"**hexstrike:** {_container_badge(hex_info)}", unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # ── Services ──────────────────────────────────────────────────────────────
+    st.markdown("### Services")
     hexstrike = check_hexstrike()
     vault = check_vault()
     opsec = check_opsec()
 
     st.markdown(
-        f"**hexstrike-ai:** {status_badge(hexstrike['status'])}",
+        f"**hexstrike API:** {status_badge(hexstrike['status'])}",
         unsafe_allow_html=True,
     )
+    if hexstrike.get("status") == "online":
+        st.caption(f"`{hexstrike.get('url', 'localhost:8888')}`")
+
     st.markdown(
         f"**Obsidian Vault:** {status_badge(vault['status'])}",
         unsafe_allow_html=True,
     )
 
+    st.markdown("---")
+
+    # ── OPSEC ─────────────────────────────────────────────────────────────────
+    st.markdown("### OPSEC")
     if opsec.get("safe"):
-        st.markdown('<span class="status-ok">● OPSEC OK</span>', unsafe_allow_html=True)
-        st.markdown(f"IP: `{opsec.get('ip', '?')}` | Tor: {'Yes' if opsec.get('tor') else 'No'}")
+        st.markdown('<span class="status-ok">● SAFE</span>', unsafe_allow_html=True)
+        st.caption(f"IP: `{opsec.get('ip', '?')}` | Tor: {'Oui' if opsec.get('tor') else 'Non'}")
     else:
-        st.markdown('<span class="status-warn">⚠ OPSEC CHECK</span>', unsafe_allow_html=True)
+        st.markdown('<span class="status-warn">⚠ VÉRIFIER</span>', unsafe_allow_html=True)
         st.caption(opsec.get("reason", "Unknown"))
 
     st.markdown("---")

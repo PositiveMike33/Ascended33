@@ -1,0 +1,33 @@
+# ==============================================================================
+# Ascended33 — Tor Configuration
+# Proxy SOCKS5 anonyme pour hexstrike-ai et Kali (conteneurs Docker).
+# ==============================================================================
+
+# Proxy SOCKS5 — écoute sur toutes les interfaces du conteneur
+# Les autres conteneurs sur ascended33_net accèdent via socks5h://tor:9050
+SocksPort 0.0.0.0:9050
+
+# Accepter uniquement depuis les réseaux Docker internes
+SocksPolicy accept 172.16.0.0/12    # Plages Docker bridge
+SocksPolicy accept 10.0.0.0/8       # Réseaux Docker custom
+SocksPolicy accept 127.0.0.1/8      # Localhost (healthcheck)
+SocksPolicy reject *                 # Bloquer tout le reste
+
+# Port de contrôle — pour les health checks et la gestion du circuit
+ControlPort 9051
+CookieAuthentication 1
+
+# Mode client uniquement — PAS un relais ni un nœud de sortie
+ExitPolicy reject *:*
+ExitRelay 0
+
+# Résolution DNS via Tor (utiliser socks5h:// dans les clients pour en bénéficier)
+DNSPort 0.0.0.0:9053
+AutomapHostsOnResolve 1
+AutomapHostsSuffixes .onion,.exit
+
+# Logging vers stdout (visible via: docker compose logs tor)
+Log notice stdout
+
+# Répertoire de données persistant (monté comme volume Docker)
+DataDirectory /var/lib/tor

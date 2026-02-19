@@ -62,7 +62,8 @@ repos:
             config/config\.example\.yaml|
             config/local\.bat\.example|
             CLAUDE\.md|
-            \.pre-commit-config\.yaml
+            \.pre-commit-config\.yaml|
+            docker-compose\.yml
           )$
 
       - id: no-windows-userpath

@@ -2,26 +2,20 @@
 setlocal enabledelayedexpansion
 
 :: ================================================================
-:: ASCENDED33 LAUNCHER - Portable (aucun chemin hardcode)
-:: Le script detecte automatiquement tous les chemins
+:: ASCENDED33 LAUNCHER - Docker Edition
+:: Kali + hexstrike + Tor tournent dans des conteneurs Docker.
+:: Aucun chemin hardcode - portable sur toutes les machines.
 :: ================================================================
 
-:: Chemin du repo = dossier de ce .bat (fonctionne sur n importe quelle machine)
+:: Chemin du repo = dossier de ce .bat
 set REPO_PATH=%~dp0
 set REPO_PATH=!REPO_PATH:~0,-1!
 
 :: ================================================================
 :: CONFIG LOCALE (gitignored) — charge config/local.bat si present
-:: Copier config/local.bat.example vers config/local.bat et editer
+:: Copier config/local.bat.example -> config/local.bat et editer
 :: ================================================================
 if exist "!REPO_PATH!\config\local.bat" call "!REPO_PATH!\config\local.bat"
-
-:: Kali VM (valeurs par defaut si non definies dans local.bat)
-:: KALI_IP intentionnellement vide si non defini — le launcher gere gracieusement
-if "!KALI_USER!"=="" set KALI_USER=kali
-
-:: Chemin vers le .vmx Kali (si vide = auto-detection dans :find_vmx)
-:: Ne pas modifier ici — definir dans config\local.bat a la place
 
 :: Obsidian vault (defaut D:\Vault si non defini dans local.bat)
 if "!OBSIDIAN_VAULT_PATH!"=="" set OBSIDIAN_VAULT_PATH=D:\Vault
@@ -45,14 +39,6 @@ if not exist "!PYTHON!" (
 :: Obsidian
 set OBSIDIAN_EXE=%USERPROFILE%\AppData\Local\Obsidian\Obsidian.exe
 
-:: VMware vmrun (x86 ou x64)
-set VMRUN=C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe
-if not exist "!VMRUN!" set VMRUN=C:\Program Files\VMware\VMware Workstation\vmrun.exe
-
-:: Cle SSH Kali : d abord dans ~/.ssh, sinon sur le disque (config\ssh\)
-set KALI_KEY=%USERPROFILE%\.ssh\kali_lab_key
-if not exist "!KALI_KEY!" set KALI_KEY=!REPO_PATH!\config\ssh\kali_lab_key
-
 :: ================================================================
 ::  BANNIERE
 :: ================================================================
@@ -60,28 +46,23 @@ echo.
 echo  +==========================================+
 echo  ^|                                          ^|
 echo  ^|       ASCENDED33  WORKSPACE              ^|
-echo  ^|   Kali  ^|  HexStrike  ^|  Obsidian        ^|
+echo  ^|  Docker  ^|  Tor  ^|  hexstrike  ^|  Obsidian  ^|
 echo  ^|                                          ^|
 echo  +==========================================+
 echo.
 
 :: ================================================================
-:: STEP 1 — VMware + Kali VM
+:: STEP 1 — Docker containers (Tor + Kali + hexstrike)
 :: ================================================================
-call :launch_vm
+call :start_docker
 
 :: ================================================================
-:: STEP 2 — Attente SSH + hexstrike-ai
-:: ================================================================
-call :start_hexstrike
-
-:: ================================================================
-:: STEP 3 — Obsidian
+:: STEP 2 — Obsidian
 :: ================================================================
 call :open_obsidian
 
 :: ================================================================
-:: STEP 4 — Dashboard Streamlit
+:: STEP 3 — Dashboard Streamlit
 :: ================================================================
 call :launch_dashboard
 
@@ -101,13 +82,26 @@ if not errorlevel 1 (
     echo  ^|  [--] Dashboard  : non demarre           ^|
 )
 
-:: hexstrike-ai
-if "!KALI_IP!"=="" (
-    echo  ^|  [--] hexstrike  : KALI_IP non defini    ^|
-) else if "!HEXSTRIKE_OK!"=="1" (
-    echo  ^|  [OK] hexstrike  : http://!KALI_IP!:8888 ^|
+:: hexstrike-ai (port 8888 mappe depuis le conteneur)
+if "!HEXSTRIKE_OK!"=="1" (
+    echo  ^|  [OK] hexstrike  : http://localhost:8888  ^|
 ) else (
     echo  ^|  [--] hexstrike  : non confirme           ^|
+)
+
+:: Tor (anonymisation)
+if "!TOR_OK!"=="1" (
+    echo  ^|  [OK] Tor        : trafic anonymise        ^|
+) else (
+    echo  ^|  [--] Tor        : bootstrap en cours     ^|
+)
+
+:: Kali
+docker inspect --format "{{.State.Status}}" ascended33_kali 2>nul | findstr "running" >nul 2>&1
+if not errorlevel 1 (
+    echo  ^|  [OK] Kali       : ascended33_kali         ^|
+) else (
+    echo  ^|  [--] Kali       : non demarre            ^|
 )
 
 :: Obsidian
@@ -128,144 +122,83 @@ if not errorlevel 1 (
 
 echo  +==========================================+
 echo.
-echo  Ferme cette fenetre quand tu as fini.
+echo  Commandes utiles :
+echo    docker compose ps                   (etat des conteneurs)
+echo    docker compose logs -f tor          (bootstrap Tor)
+echo    docker compose exec kali bash       (shell Kali)
+echo    docker compose restart tor          (nouveau circuit Tor)
 echo.
 pause
 exit /b 0
 
 
 :: ================================================================
-:launch_vm
+:start_docker
+:: Demarre les conteneurs Docker (Tor + Kali + hexstrike)
 :: ================================================================
-echo [1/4] VMware / Kali Linux...
+echo [1/3] Docker containers (Tor + Kali + hexstrike)...
 
-:: KALI_IP doit etre defini dans config\local.bat
-if "!KALI_IP!"=="" (
-    echo  [WARN] KALI_IP non defini. Copier config\local.bat.example vers config\local.bat et configurer.
-    exit /b 0
-)
-
-:: VM deja reachable ?
-ping -n 1 -w 1000 %KALI_IP% >nul 2>&1
-if not errorlevel 1 (
-    echo  [OK] Kali VM deja en ligne ^(%KALI_IP%^).
-    exit /b 0
-)
-
-:: vmrun disponible ?
-if not exist "!VMRUN!" (
-    echo  [WARN] vmrun introuvable. Lance la VM manuellement depuis VMware.
-    exit /b 0
-)
-
-:: Auto-detection VMX si vide
-if "!KALI_VMX!"=="" (
-    echo  Recherche fichier .vmx Kali...
-    call :find_vmx
-)
-
-:: VMX trouvable ?
-if "!KALI_VMX!"=="" (
-    echo  [WARN] Aucun fichier .vmx Kali trouve automatiquement.
-    echo  Definis KALI_VMX dans ce script.
-    exit /b 0
-)
-if not exist "!KALI_VMX!" (
-    echo  [WARN] VMX introuvable : !KALI_VMX!
-    exit /b 0
-)
-
-:: Lancer la VM
-echo  Demarrage Kali VM...
-"!VMRUN!" -T ws start "!KALI_VMX!"
-echo  [OK] Kali VM demarree.
-exit /b 0
-
-
-:: ================================================================
-:find_vmx
-:: Cherche un .vmx contenant "kali" dans les emplacements courants
-:: ================================================================
-set _VMX_DIRS=%USERPROFILE%\Documents\Virtual Machines
-set _VMX_DIRS2=%USERPROFILE%\Virtual Machines
-set _VMX_DIRS3=%USERPROFILE%\Downloads
-set _VMX_DIRS4=D:\Virtual Machines
-set _VMX_DIRS5=D:\VMs
-set _VMX_DIRS6=C:\VMs
-
-for %%d in ("%_VMX_DIRS%" "%_VMX_DIRS2%" "%_VMX_DIRS3%" "%_VMX_DIRS4%" "%_VMX_DIRS5%" "%_VMX_DIRS6%") do (
-    if exist %%d (
-        for /f "delims=" %%f in ('dir /s /b %%d\*.vmx 2^>nul ^| findstr /I "kali"') do (
-            set KALI_VMX=%%f
-            echo  [OK] VMX trouve : %%f
-            exit /b 0
-        )
-    )
-)
-exit /b 0
-
-
-:: ================================================================
-:start_hexstrike
-:: ================================================================
-echo [2/4] hexstrike-ai sur Kali %KALI_IP%...
-
-:: Verifier que KALI_IP est defini avant de tenter SSH
-if "!KALI_IP!"=="" (
-    echo  [SKIP] KALI_IP non defini — hexstrike-ai non demarre.
-    echo  Definis KALI_IP dans config\local.bat pour activer cette etape.
-    exit /b 0
-)
-
-:: Attendre SSH (max 90s = 45 essais x 2s)
-set /a _tries=0
-:_ssh_loop
-set /a _tries+=1
-if %_tries% GTR 45 (
-    echo  [WARN] SSH timeout apres 90s. hexstrike-ai non demarre.
-    exit /b 0
-)
-ssh -i "%KALI_KEY%" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=2 -o BatchMode=yes %KALI_USER%@%KALI_IP% "exit" >nul 2>&1
+:: Docker disponible ?
+where docker >nul 2>&1
 if errorlevel 1 (
-    timeout /t 2 /nobreak >nul
-    goto :_ssh_loop
+    echo  [ERREUR] docker non trouve dans PATH.
+    echo  Installez Docker Desktop : https://www.docker.com/products/docker-desktop/
+    exit /b 1
 )
 
-:: hexstrike deja running ?
-for /f %%i in ('ssh -i "%KALI_KEY%" -o StrictHostKeyChecking^=accept-new -o BatchMode^=yes %KALI_USER%@%KALI_IP% "pgrep -f hexstrike_server.py > /dev/null 2>&1 && echo 1 || echo 0" 2^>nul') do set HEX_STATUS=%%i
-if "%HEX_STATUS%"=="1" (
-    echo  [OK] hexstrike-ai deja en cours.
+:: docker-compose.yml present ?
+if not exist "!REPO_PATH!\docker-compose.yml" (
+    echo  [WARN] docker-compose.yml introuvable dans !REPO_PATH!
+    echo  Ce fichier doit exister a la racine du repo.
     exit /b 0
 )
 
-:: Lancer hexstrike
-ssh -i "%KALI_KEY%" -o StrictHostKeyChecking=accept-new -o BatchMode=yes %KALI_USER%@%KALI_IP% "cd ~/hexstrike-ai && source hexstrike-env/bin/activate && nohup python3 hexstrike_server.py > ~/hexstrike.log 2>&1 &" >nul 2>&1
+:: Demarrer les conteneurs en arriere-plan
+echo  Demarrage des conteneurs...
+docker compose -f "!REPO_PATH!\docker-compose.yml" up -d --remove-orphans
+if errorlevel 1 (
+    echo  [WARN] docker compose up a echoue. Voir les messages ci-dessus.
+    echo  Verifier : docker compose -f "!REPO_PATH!\docker-compose.yml" logs
+    exit /b 0
+)
+echo  [OK] Conteneurs lances.
 
-:: Attendre que le serveur soit pret (max 20s = 10 essais x 2s)
-echo  Verification hexstrike-ai sur port 8888...
+:: Attendre hexstrike sur localhost:8888 (max 60s = 30 essais x 2s)
+echo  Attente hexstrike-ai sur localhost:8888 (max 60s)...
 set /a _hex_tries=0
-:_hex_check
+:_docker_hex_check
 set /a _hex_tries+=1
-if %_hex_tries% GTR 10 (
-    echo  [WARN] hexstrike-ai ne repond pas sur :8888 apres 20s.
-    echo  Verifie avec : ssh kali@!KALI_IP! "tail ~/hexstrike.log"
+if %_hex_tries% GTR 30 (
+    echo  [WARN] hexstrike-ai ne repond pas apres 60s.
+    echo  Verifier : docker compose -f "!REPO_PATH!\docker-compose.yml" logs hexstrike
     set HEXSTRIKE_OK=0
     exit /b 0
 )
-curl -s -o nul -w "%%{http_code}" http://!KALI_IP!:8888/ 2>nul | findstr /R "^[24]" >nul 2>&1
+curl -s -o nul -w "%%{http_code}" http://localhost:8888/ 2>nul | findstr /R "^[24]" >nul 2>&1
 if errorlevel 1 (
     timeout /t 2 /nobreak >nul
-    goto :_hex_check
+    goto :_docker_hex_check
 )
 set HEXSTRIKE_OK=1
-echo  [OK] hexstrike-ai operationnel sur http://!KALI_IP!:8888
+echo  [OK] hexstrike-ai : http://localhost:8888
+
+:: Statut Tor (healthy = circuit etabli, starting = bootstrap en cours)
+for /f %%i in ('docker inspect --format "{{.State.Health.Status}}" ascended33_tor 2^>nul') do set TOR_STATUS=%%i
+if "!TOR_STATUS!"=="healthy" (
+    echo  [OK] Tor : circuit actif — trafic hexstrike + Kali anonymise
+    set TOR_OK=1
+) else (
+    echo  [INFO] Tor : bootstrap en cours (~30s). Le trafic sera anonymise sous peu.
+    set TOR_OK=0
+)
+
 exit /b 0
 
 
 :: ================================================================
 :open_obsidian
 :: ================================================================
-echo [3/4] Obsidian Vault...
+echo [2/3] Obsidian Vault...
 
 if not exist "!OBSIDIAN_EXE!" (
     echo  [WARN] Obsidian introuvable. Lance setup.ps1 pour l installer.
@@ -292,11 +225,11 @@ if not errorlevel 1 (
 start "" "!OBSIDIAN_EXE!" "!OBSIDIAN_VAULT_PATH!"
 echo  [OK] Obsidian lance sur : !OBSIDIAN_VAULT_PATH!
 
-:: Attendre 5s pour que le plugin Local REST API s initialise ^(port 27123^)
+:: Attendre 5s pour que le plugin Local REST API s initialise (port 27123)
 echo  Attente initialisation plugin REST API Obsidian...
 timeout /t 5 /nobreak >nul
 
-:: Verifier si la REST API repond (curl Windows natif — disponible Windows 10+)
+:: Verifier si la REST API repond
 curl -s -o nul -w "%%{http_code}" http://localhost:27123/ 2>nul | findstr /R "^[24]" >nul 2>&1
 if not errorlevel 1 (
     echo  [OK] Obsidian REST API active ^(port 27123^).
@@ -310,7 +243,7 @@ exit /b 0
 :: ================================================================
 :launch_dashboard
 :: ================================================================
-echo [4/4] Dashboard Ascended33...
+echo [3/3] Dashboard Ascended33...
 
 :: Streamlit deja running ?
 netstat -ano | findstr ":8501" >nul 2>&1

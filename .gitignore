@@ -73,6 +73,14 @@ ehthumbs.db
 *~
 
 # ================================================================
+# DOCKER
+# ================================================================
+docker/tor/data/           # Données Tor persistantes (clés, état circuit)
+docker/volumes/            # Volumes Docker locaux
+docker/**/*.key            # Clés générées dans le contexte Docker
+.docker/
+
+# ================================================================
 # RAPPORTS & DONNEES SENSIBLES
 # ================================================================
 reports/

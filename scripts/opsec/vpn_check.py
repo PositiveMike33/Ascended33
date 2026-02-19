@@ -120,6 +120,44 @@ def _check_dns_leak(tunnel_ip: str) -> bool:
         return False
 
 
+def _check_tor_docker(container: str = "ascended33_tor") -> bool:
+    """
+    Check if the Tor Docker container is running and healthy.
+
+    Used when Tor runs as a Docker container (docker-compose.yml).
+    Does NOT check network-level Tor — only verifies the container state.
+
+    Args:
+        container: Docker container name (default: ascended33_tor).
+
+    Returns:
+        True if container is running with health=healthy or health=starting.
+    """
+    import shutil
+    import subprocess
+
+    docker = shutil.which("docker")
+    if not docker:
+        logger.debug("docker not found — container Tor check skipped")
+        return False
+
+    try:
+        result = subprocess.run(
+            [docker, "inspect", "--format", "{{.State.Status}} {{.State.Health.Status}}", container],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        if result.returncode != 0:
+            return False
+        parts = result.stdout.strip().split()
+        state = parts[0] if parts else ""
+        health = parts[1] if len(parts) > 1 else ""
+        return state == "running" and health in ("healthy", "starting", "")
+    except (subprocess.TimeoutExpired, FileNotFoundError, OSError):
+        return False
+
+
 def _load_home_ip_from_config() -> Optional[str]:
     """
     Load the stored home IP from config.yaml (opsec.home_ip).

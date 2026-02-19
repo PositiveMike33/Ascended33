@@ -5,13 +5,14 @@ hexstrike-ai exposes 150+ security tools via MCP at localhost:8888.
 This module provides a typed Python interface for Claude Code to call
 hexstrike agents and tools programmatically.
 
-Requires hexstrike-ai server to be running:
-    cd ~/hexstrike-ai && source hexstrike-env/bin/activate
-    python3 hexstrike_server.py
+In Docker mode (recommended), hexstrike runs as a container with all
+traffic routed through Tor. Port 8888 is mapped to localhost.
+
+Start: docker compose up -d hexstrike
 """
 
-import json
 import logging
+from pathlib import Path
 from typing import Any
 
 import requests
@@ -113,6 +114,22 @@ class HexStrikeClient:
             challenge_description,
             context={"files": files or []},
         )
+
+    @classmethod
+    def from_config(cls) -> "HexStrikeClient":
+        """Load hexstrike URL and timeout from config/config.yaml."""
+        try:
+            import yaml  # type: ignore[import]
+            cfg_path = Path(__file__).parent.parent / "config" / "config.yaml"
+            with cfg_path.open() as f:
+                cfg = yaml.safe_load(f)
+            hexstrike_cfg = cfg.get("hexstrike", {})
+            url = hexstrike_cfg.get("mcp_url", HEXSTRIKE_MCP_URL)
+            timeout = hexstrike_cfg.get("timeout_seconds", DEFAULT_TIMEOUT)
+            return cls(base_url=url, timeout=timeout)
+        except FileNotFoundError:
+            logger.warning("config/config.yaml not found — using defaults")
+            return cls()
 
     def is_reachable(self) -> bool:
         """Check if hexstrike-ai MCP server is reachable."""

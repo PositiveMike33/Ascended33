@@ -44,6 +44,19 @@ identity_guard:
   #   - "ProjectCodename"
   #   - "your.email@example.com"
 
+# Docker configuration
+# Utilisé par start_ascended33.bat et mcp/kali_docker_client.py
+# Voir docker-compose.yml pour la configuration complète des conteneurs.
+docker:
+  compose_file: "docker-compose.yml"          # Relatif à la racine du repo
+  kali_container: "ascended33_kali"
+  hexstrike_container: "ascended33_hexstrike"
+  tor_container: "ascended33_tor"
+  exec_timeout: 300                           # Timeout docker exec (secondes)
+  # Proxy SOCKS5 Tor (depuis le conteneur Tor, mappé sur l'hôte)
+  tor_socks_host: "127.0.0.1"
+  tor_socks_port: 9050
+
 # Report output
 reporting:
   default_output: "vault"            # Options: "vault" | "local" | "both"
