@@ -38,15 +38,67 @@ class HexStrikeClient:
             response = requests.post(url, json=payload, timeout=self.timeout)
             response.raise_for_status()
             return response.json()
+        except requests.HTTPError as e:
+            raise HexStrikeConnectionError(
+                f"hexstrike-ai returned HTTP {e.response.status_code} for {endpoint}. "
+                "Check that the endpoint path is correct for your hexstrike version."
+            ) from e
         except requests.ConnectionError as e:
             raise HexStrikeConnectionError(
                 f"Cannot reach hexstrike-ai at {self.base_url}. "
-                "Is the MCP server running? Run: python3 hexstrike_server.py"
+                "Is the Docker container running? Run: docker compose up -d hexstrike"
             ) from e
 
+    def _jsonrpc(self, method: str, params: dict | None = None) -> dict:
+        """
+        Send a JSON-RPC 2.0 request (standard MCP over HTTP transport).
+
+        MCP uses JSON-RPC 2.0, not plain REST. Tries /messages (SSE transport)
+        then / (streamable HTTP) to find the active endpoint.
+        """
+        body = {"jsonrpc": "2.0", "method": method, "params": params or {}, "id": 1}
+        for path in ("/messages", "/"):
+            try:
+                response = requests.post(
+                    f"{self.base_url}{path}", json=body, timeout=self.timeout
+                )
+                if response.ok:
+                    data = response.json()
+                    if "result" in data:
+                        return data["result"]
+                    if "error" in data:
+                        raise HexStrikeConnectionError(
+                            f"JSON-RPC error {data['error'].get('code')}: "
+                            f"{data['error'].get('message')}"
+                        )
+            except (requests.ConnectionError, requests.Timeout, requests.HTTPError):
+                continue
+        raise HexStrikeConnectionError(
+            f"MCP JSON-RPC '{method}' failed on all endpoints. "
+            "Check hexstrike logs: docker compose logs hexstrike"
+        )
+
     def list_tools(self) -> list[dict]:
-        """Return all available tools registered in hexstrike-ai."""
-        return self._post("/tools/list", {}).get("tools", [])
+        """
+        Return all available tools registered in hexstrike-ai.
+
+        Tries MCP JSON-RPC (standard protocol) first, then legacy REST fallback.
+        Returns empty list (never raises) so callers can check len(tools) == 0.
+        """
+        # 1. Standard MCP JSON-RPC: method = "tools/list"
+        try:
+            result = self._jsonrpc("tools/list")
+            tools = result.get("tools", [])
+            if tools:
+                return tools
+        except HexStrikeConnectionError:
+            pass
+
+        # 2. Legacy REST: POST /tools/list
+        try:
+            return self._post("/tools/list", {}).get("tools", [])
+        except HexStrikeConnectionError:
+            return []
 
     def run_tool(self, tool_name: str, parameters: dict[str, Any]) -> dict:
         """

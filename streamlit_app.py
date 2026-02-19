@@ -545,27 +545,42 @@ with tab_tools:
         st.subheader("hexstrike-ai")
         hx_status = check_hexstrike()
         if hx_status["status"] == "online":
-            st.success("hexstrike-ai MCP server is online at localhost:8888")
-            try:
-                from mcp.hexstrike_client import HexStrikeClient
-                client = HexStrikeClient()
-                tools = client.list_tools()
-                st.metric("Available tools", len(tools))
-                with st.expander("Browse tools"):
+            st.success(f"hexstrike-ai en ligne — `{hx_status.get('url', 'localhost:8888')}`")
+
+            from mcp.hexstrike_client import HexStrikeClient
+            client = HexStrikeClient()
+            tools = client.list_tools()
+
+            if tools:
+                st.metric("Outils disponibles", len(tools))
+                with st.expander("Parcourir les outils"):
                     for t in tools[:30]:
                         st.markdown(f"- **{t.get('name')}**: {t.get('description', '')}")
-            except Exception as e:
-                st.warning(f"Could not list tools: {e}")
+            else:
+                st.info(
+                    "Listing d'outils non disponible via l'API courante. "
+                    "hexstrike-ai est actif et utilisable depuis les scripts."
+                )
+
+            st.markdown("**Commandes Docker utiles :**")
+            st.code(
+                "docker compose logs -f hexstrike    # logs en direct\n"
+                "docker compose exec hexstrike bash   # shell interactif\n"
+                "docker compose restart hexstrike     # redémarrer",
+                language="bash",
+            )
         else:
-            st.error("hexstrike-ai is offline")
-            st.markdown("""
-**To start hexstrike-ai:**
-```bash
-cd ~/hexstrike-ai
-source hexstrike-env/bin/activate
-python3 hexstrike_server.py
-```
-            """)
+            st.error("hexstrike-ai est hors ligne")
+            st.markdown("**Pour démarrer :**")
+            st.code(
+                "# Depuis la racine du repo Ascended33\n"
+                "docker compose up -d hexstrike\n\n"
+                "# Vérifier les logs\n"
+                "docker compose logs -f hexstrike",
+                language="bash",
+            )
+            st.info("Tor doit être démarré avant hexstrike (depends_on: service_healthy).")
+            st.code("docker compose up -d tor && docker compose up -d hexstrike", language="bash")
 
     with tools_col2:
         st.subheader("Obsidian Vault")
