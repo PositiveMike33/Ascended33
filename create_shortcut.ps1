@@ -4,7 +4,7 @@
 # Lancer UNE SEULE FOIS depuis PowerShell :
 #   powershell -ExecutionPolicy Bypass -File "D:\Vault\Vault\Ascended33\create_shortcut.ps1"
 
-$RepoPath     = "D:\Vault\Vault\Ascended33"
+$RepoPath     = Split-Path -Parent $MyInvocation.MyCommand.Path
 $BatchFile    = "$RepoPath\start_ascended33.bat"
 $Desktop      = [Environment]::GetFolderPath("Desktop")
 $ShortcutPath = "$Desktop\Ascended33.lnk"

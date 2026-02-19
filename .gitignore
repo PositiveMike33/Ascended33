@@ -1,5 +1,6 @@
 # Secrets & config (NEVER commit)
 config/config.yaml
+config/ssh/
 *.key
 *.pem
 *.env

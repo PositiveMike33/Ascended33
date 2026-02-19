@@ -1,22 +1,48 @@
 @echo off
 setlocal enabledelayedexpansion
-title Ascended33 - Initialisation...
-color 0A
 
 :: ================================================================
-:: CONFIGURATION — Verifie et adapte ces chemins a ton systeme
+:: ASCENDED33 LAUNCHER - Portable (aucun chemin hardcode)
+:: Le script detecte automatiquement tous les chemins
 :: ================================================================
 
-set REPO_PATH=D:\Vault\Vault\Ascended33
-set PYTHON=C:\Users\th3th\AppData\Local\Programs\Python\Python313\python.exe
+:: Chemin du repo = dossier de ce .bat (fonctionne sur n importe quelle machine)
+set REPO_PATH=%~dp0
+set REPO_PATH=!REPO_PATH:~0,-1!
+
+:: Kali VM
 set KALI_IP=192.168.157.128
 set KALI_USER=kali
-set KALI_KEY=C:\Users\th3th\.ssh\kali_lab_key
-set OBSIDIAN_EXE=C:\Users\th3th\AppData\Local\Obsidian\Obsidian.exe
-set VMRUN=C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe
 
-:: Chemin vers le fichier .vmx Kali
+:: Chemin vers le .vmx Kali (si vide = auto-detection)
 set KALI_VMX=C:\Users\th3th\Downloads\kali-linux-2025.4-vmware-amd64\kali-linux-2025.4-vmware-amd64.vmwarevm\kali-linux-2025.4-vmware-amd64.vmx
+
+:: ================================================================
+:: DETECTION AUTOMATIQUE DES OUTILS
+:: ================================================================
+
+:: Python - cherche dans les emplacements courants
+set PYTHON=%USERPROFILE%\AppData\Local\Programs\Python\Python313\python.exe
+if not exist "!PYTHON!" set PYTHON=%USERPROFILE%\AppData\Local\Programs\Python\Python312\python.exe
+if not exist "!PYTHON!" set PYTHON=%USERPROFILE%\AppData\Local\Programs\Python\Python311\python.exe
+if not exist "!PYTHON!" (
+    for /f "delims=" %%p in ('where python 2^>nul') do (
+        set PYTHON=%%p
+        goto :python_set
+    )
+)
+:python_set
+
+:: Obsidian
+set OBSIDIAN_EXE=%USERPROFILE%\AppData\Local\Obsidian\Obsidian.exe
+
+:: VMware vmrun (x86 ou x64)
+set VMRUN=C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe
+if not exist "!VMRUN!" set VMRUN=C:\Program Files\VMware\VMware Workstation\vmrun.exe
+
+:: Cle SSH Kali : d abord dans ~/.ssh, sinon sur le disque (config\ssh\)
+set KALI_KEY=%USERPROFILE%\.ssh\kali_lab_key
+if not exist "!KALI_KEY!" set KALI_KEY=!REPO_PATH!\config\ssh\kali_lab_key
 
 :: ================================================================
 ::  BANNIERE
@@ -59,7 +85,7 @@ echo  ^|   ASCENDED33 OPERATIONNEL                ^|
 echo  +------------------------------------------+
 echo  ^|  Dashboard  : http://localhost:8501      ^|
 echo  ^|  HexStrike  : http://%KALI_IP%:8888     ^|
-echo  ^|  Obsidian   : D:\Vault                   ^|
+echo  ^|  Obsidian   : Vault                      ^|
 echo  +==========================================+
 echo.
 echo  Ferme cette fenetre quand tu as fini.
@@ -81,32 +107,31 @@ if not errorlevel 1 (
 )
 
 :: vmrun disponible ?
-if not exist "%VMRUN%" (
-    echo  [WARN] vmrun introuvable : !VMRUN!
-    echo  Lance la VM manuellement depuis VMware.
+if not exist "!VMRUN!" (
+    echo  [WARN] vmrun introuvable. Lance la VM manuellement depuis VMware.
     exit /b 0
 )
 
-:: Auto-detection VMX si non defini
-if "%KALI_VMX%"=="" (
+:: Auto-detection VMX si vide
+if "!KALI_VMX!"=="" (
     echo  Recherche fichier .vmx Kali...
     call :find_vmx
 )
 
 :: VMX trouvable ?
-if "%KALI_VMX%"=="" (
+if "!KALI_VMX!"=="" (
     echo  [WARN] Aucun fichier .vmx Kali trouve automatiquement.
-    echo  Definis KALI_VMX manuellement dans ce script.
+    echo  Definis KALI_VMX dans ce script.
     exit /b 0
 )
-if not exist "%KALI_VMX%" (
+if not exist "!KALI_VMX!" (
     echo  [WARN] VMX introuvable : !KALI_VMX!
     exit /b 0
 )
 
 :: Lancer la VM
-echo  Demarrage Kali VM : %KALI_VMX%
-"%VMRUN%" -T ws start "%KALI_VMX%"
+echo  Demarrage Kali VM...
+"!VMRUN!" -T ws start "!KALI_VMX!"
 echo  [OK] Kali VM demarree.
 exit /b 0
 
@@ -171,8 +196,8 @@ exit /b 0
 :: ================================================================
 echo [3/4] Obsidian Vault...
 
-if not exist "%OBSIDIAN_EXE%" (
-    echo  [WARN] Obsidian introuvable : !OBSIDIAN_EXE!
+if not exist "!OBSIDIAN_EXE!" (
+    echo  [WARN] Obsidian introuvable. Lance setup.ps1 pour l installer.
     exit /b 0
 )
 
@@ -183,7 +208,7 @@ if not errorlevel 1 (
     exit /b 0
 )
 
-start "" "%OBSIDIAN_EXE%"
+start "" "!OBSIDIAN_EXE!"
 echo  [OK] Obsidian lance.
 exit /b 0
 
@@ -202,14 +227,13 @@ if not errorlevel 1 (
 )
 
 :: Python disponible ?
-"%PYTHON%" --version >nul 2>&1
-if errorlevel 1 (
-    echo  [ERREUR] Python introuvable : !PYTHON!
+if not exist "!PYTHON!" (
+    echo  [ERREUR] Python introuvable. Lance setup.ps1 pour l installer.
     exit /b 1
 )
 
-cd /d "%REPO_PATH%"
-start /B "" "%PYTHON%" -m streamlit run streamlit_app.py --server.headless false --server.port 8501 > "%REPO_PATH%\streamlit.log" 2>&1
+cd /d "!REPO_PATH!"
+start /B "" "!PYTHON!" -m streamlit run streamlit_app.py --server.headless false --server.port 8501 > "!REPO_PATH!\streamlit.log" 2>&1
 
 :_streamlit_wait
 timeout /t 2 /nobreak >nul
