@@ -1,5 +1,6 @@
 @echo off
-title Ascended33 — Initialisation...
+setlocal enabledelayedexpansion
+title Ascended33 - Initialisation...
 color 0A
 
 :: ================================================================
@@ -82,7 +83,7 @@ if not errorlevel 1 (
 
 :: vmrun disponible ?
 if not exist "%VMRUN%" (
-    echo  [WARN] vmrun introuvable : %VMRUN%
+    echo  [WARN] vmrun introuvable : !VMRUN!
     echo  Lance la VM manuellement depuis VMware.
     exit /b 0
 )
@@ -100,7 +101,7 @@ if "%KALI_VMX%"=="" (
     exit /b 0
 )
 if not exist "%KALI_VMX%" (
-    echo  [WARN] VMX introuvable : %KALI_VMX%
+    echo  [WARN] VMX introuvable : !KALI_VMX!
     exit /b 0
 )
 
@@ -171,7 +172,7 @@ exit /b 0
 echo [3/4] Obsidian Vault...
 
 if not exist "%OBSIDIAN_EXE%" (
-    echo  [WARN] Obsidian introuvable : %OBSIDIAN_EXE%
+    echo  [WARN] Obsidian introuvable : !OBSIDIAN_EXE!
     exit /b 0
 )
 
@@ -203,7 +204,7 @@ if not errorlevel 1 (
 :: Python disponible ?
 "%PYTHON%" --version >nul 2>&1
 if errorlevel 1 (
-    echo  [ERREUR] Python introuvable : %PYTHON%
+    echo  [ERREUR] Python introuvable : !PYTHON!
     exit /b 1
 )
 
