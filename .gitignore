@@ -1,5 +1,7 @@
 # Secrets & config (NEVER commit)
 config/config.yaml
+config/ssh/
+config/docker_config.json
 *.key
 *.pem
 *.env

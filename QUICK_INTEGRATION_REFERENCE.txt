@@ -1,0 +1,286 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                 ASCENDED33 ↔ OBSIDIAN VAULT INTEGRATION                         ║
+║                         QUICK REFERENCE CARD                                    ║
+║                                                                                  ║
+║                     Status: ✅ PRODUCTION READY                                 ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  5-MINUTE SETUP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1️⃣  OPEN OBSIDIAN
+      → Settings → Community plugins → Local REST API
+      → Copy API Key (starts with "obs_")
+
+  2️⃣  EDIT CONFIG FILE
+      Open: D:\Vault\Vault\Ascended33\config\config.yaml
+      Find: api_key: ""
+      Paste: api_key: "obs_YOUR_KEY"
+      Save
+
+  3️⃣  TEST CONNECTION
+      PowerShell: cd D:\Vault\Vault\Ascended33
+      PowerShell: python verify_connections.py
+      
+      Expected: [PASS] Obsidian REST API at localhost:27123
+               [PASS] Test write note to Vault
+
+  4️⃣  VERIFY IN OBSIDIAN
+      Look for: Claude-Michael/Sessions/_connection_test.md
+      If exists → ✅ INTEGRATION WORKS!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  WHAT'S CONNECTED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  OBSIDIAN VAULT (D:\Vault\Vault)
+  ├── Can READ existing notes
+  ├── Can CREATE new notes with metadata
+  ├── Can APPEND to existing notes
+  ├── Can SEARCH across all notes
+  └── Full tagging & wikilink support
+
+  HEXSTRIKE-AI → ASCENDED33 → VAULT
+  ├── Findings auto-structured
+  ├── YAML frontmatter added
+  ├── Tags auto-indexed
+  ├── Wikilinks created
+  └── Searchable immediately
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  KEY FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  📄 config.yaml
+     • Main configuration file ✅ CREATED
+     • Add your Obsidian API key here
+
+  📋 INTEGRATION_STATUS.md
+     • Status summary & quick reference
+     • Success indicators
+     • Troubleshooting guide
+
+  📊 SETUP_INTEGRATION.md
+     • Step-by-step instructions
+     • Testing procedures
+     • Full configuration reference
+
+  📑 INTEGRATION_VERIFICATION_REPORT.md
+     • Technical deep-dive
+     • Architecture overview
+     • Component analysis
+     • Security review
+
+  ✅ verify_connections.py
+     • Test all integrations
+     • Diagnose issues
+     • Show connection status
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CORE COMPONENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  VaultSync (sync.py)
+  └─ Orchestrates all vault operations
+     • check_connection()    - Test connectivity
+     • push_report()         - Send findings to vault
+     • pull_templates()      - Get templates
+     • search_notes()        - Search vault
+     • full_sync()           - Bidirectional sync
+
+  ObsidianVaultClient (vault_api.py)
+  └─ Communicates with Obsidian via REST API
+     • create_note()         - Create/overwrite note
+     • read_note()           - Read note content
+     • append_to_note()      - Add to existing note
+     • is_reachable()        - Test connection
+
+  NoteBuilder (note_builder.py)
+  └─ Structures findings into Obsidian notes
+     • set_title()           - Set note title
+     • set_type()            - Set note type
+     • add_tag()             - Add tags
+     • add_section()         - Add content section
+     • add_callout()         - Add highlight box
+     • build()               - Generate markdown
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  DATA FLOW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  hexstrike-ai discovers intel
+       ↓
+  Ascended33 receives via MCP
+       ↓
+  NoteBuilder structures data
+       ↓
+  VaultSync orchestrates push
+       ↓
+  REST API sends to Obsidian
+       ↓
+  Note created in vault with:
+     • YAML frontmatter
+     • Tags
+     • Wikilinks
+     • Metadata
+       ↓
+  Claude can reference findings
+     in future sessions
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ❌ "Cannot reach Obsidian REST API"
+     → Is Obsidian running?
+     → Is Local REST API plugin enabled?
+     → Is API key correct in config.yaml?
+     → Try: curl http://localhost:27123/
+
+  ❌ "Note not appearing in Vault"
+     → Check API key is set (not empty)
+     → Run verify_connections.py
+     → Check Obsidian vault path is D:/Vault
+
+  ❌ "verify_connections.py fails"
+     → Check Python 3.10+ installed
+     → Check requests library: pip install requests
+     → Run with Python 3: python3 verify_connections.py
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  QUICK COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Test all connections:
+  $ python verify_connections.py
+
+  Launch dashboard:
+  $ streamlit run streamlit_app.py
+
+  Test note creation:
+  $ python -c "
+    from vault_sync.note_builder import NoteBuilder
+    note = NoteBuilder.security_note(
+        'Test Note', 'test.com', 'osint',
+        'Test content', ['test'], 'Low'
+    )
+    print(note)
+  "
+
+  Search vault:
+  $ python -c "
+    from vault_sync.sync import VaultSync
+    sync = VaultSync()
+    results = sync.search_notes('keyword')
+    for r in results: print(r.path)
+  "
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CONFIGURATION REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  File: D:\Vault\Vault\Ascended33\config\config.yaml
+
+  [vault]
+    mode: "rest_api"                   → Use REST API
+    base_url: "http://localhost:27123" → Obsidian endpoint
+    api_key: "obs_YOUR_KEY"            → Your API key ⬅️ ADD THIS
+    vault_path: "D:/Vault"             → Vault location
+
+  [hexstrike]
+    mcp_url: "http://localhost:8888"   → hexstrike-ai
+    timeout_seconds: 30                → Request timeout
+
+  [kali_vm]
+    host: "localhost"                  → Your Kali IP
+    user: "kali"                       → SSH username
+    key_file: "~/.ssh/kali_lab_key"    → SSH key path
+    mcp_port: 8888                     → hexstrike port
+
+  [opsec]
+    require_vpn: true                  → Enforce VPN
+    require_tor_for_darkweb: true      → Require TOR
+    vpn_check_url: "..."               → Check API
+
+  [reporting]
+    default_output: "vault"            → Save to Vault
+    vault_base_path: "HACKERGPT"       → Findings folder
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  VAULT FOLDER MAPPING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  osint findings      → HACKERGPT/OSINT_Profilage/
+  pentest reports     → HACKERGPT/Pentest/
+  threat intel        → ENQUETES_OSINT/
+  CTF writeups        → HACKERGPT/CTF/
+  tool docs           → HACKERGPT/Outils/
+  personal notes      → _BRAIN/
+  sessions            → Claude-Michael/Sessions/
+  dark web findings   → ENQUETES_OSINT/DarkWeb/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SUCCESS INDICATORS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✅ verify_connections.py shows Obsidian PASS
+  ✅ New folder "Claude-Michael/Sessions/" in Obsidian
+  ✅ File "_connection_test.md" exists with message
+  ✅ Dashboard loads without errors at localhost:8501
+  ✅ Status panel shows "Obsidian: ONLINE" in green
+
+  If all 5 are true → Integration works perfectly! 🎉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  NEXT STEPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  TODAY (5 minutes):
+  ☐ Get API key from Obsidian
+  ☐ Add to config.yaml
+  ☐ Run verify_connections.py
+  ☐ Check Obsidian for test note
+
+  THIS WEEK:
+  ☐ Test OSINT investigations
+  ☐ Verify findings appear in Vault
+  ☐ Check note metadata and tags
+  ☐ Set up Kali SSH (optional)
+
+  THIS MONTH:
+  ☐ Customize report templates
+  ☐ Create automation workflows
+  ☐ Document findings patterns
+  ☐ Optimize for your workflow
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Read for setup:
+  → D:\Vault\Vault\Ascended33\SETUP_INTEGRATION.md
+
+  Read for overview:
+  → D:\Vault\Vault\Ascended33\INTEGRATION_STATUS.md
+
+  Read for technical details:
+  → D:\Vault\Vault\Ascended33\INTEGRATION_VERIFICATION_REPORT.md
+
+  Read this complete summary:
+  → D:\Vault\Vault\ASCENDED33_INTEGRATION_COMPLETE.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  🟢 Status: PRODUCTION READY
+  ✅ Configuration: COMPLETE
+  ⏳ Next: Add Obsidian API key
+  ⏱️  Time to full integration: 5 MINUTES
+
+  Questions? See SETUP_INTEGRATION.md → Troubleshooting section
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Generated: 2026-02-19
+  For: HexStrike-AI Dashboard Integration
+  Status: Ready for your hexstrike-ai findings! 🎯
