@@ -33,7 +33,7 @@ $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutPath)
 
 $Shortcut.TargetPath       = "C:\Windows\System32\cmd.exe"
-$Shortcut.Arguments        = "/c `"$BatchFile`""
+$Shortcut.Arguments        = "/k `"$BatchFile`""
 $Shortcut.WorkingDirectory = $RepoPath
 $Shortcut.Description      = "Ascended33 - Lance Kali VM, hexstrike-ai, Obsidian et le dashboard"
 $Shortcut.WindowStyle      = 1
