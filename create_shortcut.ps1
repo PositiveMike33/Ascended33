@@ -23,9 +23,9 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutPath)
 $Shortcut.TargetPath       = $BatchFile
 $Shortcut.WorkingDirectory = $RepoPath
 $Shortcut.Description      = "Ascended33 - Lance Kali VM, hexstrike-ai, Obsidian et le dashboard"
-$Shortcut.WindowStyle      = 1  # Fenetre normale
+$Shortcut.WindowStyle      = 1
 
-# Icone : VMware en priorite, sinon PowerShell, sinon cmd
+# Icone : VMware en priorite, sinon cmd
 $Icons = @(
     "C:\Program Files (x86)\VMware\VMware Workstation\vmware.exe",
     "C:\Program Files\VMware\VMware Workstation\vmware.exe",
@@ -43,15 +43,12 @@ $Shortcut.Save()
 Write-Host ""
 Write-Host " [OK] Raccourci cree : $ShortcutPath" -ForegroundColor Green
 Write-Host ""
-Write-Host " Au double-clic, le launcher fera dans l'ordre :" -ForegroundColor Cyan
-Write-Host "   [1/4]  Kali VM demarre dans VMware (si pas deja en ligne)" -ForegroundColor White
+Write-Host " Au double-clic, le launcher fait dans l ordre :" -ForegroundColor Cyan
+Write-Host "   [1/4]  Kali VM demarre dans VMware (skip si deja en ligne)" -ForegroundColor White
 Write-Host "   [2/4]  hexstrike-ai MCP server demarre sur Kali (port 8888)" -ForegroundColor White
-Write-Host "   [3/4]  Obsidian s'ouvre sur D:\Vault" -ForegroundColor White
-Write-Host "   [4/4]  Dashboard Ascended33 demarre (http://localhost:8501)" -ForegroundColor White
+Write-Host "   [3/4]  Obsidian ouvre D:\Vault" -ForegroundColor White
+Write-Host "   [4/4]  Dashboard Ascended33 : http://localhost:8501" -ForegroundColor White
 Write-Host ""
-Write-Host " IMPORTANT — Avant de l'utiliser :" -ForegroundColor Yellow
-Write-Host "   Verifie KALI_VMX dans start_ascended33.bat" -ForegroundColor Yellow
-Write-Host "   Chemin actuel : C:\Users\th3th\Documents\Virtual Machines\Kali-Linux\Kali-Linux.vmx" -ForegroundColor DarkYellow
-Write-Host ""
-Write-Host " Pour trouver ton .vmx : VMware > VM > Settings > resume le chemin en titre" -ForegroundColor Gray
+Write-Host " IMPORTANT - Le .vmx Kali est detecte automatiquement." -ForegroundColor Yellow
+Write-Host " Si VMware ne demarre pas, verifier KALI_VMX dans start_ascended33.bat" -ForegroundColor Yellow
 Write-Host ""
