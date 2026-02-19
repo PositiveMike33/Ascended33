@@ -17,10 +17,22 @@ if (-not (Test-Path $BatchFile)) {
     exit 1
 }
 
+# Debloquer tous les .bat et .ps1 du repo (supprimer le marqueur "telecharge d internet")
+Write-Host " Deblocage des fichiers du repo..." -ForegroundColor Gray
+Get-ChildItem -Path $RepoPath -Recurse -Include "*.bat","*.ps1" | ForEach-Object {
+    Unblock-File -Path $_.FullName -ErrorAction SilentlyContinue
+}
+Write-Host " [OK] Fichiers debloquees." -ForegroundColor Gray
+
+# Supprimer l ancien raccourci si existant
+if (Test-Path $ShortcutPath) {
+    Remove-Item $ShortcutPath -Force
+}
+
 $WScriptShell = New-Object -ComObject WScript.Shell
 $Shortcut = $WScriptShell.CreateShortcut($ShortcutPath)
 
-$Shortcut.TargetPath       = "$env:SystemRoot\System32\cmd.exe"
+$Shortcut.TargetPath       = "C:\Windows\System32\cmd.exe"
 $Shortcut.Arguments        = "/c `"$BatchFile`""
 $Shortcut.WorkingDirectory = $RepoPath
 $Shortcut.Description      = "Ascended33 - Lance Kali VM, hexstrike-ai, Obsidian et le dashboard"
@@ -49,7 +61,4 @@ Write-Host "   [1/4]  Kali VM demarre dans VMware (skip si deja en ligne)" -Fore
 Write-Host "   [2/4]  hexstrike-ai MCP server demarre sur Kali (port 8888)" -ForegroundColor White
 Write-Host "   [3/4]  Obsidian ouvre D:\Vault" -ForegroundColor White
 Write-Host "   [4/4]  Dashboard Ascended33 : http://localhost:8501" -ForegroundColor White
-Write-Host ""
-Write-Host " IMPORTANT - Le .vmx Kali est detecte automatiquement." -ForegroundColor Yellow
-Write-Host " Si VMware ne demarre pas, verifier KALI_VMX dans start_ascended33.bat" -ForegroundColor Yellow
 Write-Host ""
