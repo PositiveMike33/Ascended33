@@ -6,3 +6,11 @@ streamlit
 # HTTP / integrations
 requests
 pyyaml
+
+# OSINT
+dnspython
+python-whois
+
+# Tor routing (for dark web monitoring)
+PySocks
+requests[socks]
