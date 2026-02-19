@@ -9,13 +9,16 @@ vault:
   vault_path: "D:/Vault"             # Filesystem path (used in "filesystem" mode)
 
 # hexstrike-ai MCP Server
+# IMPORTANT: hexstrike-ai runs on your Kali VM, NOT on Windows localhost.
+# Set mcp_url to your Kali VM's real IP address (same as kali_vm.host below).
+# Example: "http://192.168.X.X:8888"
 hexstrike:
-  mcp_url: "http://localhost:8888"
+  mcp_url: "http://YOUR_KALI_VM_IP:8888"   # Replace with your Kali VM IP
   timeout_seconds: 30
 
 # Kali Linux VM (SSH)
 kali_vm:
-  host: "kali-lab"                   # SSH Host alias from ~/.ssh/config
+  host: "YOUR_KALI_VM_IP"            # Real IP of the Kali VM (e.g. 192.168.X.X)
   user: "kali"
   key_file: "~/.ssh/kali_lab_key"   # Absolute path to SSH key
   mcp_port: 8888                     # hexstrike-ai MCP port on the VM
