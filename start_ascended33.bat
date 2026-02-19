@@ -14,9 +14,9 @@ set KALI_KEY=C:\Users\th3th\.ssh\kali_lab_key
 set OBSIDIAN_EXE=C:\Users\th3th\AppData\Local\Obsidian\Obsidian.exe
 set VMRUN=C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe
 
-:: !! MODIFIER : chemin complet vers ton fichier .vmx Kali !!
-:: Exemple : C:\Users\th3th\Documents\Virtual Machines\Kali-Linux\Kali-Linux.vmx
-set KALI_VMX=C:\Users\th3th\Documents\Virtual Machines\Kali-Linux\Kali-Linux.vmx
+:: Laisser vide = auto-detection (recherche *.vmx contenant "kali")
+:: Ou forcer manuellement : set KALI_VMX=C:\chemin\vers\kali.vmx
+set KALI_VMX=
 
 :: ================================================================
 ::  BANNIERE
@@ -87,17 +87,49 @@ if not exist "%VMRUN%" (
     exit /b 0
 )
 
-:: VMX disponible ?
+:: Auto-detection VMX si non defini
+if "%KALI_VMX%"=="" (
+    echo  Recherche fichier .vmx Kali...
+    call :find_vmx
+)
+
+:: VMX trouvable ?
+if "%KALI_VMX%"=="" (
+    echo  [WARN] Aucun fichier .vmx Kali trouve automatiquement.
+    echo  Definis KALI_VMX manuellement dans ce script.
+    exit /b 0
+)
 if not exist "%KALI_VMX%" (
     echo  [WARN] VMX introuvable : %KALI_VMX%
-    echo  Mets a jour KALI_VMX dans ce script.
     exit /b 0
 )
 
 :: Lancer la VM
-echo  Demarrage Kali VM...
+echo  Demarrage Kali VM : %KALI_VMX%
 "%VMRUN%" -T ws start "%KALI_VMX%"
 echo  [OK] Kali VM demarree.
+exit /b 0
+
+
+:: ================================================================
+:find_vmx
+:: Cherche un .vmx contenant "kali" dans les emplacements courants
+:: ================================================================
+set _VMX_DIRS=%USERPROFILE%\Documents\Virtual Machines
+set _VMX_DIRS2=%USERPROFILE%\Virtual Machines
+set _VMX_DIRS3=D:\Virtual Machines
+set _VMX_DIRS4=D:\VMs
+set _VMX_DIRS5=C:\VMs
+
+for %%d in ("%_VMX_DIRS%" "%_VMX_DIRS2%" "%_VMX_DIRS3%" "%_VMX_DIRS4%" "%_VMX_DIRS5%") do (
+    if exist %%d (
+        for /f "delims=" %%f in ('dir /s /b %%d\*.vmx 2^>nul ^| findstr /I "kali"') do (
+            set KALI_VMX=%%f
+            echo  [OK] VMX trouve : %%f
+            exit /b 0
+        )
+    )
+)
 exit /b 0
 
 
