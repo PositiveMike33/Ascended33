@@ -15,9 +15,8 @@ set KALI_KEY=C:\Users\th3th\.ssh\kali_lab_key
 set OBSIDIAN_EXE=C:\Users\th3th\AppData\Local\Obsidian\Obsidian.exe
 set VMRUN=C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe
 
-:: Laisser vide = auto-detection (recherche *.vmx contenant "kali")
-:: Ou forcer manuellement : set KALI_VMX=C:\chemin\vers\kali.vmx
-set KALI_VMX=
+:: Chemin vers le fichier .vmx Kali
+set KALI_VMX=C:\Users\th3th\Downloads\kali-linux-2025.4-vmware-amd64\kali-linux-2025.4-vmware-amd64.vmwarevm\kali-linux-2025.4-vmware-amd64.vmx
 
 :: ================================================================
 ::  BANNIERE
@@ -118,11 +117,12 @@ exit /b 0
 :: ================================================================
 set _VMX_DIRS=%USERPROFILE%\Documents\Virtual Machines
 set _VMX_DIRS2=%USERPROFILE%\Virtual Machines
-set _VMX_DIRS3=D:\Virtual Machines
-set _VMX_DIRS4=D:\VMs
-set _VMX_DIRS5=C:\VMs
+set _VMX_DIRS3=%USERPROFILE%\Downloads
+set _VMX_DIRS4=D:\Virtual Machines
+set _VMX_DIRS5=D:\VMs
+set _VMX_DIRS6=C:\VMs
 
-for %%d in ("%_VMX_DIRS%" "%_VMX_DIRS2%" "%_VMX_DIRS3%" "%_VMX_DIRS4%" "%_VMX_DIRS5%") do (
+for %%d in ("%_VMX_DIRS%" "%_VMX_DIRS2%" "%_VMX_DIRS3%" "%_VMX_DIRS4%" "%_VMX_DIRS5%" "%_VMX_DIRS6%") do (
     if exist %%d (
         for /f "delims=" %%f in ('dir /s /b %%d\*.vmx 2^>nul ^| findstr /I "kali"') do (
             set KALI_VMX=%%f
