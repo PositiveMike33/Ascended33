@@ -21,19 +21,19 @@ $colors = @{
 function Print-Header {
     param([string]$Text)
     Write-Host ""
-    Write-Host "╔════════════════════════════════════════════════════════════╗" -ForegroundColor $colors.Header
-    Write-Host "║ $($Text.PadRight(56)) ║" -ForegroundColor $colors.Header
-    Write-Host "╚════════════════════════════════════════════════════════════╝" -ForegroundColor $colors.Header
+    Write-Host "=================================================" -ForegroundColor $colors.Header
+    Write-Host "  $Text" -ForegroundColor $colors.Header
+    Write-Host "=================================================" -ForegroundColor $colors.Header
 }
 
 function Print-Status {
     param([string]$Text, [string]$Status = "Info")
-    Write-Host "  ▶ $Text" -ForegroundColor $colors.$Status
+    Write-Host "  > $Text" -ForegroundColor $colors.$Status
 }
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 # PART 1: Project Setup
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 
 Print-Header "ASCENDED33 PROJECT LAUNCHER"
 
@@ -51,13 +51,13 @@ if (-not (Test-Path $ProjectPath)) {
     exit 1
 }
 
-Print-Status "✓ Project path verified" Success
+Print-Status "[OK] Project path verified" Success
 Set-Location $ProjectPath
-Print-Status "✓ Working directory set to: $ProjectPath" Success
+Print-Status "[OK] Working directory set to: $ProjectPath" Success
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 # PART 2: Environment Checks
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 
 Print-Header "ENVIRONMENT VERIFICATION"
 
@@ -81,9 +81,9 @@ try {
     Print-Status "Git: Not installed" Warning
 }
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 # PART 3: Service Startup
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 
 Print-Header "STARTING SERVICES (DOCKER)"
 
@@ -95,7 +95,7 @@ if (-not $dockerRunning) {
     try {
         Start-Service Docker -ErrorAction SilentlyContinue
         Start-Sleep -Seconds 3
-        Print-Status "✓ Docker started" Success
+        Print-Status "[OK] Docker started" Success
     } catch {
         Print-Status "Could not auto-start Docker - try starting it manually" Warning
     }
@@ -107,20 +107,20 @@ Print-Status "Starting Docker Compose services..." Info
 try {
     & docker-compose up -d 2>&1 | ForEach-Object {
         if ($_ -match "error|failed") {
-            Print-Status "⚠ $_" Warning
+            Print-Status "[WARN] $_" Warning
         } else {
             Print-Status $_ Success
         }
     }
     Start-Sleep -Seconds 2
-    Print-Status "✓ Docker services started" Success
+    Print-Status "[OK] Docker services started" Success
 } catch {
     Print-Status "Docker Compose may not be available" Warning
 }
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 # PART 4: Dependencies & Configuration
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 
 Print-Header "CHECKING DEPENDENCIES"
 
@@ -137,18 +137,18 @@ if (-not $requirementsInstalled) {
         $installed = & python -m pip show $package 2>&1 | Select-String "^Name:"
         
         if ($installed) {
-            Print-Status "✓ $package: installed" Success
+            Print-Status "[OK] $($package): installed" Success
         } else {
-            Print-Status "⚠ $package: recommended (can install with: pip install $package)" Warning
+            Print-Status "[INFO] $($package): recommended (can install with: pip install $package)" Warning
         }
     }
 } else {
-    Print-Status "✓ Virtual environment found" Success
+    Print-Status "[OK] Virtual environment found" Success
 }
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 # PART 5: Open VS Code
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 
 if (-not $NoVsCode) {
     Print-Header "OPENING VS CODE"
@@ -157,15 +157,15 @@ if (-not $NoVsCode) {
         Print-Status "Launching VS Code with Ascended33 workspace..." Info
         & code $ProjectPath 2>&1 | Out-Null
         Start-Sleep -Seconds 2
-        Print-Status "✓ VS Code opened" Success
+        Print-Status "[OK] VS Code opened" Success
     } catch {
         Print-Status "Could not launch VS Code - is it installed?" Warning
     }
 }
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 # PART 6: Open Obsidian Vault
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 
 Print-Header "OPENING OBSIDIAN VAULT"
 
@@ -181,14 +181,14 @@ try {
     }
     
     Start-Sleep -Seconds 2
-    Print-Status "✓ Obsidian Vault opened" Success
+    Print-Status "[OK] Obsidian Vault opened" Success
 } catch {
     Print-Status "Could not launch Obsidian - is it installed?" Warning
 }
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 # PART 7: Health Checks
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 
 Print-Header "RUNNING HEALTH CHECKS"
 
@@ -199,25 +199,25 @@ Start-Sleep -Seconds 1
 try {
     $hexstrike = Invoke-WebRequest -Uri "http://localhost:8888/health" -TimeoutSec 3 -ErrorAction SilentlyContinue
     if ($hexstrike.StatusCode -eq 200) {
-        Print-Status "✓ HexStrike-AI: Online" Success
+        Print-Status "[OK] HexStrike-AI: Online" Success
     }
 } catch {
-    Print-Status "⚠ HexStrike-AI: Not responding (may still be starting)" Warning
+    Print-Status "[WARN] HexStrike-AI: Not responding (may still be starting)" Warning
 }
 
 # Check Obsidian Vault REST API
 try {
     $vault = Invoke-WebRequest -Uri "http://localhost:27123" -TimeoutSec 3 -ErrorAction SilentlyContinue
     if ($vault.StatusCode -eq 200) {
-        Print-Status "✓ Obsidian REST API: Online" Success
+        Print-Status "[OK] Obsidian REST API: Online" Success
     }
 } catch {
-    Print-Status "⚠ Obsidian REST API: Not responding (enable in Obsidian settings)" Warning
+    Print-Status "[WARN] Obsidian REST API: Not responding (enable in Obsidian settings)" Warning
 }
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 # PART 8: Streamlit Dashboard (Optional)
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 
 if (-not $NoStreamlit) {
     Print-Header "STARTING STREAMLIT DASHBOARD"
@@ -238,29 +238,29 @@ if (-not $NoStreamlit) {
     }
 }
 
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 # FINAL SUMMARY
-# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ==================================================
 
-Print-Header "✨ ASCENDED33 READY"
+Print-Header "[OK] ASCENDED33 READY"
 
 Write-Host ""
-Write-Host "  🎯 What's Running:" -ForegroundColor Cyan
-Write-Host "    • VS Code with project loaded" -ForegroundColor Green
-Write-Host "    • Obsidian Vault" -ForegroundColor Green
-Write-Host "    • Docker services (HexStrike, Redis, etc.)" -ForegroundColor Green
-Write-Host "    • Streamlit Dashboard (port 8501)" -ForegroundColor Green
+Write-Host "  What's Running:" -ForegroundColor Cyan
+Write-Host "    - VS Code with project loaded" -ForegroundColor Green
+Write-Host "    - Obsidian Vault" -ForegroundColor Green
+Write-Host "    - Docker services (HexStrike, Redis, etc.)" -ForegroundColor Green
+Write-Host "    - Streamlit Dashboard (port 8501)" -ForegroundColor Green
 Write-Host ""
-Write-Host "  📍 Quick Links:" -ForegroundColor Cyan
-Write-Host "    • Dashboard: http://localhost:8501" -ForegroundColor Yellow
-Write-Host "    • HexStrike: http://localhost:8888" -ForegroundColor Yellow
-Write-Host "    • Obsidian REST: http://localhost:27123" -ForegroundColor Yellow
+Write-Host "  Quick Links:" -ForegroundColor Cyan
+Write-Host "    - Dashboard: http://localhost:8501" -ForegroundColor Yellow
+Write-Host "    - HexStrike: http://localhost:8888" -ForegroundColor Yellow
+Write-Host "    - Obsidian REST: http://localhost:27123" -ForegroundColor Yellow
 Write-Host ""
-Write-Host "  💡 Next Steps:" -ForegroundColor Cyan
+Write-Host "  Next Steps:" -ForegroundColor Cyan
 Write-Host "    1. Edit code in VS Code" -ForegroundColor White
 Write-Host "    2. View/edit notes in Obsidian" -ForegroundColor White
 Write-Host "    3. Monitor in Streamlit Dashboard" -ForegroundColor White
 Write-Host "    4. Deploy with Docker Compose" -ForegroundColor White
 Write-Host ""
-Write-Host "  ✅ Project fully activated!" -ForegroundColor Green
+Write-Host "  [OK] Project fully activated!" -ForegroundColor Green
 Write-Host ""
