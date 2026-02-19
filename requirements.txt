@@ -1,3 +1,19 @@
+# Dashboard
 altair
 pandas
 streamlit
+
+# HTTP / integrations
+requests
+pyyaml
+
+# OSINT
+dnspython
+python-whois
+
+# SSH — Kali VM connection
+paramiko
+
+# Tor routing (for dark web monitoring)
+PySocks
+requests[socks]

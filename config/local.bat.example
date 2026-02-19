@@ -1,0 +1,21 @@
+:: ================================================================
+:: ASCENDED33 — Configuration locale (GITIGNORE)
+:: ================================================================
+:: INSTRUCTIONS:
+::   1. Copier ce fichier vers config\local.bat
+::   2. Remplir tes valeurs reelles
+::   3. config\local.bat est gitignore — tes infos ne seront jamais commitees
+:: ================================================================
+
+:: IP de ta VM Kali (obtenir avec: ip a sur la VM)
+set KALI_IP=192.168.X.X
+
+:: Chemin complet vers ton fichier .vmx Kali (laisser vide pour auto-detection)
+:: Exemple: C:\Users\TON_USERNAME\Documents\Virtual Machines\kali\kali.vmx
+set KALI_VMX=
+
+:: Utilisateur SSH Kali (generalement "kali")
+set KALI_USER=kali
+
+:: Chemin du vault Obsidian (le dossier contenant tes notes)
+set OBSIDIAN_VAULT_PATH=D:\Vault

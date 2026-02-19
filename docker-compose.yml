@@ -1,0 +1,117 @@
+# ==============================================================================
+# Ascended33 — Docker Compose
+#
+# Architecture anonymisée :
+#   hexstrike + Kali → tout le trafic sortant passe par Tor
+#   Streamlit (Windows) → hexstrike sur localhost:8888 (port mappé)
+#
+# Usage rapide :
+#   docker compose up -d                     # Démarrer tout
+#   docker compose ps                        # État des conteneurs
+#   docker compose logs -f tor               # Bootstrap Tor en direct
+#   docker compose logs -f hexstrike         # Logs hexstrike
+#   docker compose exec kali bash            # Shell interactif Kali
+#   docker compose down                      # Arrêter tout
+#   docker compose restart tor               # Changer de circuit Tor
+#
+# Prérequis :
+#   - Docker Desktop actif
+#   - config/config.yaml configuré (copier config.example.yaml)
+# ==============================================================================
+
+version: "3.9"
+
+networks:
+  ascended33_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "172.20.0.0/24"    # Réseau interne isolé
+
+volumes:
+  tor_data:          # État Tor persistant (clés, descripteurs de circuit)
+  kali_workspace:    # Espace de travail Kali persistant
+
+services:
+
+  # ── Tor SOCKS5 Proxy ─────────────────────────────────────────────────────────
+  # Fournit l'anonymisation pour hexstrike et Kali.
+  # socks5h://tor:9050 depuis les autres conteneurs (résolution DNS via Tor).
+  # ─────────────────────────────────────────────────────────────────────────────
+  tor:
+    image: dperson/torproxy:latest       # Tor + privoxy (SOCKS5:9050, HTTP:8118)
+    container_name: ascended33_tor
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9050:9050"           # SOCKS5 — hôte, localhost uniquement
+      - "127.0.0.1:9051:9051"           # Port de contrôle — localhost uniquement
+    volumes:
+      - ./docker/tor/torrc:/etc/tor/torrc:ro    # Config Tor personnalisée
+      - tor_data:/var/lib/tor                   # État Tor persistant
+    networks:
+      ascended33_net:
+        ipv4_address: "172.20.0.2"
+    healthcheck:
+      # Port 9050 ouvert = Tor a bootstrappé et écoute
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 9050 && echo ok"]
+      interval: 15s
+      timeout: 5s
+      retries: 8
+      start_period: 30s    # Tor a besoin de ~20-30s pour établir le circuit
+
+  # ── hexstrike-ai MCP Server ──────────────────────────────────────────────────
+  # 150+ outils de sécurité exposés via MCP sur port 8888.
+  # TOUT le trafic sortant de hexstrike passe par Tor.
+  # Le dashboard Streamlit se connecte à http://localhost:8888
+  # ─────────────────────────────────────────────────────────────────────────────
+  hexstrike:
+    image: 0x4m4/hexstrike-ai:latest    # Remplacer par ton image si différente
+    container_name: ascended33_hexstrike
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8888:8888"           # MCP API — localhost uniquement, jamais exposé au LAN
+    environment:
+      # socks5h = résolution DNS via Tor aussi (zero DNS leak)
+      - ALL_PROXY=socks5h://tor:9050
+      - HTTPS_PROXY=socks5h://tor:9050
+      - HTTP_PROXY=socks5h://tor:9050
+      - NO_PROXY=localhost,127.0.0.1,172.20.0.0/24
+    depends_on:
+      tor:
+        condition: service_healthy       # N'attend hexstrike qu'après Tor prêt
+    networks:
+      - ascended33_net
+
+  # ── Kali Linux ───────────────────────────────────────────────────────────────
+  # Boîte à outils de sécurité. Commandes via docker exec ou KaliDockerClient.
+  # TOUT le trafic sortant de Kali passe par Tor.
+  #
+  # Exemples :
+  #   docker exec ascended33_kali nmap -sV target.com
+  #   docker exec ascended33_kali torsocks curl https://check.torproject.org
+  #   python3 -c "from mcp.kali_docker_client import KaliDockerClient; ..."
+  # ─────────────────────────────────────────────────────────────────────────────
+  kali:
+    image: kalilinux/kali-rolling        # Remplacer par ton image Kali personnalisée
+    container_name: ascended33_kali
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    environment:
+      # socks5h = résolution DNS via Tor (aucun DNS leak)
+      - ALL_PROXY=socks5h://tor:9050
+      - HTTPS_PROXY=socks5h://tor:9050
+      - HTTP_PROXY=socks5h://tor:9050
+      - NO_PROXY=localhost,127.0.0.1,172.20.0.0/24
+      # torsocks wrapper
+      - TORSOCKS_TOR_ADDRESS=tor
+      - TORSOCKS_TOR_PORT=9050
+    depends_on:
+      tor:
+        condition: service_healthy
+    networks:
+      - ascended33_net
+    volumes:
+      - ./output:/opt/ascended33/output  # Dossier partagé résultats (hôte ↔ kali)
+      - kali_workspace:/root/workspace   # Workspace Kali persistant
+    command: ["tail", "-f", "/dev/null"] # Garder le conteneur actif

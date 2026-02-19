@@ -1,0 +1,64 @@
+# config.example.yaml — Copy to config.yaml and fill in your values.
+# config.yaml is gitignored — NEVER commit real credentials.
+
+# Obsidian Vault integration
+vault:
+  mode: "rest_api"                   # Options: "rest_api" | "filesystem"
+  base_url: "http://localhost:27123" # Obsidian Local REST API plugin URL
+  api_key: "YOUR_OBSIDIAN_API_KEY"   # Set in Obsidian plugin settings  # pragma: allowlist secret
+  vault_path: "D:/Vault"             # Filesystem path (used in "filesystem" mode)
+
+# hexstrike-ai MCP Server
+# IMPORTANT: hexstrike-ai runs on your Kali VM, NOT on Windows localhost.
+# Set mcp_url to your Kali VM's real IP address (same as kali_vm.host below).
+# Example: "http://192.168.X.X:8888"
+hexstrike:
+  mcp_url: "http://YOUR_KALI_VM_IP:8888"   # Replace with your Kali VM IP
+  timeout_seconds: 30
+
+# Kali Linux VM (SSH)
+kali_vm:
+  host: "YOUR_KALI_VM_IP"            # Real IP of the Kali VM (e.g. 192.168.X.X)
+  user: "kali"
+  key_file: "~/.ssh/kali_lab_key"   # Absolute path to SSH key
+  mcp_port: 8888                     # hexstrike-ai MCP port on the VM
+
+# OPSEC settings
+opsec:
+  require_vpn: true
+  require_tor_for_darkweb: true
+  vpn_check_url: "https://check.torproject.org/api/ip"
+  allowed_exit_countries: []         # Leave empty to allow any VPN exit
+  # home_ip: Set to your real public IP (without VPN) for reliable VPN detection.
+  # Run once WITHOUT VPN: python3 -c "import requests; print(requests.get('https://httpbin.org/ip').json()['origin'])"
+  # Then fill below. NEVER commit config.yaml — it is gitignored.
+  home_ip: "YOUR_REAL_IP"            # pragma: allowlist secret
+
+# Identity guard — PII protection
+identity_guard:
+  # Custom keywords to detect as PII (client names, codenames, personal identifiers)
+  # These are loaded at runtime — never leave real names in config.example.yaml
+  custom_keywords: []
+  # Examples (put real values in config.yaml, never here):
+  #   - "ClientName"
+  #   - "ProjectCodename"
+  #   - "your.email@example.com"
+
+# Docker configuration
+# Utilisé par start_ascended33.bat et mcp/kali_docker_client.py
+# Voir docker-compose.yml pour la configuration complète des conteneurs.
+docker:
+  compose_file: "docker-compose.yml"          # Relatif à la racine du repo
+  kali_container: "ascended33_kali"
+  hexstrike_container: "ascended33_hexstrike"
+  tor_container: "ascended33_tor"
+  exec_timeout: 300                           # Timeout docker exec (secondes)
+  # Proxy SOCKS5 Tor (depuis le conteneur Tor, mappé sur l'hôte)
+  tor_socks_host: "127.0.0.1"
+  tor_socks_port: 9050
+
+# Report output
+reporting:
+  default_output: "vault"            # Options: "vault" | "local" | "both"
+  local_output_dir: "./output/"
+  vault_base_path: "Security"
