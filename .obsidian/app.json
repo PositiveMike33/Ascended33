@@ -1,0 +1,13 @@
+{
+  "defaultViewMode": "source",
+  "vimMode": false,
+  "promptDelete": true,
+  "showLineNumber": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "tabSize": 2,
+  "useTab": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "THIRTY3/Daily",
+  "attachmentFolderPath": "THIRTY3/Preuves"
+}

@@ -1,0 +1,17 @@
+{
+  "enabled_templates_hotkeys": [],
+  "template_hotkeys": [],
+  "templates_folder": "THIRTY3/Templates",
+  "auto_jump_to_cursor": true,
+  "trigger_on_file_creation": true,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "THIRTY3/Daily",
+      "template": "THIRTY3/Templates/TPL — Daily Note THIRTY3"
+    }
+  ]
+}
