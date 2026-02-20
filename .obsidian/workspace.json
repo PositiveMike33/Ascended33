@@ -24,84 +24,6 @@
             }
           },
           {
-            "id": "bffda4fe7f730358",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "REPORT/Février/16 Février au 22 Février/19-02-2026/Phase 0 a 6.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "Phase 0 a 6"
-            }
-          },
-          {
-            "id": "8d1fe448a9d54892",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "REPORT/Février/16 Février au 22 Février/20-02-2026/Plan/Plan structuré pour OSINT plateform v3.0.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "Plan structuré pour OSINT plateform v3.0"
-            }
-          },
-          {
-            "id": "27113575a45ff593",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Notes et Mémos Importants/Notes rapide/PLANNING/Investigation Report de Michael Gauthier Guillet.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "Investigation Report de Michael Gauthier Guillet"
-            }
-          },
-          {
             "id": "2f3f750413ef0347",
             "type": "leaf",
             "pinned": true,
@@ -109,12 +31,12 @@
               "type": "map",
               "state": {
                 "name": "Default",
-                "mapZoom": 12,
+                "mapZoom": 4,
                 "mapCenter": {
-                  "lat": 45.74361026277954,
-                  "lng": -73.91326904296876
+                  "lat": 75.30361996886556,
+                  "lng": -18.46899168256737
                 },
-                "query": "path:\"REPORT/Février/16 Février au 22 Février/20-02-2026/Plan/Plan structuré pour OSINT plateform v3.0.md\"",
+                "query": "path:\"REPORT/Février/16 Février au 22 Février/20-02-2026/Excel/Prèts et Paiements 2026.sheet.md\"",
                 "queryError": false,
                 "chosenMapSource": 0,
                 "forceHistorySave": false,
@@ -134,13 +56,17 @@
             }
           },
           {
-            "id": "c7b975f09423e07d",
+            "id": "c7adb5eb724117a4",
             "type": "leaf",
+            "pinned": true,
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vue graphique"
+              "type": "excel-view",
+              "state": {
+                "file": "REPORT/Février/16 Février au 22 Février/20-02-2026/Excel/Prèts et Paiements 2026.sheet.md"
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "Prèts et Paiements 2026.sheet"
             }
           }
         ],
@@ -176,7 +102,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#investigations",
+                "query": "tag:#TODO",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -201,8 +127,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 336.5,
-    "collapsed": true
+    "width": 336.5
   },
   "right": {
     "id": "5328173d6c2a1011",
@@ -308,9 +233,19 @@
               "icon": "pieces-logo",
               "title": "Pieces for Developers"
             }
+          },
+          {
+            "id": "aa9808e2f1fba1c8",
+            "type": "leaf",
+            "state": {
+              "type": "Strange New Worlds",
+              "state": {},
+              "icon": "file-digit",
+              "title": "Strange New Worlds"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 7
       },
       {
         "id": "6a7b69312a32a095",
@@ -331,11 +266,11 @@
       }
     ],
     "direction": "horizontal",
-    "width": 508.5,
-    "collapsed": true
+    "width": 508.5
   },
   "left-ribbon": {
     "hiddenItems": {
+      "templater-obsidian:Templater": false,
       "switcher:Ouvrir le sélecteur rapide": false,
       "graph:Ouvrir la vue graphique": false,
       "canvas:Créer une nouvelle toile": false,
@@ -352,43 +287,45 @@
       "obsidian-map-view:Open map view": false
     }
   },
-  "active": "8d1fe448a9d54892",
+  "active": "54d817625ca28cfd",
   "lastOpenFiles": [
-    "setup_git_repo.bat",
-    "CLEANUP_COMPLETED.md",
-    "CLEANUP_SUMMARY.txt",
-    "VAULT_ARCHITECTURE_2026-02-19.md",
-    "VAULT_CLEANUP_REPORT_2026-02-19.md",
-    "CLEANUP_SCRIPT.ps1",
-    "Index.md",
-    "Security/OSINT/2026-02-19-example-com.md",
-    "Security/OSINT",
-    "Ascended33/README_FIXES.txt",
-    "Ascended33/VERIFICATION_REPORT.md",
-    "Ascended33/SESSION_SUMMARY.md",
-    "Ascended33/READY_FOR_TESTING.md",
-    "Ascended33/test_mission_launch.py",
-    "Ascended33/FIXES_APPLIED.md",
-    "Security/Operations/2026-02-19-234138-Dashboard Status Check.md",
-    "Security/Operations/2026-02-19-234037-Dashboard Status Check.md",
-    "Ascended33/workers/__pycache__/hexstrike_worker.cpython-313.pyc",
-    "Ascended33/workers/__pycache__",
-    "Security/Operations/2026-02-19-233611-Dashboard Status Check.md",
-    "Security/Operations/2026-02-19-233527-Dashboard Status Check.md",
-    "Security/Operations/2026-02-19-233449-Dashboard Status Check.md",
-    "Ascended33/mcp/__pycache__/hexstrike_wrapper.cpython-313.pyc",
-    "Security/Operations/2026-02-19-233434-Dashboard Status Check.md",
-    "Security/Operations",
-    "Security",
-    "REPORT/Février/16 Février au 22 Février/19-02-2026/Phase 0 a 6.md",
-    "Ascended33/PYTHON_PATH_SOLUTION.md",
-    "Ascended33/JOUR2_VALIDATION_STATUS.md",
-    "Ascended33/JOUR2_COMPLETION_REPORT.md",
-    "Notes et Mémos Importants/Notes rapide/PLANNING/Investigation Report de Michael Gauthier Guillet.md",
-    "REPORT/Février/16 Février au 22 Février/20-02-2026/Plan/Plan structuré pour OSINT plateform v3.0.md",
-    "LLM's/Prompts/Deus Ex Sophia/Deus ex sophia.md",
-    "REPORT/Declassified Report/01 Rapport Janvier/01-29-2026/Tâches principales et projets.md",
-    "ASCENDED33_INTEGRATION_COMPLETE.md",
-    "ENQUETES_OSINT/MAP_VIEW/Montreal.md"
+    "VAULT_CLEANUP_REPORT.md",
+    "VAULT_CLEANUP_REPORT.md.tmp.4272.1771613878020",
+    "_INFRASTRUCTURE/Ascended33/dockerfiles/Dockerfile.hexstrike",
+    "_INFRASTRUCTURE/Ascended33/dockerfiles/Dockerfile.kali",
+    "_INFRASTRUCTURE/Ascended33/dockerfiles/Dockerfile.hackergpt",
+    "_INFRASTRUCTURE/Ascended33/dockerfiles/Dockerfile.tor",
+    "_INFRASTRUCTURE/Ascended33/dockerfiles",
+    "_INFRASTRUCTURE/Ascended33/tests/__pycache__/test_obsidian_sync.cpython-313-pytest-9.0.2.pyc",
+    "_INFRASTRUCTURE/Ascended33/tests/__pycache__/__init__.cpython-313.pyc",
+    "_INFRASTRUCTURE/Ascended33/tests/__pycache__",
+    "_INFRASTRUCTURE/Ascended33/tests/test_user_session_management.py",
+    "_INFRASTRUCTURE/Ascended33/docs/OBSIDIAN_SETUP.md",
+    "_INFRASTRUCTURE/Ascended33/output/2026-02-19-michael-gauthier-guillet.md",
+    "_INFRASTRUCTURE/Ascended33/templates/obsidian_vault_structure.md",
+    "_INFRASTRUCTURE/Ascended33/templates/threat_intel_report.md",
+    "_INFRASTRUCTURE/Ascended33/templates/pentest_report.md",
+    "_INFRASTRUCTURE/Ascended33/templates/osint_report.md",
+    "_INFRASTRUCTURE/Ascended33/templates/ctf_writeup.md",
+    "_INFRASTRUCTURE/Ascended33/README_DOCKER_SETUP.md",
+    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_DOCKER_GUIDE.md",
+    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_VAULT_INTEGRATION.md",
+    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_WORKFLOW_SETUP.md",
+    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_INTEGRATION_SUMMARY.md",
+    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_FIXES_COMPLETED.md",
+    "_INFRASTRUCTURE/Ascended33/VERIFICATION_REPORT.md",
+    "_INFRASTRUCTURE/Ascended33/SESSION_SUMMARY.md",
+    "_INFRASTRUCTURE/Ascended33/READY_FOR_TESTING.md",
+    "_INFRASTRUCTURE/Ascended33/FIXES_APPLIED.md",
+    "_INFRASTRUCTURE/Ascended33/PYTHON_PATH_SOLUTION.md",
+    "_INFRASTRUCTURE/Ascended33/JOUR2_VALIDATION_STATUS.md",
+    "_INFRASTRUCTURE/Ascended33/JOUR2_COMPLETION_REPORT.md",
+    "_INFRASTRUCTURE/Ascended33/VAULT_API_SETUP.md",
+    "_INFRASTRUCTURE/Ascended33/TESTING_INSTRUCTIONS.md",
+    "_INFRASTRUCTURE/Ascended33/SESSION_3_CLOSURE_FINAL.md",
+    "_INFRASTRUCTURE/Ascended33/DAY_1_COMPLETION_REPORT.md",
+    "_INFRASTRUCTURE/Ascended33/OPSEC_IMPLEMENTATION_COMPLETE.md",
+    "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/Labatt/Réseaux de Labatt.canvas",
+    "LEARNING/HACKERGPT/MindMap.canvas"
   ]
 }

@@ -56,6 +56,42 @@
 
 ---
 
+## 🛠️ HEXSTRIKE — CYBERSECURITY RESEARCH PLATFORM (NEW Feb 2026)
+
+**Complete Red Team Toolkit with 150+ Tools** — Integrated into Ascended33 Docker environment
+
+| Component | Status | Purpose | Access |
+|-----------|--------|---------|--------|
+| **Desktop Launcher** | ✅ READY | One-click launch | HexStrike.lnk (Desktop) |
+| **Web Interface** | 🔗 PORT 8501 | Streamlit Dashboard | http://localhost:8501 |
+| **API Server** | 🔗 PORT 8001 | HexStrike Backend | http://localhost:8001 |
+| **150+ Tools** | 📦 AVAILABLE | Nmap, Burp, Nuclei, Masscan, etc. | Auto-loaded in UI |
+| **MCP Integration** | 🤖 ENABLED | Claude AI access to tools | Integrated with claude-md |
+
+**Quick Start:**
+1. Click `HexStrike.lnk` on desktop → Launches Docker + Streamlit
+2. Browser opens → http://localhost:8501
+3. Select tool → Run investigation
+4. Results cached → Access in Vault
+
+**Available Tool Categories:**
+- 🔎 **Reconnaissance:** nmap, masscan, shodan, censys
+- 🔍 **Vulnerability Scanning:** nuclei, nessus, openvas, trivy
+- 🔗 **Web Testing:** burpsuite, owasp-zap, sqlmap, nikto
+- 🎯 **Exploitation:** metasploit, searchsploit, beef
+- 🛡️ **Defensive:** wireshark, snort, suricata
+- 📊 **Analysis:** maltego, shodan, hunter.io
+- **...and 130+ more for advanced red teaming**
+
+**Integration in Vault:**
+- Tech path: [[🐧_KALI_INTEGRATION_PROJECT/README_KALI_PROJECT]]
+- Learning resources: [[_TEMPLATES/ETHICAL_HACKING_NOTE]]
+- Docker management: [[DOCS/DOCKER_ORCHESTRATION]]
+
+**Learn More:** [[D:\Vault\Vault\Ascended33\HEXSTRIKE_INTEGRATION_SUMMARY.md]]
+
+---
+
 ## 📚 MASTERCLASS — THE FOUNDATION
 
 **4 documents, ~7.5 hours total, makes everything 10x easier**

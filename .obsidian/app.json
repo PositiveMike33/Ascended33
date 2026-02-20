@@ -1,6 +1,13 @@
 {
-  "alwaysUpdateLinks": true,
-  "showUnsupportedFiles": true,
-  "newLinkFormat": "absolute",
-  "uriCallbacks": true
+  "defaultViewMode": "source",
+  "vimMode": false,
+  "promptDelete": true,
+  "showLineNumber": true,
+  "foldHeading": true,
+  "foldIndent": true,
+  "tabSize": 2,
+  "useTab": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "THIRTY3/Daily",
+  "attachmentFolderPath": "THIRTY3/Preuves"
 }

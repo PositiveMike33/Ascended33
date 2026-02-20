@@ -158,7 +158,7 @@
   "newNoteTemplate": "ENQUETES_OSINT/MAP_VIEW/Template",
   "showNoteNamePopup": true,
   "showLinkNameInPopup": "always",
-  "showNativeObsidianHoverPopup": false,
+  "showNativeObsidianHoverPopup": true,
   "showNotePreview": true,
   "showClusterPreview": true,
   "debug": true,
@@ -193,8 +193,8 @@
     "viewDisplayed": false,
     "linksDisplayed": false,
     "presetsDisplayed": false,
-    "editDisplayed": false,
-    "minimized": true
+    "editDisplayed": true,
+    "minimized": false
   },
   "mapControlsMinimized": false,
   "maxClusterRadiusPixels": 25,

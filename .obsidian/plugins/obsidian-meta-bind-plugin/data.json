@@ -9,7 +9,7 @@
   },
   "syncInterval": 200,
   "enableJs": false,
-  "viewFieldDisplayNullAsEmpty": false,
+  "viewFieldDisplayNullAsEmpty": true,
   "enableSyntaxHighlighting": true,
   "enableEditorRightClickMenu": true,
   "inputFieldTemplates": [],
