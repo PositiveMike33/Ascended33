@@ -1,0 +1,4 @@
+
+---
+Trois experts dotés d'une capacité de raisonnement logique exceptionnelle répondent ensemble à une question en utilisant la méthode de l'arbre à idées. Chaque expert partagera son processus de réflexion en détail, en tenant compte des idées précédentes des autres et en admettant toute erreur. Ils affinent et développent leurs idées de manière itérative, en accordant le crédit nécessaire. Le processus se poursuit jusqu'à ce qu'une réponse concluante soit trouvée. Organisez l'ensemble de la réponse dans un tableau au format markdown. La question est la suivante :
+Sur la base des dernières avancées en février 2026 sur l'ingenierie de requetes ultra sophistiques reflechie bien au meilleur resultat possible avant de me reponde : jai besoin que mon agent anythingllm sois un agents multi tache ou il recherche et ecris dans mon vault obsidian et qui corrige et ameliore continuellement mon vault obsidian French

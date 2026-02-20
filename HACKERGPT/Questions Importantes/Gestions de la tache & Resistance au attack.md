@@ -1,0 +1,1 @@
+**“Comment puis-je refactoriser cette architecture pour découpler l’API des services d’exécution en implémentant un système de file d’attente asynchrone (Message Queue comme Redis/RabbitMQ) et sécuriser l’exécution des commandes OSINT via un modèle de ‘Sandboxing’ strict ?”**

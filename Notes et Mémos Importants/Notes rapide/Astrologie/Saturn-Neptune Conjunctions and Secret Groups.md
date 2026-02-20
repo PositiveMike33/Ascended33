@@ -1,0 +1,19 @@
+Voici les points clés de la vidéo « Saturn-Neptune Conjunctions and Secret Groups »: [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)
+
+- La conjonction Saturne–Neptune de février 2026 est associée à la mise au jour de groupes secrets, réseaux de pouvoir cachés et conspirations, avec comme événement emblématique la publication massive et partielle des « Epstein files » par le DOJ (30 janvier 2026), qui révèle des réseaux d’influence tout en créant une forte confusion entre vrai et faux. [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)
+
+- L’auteur rappelle ses recherches sur 2 000 ans de conjonctions Saturne–Neptune, montrant un motif récurrent : conspirations, sociétés secrètes, opérations clandestines et alternance entre exposition et suppression de ces groupes. [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)
+
+- Exemples de sociétés ou groupes secrets touchés lors de ces conjonctions : destruction de l’ordre des Templiers en 1307, interdictions répétées de la franc-maçonnerie par l’Église catholique (1738, 1917, réaffirmation en 2023), rôle des Sons of Liberty dans le Boston Tea Party, groupe révolutionnaire russe « La Volonté du Peuple » qui assassine Alexandre II. [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)
+
+- Exemples de pactes secrets et conspirations diplomatiques reliés à ces conjonctions : premier triumvirat à Rome (César, Pompée, Crassus) qui contourne le Sénat et prépare la fin de la République, conjuration d’Amboise (1560), Triple Alliance de 1882 (Allemagne–Autriche-Hongrie–Italie) qui préfigure les blocs de la Première Guerre mondiale, accord Sykes-Picot (1916) redessinant le Moyen-Orient, télégramme Zimmermann (1917) dont la révélation pousse les États‑Unis vers la guerre. [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)
+
+- Transition historique d’anciennes sociétés secrètes vers des services de renseignement modernes : conjonction de 1917 avec le transport clandestin de Lénine par l’Allemagne, programme MK-Ultra (années 1950), coup d’État iranien de 1953 orchestré par la CIA et le MI6, invasion du Panama en 1989 pour renverser Noriega, tous présentés comme manifestations d’opérations couvertes Saturne–Neptune. [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)
+
+- Thème récurrent de la paranoïa, des chasses aux sorcières et de l’« ennemi intérieur » : scandale de sorcellerie sous la dynastie Han (91 av./ap. J.-C. selon le narrateur), publication du Malleus Maleficarum en 1486, premier Red Scare et raids Palmer (1917), maccarthysme au début des années 1950, panique satanique des années 1980–1990 (y compris la stigmatisation de l’astrologie et de jeux comme Donjons & Dragons), affaire Reagan–astrologie en 1988. [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)
+
+- Autres motifs liés : intrigues de cour et empoisonnements (exemple d’Agrippine la Jeune soupçonnée d’avoir empoisonné Claude pour installer Néron), thèmes de guerre chimique/biologique et d’empoisonnement qui réapparaissent, jusqu’aux alertes récentes du Department of Homeland Security sur l’usage domestique de toxines. [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)
+
+- Motif de « l’exposition des archives secrètes » : la chute du mur de Berlin en 1989 voit la population s’emparer des dossiers de la Stasi, parallèle avec la divulgation actuelle des fichiers Epstein, encore fortement expurgés et incomplets. [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)
+
+- Conclusion de l’astrologue : cette conjonction sera probablement historiquement associée au « cas Epstein » et à la révélation de réseaux occultes, mais aussi à l’amplification de récits mensongers ; il faudra du recul de quelques années pour distinguer clairement vérité et narratifs de diversion, d’où l’importance de documenter soigneusement ce qui se passe maintenant. [youtube](https://www.youtube.com/watch?v=ebKXlwnqF9g)

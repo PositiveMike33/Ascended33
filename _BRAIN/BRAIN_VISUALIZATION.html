@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 Vault Neural Network - Interactive Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #16213e 100%);
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+        }
+
+        #canvas {
+            flex: 1;
+            background: radial-gradient(circle at center, #0f1419 0%, #0a0c15 100%);
+        }
+
+        #sidebar {
+            width: 350px;
+            background: rgba(15, 20, 30, 0.95);
+            border-left: 2px solid #00ff88;
+            padding: 20px;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        #header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #00ff88;
+        }
+
+        #header h1 {
+            font-size: 24px;
+            color: #00ff88;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+
+        #header p {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            color: #00ff88;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .neuron-stat {
+            background: rgba(0, 255, 136, 0.1);
+            border-left: 3px solid #00ff88;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .neuron-stat .name {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .neuron-stat .status {
+            color: #888;
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+        .bar {
+            background: rgba(0, 255, 136, 0.2);
+            height: 4px;
+            margin-top: 5px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            background: #00ff88;
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+        }
+
+        .controls {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #00ff88;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            color: #00ff88;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input[type="text"],
+        button {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #00ff88;
+            background: rgba(0, 255, 136, 0.05);
+            color: #00ff88;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+
+        input[type="text"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: rgba(0, 255, 136, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .active-neurons {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        .active-neurons .neuron {
+            display: inline-block;
+            background: #00ff88;
+            color: #0a0e27;
+            padding: 4px 8px;
+            border-radius: 3px;
+            margin: 3px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        #info-panel {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid #00ff88;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        #info-panel p {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .activate-btn {
+            background: linear-gradient(135deg, #00ff88 0%, #00cc70 100%);
+            color: #0a0e27;
+        }
+
+        .reset-btn {
+            background: rgba(255, 100, 100, 0.2);
+            border-color: #ff6464;
+            color: #ff6464;
+        }
+
+        .reset-btn:hover {
+            background: rgba(255, 100, 100, 0.3);
+            box-shadow: 0 0 15px rgba(255, 100, 100, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            #container {
+                flex-direction: column;
+            }
+            #sidebar {
+                width: 100%;
+                max-height: 30vh;
+                border-left: none;
+                border-top: 2px solid #00ff88;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <canvas id="canvas"></canvas>
+        <div id="sidebar">
+            <div id="header">
+                <h1>🧠 VAULT BRAIN</h1>
+                <p>Neural Network Visualization</p>
+            </div>
+
+            <div class="section">
+                <h3>📊 Network Status</h3>
+                <div class="neuron-stat">
+                    <div class="name">Total Neurons</div>
+                    <div class="status" id="total-neurons">0</div>
+                    <div class="bar"><div class="bar-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="neuron-stat">
+                    <div class="name">Active Connections</div>
+                    <div class="status" id="active-connections">0</div>
+                    <div class="bar"><div class="bar-fill" style="width: 0%;"></div></div>
+                </div>
+                <div class="neuron-stat">
+                    <div class="name">Processing Speed</div>
+                    <div class="status" id="processing-speed">0 ms</div>
+                    <div class="bar"><div class="bar-fill" style="width: 50%;"></div></div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🔥 Neuron Activation</h3>
+                <div id="neuron-stats">
+                    <div class="neuron-stat">
+                        <div class="name">DASHBOARD</div>
+                        <div class="status">Hub Central</div>
+                    </div>
+                    <div class="neuron-stat">
+                        <div class="name">MEMORY</div>
+                        <div class="status">Context Storage</div>
+                    </div>
+                    <div class="neuron-stat">
+                        <div class="name">PROTOCOLES</div>
+                        <div class="status">Command Recognition</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>⚡ Current Activation</h3>
+                <div class="active-neurons" id="active-neurons">
+                    <span style="color: #888;">No activation</span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label>Test Command:</label>
+                    <input type="text" id="command-input" placeholder="e.g., 'idée revenu'" value="idée revenu">
+                    <button class="activate-btn" onclick="fireCommand()">🚀 Activate</button>
+                </div>
+                <button class="reset-btn" onclick="resetNetwork()">🔄 Reset Network</button>
+            </div>
+
+            <div id="info-panel">
+                <p><strong>💡 Tips:</strong></p>
+                <p>Try commands like:</p>
+                <p>• "idée revenu"</p>
+                <p>• "hacking"</p>
+                <p>• "workflow claude"</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Three.js Scene Setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('canvas'), antialias: true, alpha: true });
+
+        renderer.setSize(window.innerWidth - 350, window.innerHeight);
+        renderer.setClearColor(0x0a0e27, 1);
+        camera.position.z = 100;
+
+        // Neurons data
+        const neurons = [
+            // Hub
+            { name: 'DASHBOARD', pos: [0, 0, 0], color: 0xffaa00, size: 8 },
+
+            // Primary neurons
+            { name: 'MEMORY', pos: [-30, 30, 0], color: 0x00aaff, size: 6 },
+            { name: 'PROTOCOLES', pos: [0, 30, 0], color: 0x00aaff, size: 6 },
+            { name: 'COMPETENCES', pos: [30, 30, 0], color: 0x00aaff, size: 6 },
+
+            // Capability neurons
+            { name: 'REVENUE', pos: [-40, -20, -10], color: 0xff00ff, size: 5 },
+            { name: 'HACKING', pos: [0, -40, -10], color: 0xff0080, size: 5 },
+            { name: 'WORKFLOWS', pos: [40, -20, -10], color: 0x00ff88, size: 5 },
+
+            // Template neurons
+            { name: 'TEMPLATE_1', pos: [-50, -50, 20], color: 0xaa00ff, size: 3 },
+            { name: 'TEMPLATE_2', pos: [-25, -50, 20], color: 0xaa00ff, size: 3 },
+            { name: 'TEMPLATE_3', pos: [0, -50, 20], color: 0xaa00ff, size: 3 },
+            { name: 'TEMPLATE_4', pos: [25, -50, 20], color: 0xaa00ff, size: 3 },
+            { name: 'TEMPLATE_5', pos: [50, -50, 20], color: 0xaa00ff, size: 3 },
+        ];
+
+        // Create neuron objects
+        const neuronMeshes = [];
+        neurons.forEach(neuron => {
+            const geometry = new THREE.SphereGeometry(neuron.size, 32, 32);
+            const material = new THREE.MeshStandardMaterial({
+                color: neuron.color,
+                emissive: neuron.color,
+                emissiveIntensity: 0.3,
+                wireframe: false
+            });
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.position.set(...neuron.pos);
+            mesh.userData = {
+                ...neuron,
+                baseColor: neuron.color,
+                activated: false
+            };
+            scene.add(mesh);
+            neuronMeshes.push(mesh);
+        });
+
+        // Create connections
+        const connectionMaterial = new THREE.LineBasicMaterial({ color: 0x00ff88, transparent: true, opacity: 0.3 });
+        const connections = [];
+
+        neurons.forEach((neuron, idx) => {
+            // Connect hub to primary neurons
+            if (idx > 0 && idx < 4) {
+                const points = [
+                    new THREE.Vector3(...neurons[0].pos),
+                    new THREE.Vector3(...neuron.pos)
+                ];
+                const geometry = new THREE.BufferGeometry().setFromPoints(points);
+                const line = new THREE.Line(geometry, connectionMaterial);
+                scene.add(line);
+                connections.push({ line, from: 0, to: idx });
+            }
+
+            // Connect primary to capabilities
+            if (idx >= 4 && idx < 7) {
+                [1, 2, 3].forEach(primaryIdx => {
+                    const points = [
+                        new THREE.Vector3(...neurons[primaryIdx].pos),
+                        new THREE.Vector3(...neuron.pos)
+                    ];
+                    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+                    const line = new THREE.Line(geometry, connectionMaterial);
+                    scene.add(line);
+                    connections.push({ line, from: primaryIdx, to: idx });
+                });
+            }
+        });
+
+        // Add lights
+        const light1 = new THREE.PointLight(0xffffff, 0.5, 500);
+        light1.position.set(100, 100, 100);
+        scene.add(light1);
+
+        const light2 = new THREE.PointLight(0x00ff88, 0.3, 300);
+        light2.position.set(-100, -100, 50);
+        scene.add(light2);
+
+        const ambientLight = new THREE.AmbientLight(0x444488, 0.5);
+        scene.add(ambientLight);
+
+        // Animation
+        let activatedNeurons = new Set();
+        let activationTime = 0;
+
+        function animateNeurons() {
+            requestAnimationFrame(animateNeurons);
+
+            // Rotate scene
+            scene.rotation.x += 0.0002;
+            scene.rotation.y += 0.0005;
+
+            // Update neurons
+            neuronMeshes.forEach((mesh, idx) => {
+                const isActive = activatedNeurons.has(idx);
+
+                if (isActive) {
+                    // Pulsing effect
+                    const pulse = Math.sin(Date.now() * 0.01) * 0.5 + 0.5;
+                    mesh.scale.set(1 + pulse * 0.3, 1 + pulse * 0.3, 1 + pulse * 0.3);
+                    mesh.material.emissiveIntensity = 0.8 + pulse * 0.2;
+                } else {
+                    mesh.scale.lerp(new THREE.Vector3(1, 1, 1), 0.1);
+                    mesh.material.emissiveIntensity = 0.3;
+                }
+
+                // Slight float
+                mesh.position.y += Math.sin(Date.now() * 0.0005 + idx) * 0.01;
+            });
+
+            renderer.render(scene, camera);
+        }
+
+        // Command activation
+        window.fireCommand = function() {
+            const commandInput = document.getElementById('command-input').value.toLowerCase();
+            activatedNeurons.clear();
+
+            // Simulate neural cascade
+            const commandMap = {
+                'idée revenu': [0, 1, 2, 3, 4],      // Hub + Memory + Protocoles + Competences + Revenue
+                'hacking': [0, 1, 2, 3, 5],          // Hub + Memory + Protocoles + Competences + Hacking
+                'workflow claude': [0, 2, 3, 6],     // Hub + Protocoles + Competences + Workflows
+                'rapport': [0, 1],                   // Hub + Memory
+                'ctf': [0, 5],                       // Hub + Hacking
+                'pricing': [0, 4],                   // Hub + Revenue
+            };
+
+            const matchedCommand = Object.keys(commandMap).find(cmd => commandInput.includes(cmd));
+            if (matchedCommand) {
+                const neuronsToActivate = commandMap[matchedCommand];
+
+                // Cascade activation
+                let delay = 0;
+                neuronsToActivate.forEach(idx => {
+                    setTimeout(() => {
+                        activatedNeurons.add(idx);
+                        updateStats();
+                    }, delay);
+                    delay += 150;
+                });
+
+                // Auto-deactivate after 3 seconds
+                setTimeout(() => {
+                    activatedNeurons.clear();
+                    updateStats();
+                }, 3000);
+
+                // Show info
+                document.getElementById('info-panel').innerHTML = `
+                    <p><strong>✅ Command Recognized:</strong></p>
+                    <p>"${commandInput}"</p>
+                    <p style="margin-top: 10px; color: #00ff88;">Activated ${neuronsToActivate.length} neurons</p>
+                    <p style="color: #888; font-size: 11px;">Processing time: 150ms</p>
+                `;
+            } else {
+                document.getElementById('info-panel').innerHTML = `
+                    <p><strong>❌ Command not recognized</strong></p>
+                    <p style="color: #ff6464;">Try: "idée revenu", "hacking", or "workflow claude"</p>
+                `;
+            }
+        };
+
+        window.resetNetwork = function() {
+            activatedNeurons.clear();
+            updateStats();
+            document.getElementById('command-input').value = '';
+            document.getElementById('info-panel').innerHTML = `
+                <p><strong>💡 Tips:</strong></p>
+                <p>Try commands like:</p>
+                <p>• "idée revenu"</p>
+                <p>• "hacking"</p>
+                <p>• "workflow claude"</p>
+            `;
+        };
+
+        function updateStats() {
+            document.getElementById('total-neurons').textContent = neuronMeshes.length;
+            document.getElementById('active-connections').textContent = activatedNeurons.size;
+            document.getElementById('processing-speed').textContent = Math.floor(Math.random() * 100 + 50) + ' ms';
+
+            const activeList = Array.from(activatedNeurons)
+                .map(idx => `<span class="neuron">${neurons[idx].name}</span>`)
+                .join('');
+
+            document.getElementById('active-neurons').innerHTML = activeList || '<span style="color: #888;">No activation</span>';
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = (window.innerWidth - 350) / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth - 350, window.innerHeight);
+        });
+
+        // Start animation
+        updateStats();
+        animateNeurons();
+    </script>
+</body>
+</html>

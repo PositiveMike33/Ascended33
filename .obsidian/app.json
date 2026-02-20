@@ -1,0 +1,6 @@
+{
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": true,
+  "newLinkFormat": "absolute",
+  "uriCallbacks": true
+}

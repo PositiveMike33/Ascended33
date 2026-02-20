@@ -1,0 +1,15 @@
+#18-02-2026 
+La vidéo annonce que Cisco rend gratuit un nouveau cursus officiel d’ethical hacking et déploie une grosse mise à jour de tout son portfolio de certifications, avec un focus IA, cybersécurité et wireless, en donnant aussi des crédits de recertification via des formations gratuites. [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+
+### Points clés
+
+- Programme RevUp IA gratuit (piste AI Tech pour profils techniques et AI Biz pour profils non techniques) offrant jusqu’à 16 crédits de formation continue pour recertifier CCNA/CCNP sans repasser d’examen. [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+- Nouvel examen Cisco AI Technical Practitioner (AITECH), plus court et moins cher, avec la formation associée actuellement gratuite et donnant des crédits CE supplémentaires. [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+- L’ancienne branche DevNet devient une filière d’**automation** complète (CCNA, CCNP, CCIE Automation) avec une intro gratuite à l’automatisation réseau sur Cisco U. [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+- La branche cybersécurité est refondue en CCNA/CCNP/CCIE Cybersecurity, avec un blueprint SEC core axé IA, automatisation de la sécurité, incident response, threat hunting, SD‑WAN et cloud. [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+- Retour de la filière Wireless (CCNP et CCIE Wireless) et mise à jour de toute la filière Collaboration (on‑prem, cloud, hybride, apps). [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+- Lancement d’une certification AI Infrastructure Specialist, basée sur une année de RevUp gratuits (AI infra essentials, automation, operations/troubleshooting) déjà disponibles. [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+- Nouveau certificat Ethical Hacker orienté red team/pentest : tout le parcours de formation est gratuit sur NetAcad, examen pratique type capture‑the‑flag sur Cisco U, à faible coût. [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+- “Learn with Cisco” devient la bannière unique regroupant NetAcad (étudiants 14+), Cisco U (plateforme digitale pro), Cisco Certifications et Cisco Learning Network (communauté, blueprints, forums, communautés Ethical Hacker, etc.). [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+- NetAcad propose aussi des parcours IA/data science gratuits (“Introduction to Modern AI”, “Apply AI”, Python, data science), avec des centaines de milliers d’apprenants. [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
+- Cisco met en avant la possibilité de partir de 0 (étudiant) jusqu’à CCIE, de contribuer comme instructeur NetAcad, et d’utiliser toutes ces ressources gratuites pour lancer ou booster une carrière en réseau, cyber ou IA sans frais de formation. [youtube](https://www.youtube.com/watch?v=gbZfgoBN6tA)
