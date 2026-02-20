@@ -24,4 +24,4 @@ EXPOSE 22
 HEALTHCHECK --interval=15s --timeout=10s --retries=3 \
     CMD test -d /workspace || exit 1
 
-CMD ["/bin/bash"]
+CMD ["sleep", "infinity"]
