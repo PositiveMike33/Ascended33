@@ -55,18 +55,25 @@
         "a": 1,
         "rgb": 5413002
       }
+    },
+    {
+      "query": "path:THIRTY3  ",
+      "color": {
+        "a": 1,
+        "rgb": 4932676
+      }
     }
   ],
   "collapse-display": false,
   "showArrow": true,
   "textFadeMultiplier": -3,
-  "nodeSizeMultiplier": 1.35052083333333,
-  "lineSizeMultiplier": 0.1,
+  "nodeSizeMultiplier": 1.06979166666667,
+  "lineSizeMultiplier": 0.304166666666667,
   "collapse-forces": false,
-  "centerStrength": 0,
-  "repelStrength": 20,
-  "linkStrength": 0,
+  "centerStrength": 0.223958333333333,
+  "repelStrength": 15.3125,
+  "linkStrength": 0.265625,
   "linkDistance": 30,
-  "scale": 0.0078125,
+  "scale": 0.02152871844243026,
   "close": false
 }

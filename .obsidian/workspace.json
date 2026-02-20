@@ -31,12 +31,12 @@
               "type": "map",
               "state": {
                 "name": "Default",
-                "mapZoom": 4,
+                "mapZoom": 12,
                 "mapCenter": {
-                  "lat": 75.30361996886556,
-                  "lng": -18.46899168256737
+                  "lat": 46.09585272412611,
+                  "lng": -73.32103729248048
                 },
-                "query": "path:\"REPORT/Février/16 Février au 22 Février/20-02-2026/Excel/Prèts et Paiements 2026.sheet.md\"",
+                "query": "path:\"README.md\"",
                 "queryError": false,
                 "chosenMapSource": 0,
                 "forceHistorySave": false,
@@ -68,9 +68,33 @@
               "icon": "lucide-file",
               "title": "Prèts et Paiements 2026.sheet"
             }
+          },
+          {
+            "id": "f77ec08071ed75a8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -266,7 +290,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 508.5
+    "width": 508.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -289,42 +314,42 @@
   },
   "active": "54d817625ca28cfd",
   "lastOpenFiles": [
-    "VAULT_CLEANUP_REPORT.md",
-    "VAULT_CLEANUP_REPORT.md.tmp.4272.1771613878020",
-    "_INFRASTRUCTURE/Ascended33/dockerfiles/Dockerfile.hexstrike",
-    "_INFRASTRUCTURE/Ascended33/dockerfiles/Dockerfile.kali",
-    "_INFRASTRUCTURE/Ascended33/dockerfiles/Dockerfile.hackergpt",
-    "_INFRASTRUCTURE/Ascended33/dockerfiles/Dockerfile.tor",
-    "_INFRASTRUCTURE/Ascended33/dockerfiles",
-    "_INFRASTRUCTURE/Ascended33/tests/__pycache__/test_obsidian_sync.cpython-313-pytest-9.0.2.pyc",
-    "_INFRASTRUCTURE/Ascended33/tests/__pycache__/__init__.cpython-313.pyc",
-    "_INFRASTRUCTURE/Ascended33/tests/__pycache__",
-    "_INFRASTRUCTURE/Ascended33/tests/test_user_session_management.py",
-    "_INFRASTRUCTURE/Ascended33/docs/OBSIDIAN_SETUP.md",
-    "_INFRASTRUCTURE/Ascended33/output/2026-02-19-michael-gauthier-guillet.md",
-    "_INFRASTRUCTURE/Ascended33/templates/obsidian_vault_structure.md",
-    "_INFRASTRUCTURE/Ascended33/templates/threat_intel_report.md",
-    "_INFRASTRUCTURE/Ascended33/templates/pentest_report.md",
-    "_INFRASTRUCTURE/Ascended33/templates/osint_report.md",
-    "_INFRASTRUCTURE/Ascended33/templates/ctf_writeup.md",
-    "_INFRASTRUCTURE/Ascended33/README_DOCKER_SETUP.md",
-    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_DOCKER_GUIDE.md",
-    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_VAULT_INTEGRATION.md",
-    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_WORKFLOW_SETUP.md",
-    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_INTEGRATION_SUMMARY.md",
-    "_INFRASTRUCTURE/Ascended33/HEXSTRIKE_FIXES_COMPLETED.md",
-    "_INFRASTRUCTURE/Ascended33/VERIFICATION_REPORT.md",
-    "_INFRASTRUCTURE/Ascended33/SESSION_SUMMARY.md",
-    "_INFRASTRUCTURE/Ascended33/READY_FOR_TESTING.md",
-    "_INFRASTRUCTURE/Ascended33/FIXES_APPLIED.md",
-    "_INFRASTRUCTURE/Ascended33/PYTHON_PATH_SOLUTION.md",
-    "_INFRASTRUCTURE/Ascended33/JOUR2_VALIDATION_STATUS.md",
-    "_INFRASTRUCTURE/Ascended33/JOUR2_COMPLETION_REPORT.md",
-    "_INFRASTRUCTURE/Ascended33/VAULT_API_SETUP.md",
-    "_INFRASTRUCTURE/Ascended33/TESTING_INSTRUCTIONS.md",
-    "_INFRASTRUCTURE/Ascended33/SESSION_3_CLOSURE_FINAL.md",
-    "_INFRASTRUCTURE/Ascended33/DAY_1_COMPLETION_REPORT.md",
-    "_INFRASTRUCTURE/Ascended33/OPSEC_IMPLEMENTATION_COMPLETE.md",
+    "CREATE_DESKTOP_SHORTCUT.vbs",
+    "CREATE_DESKTOP_SHORTCUT.vbs.tmp.38980.1771629122179",
+    "LAUNCH_VAULT.bat",
+    "LAUNCH_VAULT.bat.tmp.38980.1771629110782",
+    "LAUNCH_VAULT.ps1",
+    "streamlit_app.py",
+    "Instructions Claude — HexStrike THIRTY3.md",
+    "HEXSTRIKE_PR_COMPLETION_GUIDE.md",
+    "CLEANUP_COMPLETED.md",
+    "BRAT-log.md",
+    "THIRTY3/Constitution THIRTY3.md",
+    "ASCENDED33_INTEGRATION_COMPLETE.md",
+    "THIRTY3/README.md",
+    "LLM's/Claude/Claude code/Skills/Créer et configurer une nouvelle application Claude Agent SDK.md",
+    "Apprentissage/Ressources/Labs et Plateformes.md",
+    "Apprentissage/Parcours HexStrike.md",
+    "Apprentissage/Certifications/OSCP — Offensive Security.md",
+    "Apprentissage/Modules/05 — Introduction au Pentest.md",
+    "Apprentissage/Modules/04 — Securite Web — OWASP Top 10.md",
+    "Apprentissage/Modules/03 — Introduction OSINT.md",
+    "Apprentissage/Modules/02 — Linux pour la Securite.md",
+    "Apprentissage/Modules/01 — Fondamentaux Reseaux TCP-IP.md",
+    "Apprentissage/Certifications/CompTIA Security+.md",
+    "Apprentissage/Certifications/CEH — Certified Ethical Hacker.md",
+    "THIRTY3/daily/2026/INDEX.md",
+    "_TEMPLATES/CAPTURE_RAPIDE.md",
+    "LEARNING/COURSERA_CERTIFICATES/05_Participation_RSBIQOHLXEJQ.pdf",
+    "LEARNING/COURSERA_CERTIFICATES/03_Prompting.pdf",
+    "LEARNING/COURSERA_CERTIFICATES/02_Introduction_à_l_IA.pdf",
+    "LEARNING/COURSERA_CERTIFICATES/01_Certificat_Vérifiée_Michael_Gauthier_Guillet.pdf",
+    "LEARNING/COURSERA_CERTIFICATES",
+    "_TEMPLATES/CLAUDE_WORKFLOW.md",
+    "_TEMPLATES/NOTE_PRODUCTIVE_REVENU.md",
+    "_TEMPLATES/ETHICAL_HACKING_NOTE.md",
+    "_TEMPLATES/RECHERCHE.md",
+    "THIRTY3/daily/2026-02-20.md",
     "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/Labatt/Réseaux de Labatt.canvas",
     "LEARNING/HACKERGPT/MindMap.canvas"
   ]
