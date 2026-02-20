@@ -314,6 +314,8 @@
   },
   "active": "54d817625ca28cfd",
   "lastOpenFiles": [
+    "_INFRASTRUCTURE/Ascended33/mcp/hexstrike_api.py",
+    "_INFRASTRUCTURE/Ascended33/workers/hexstrike_worker_api.py",
     "CREATE_DESKTOP_SHORTCUT.vbs",
     "CREATE_DESKTOP_SHORTCUT.vbs.tmp.38980.1771629122179",
     "LAUNCH_VAULT.bat",
@@ -343,8 +345,6 @@
     "LEARNING/COURSERA_CERTIFICATES/05_Participation_RSBIQOHLXEJQ.pdf",
     "LEARNING/COURSERA_CERTIFICATES/03_Prompting.pdf",
     "LEARNING/COURSERA_CERTIFICATES/02_Introduction_à_l_IA.pdf",
-    "LEARNING/COURSERA_CERTIFICATES/01_Certificat_Vérifiée_Michael_Gauthier_Guillet.pdf",
-    "LEARNING/COURSERA_CERTIFICATES",
     "_TEMPLATES/CLAUDE_WORKFLOW.md",
     "_TEMPLATES/NOTE_PRODUCTIVE_REVENU.md",
     "_TEMPLATES/ETHICAL_HACKING_NOTE.md",
