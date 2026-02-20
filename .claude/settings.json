@@ -1,0 +1,178 @@
+{
+  "vault": {
+    "path": "D:\\Vault\\Vault",
+    "version": "2026-02-20",
+    "status": "active"
+  },
+  
+  "agents": {
+    "learning-tracker": {
+      "enabled": true,
+      "name": "Learning Tracker",
+      "description": "Weekly cybersecurity learning progress tracker",
+      "schedule": {
+        "enabled": true,
+        "frequency": "weekly",
+        "day": "tuesday",
+        "time": "19:00",
+        "timezone": "America/Toronto"
+      },
+      "manual_trigger": {
+        "enabled": true,
+        "command": "/progress-check",
+        "description": "Generate progress report on demand"
+      },
+      "data_sources": {
+        "primary": [
+          "THIRTY3/daily/2026/",
+          "THIRTY3/daily/INDEX_DAILY.md"
+        ],
+        "secondary": [
+          "ENQUETES_OSINT/ACTIVES/",
+          "HACKERGPT/RESSOURCES_LEARNING.md",
+          "_BRAIN/DASHBOARD.md"
+        ]
+      },
+      "output_targets": {
+        "main_report": "_BRAIN/WEEKLY_HACKING_PROGRESS.md",
+        "dashboard_update": "THIRTY3/daily/INDEX_DAILY.md",
+        "widget_location": "_BRAIN/DASHBOARD.md"
+      }
+    }
+  },
+
+  "learning_system": {
+    "enabled": true,
+    "daily_notes": {
+      "location": "THIRTY3/daily/2026/MM/",
+      "naming_pattern": "YYYY-MM-DD_learning_progress.md",
+      "template": "THIRTY3/daily/TEMPLATE_DAILY.md",
+      "required_fields": ["date", "type", "phase", "tags", "status"]
+    },
+    
+    "phases": {
+      "phase_1": {
+        "name": "Beginner",
+        "target_hours": 60,
+        "status": "completed",
+        "topics": [
+          "networking",
+          "linux-basics",
+          "cryptography",
+          "web-fundamentals",
+          "security-basics"
+        ]
+      },
+      "phase_2": {
+        "name": "Intermediate",
+        "target_hours": 80,
+        "status": "in-progress",
+        "current_hours": 35,
+        "completion_percent": 43.75,
+        "topics": [
+          "owasp-top-10",
+          "reconnaissance",
+          "web-pentest",
+          "exploitation-basics",
+          "vulnerability-analysis"
+        ],
+        "platforms": [
+          "TryHackMe",
+          "HackTheBox",
+          "PortSwigger Academy"
+        ]
+      },
+      "phase_3": {
+        "name": "Advanced",
+        "target_hours": 100,
+        "status": "planned",
+        "estimated_start": "2026-04-01",
+        "topics": [
+          "advanced-exploitation",
+          "reverse-engineering",
+          "system-hardening",
+          "advanced-owasp",
+          "privilege-escalation"
+        ]
+      },
+      "phase_4": {
+        "name": "OSCP Certification",
+        "target_hours": 120,
+        "status": "planned",
+        "estimated_start": "2026-07-01",
+        "certification": "OSCP",
+        "provider": "Offensive Security"
+      }
+    },
+
+    "integrations": {
+      "osint_tracking": {
+        "enabled": true,
+        "location": "ENQUETES_OSINT/ACTIVES/",
+        "daily_note_linking": true
+      },
+      "ctf_platforms": {
+        "enabled": true,
+        "tracked_platforms": [
+          "TryHackMe",
+          "HackTheBox",
+          "PortSwigger",
+          "CTFlearn"
+        ]
+      },
+      "evidence_tracking": {
+        "enabled": true,
+        "location": "HACKERGPT/RESSOURCES_LEARNING/evidence/"
+      }
+    }
+  },
+
+  "reporting": {
+    "weekly_report": {
+      "enabled": true,
+      "format": "markdown",
+      "sections": [
+        "summary",
+        "phase_progress",
+        "daily_breakdown",
+        "challenges_completed",
+        "concepts_mastered",
+        "blockers",
+        "recommendations"
+      ]
+    },
+    "dashboard": {
+      "enabled": true,
+      "update_frequency": "weekly",
+      "metrics": [
+        "current_phase",
+        "phase_completion_percent",
+        "estimated_completion_date",
+        "weekly_velocity",
+        "learning_streak",
+        "oscp_countdown"
+      ]
+    }
+  },
+
+  "automations": {
+    "osint_investigator": {
+      "enabled": true,
+      "hook_type": "PostToolUse",
+      "trigger_path": "ENQUETES_OSINT/ACTIVES/",
+      "auto_features": [
+        "yaml_frontmatter",
+        "id_generation",
+        "auto_linking",
+        "ioc_file_creation"
+      ]
+    }
+  },
+
+  "backup": {
+    "enabled": true,
+    "frequency": "daily",
+    "target": "git",
+    "auto_commit": true
+  }
+}
