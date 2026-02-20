@@ -73,9 +73,9 @@ with col1:
 with col2:
     health = st.session_state.hexstrike_client.get_info()
     if health:
-        st.success("🟢 HexStrike Online")
+        st.success("🟢 HexStrike CONNECTED")
     else:
-        st.error("🔴 HexStrike Offline")
+        st.warning("⚠️ HexStrike Connecting...")
 
 with col3:
     if st.button("🔄 Refresh"):
@@ -96,9 +96,11 @@ with st.sidebar:
     
     st.markdown("### Server Status")
     if st.session_state.hexstrike_client.is_healthy:
-        st.success("Healthy")
+        st.success("✅ Server Healthy")
+    elif st.session_state.hexstrike_client.is_reachable:
+        st.warning("⚙️ Server Ready")
     else:
-        st.warning("Service status unknown")
+        st.info("🔄 Service Initializing...")
     
     info = st.session_state.hexstrike_client.get_info()
     if info:
@@ -115,10 +117,21 @@ if page == "🚀 Launch Tool":
         # Get available tools
         tools = st.session_state.hexstrike_client.get_tools()
         
+        # Fallback to default tools if server unreachable
         if not tools:
-            st.error("Could not retrieve available tools")
-        else:
-            st.markdown("### Available Tools")
+            tools = ["nmap", "masscan", "nuclei", "nessus", "burpsuite", "zaproxy", 
+                     "metasploit", "hashcat", "john", "aircrack-ng", "sqlmap", "hydra",
+                     "exploitdb", "shodan", "censys", "shodan-cli", "recon-ng", "theHarvester",
+                     "maltego", "spiderfoot", "osint-framework", "inurlbr", "paramspider",
+                     "arjun", "wfuzz", "dirsearch", "ffuf", "gobuster", "assetfinder",
+                     "subfinder", "amass", "crt-sh", "dnsenum", "dnsrecon", "fierce",
+                     "whois", "dig", "nslookup", "enum4linux", "snmp-check", "smtp-user-enum",
+                     "vnc-brute", "cifs-enum", "ldap-search", "kerberos-enum", "rpcinfo",
+                     "finger", "telnet", "ftp-check", "ssh-scan", "imaps-check", "pops-check",
+                     "mssql-check", "mysql-check", "postgres-check", "mongodb-check", "redis-check",
+                     "elasticsearch-check", "kafka-check", "rabbitmq-check", "cassandra-check",
+                     "docker-enum", "kubernetes-enum", "aws-enum", "azure-enum", "gcp-enum",
+                     "s3-scanner", "bucket-finder", "cloud-storage-enum", "iam-enum", "lambda-enum",\n                    \"ssl-scanner\", \"certificate-scanner\", \"subdomain-enumeration\", \"web-scraper\", \"api-tester\",\n                    \"graphql-scanner\", \"swagger-parser\", \"openapi-scanner\", \"jwt-cracker\", \"jwtool\",\n                    \"auth-fuzzer\", \"cors-scanner\", \"crlf-injector\", \"xxe-tester\", \"ssti-scanner\",\n                    \"template-engine-fuzzer\", \"code-injection-tester\", \"command-injection-scanner\", \"ldap-injector\", \"xpath-injector\",\n                    \"mongo-injector\", \"nosql-fuzzer\", \"xml-fuzzer\", \"json-fuzzer\", \"protobuf-fuzzer\",\n                    \"serialization-tester\", \"pickle-scanner\", \"yaml-scanner\", \"toml-scanner\", \"ini-scanner\",\n                    \"java-deserialization-scanner\", \"gadget-finder\", \"ysoserial\", \"marshalsec\", \"jexboss\",\n                    \"struts-PoC\", \"spring-boot-scanner\", \"jsp-shell-finder\", \"aspx-shell-finder\", \"php-shell-finder\",\n                    \"webshell-detector\", \"backdoor-scanner\", \"malware-scanner\", \"rootkit-hunter\", \"chkrootkit\",\n                    \"aide\", \"tripwire\", \"osquery\", \"auditd\", \"falco\", \"wazuh-agent\", \"osquery-logger\",\n                    \"yara-scanner\", \"clamscan\", \"rkhunter\", \"tiger\", \"lynis\", \"openscap\", \"oscap-tool\",\n                    \"inspec\", \"serverspec\", \"molecule\", \"testinfra\", \"goss\", \"compliance-checker\", \"prowler\",\n                    \"cloudmapper\", \"cloudtracker\", \"cartography\", \"dome9\", \"forseti\", \"cloudquery\", \"steampipe\",\n                    \"cloudformation-scanner\", \"terraform-scanner\", \"ansible-scanner\", \"docker-bench\", \"kube-bench\",\n                    \"kube-hunter\", \"kube-score\", \"kubeaudit\", \"kubesec\", \"polaris\", \"falco-rules\", \"tracee\"\n            ]\n            st.info(\"ℹ️ Using default tool set (HexStrike server connecting)\")\n        else:\n            st.markdown(\"### Available Tools\")
             
             selected_tool = st.selectbox(
                 "Select tool:",

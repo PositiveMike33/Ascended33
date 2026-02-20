@@ -1,0 +1,15 @@
+FROM alpine:latest
+
+RUN apk add --no-cache \
+    tor \
+    curl \
+    netcat-openbsd
+
+COPY config/torrc /etc/tor/torrc
+
+EXPOSE 9050 9051
+
+HEALTHCHECK --interval=10s --timeout=5s --retries=3 \
+    CMD nc -z localhost 9050 || exit 1
+
+CMD ["tor", "-f", "/etc/tor/torrc"]

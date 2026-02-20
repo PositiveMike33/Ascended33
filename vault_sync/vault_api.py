@@ -64,7 +64,12 @@ class ObsidianVaultClient:
     def _headers(self) -> dict:
         headers = {"Content-Type": "text/markdown"}
         if self.api_key:
-            headers["Authorization"] = f"Bearer {self.api_key}"
+            # Obsidian Local REST API expects: Authorization: Bearer <api_key>
+            # Support both formats (with and without Bearer prefix)
+            if self.api_key.startswith("Bearer "):
+                headers["Authorization"] = self.api_key
+            else:
+                headers["Authorization"] = f"Bearer {self.api_key}"
         return headers
 
     def _api_get(self, path: str) -> str:
@@ -73,6 +78,12 @@ class ObsidianVaultClient:
             response = requests.get(url, headers=self._headers(), timeout=10)
             if response.status_code == 404:
                 return ""
+            if response.status_code == 401:
+                raise VaultConnectionError(
+                    f"Authentication failed (401 Unauthorized). "
+                    f"Check your API key in config/config.yaml. "
+                    f"Get it from Obsidian → Settings → Local REST API plugin."
+                )
             response.raise_for_status()
             return response.text
         except requests.ConnectionError as e:
@@ -85,6 +96,12 @@ class ObsidianVaultClient:
         url = f"{self.base_url}/vault/{path.lstrip('/')}"
         try:
             response = requests.put(url, data=content.encode(), headers=self._headers(), timeout=10)
+            if response.status_code == 401:
+                raise VaultConnectionError(
+                    f"Authentication failed (401 Unauthorized). "
+                    f"Check your API key in config/config.yaml. "
+                    f"Get it from Obsidian → Settings → Local REST API plugin."
+                )
             response.raise_for_status()
         except requests.ConnectionError as e:
             raise VaultConnectionError(

@@ -1,0 +1,229 @@
+╔════════════════════════════════════════════════════════════════════════╗
+║                     ⚔️ HEXSTRIKE QUICK START                            ║
+║         Cybersecurity Research Platform with 150+ Red Team Tools       ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+📌 STEP 1: CREATE DESKTOP SHORTCUT
+═══════════════════════════════════════════════════════════════════════════
+
+1. Navigate to: D:\Vault\Vault\Ascended33
+2. Double-click: CREATE_HEXSTRIKE_SHORTCUT.vbs
+3. A new "HexStrike.lnk" shortcut will appear on your Desktop
+
+OR use PowerShell:
+   powershell -ExecutionPolicy Bypass -File "D:\Vault\Vault\Ascended33\CREATE_HEXSTRIKE_SHORTCUT.ps1"
+
+
+📌 STEP 2: VERIFY DOCKER IS RUNNING
+═══════════════════════════════════════════════════════════════════════════
+
+Make sure Docker Desktop is running:
+   • Look for Docker icon in system tray
+   • If not running: Start Docker Desktop application
+   • Wait for Docker daemon to initialize (1-2 minutes)
+
+
+📌 STEP 3: LAUNCH HEXSTRIKE
+═══════════════════════════════════════════════════════════════════════════
+
+Option A - Desktop Shortcut (Easiest):
+   • Double-click the HexStrike.lnk shortcut on your Desktop
+   • Browser will open automatically
+
+Option B - Manual Launch:
+   • Open Command Prompt
+   • cd D:\Vault\Vault\Ascended33
+   • Run: docker-compose up -d
+   • Wait 30-60 seconds for containers to start
+   • Open browser to: http://localhost:8501
+
+Option C - Batch File:
+   • Double-click: D:\Vault\Vault\Ascended33\LAUNCH_HEXSTRIKE.bat
+
+
+📌 STEP 4: ACCESS HEXSTRIKE
+═══════════════════════════════════════════════════════════════════════════
+
+Browser should automatically open to:
+   🌐 http://localhost:8501
+
+If not, manually open browser and navigate to above URL
+
+
+🛠️ AVAILABLE TOOLS
+═══════════════════════════════════════════════════════════════════════════
+
+150+ tools available including:
+
+Scanning:       nmap, masscan, nessus, nuclei, shodan, censys
+OSINT:          maltego, spiderfoot, recon-ng, theHarvester
+Web Security:   burpsuite, zaproxy, wfuzz, sqlmap, nuclei
+Enumeration:    enum4linux, snmp-check, ldap-search
+Cloud:          aws-enum, azure-enum, gcp-enum, s3-scanner
+Exploitation:   metasploit, hashcat, john, hydra
+Detection:      yara, clamscan, kubesec, docker-bench
+...and 100+ more!
+
+
+📡 SERVICE ENDPOINTS
+═══════════════════════════════════════════════════════════════════════════
+
+HexStrike UI:           http://localhost:8501
+HexStrike API:          http://localhost:8001
+HackerGPT:              http://localhost:8000
+Tor SOCKS5 Proxy:       localhost:9050
+
+
+⏱️ INITIALIZATION TIME
+═══════════════════════════════════════════════════════════════════════════
+
+First launch (containers starting):  30-60 seconds
+Subsequent launches:                 10-20 seconds
+Tool initialization:                 2-5 seconds
+UI responsiveness:                   <1 second
+
+
+✅ HOW TO USE HEXSTRIKE
+═══════════════════════════════════════════════════════════════════════════
+
+1. SELECT TOOL
+   • From left sidebar, click "🚀 Launch Tool"
+   • Choose tool from dropdown (nmap, nuclei, etc.)
+
+2. CONFIGURE TARGET
+   • Enter target IP, domain, or CIDR
+   • Set tool-specific parameters
+
+3. LAUNCH SCAN
+   • Click "🚀 Launch Task" button
+   • Task submitted to queue
+
+4. MONITOR PROGRESS
+   • Click "📊 Monitor Jobs" in sidebar
+   • View real-time status of running scans
+
+5. VIEW RESULTS
+   • Click "📈 Results" to see completed jobs
+   • Export to JSON if needed
+
+
+📊 INTERFACE PAGES
+═══════════════════════════════════════════════════════════════════════════
+
+🚀 Launch Tool      - Submit new security scanning tasks
+📊 Monitor Jobs     - Real-time status of running jobs
+📈 Results          - Completed job results & analytics
+⚙️ Settings         - Server configuration & diagnostics
+
+
+🔒 SECURITY FEATURES
+═══════════════════════════════════════════════════════════════════════════
+
+✅ Isolated Docker containers (each tool isolated)
+✅ Optional Tor anonymization (SOCKS5 proxy)
+✅ Vault integration (results cached locally)
+✅ OPSEC monitoring enabled
+✅ Multi-user session management
+✅ Audit trail & logging
+✅ RSA cryptographic system
+✅ Health monitoring (20s intervals)
+
+
+⚠️ SYSTEM REQUIREMENTS
+═══════════════════════════════════════════════════════════════════════════
+
+• Docker Desktop installed & running
+• 8GB RAM minimum (16GB recommended)
+• 20GB free disk space
+• Windows 10/11 or Linux
+• 100+ Mbps internet connection
+
+
+❓ TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════
+
+Issue: "Connection refused" error
+→ Ensure Docker Desktop is running: docker ps
+
+Issue: "Could not retrieve available tools"
+→ Normal on first launch. Using fallback list with 150+ tools.
+  Server initializing... Wait 30 seconds and refresh.
+
+Issue: Port 8501 already in use
+→ Close other Streamlit apps or restart system
+
+Issue: Containers won't start
+→ Check logs: docker-compose logs
+→ Ensure Docker has enough resources
+
+Issue: Very slow performance
+→ Increase Docker memory allocation
+→ Reduce number of running tools
+
+
+📚 LEARNING PATH
+═══════════════════════════════════════════════════════════════════════════
+
+Week 1:  Basic Scanning (nmap, masscan, shodan)
+Week 2:  OSINT Fundamentals (maltego, spiderfoot)
+Week 3:  Web Security (burpsuite, nuclei, sqlmap)
+Week 4:  Exploitation (metasploit, cobalt-strike)
+
+Resources:
+  D:\Vault\Vault\HexStrike\Pentest\
+  D:\Vault\Vault\HexStrike\OSINT\
+  D:\Vault\Vault\HACKERGPT\RESSOURCES_LEARNING\
+
+
+📖 DOCUMENTATION
+═══════════════════════════════════════════════════════════════════════════
+
+Complete Guides:
+  • HEXSTRIKE_INTEGRATION_GUIDE.md
+  • HEXSTRIKE_FIXES_COMPLETED.md
+  • OPERATIONAL_GUIDE.md
+  • DOCKER_INTEGRATION_GUIDE.md
+
+Related Projects:
+  • Ascended33 (Main security platform)
+  • THIRTY3 (Network intelligence)
+  • HackerGPT (Claude AI integration)
+
+
+🚀 QUICK COMMANDS
+═══════════════════════════════════════════════════════════════════════════
+
+Check container status:
+   docker-compose ps
+
+View HexStrike logs:
+   docker-compose logs -f th3-hexstrike
+
+Stop all services:
+   docker-compose down
+
+Restart HexStrike:
+   docker-compose restart th3-hexstrike
+
+Clean up Docker:
+   docker system prune -a
+
+
+✨ PRO TIPS
+═══════════════════════════════════════════════════════════════════════════
+
+• Keep browser console open (F12) to monitor API calls
+• Export results to JSON for further analysis
+• Use Vault integration to track findings over time
+• Enable Tor for maximum anonymity during research
+• Cache results locally to avoid re-running tools
+• Monitor job status before submitting new tasks
+
+
+════════════════════════════════════════════════════════════════════════════
+
+Created: 2026-02-20
+Version: 1.0
+For: Michaël G. Guillet
+
+Next: Double-click CREATE_HEXSTRIKE_SHORTCUT.vbs to create desktop shortcut!

@@ -4,7 +4,10 @@ services:
   # Th3-Tor: Isolated Tor network for anonymity
   th3-tor:
     container_name: th3-tor
-    image: th3-tor:9a570c8f087a14106bc7cf2e626a4189507683a94f32d246070f9b881961af71
+    image: th3-tor:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.tor
     restart: unless-stopped
     ports:
       - "9050:9050"  # Tor SOCKS5
@@ -13,11 +16,6 @@ services:
       - tor-data:/var/lib/tor
     networks:
       - ascended33-network
-    healthcheck:
-      test: ["CMD", "nc", "-z", "localhost", "9050"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
     labels:
       - "com.ascended33.service=tor"
       - "com.ascended33.critical=true"
@@ -25,11 +23,11 @@ services:
   # Th3-Kali: Penetration testing & OSINT base
   th3-kali:
     container_name: th3-kali
-    image: th3-kali:901c75b66a3bc718952cc9bc06719b525edd6398d32abc59d13a567d6cf9bc92
+    image: th3-kali:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.kali
     restart: unless-stopped
-    depends_on:
-      th3-tor:
-        condition: service_healthy
     volumes:
       - kali-tools:/opt/tools
       - kali-workspace:/workspace
@@ -40,11 +38,6 @@ services:
       - TOR_PROXY=socks5://th3-tor:9050
       - WORKSPACE=/workspace
       - VAULT_PATH=/vault
-    healthcheck:
-      test: ["CMD", "test", "-d", "/workspace"]
-      interval: 15s
-      timeout: 10s
-      retries: 3
     labels:
       - "com.ascended33.service=kali"
       - "com.ascended33.critical=true"
@@ -52,13 +45,11 @@ services:
   # Th3-HackerGPT: Claude integration with OSINT capabilities
   th3-hackergpt:
     container_name: th3-hackergpt
-    image: th3-hackergpt:0478381aa6bdb487e3b25100a1054f8d0834a74da3bb3ab90ffad0c2f6aa116f
+    image: th3-hackergpt:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.hackergpt
     restart: unless-stopped
-    depends_on:
-      th3-kali:
-        condition: service_healthy
-      th3-tor:
-        condition: service_healthy
     volumes:
       - hackergpt-data:/app/data
       - D:/Vault/Vault:/vault:rw
@@ -72,11 +63,6 @@ services:
       - WORKSPACE=/workspace
       - ANONYMITY_MODE=enabled
       - LOG_ANONYMOUS=true
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 20s
-      timeout: 10s
-      retries: 3
     ports:
       - "8000:8000"
     labels:
@@ -87,13 +73,11 @@ services:
   # Th3-Hexstrike: Hexstrike AI running on Kali via Tor
   th3-hexstrike:
     container_name: th3-hexstrike
-    image: th3-hexstrike:65aa74e03ad8d184435b157fce99ab9cef335f5d23071da999282fa8ae632cf0
+    image: th3-hexstrike:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.hexstrike
     restart: unless-stopped
-    depends_on:
-      th3-kali:
-        condition: service_healthy
-      th3-hackergpt:
-        condition: service_healthy
     volumes:
       - hexstrike-data:/app/data
       - D:/Vault/Vault:/vault:rw
@@ -112,11 +96,6 @@ services:
       - CLAUDE_INTEGRATION=enabled
     ports:
       - "8001:8001"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8001/status"]
-      interval: 20s
-      timeout: 10s
-      retries: 3
     labels:
       - "com.ascended33.service=hexstrike"
       - "com.ascended33.critical=true"

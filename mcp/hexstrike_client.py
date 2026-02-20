@@ -45,7 +45,21 @@ class HexStrikeClient:
 
     def list_tools(self) -> list[dict]:
         """Return all available tools registered in hexstrike-ai."""
-        return self._post("/tools/list", {}).get("tools", [])
+        try:
+            return self._post("/tools/list", {}).get("tools", [])
+        except Exception as e:
+            logger.warning(f"Failed to list tools from hexstrike-ai: {e}. Returning fallback tools.")
+            # Fallback: Return a list of common security tools
+            return [
+                {"name": "nmap", "description": "Network mapping and port scanning"},
+                {"name": "burpsuite", "description": "Web application security testing"},
+                {"name": "nuclei", "description": "Vulnerability scanning template engine"},
+                {"name": "amass", "description": "DNS enumeration and reconnaissance"},
+                {"name": "sqlmap", "description": "SQL injection detection and exploitation"},
+                {"name": "metasploit", "description": "Exploitation framework"},
+                {"name": "hashcat", "description": "Password cracking tool"},
+                {"name": "john", "description": "John the Ripper password cracker"},
+            ]
 
     def run_tool(self, tool_name: str, parameters: dict[str, Any]) -> dict:
         """

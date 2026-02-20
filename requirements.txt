@@ -34,3 +34,7 @@ jsonschema
 
 # Logging and anonymization
 colorlog
+
+# Testing
+pytest
+pytest-cov

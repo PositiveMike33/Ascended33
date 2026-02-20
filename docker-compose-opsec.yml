@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  # ─────────────────────────────────────────────────────────────────────────
+  # th3-kali: Kali Linux container for security operations
+  # ─────────────────────────────────────────────────────────────────────────
+  th3-kali:
+    image: kalilinux/kali-linux-docker:latest
+    container_name: th3-kali
+    stdin_open: true
+    tty: true
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+      - TOR_PROXY=th3-tor:9050
+      - VPN_PROVIDER=mullvad
+    volumes:
+      - kali_workspaces:/root/workspaces
+      - kali_tools:/opt/tools
+      - ./scripts:/opt/scripts:ro
+      - ./config:/opt/config:ro
+    networks:
+      - ascended33_net
+    depends_on:
+      - th3-tor
+    command: /bin/bash
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # th3-tor: Tor exit node for anonymized traffic
+  # ─────────────────────────────────────────────────────────────────────────
+  th3-tor:
+    image: osminogin/tor-simple:latest
+    container_name: th3-tor
+    environment:
+      - TOR_LOG_NOTICE=1
+      - TOR_LOG_WARN=1
+    ports:
+      - "9050:9050"  # SOCKS5 proxy
+      - "9051:9051"  # Control port (optional)
+    volumes:
+      - tor_data:/var/lib/tor
+      - ./config/torrc:/etc/tor/torrc:ro
+    networks:
+      - ascended33_net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-x", "socks5://127.0.0.1:9050", "-I", "https://check.torproject.org"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+  # ─────────────────────────────────────────────────────────────────────────
+  # hexstrike-ai: Security automation framework (optional, if self-hosted)
+  # ─────────────────────────────────────────────────────────────────────────
+  hexstrike-ai:
+    image: hexstrike-ai:latest
+    container_name: hexstrike-ai
+    environment:
+      - TOR_PROXY=th3-tor:9050
+      - KALI_CONTAINER=th3-kali
+    ports:
+      - "8888:8888"
+    volumes:
+      - hexstrike_cache:/app/cache
+      - ./config:/app/config:ro
+    networks:
+      - ascended33_net
+    depends_on:
+      - th3-kali
+      - th3-tor
+    restart: unless-stopped
+    # Note: Requires custom Dockerfile to build image
+    # Uncomment when available:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.hexstrike
+
+networks:
+  ascended33_net:
+    driver: bridge
+
+volumes:
+  kali_workspaces:
+    driver: local
+  kali_tools:
+    driver: local
+  tor_data:
+    driver: local
+  hexstrike_cache:
+    driver: local

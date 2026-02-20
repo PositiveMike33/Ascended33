@@ -76,7 +76,7 @@ class HexStrikeClient:
 
     def __init__(
         self,
-        base_url: str = "http://localhost:8888",
+        base_url: str = "http://localhost:8001",
         timeout: int = 30,
         max_retries: int = 3,
         enable_caching: bool = True,

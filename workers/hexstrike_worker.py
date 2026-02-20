@@ -310,7 +310,7 @@ class HexStrikeWorker:
 **Task ID**: {task.task_id}
 **Job ID**: {result.job_id}
 **Status**: {result.status.value}
-**Execution Time**: {result.execution_time:.2f}s if result.execution_time else "N/A"}
+**Execution Time**: {result.execution_time:.2f}s if result.execution_time else "N/A"
 
 ## Parameters
 ```json
