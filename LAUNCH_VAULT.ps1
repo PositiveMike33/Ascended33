@@ -7,10 +7,13 @@
 $VaultPath    = "D:\Vault\Vault"
 $Ascended33   = "$VaultPath\_INFRASTRUCTURE\Ascended33"
 $ObsidianExe  = "C:\Users\th3th\AppData\Local\Obsidian\Obsidian.exe"
-$PythonEnv    = "$VaultPath\.env\Scripts\python.exe"
 $StreamlitApp = "$VaultPath\_INFRASTRUCTURE\Ascended33\streamlit_app.py"
+$StreamlitCwd  = "$VaultPath\_INFRASTRUCTURE\Ascended33"
 
-# Fallback si le venv n'existe pas
+# Cherche le Python dans cet ordre : venv Ascended33 > venv Vault > python global
+$PythonEnv = "$Ascended33\.venv\Scripts\python.exe"
+if (-not (Test-Path $PythonEnv)) { $PythonEnv = "$Ascended33\venv\Scripts\python.exe" }
+if (-not (Test-Path $PythonEnv)) { $PythonEnv = "$VaultPath\.env\Scripts\python.exe" }
 if (-not (Test-Path $PythonEnv)) { $PythonEnv = "python" }
 
 # ============================================================
@@ -110,7 +113,7 @@ if ($streamlitRunning) {
 } else {
     if (Test-Path $StreamlitApp) {
         Step "⚡" "Lancement Streamlit sur http://localhost:8501 ..." "Cyan"
-        Start-Process powershell -ArgumentList "-NoProfile -WindowStyle Minimized -Command `"& '$PythonEnv' -m streamlit run '$StreamlitApp' --server.port 8501 --server.headless true`""
+        Start-Process powershell -ArgumentList "-NoProfile -WindowStyle Normal -Title 'Streamlit — Ascended33' -Command `"Set-Location '$StreamlitCwd'; & '$PythonEnv' -m streamlit run '$StreamlitApp' --server.port 8501 --server.headless false`""
         Start-Sleep -Seconds 3
         OK "Streamlit démarré → http://localhost:8501"
     } else {
@@ -118,7 +121,7 @@ if ($streamlitRunning) {
         $fallback = "$VaultPath\streamlit_app.py"
         if (Test-Path $fallback) {
             Step "⚡" "Lancement Streamlit (vault root)..." "Yellow"
-            Start-Process powershell -ArgumentList "-NoProfile -WindowStyle Minimized -Command `"& '$PythonEnv' -m streamlit run '$fallback' --server.port 8501`""
+            Start-Process powershell -ArgumentList "-NoProfile -WindowStyle Normal -Title 'Streamlit — Ascended33' -Command `"& '$PythonEnv' -m streamlit run '$fallback' --server.port 8501 --server.headless false`""
             Start-Sleep -Seconds 3
             OK "Streamlit démarré → http://localhost:8501"
         } else {
@@ -175,4 +178,5 @@ Write-Host ""
 Write-Host "  ─────────────────────────────────────────────────" -ForegroundColor DarkGray
 Write-Host ""
 
-Start-Sleep -Seconds 5
+Write-Host "  Appuie sur Enter pour fermer cette fenêtre..." -ForegroundColor DarkGray
+Read-Host | Out-Null
