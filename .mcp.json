@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "hexstrike-ai": {
+      "type": "sse",
+      "url": "http://localhost:8888/sse",
+      "description": "HexStrike AI — 150+ cybersecurity tools via MCP. Start with: python3 ~/hexstrike-ai/hexstrike_server.py"
+    },
+    "hexstrike-ai-http": {
+      "type": "http",
+      "url": "http://localhost:8888",
+      "description": "HexStrike AI HTTP transport (fallback if SSE is unavailable)"
+    },
+    "obsidian-vault": {
+      "type": "http",
+      "url": "http://127.0.0.1:27123",
+      "description": "Obsidian Local REST API — D:\\Vault knowledge base. Requires Obsidian running with Local REST API plugin."
+    }
+  }
+}

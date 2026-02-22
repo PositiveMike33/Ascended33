@@ -1,0 +1,26 @@
+# Secrets & config (NEVER commit)
+config/config.yaml
+config/ssh/
+config/docker_config.json
+*.key
+*.pem
+*.env
+.env*
+
+# Output & cache
+output/
+*.log
+vault_sync/cache/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Python environments
+venv/
+.venv/
+hexstrike-env/
+
+# OS artifacts
+.DS_Store
+Thumbs.db

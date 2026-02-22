@@ -1,3 +1,40 @@
+# Dashboard
 altair
 pandas
 streamlit
+
+# HTTP / integrations
+requests
+pyyaml
+
+# OSINT
+dnspython
+python-whois
+
+# SSH — Kali VM connection
+paramiko
+
+# Tor routing (for dark web monitoring)
+PySocks
+requests[socks]
+
+# Vault auto-sync and monitoring
+watchdog
+
+# Docker orchestration and management
+docker
+docker-compose
+
+# Anonymous report generation
+cryptography
+blake2s-blake2b
+
+# JSON processing
+jsonschema
+
+# Logging and anonymization
+colorlog
+
+# Testing
+pytest
+pytest-cov

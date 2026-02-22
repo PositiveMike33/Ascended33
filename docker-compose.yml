@@ -1,0 +1,120 @@
+version: '3.9'
+
+services:
+  # Th3-Tor: Isolated Tor network for anonymity
+  th3-tor:
+    container_name: th3-tor
+    image: th3-tor:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.tor
+    restart: unless-stopped
+    ports:
+      - "9050:9050"  # Tor SOCKS5
+      - "9051:9051"  # Tor control port
+    volumes:
+      - tor-data:/var/lib/tor
+    networks:
+      - ascended33-network
+    labels:
+      - "com.ascended33.service=tor"
+      - "com.ascended33.critical=true"
+
+  # Th3-Kali: Penetration testing & OSINT base
+  th3-kali:
+    container_name: th3-kali
+    image: th3-kali:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.kali
+    restart: unless-stopped
+    volumes:
+      - kali-tools:/opt/tools
+      - kali-workspace:/workspace
+      - D:/Vault/Vault:/vault:rw
+    networks:
+      - ascended33-network
+    environment:
+      - TOR_PROXY=socks5://th3-tor:9050
+      - WORKSPACE=/workspace
+      - VAULT_PATH=/vault
+    labels:
+      - "com.ascended33.service=kali"
+      - "com.ascended33.critical=true"
+
+  # Th3-HackerGPT: Claude integration with OSINT capabilities
+  th3-hackergpt:
+    container_name: th3-hackergpt
+    image: th3-hackergpt:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.hackergpt
+    restart: unless-stopped
+    volumes:
+      - hackergpt-data:/app/data
+      - D:/Vault/Vault:/vault:rw
+      - kali-workspace:/workspace:ro
+    networks:
+      - ascended33-network
+    environment:
+      - CLAUDE_ENABLED=true
+      - TOR_PROXY=socks5://th3-tor:9050
+      - VAULT_PATH=/vault
+      - WORKSPACE=/workspace
+      - ANONYMITY_MODE=enabled
+      - LOG_ANONYMOUS=true
+    ports:
+      - "8000:8000"
+    labels:
+      - "com.ascended33.service=hackergpt"
+      - "com.ascended33.claude=true"
+      - "com.ascended33.critical=true"
+
+  # Th3-Hexstrike: Hexstrike AI running on Kali via Tor
+  th3-hexstrike:
+    container_name: th3-hexstrike
+    image: th3-hexstrike:latest
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile.hexstrike
+    restart: unless-stopped
+    volumes:
+      - hexstrike-data:/app/data
+      - D:/Vault/Vault:/vault:rw
+      - kali-workspace:/workspace:rw
+    networks:
+      - ascended33-network
+    environment:
+      - KALI_HOST=th3-kali
+      - HACKERGPT_HOST=th3-hackergpt
+      - TOR_PROXY=socks5://th3-tor:9050
+      - VAULT_PATH=/vault
+      - WORKSPACE=/workspace
+      - ANONYMITY_ENABLED=true
+      - AUTO_REPORT_GENERATION=true
+      - REPORT_DESTINATION=/vault/REPORT
+      - CLAUDE_INTEGRATION=enabled
+    ports:
+      - "8001:8001"
+    labels:
+      - "com.ascended33.service=hexstrike"
+      - "com.ascended33.critical=true"
+
+networks:
+  ascended33-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+
+volumes:
+  tor-data:
+    driver: local
+  kali-tools:
+    driver: local
+  kali-workspace:
+    driver: local
+  hackergpt-data:
+    driver: local
+  hexstrike-data:
+    driver: local

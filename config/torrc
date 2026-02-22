@@ -1,0 +1,25 @@
+# Tor configuration for th3-tor container
+# Ascended33 OPSEC anonymity layer
+
+# Network settings (modern syntax — Tor 0.4.x+)
+SocksPort 0.0.0.0:9050
+ControlPort 9051
+
+# Logging
+Log notice stdout
+
+# Performance
+NumEntryGuards 3
+KeepalivePeriod 300
+
+# Security
+SafeSocks 1
+TestSocks 1
+
+# Exit policy (relay mode — désactiver si usage client seulement)
+# ExitPolicy reject *:*
+
+# Anonymity mode
+StrictNodes 1
+UseEntryGuards 1
+EnforceDistinctSubnets 1

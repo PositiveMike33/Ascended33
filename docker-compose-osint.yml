@@ -1,0 +1,206 @@
+version: '3.9'
+
+services:
+  # ====== TOR - Routage anonyme pour opérations ======
+  th3-tor:
+    image: golangci/golangci-lint:latest-alpine  # Placeholder, à remplacer par image Tor réelle
+    container_name: ascended33-th3-tor-1
+    restart: always
+    ports:
+      - "9050:9050"  # SOCKS5
+      - "9051:9051"  # Control port
+    environment:
+      # Configuration anonyme
+      TOR_ANONYMITY_LEVEL: "maximum"
+      AUDIT_ENABLED: "false"  # Pas de logs détaillés
+      METADATA_STRIPPING: "true"
+    volumes:
+      - tor_data:/var/lib/tor
+      - ./config/torrc:/etc/tor/torrc:ro
+    networks:
+      osint_network:
+        ipv4_address: 172.25.0.10
+    healthcheck:
+      test: ["CMD", "curl", "-s", "http://localhost:9051"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    labels:
+      component: "anonymity_layer"
+      security_level: "critical"
+
+  # ====== KALI LINUX - Reconnaissance & Investigation ======
+  th3-kali:
+    image: kalilinux/kali-rolling  # Image Kali Linux officielle
+    container_name: ascended33-th3-kali-1
+    restart: always
+    depends_on:
+      th3-tor:
+        condition: service_healthy
+    environment:
+      # Configuration de sécurité
+      AUDIT_ENABLED: "true"
+      OPERATOR_ANONYMOUS: "true"
+      TOR_PROXY: "th3-tor:9050"
+      OSINT_MODE: "legal_investigation"
+      REPORT_SIGNING: "enabled"
+    volumes:
+      - kali_data:/root
+      - ./scripts:/osint/scripts:ro
+      - ./output:/osint/output
+      - ./osint_reports:/osint/reports
+    networks:
+      osint_network:
+        ipv4_address: 172.25.0.20
+    ports:
+      - "22:22"  # SSH (optionnel)
+    healthcheck:
+      test: ["CMD", "test", "-f", "/etc/os-release"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    labels:
+      component: "reconnaissance"
+      security_level: "high"
+
+  # ====== HACKERGPT - Analyse Claude ======
+  th3-hackergpt:
+    image: custom/hackergpt:latest  # À build localement
+    container_name: ascended33-th3-hackergpt-1
+    restart: always
+    depends_on:
+      th3-tor:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      # Claude API configuration
+      CLAUDE_API_ENABLED: "true"
+      AUDIT_TRAIL: "enabled"
+      ANONYMITY_LEVEL: "operational"
+      REPORT_SIGNING: "enabled"
+      TOR_ROUTING: "enabled"
+      # Investigation mode
+      INVESTIGATION_MODE: "legal"
+      CHAIN_OF_CUSTODY: "enabled"
+      EVIDENCE_INTEGRITY: "sha256"
+    volumes:
+      - hackergpt_data:/app/data
+      - ./osint_reports:/app/reports
+      - ./config/claude.env:/app/.env:ro
+    networks:
+      osint_network:
+        ipv4_address: 172.25.0.30
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    labels:
+      component: "ai_analysis"
+      security_level: "high"
+
+  # ====== HEXSTRIKE - Dashboard OSINT ======
+  th3-hexstrike:
+    image: custom/hexstrike:latest  # À build localement
+    container_name: ascended33-th3-hexstrike-1
+    restart: always
+    depends_on:
+      - th3-tor
+      - th3-kali
+      - th3-hackergpt
+    ports:
+      - "8001:8001"
+    environment:
+      # Configuration OSINT
+      STREAMLIT_MODE: "osint_investigation"
+      AUDIT_TRAIL: "enabled"
+      LEGAL_REPORTS: "enabled"
+      CHAIN_OF_CUSTODY: "enabled"
+      # Sécurité
+      TOR_PROXY: "th3-tor:9050"
+      ANONYMITY_ENFORCED: "true"
+      SIGNATURE_REQUIRED: "true"
+      # Rapports
+      AUTO_REPORT_GENERATION: "enabled"
+      REPORT_DESTINATION: "/osint/reports"
+      VAULT_SYNC: "enabled"
+      VAULT_PATH: "/vault/Vault"
+    volumes:
+      - hexstrike_data:/app/data
+      - ./osint_reports:/osint/reports
+      - ./output:/output
+      - vault_mount:/vault  # Montage Vault Obsidian
+    networks:
+      osint_network:
+        ipv4_address: 172.25.0.40
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001/_stcore/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    labels:
+      component: "dashboard"
+      security_level: "medium"
+
+networks:
+  osint_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+    labels:
+      security_level: "isolated"
+      monitoring: "enabled"
+
+volumes:
+  tor_data:
+    driver: local
+    labels:
+      security: "anonymity_data"
+  
+  kali_data:
+    driver: local
+    labels:
+      security: "investigation_data"
+  
+  hackergpt_data:
+    driver: local
+    labels:
+      security: "ai_analysis_data"
+  
+  hexstrike_data:
+    driver: local
+    labels:
+      security: "dashboard_data"
+  
+  vault_mount:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: "D:\\Vault\\Vault"
+    labels:
+      security: "report_output"
+
+# ====== Configuration de sécurité ======
+# Anonymité opérationnelle:
+# - Tout le trafic via Tor (SOCKS5)
+# - Pas de logs détaillés en sortie
+# - Métadonnées supprimées
+#
+# Auditabilité légale:
+# - Signatures cryptographiques de tous les rapports
+# - Chaîne de preuves maintenue
+# - Timestamps horodatés UTC
+# - Hashes de tous les IOCs
+#
+# Configuration réseau:
+# - Réseau isolé (172.25.0.0/16)
+# - Pas de sortie internet directe
+# - Tout via Tor ou tunnel autorisé
+#
+# Conformité:
+# - RGPD: Pas de PII en logs
+# - Droit français: Chain of custody légal
+# - Admissibilité judiciaire: Rapports signés et datés
