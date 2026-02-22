@@ -12,6 +12,7 @@ Handles:
 import json
 import logging
 import os
+import platform
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -114,8 +115,14 @@ class OpsecManager:
 
     def _activate_vpn(self) -> bool:
         """Activate VPN with fallback chain"""
+        # On Windows, VPN CLI tools (nordvpn/mullvad/protonvpn) are typically
+        # not available in PATH — skip CLI activation and rely on GUI VPN clients
+        if platform.system() == "Windows":
+            logger.debug("VPN CLI activation skipped on Windows — use GUI VPN client")
+            return self._check_vpn_active_windows()
+
         vpn_chain = [self.config.vpn_provider, "mullvad", "protonvpn"]
-        
+
         for vpn in vpn_chain:
             if vpn == "nordvpn":
                 if self._activate_nordvpn():
@@ -130,8 +137,23 @@ class OpsecManager:
                     logger.info("✓ ProtonVPN activated")
                     return True
 
-        logger.error("⚠ All VPN providers failed. Ensure one is installed and configured.")
+        logger.warning("VPN CLI providers unavailable. Ensure a GUI VPN client is active.")
         return False
+
+    def _check_vpn_active_windows(self) -> bool:
+        """On Windows, check if any VPN adapter is active via ipconfig"""
+        try:
+            result = subprocess.run(
+                ["ipconfig"],
+                capture_output=True,
+                text=True,
+                timeout=5,
+            )
+            output = result.stdout.lower()
+            vpn_keywords = ["nordvpn", "mullvad", "protonvpn", "wireguard", "openvpn", "tun", "tap"]
+            return any(kw in output for kw in vpn_keywords)
+        except Exception:
+            return False
 
     def _activate_nordvpn(self) -> bool:
         """Activate NordVPN"""

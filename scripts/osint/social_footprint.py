@@ -41,7 +41,7 @@ PLATFORMS: dict[str, str] = {
     "Twitch":        "https://www.twitch.tv/{username}",
     "Medium":        "https://medium.com/@{username}",
     "Dev.to":        "https://dev.to/{username}",
-    "Stack Overflow": "https://stackoverflow.com/users/{username}",
+    "Stack Overflow": "https://stackoverflow.com/users/search?tab=Reputation&search={username}",
     "Keybase":       "https://keybase.io/{username}",
     "Telegram":      "https://t.me/{username}",
     "Mastodon":      "https://mastodon.social/@{username}",
@@ -54,10 +54,15 @@ POSITIVE_CODES = {200, 301, 302}
 NOT_FOUND_SIGNATURES = [
     "this account doesn't exist",
     "user not found",
+    "no such user",                   # HackerNews: returns 200 + "No such user."
+    "no such user.",
     "page not found",
     "sorry, this page isn't available",
     "isn't available",
     "404",
+    "profile not found",
+    "doesn't exist",
+    "does not exist",
 ]
 
 HEADERS = {

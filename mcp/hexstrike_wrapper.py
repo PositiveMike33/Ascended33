@@ -132,7 +132,7 @@ class HexStrikeClient:
         """Get HexStrike server info"""
         try:
             response = self.session.get(
-                f"{self.base_url}/info",
+                f"{self.base_url}/health",
                 timeout=self.timeout,
             )
             response.raise_for_status()
