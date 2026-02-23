@@ -1,0 +1,9 @@
+---
+
+excel-plugin: parsed
+
+---
+
+
+# Excel
+[{"name":"sheet1","freeze":"A1","styles":[{"color":"#ffff01"},{"color":"#ffff01","strike":true},{"color":"#538136","strike":true},{"color":"#538136","strike":true,"font":{"bold":true}},{"color":"#538136","strike":true,"font":{"bold":true,"italic":true}},{"color":"#538136","strike":false,"font":{"bold":true,"italic":true}},{"color":"#4371c6","strike":false,"font":{"bold":true,"italic":true}},{"color":"#fe0000"},{"color":"#5b9cd6"},{"font":{"bold":true}},{"font":{"bold":true,"italic":true}},{"font":{"bold":true,"italic":true},"strike":true},{"font":{"bold":true,"italic":true},"strike":false},{"font":{"bold":true,"italic":true},"strike":false,"underline":true},{"font":{"bold":true,"italic":true},"strike":false,"underline":false},{"font":{"bold":true,"italic":true},"strike":false,"underline":false,"color":"#00b04e"},{"color":"#00b04e"},{"color":"#00b04e","font":{"bold":true}},{"color":"#00b04e","font":{"bold":true,"italic":true}},{"color":"#00b04e","font":{"bold":false,"italic":true}},{"color":"#fe0000","font":{"bold":true}},{"color":"#5b9cd6","font":{"bold":true}},{"color":"#4371c6","strike":false,"font":{"bold":false,"italic":true}},{"font":{"bold":true},"color":"#4371c6"},{"font":{"bold":true},"color":"#0170c1"}],"merges":[],"rows":{"0":{"cells":{"0":{"style":6,"text":"HEURE"},"1":{"text":"DÉPENSE","style":20},"2":{"text":"MONTANT","style":15}}},"1":{"cells":{"0":{"style":24,"text":"10:00"},"1":{"text":"SQDC","style":20},"2":{"text":"27.00$","style":18}}},"2":{"cells":{"0":{"text":"10:35","style":24},"1":{"style":20,"text":"DEPANNEUR"},"2":{"text":"5.00$","style":17}}},"len":100},"cols":{"len":26},"validations":[],"autofilter":{}}]

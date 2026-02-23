@@ -1,0 +1,16 @@
+## #13-02-2026 
+
+La journée d'hier a été consacrée à la maintenance du système et à la navigation personnelle, y compris l'exploration des services de streaming et des paramètres VPN. Aujourd'hui, vous avez passé en revue votre compte NordVPN, en vous concentrant spécifiquement sur la surveillance du Dark Web et le processus de vérification. Il y a également eu des activités liées aux outils d'IA et à la surveillance générale du système.
+
+## Récapitulatif
+
+La journée d'hier a commencé par une période de surveillance du système à l'aide de **Process Lasso Pro**, suivie par l'exploration de diverses applications dont **Shadowz** (un service de streaming pour les films d'horreur), **Brave browser** (avec quelques tentatives d'utilisation de Tor pour la navigation privée), et une application d'animal de compagnie virtuel. Quelques commandes système ont également été exécutées via **Windows Terminal**, notamment une défragmentation du disque. Les premières heures de la matinée ont été principalement occupées par ces diverses activités, allant des utilitaires système à la consommation de contenu en ligne.
+
+## Ce qui compte le plus #14-02-26
+
+
+**Le compte NordVPN et la surveillance de la sécurité** Aujourd'hui, nous nous sommes principalement concentrés sur votre compte NordVPN. Cela inclut l'examen des paramètres de sécurité, en particulier le **Surveillant du Web sombre**, où 10 fuites ont été détectées pour votre adresse email. Il y a un processus de vérification en cours pour votre email, impliquant des codes envoyés à votre compte Gmail. Vous avez également navigué dans les différentes fonctionnalités et paramètres de NordVPN, y compris l'adresse IP, la protection contre les menaces et les paramètres du réseau. **Exploration d'outils d'IA** Il y a un thème récurrent d'interaction avec divers outils d'IA, tels que **Claude**, **NotebookLM**, et **Google Cloud**. Cela suggère un intérêt ou une exploration continue des capacités et des applications de l'IA. **Surveillance du système et des applications** Vous avez également surveillé activement les processus du système avec **Process Lasso Pro** et examiné les paramètres des applications, y compris **WhatsApp** et **Paramètres Windows**. L'application **Comet** semble être un centre d'accès à bon nombre de ces outils et services.
+
+## Perspectives d'avenir
+
+La plongée profonde d'aujourd'hui dans votre statut de sécurité NordVPN, en particulier la surveillance du Dark Web et la vérification des emails, indique une approche proactive de la sécurité des données personnelles. Si le processus de vérification et l'examen des fuites détectées sont achevés avec succès aujourd'hui, demain pourrait impliquer la mise en œuvre de toute amélioration de la sécurité recommandée ou une enquête plus approfondie sur la nature de ces expositions de données. L'interaction continue avec les outils d'intelligence artificielle suggère que la poursuite de l'exploration et de l'intégration de ces technologies pourrait être une priorité dans les jours à venir.

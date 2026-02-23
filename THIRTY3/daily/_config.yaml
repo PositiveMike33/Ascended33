@@ -1,0 +1,38 @@
+# Learning Tracker Configuration for THIRTY3/daily
+
+tracking:
+  enabled: true
+  frequency: daily
+  auto_update: true
+  
+daily_note:
+  location: "THIRTY3/daily/2026/MM/"
+  naming_pattern: "YYYY-MM-DD_learning_progress.md"
+  template: "THIRTY3/daily/TEMPLATE_DAILY.md"
+  
+learning_phases:
+  phase_1:
+    name: "Beginner"
+    target_hours: 60
+    topics: [networking, linux, cryptography, web-basics]
+  phase_2:
+    name: "Intermediate"
+    target_hours: 80
+    topics: [owasp-top-10, reconnaissance, exploitation, web-pentest]
+  phase_3:
+    name: "Advanced"
+    target_hours: 100
+    topics: [advanced-exploitation, reverse-engineering, system-hardening]
+  phase_4:
+    name: "Certifications"
+    certifications: [security+, ceh, oscp]
+
+integrations:
+  osint_tracking: true
+  ctf_platforms: [tryhackme, hackthebox, portswigger]
+  evidence_location: "HACKERGPT/RESOURCES_LEARNING/evidence/"
+  
+subagent:
+  trigger_schedule: "tuesday 19:00 EST"
+  manual_trigger: "/progress-check"
+  output: "_BRAIN/WEEKLY_HACKING_PROGRESS.md"

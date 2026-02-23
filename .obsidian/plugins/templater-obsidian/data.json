@@ -1,0 +1,37 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "THIRTY3/Templates",
+  "templates_pairs": [],
+  "trigger_on_file_creation": true,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": true,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "THIRTY3/daily",
+      "template": "THIRTY3/Templates/TPL — Daily Note THIRTY3.md"
+    },
+    {
+      "folder": "THIRTY3/Protocoles",
+      "template": "THIRTY3/Templates/TPL — Soir THIRTY3.md"
+    },
+    {
+      "folder": "THIRTY3",
+      "template": "THIRTY3/Templates/TPL — Matin THIRTY3.md"
+    }
+  ],
+  "enable_file_templates": false,
+  "file_templates": [],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [
+    "THIRTY3/Templates/TPL — Daily Note THIRTY3.md"
+  ],
+  "startup_templates": [
+    "THIRTY3/Templates/TPL — Matin THIRTY3.md"
+  ],
+  "intellisense_render": 1,
+  "template_hotkeys": []
+}

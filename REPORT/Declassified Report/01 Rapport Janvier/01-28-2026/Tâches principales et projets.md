@@ -1,0 +1,25 @@
+#28-01-2026 
+
+- Développement et sécurisation de la "Th3 Thirty3 - AI Platform":** Révision de l'architecture de la plateforme, y compris son intégration avec divers grands modèles de langage (Ollama, OpenAI, Anthropic avec personnalité québécoise), Shodan, et le proxy TOR. Explorer les configurations Docker et les mesures d'atténuation de la sécurité pour le conteneur worker, en particulier en ce qui concerne l'accès à `docker.sock`.
+- Formation à la sécurité offensive et au piratage éthique (HexStrike):** Utilisation des "agents experts HexStrike" et des "SCÉNARIOS DE HACKERS ÉLITE" (33 scénarios d'attaque pour Québec 2026). A révisé les leçons de commande pour la reconnaissance (`theHarvester`), la sécurité des conteneurs (`Trivy`), l'ingénierie inverse (`Ghidra`, `Radare2`), l'audit de sécurité (`checksec`), et le balayage de réseau (`Nmap`, `Masscan`).
+- Enquêtes sur les renseignements provenant de sources ouvertes (OSINT):** A exploré les catégories et les outils du "cadre OSINT". Enquête active sur un profil Facebook ("Gauthier Guillet Michaël") pour examiner des informations publiques telles que l'expérience professionnelle, l'éducation et la localisation, ainsi que l'activité récente sur Messenger. Tentative d'accès à Tinder via des comptes Google, en examinant les adresses électroniques associées pour corroborer l'identité.
+- Recherche technique avancée:** Recherche approfondie sur l'acquisition d'images satellites, y compris le visionnage d'une vidéo sur l'extraction d'images de satellites météorologiques (NOAA 15, 18, 19, METEOR M2) à l'aide d'antennes bricolées et d'une radio logicielle (SDR). J'ai également fait des recherches sur la surveillance des satellites militaires, les points d'accès aux données des radioamateurs, la physique de l'IA, les mandats de géofence, le codage des enregistreurs de frappe, les interfaces cerveau-ordinateur, les réseaux d'antennes ESP32 et l'utilisation de Raspberry Pi pour échapper aux fournisseurs d'accès à Internet.
+
+### Discussions et décisions clés
+
+- Aucune discussion ou décision explicite n'a été observée dans le flux de travail fourni.
+
+### Documents et codes examinés
+
+- Document:** Référence de la commande `trivy` dans Obsidian, détaillant l'analyse des images, du système de fichiers et de la configuration avec différents formats de sortie et filtres de sévérité.
+- Document : "Th3 Thirty3 - AI Platform" architecture et structure de projet dans AnythingLLM, décrivant les services comme `llm_service.js`, `shodan_service.js`, `vpn_service.js`, `worker.js`, et les configurations Docker.
+- **Contenu:** Catégories et outils du cadre OSINT (visualisés dans le navigateur Comet).
+- Contenu : tableau de bord "Th3 Thirty3 - AI Platform", console et leçons HexStrike sur les outils et scénarios de sécurité offensive (consultés dans le navigateur Comet).
+- Contenu:** Profil Facebook et activité Messenger pour "Gauthier Guillet Michaël" (consulté dans le navigateur Comet).
+- Contenu : pages de connexion et d'accès au compte Tinder (consultées dans le navigateur Comet).
+- Vidéo (YouTube):** "Comment extraire des images de satellites en orbite (NOAA 15, 18, 19 et METEOR M2)".
+- Vidéo (YouTube):** Plusieurs vidéos relatives au piratage de satellites, aux mandats de géofence, au codage de keylogger, aux interfaces cerveau-ordinateur, aux réseaux d'antennes ESP32, à l'évasion de l'ISP Raspberry Pi, à l'IA et à la conscience.
+
+### Prochaines étapes
+
+- Aucune étape suivante explicite n'a été identifiée dans le flux de travail fourni.
