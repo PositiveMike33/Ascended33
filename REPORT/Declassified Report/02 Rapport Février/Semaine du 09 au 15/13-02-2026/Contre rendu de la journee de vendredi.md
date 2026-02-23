@@ -1,0 +1,5 @@
+La journée a été consacrée à la maintenance du système et à la navigation personnelle, y compris l'exploration des services de streaming et des paramètres VPN. Aujourd'hui, vous avez passé en revue votre compte NordVPN, en vous concentrant spécifiquement sur la surveillance du Dark Web et le processus de vérification. Il y a également eu des activités liées aux outils d'IA et à la surveillance générale du système.
+
+## Récapitulatif
+
+La journée d'hier a commencé par une période de surveillance du système à l'aide de **Process Lasso Pro**, suivie par l'exploration de diverses applications dont **Shadowz** (un service de streaming pour les films d'horreur), **Brave browser** (avec quelques tentatives d'utilisation de Tor pour la navigation privée), et une application d'animal de compagnie virtuel. Quelques commandes système ont également été exécutées via **Windows Terminal**, notamment une défragmentation du disque. Les premières heures de la matinée ont été principalement occupées par ces diverses activités, allant des utilitaires système à la consommation de contenu en ligne.

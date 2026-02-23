@@ -1,0 +1,13 @@
+{
+  "tagPath": "D:\\Vault\\Vault\\METADATA\\tags.json",
+  "metadataPath": "D:\\Vault\\Vault\\METADATA\\metadata.json",
+  "allExceptMdPath": "",
+  "canvasPath": "D:\\Vault\\Vault\\METADATA\\canvas.json",
+  "tagFile": "tags.json",
+  "metadataFile": "metadata.json",
+  "allExceptMdFile": "allExceptMd.json",
+  "canvasFile": "canvas.json",
+  "writingFrequency": "0",
+  "writeFilesOnLaunch": true,
+  "consoleLog": true
+}

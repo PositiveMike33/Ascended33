@@ -1,0 +1,10 @@
+{
+  "terminalApp": {
+    "win": "cmd.exe"
+  },
+  "enableClaude": true,
+  "enableCodex": false,
+  "enableCursor": true,
+  "enableGemini": false,
+  "enableOpencode": true
+}

@@ -1,0 +1,242 @@
+{
+  "defaultState": {
+    "name": "Default",
+    "mapZoom": 1,
+    "mapCenter": {
+      "lat": 40.44694705960048,
+      "lng": -180.70312500000003
+    },
+    "query": "",
+    "queryError": false,
+    "chosenMapSource": 0,
+    "forceHistorySave": false,
+    "followActiveNote": false,
+    "followMyLocation": false,
+    "embeddedHeight": 300,
+    "autoFit": false,
+    "lock": false,
+    "showLinks": false,
+    "linkColor": "red",
+    "markerLabels": "off",
+    "editMode": false
+  },
+  "savedStates": [
+    {
+      "name": "Map",
+      "mapZoom": 12,
+      "mapCenter": {
+        "lat": 45.484325981582735,
+        "lng": -73.61599043011665
+      },
+      "query": "path:\"ENQUETES_OSINT/MAP_VIEW/MAP_VIEW.md\" ",
+      "queryError": false,
+      "chosenMapSource": 0,
+      "forceHistorySave": false,
+      "followActiveNote": true,
+      "followMyLocation": true,
+      "embeddedHeight": 300,
+      "autoFit": false,
+      "lock": false,
+      "showLinks": true,
+      "linkColor": "green",
+      "markerLabels": "right",
+      "editMode": false
+    }
+  ],
+  "displayRules": [
+    {
+      "query": "",
+      "preset": true,
+      "iconDetails": {
+        "prefix": "fas",
+        "icon": "fa-circle",
+        "markerColor": "blue",
+        "opacity": 1
+      },
+      "pathOptions": {
+        "color": "blue",
+        "weight": 5,
+        "opacity": 0.8
+      },
+      "badgeOptions": {}
+    },
+    {
+      "query": "tag:#Home ",
+      "preset": false,
+      "iconDetails": {
+        "prefix": "fas",
+        "icon": "@",
+        "markerColor": "yellow",
+        "iconColor": "blue",
+        "opacity": "1"
+      },
+      "badgeOptions": {
+        "badge": "@",
+        "textColor": "blue",
+        "backColor": "green",
+        "border": "green"
+      },
+      "pathOptions": {
+        "color": "blue",
+        "weight": 6,
+        "opacity": 1
+      }
+    },
+    {
+      "query": "tag:#work",
+      "preset": false,
+      "iconDetails": {
+        "prefix": "fas",
+        "markerColor": "green",
+        "icon": "$",
+        "opacity": "1"
+      },
+      "badgeOptions": {
+        "badge": "$",
+        "textColor": "white"
+      },
+      "pathOptions": {
+        "color": "green",
+        "weight": 8,
+        "opacity": 0.8
+      }
+    },
+    {
+      "query": "tag:#SQDC",
+      "preset": false,
+      "iconDetails": {
+        "prefix": "fas",
+        "icon": "*",
+        "markerColor": "white",
+        "iconColor": "green"
+      },
+      "badgeOptions": {
+        "badge": "*",
+        "textColor": "white",
+        "backColor": "green",
+        "border": "green"
+      },
+      "pathOptions": {
+        "color": "green",
+        "weight": 5,
+        "opacity": -4
+      }
+    },
+    {
+      "query": "name:\"Éric Garcia\"",
+      "preset": false,
+      "iconDetails": {
+        "icon": "+",
+        "markerColor": "white",
+        "opacity": 1,
+        "iconColor": "black"
+      },
+      "badgeOptions": {
+        "badge": "+",
+        "textColor": "black",
+        "backColor": "white"
+      },
+      "pathOptions": {
+        "color": "white",
+        "weight": 7,
+        "opacity": 1
+      }
+    }
+  ],
+  "zoomOnGoFromNote": 15,
+  "autoZoom": true,
+  "onlyOneExpanded": true,
+  "markerClickBehavior": "replaceCurrent",
+  "markerCtrlClickBehavior": "dedicatedPane",
+  "markerMiddleClickBehavior": "dedicatedTab",
+  "openMapBehavior": "replaceCurrent",
+  "openMapCtrlClickBehavior": "dedicatedPane",
+  "openMapMiddleClickBehavior": "dedicatedTab",
+  "newPaneSplitDirection": "horizontal",
+  "newNoteNameFormat": "Location added on {{date:YYYY-MM-DD}}T{{date:HH-mm}}",
+  "newNotePath": "ENQUETES_OSINT/MAP_VIEW",
+  "newNoteTemplate": "ENQUETES_OSINT/MAP_VIEW/Template",
+  "showNoteNamePopup": true,
+  "showLinkNameInPopup": "always",
+  "showNativeObsidianHoverPopup": true,
+  "showNotePreview": true,
+  "showClusterPreview": true,
+  "debug": true,
+  "openIn": [
+    {
+      "name": "Google Maps",
+      "urlPattern": "https://maps.google.com/?q={x},{y}"
+    }
+  ],
+  "urlParsingRules": [
+    {
+      "name": "OpenStreetMap Show Address",
+      "regExp": "https:\\/\\/www.openstreetmap.org\\S*query=([0-9\\.\\-]+%2C[0-9\\.\\-]+)\\S*",
+      "ruleType": "latLng",
+      "preset": true
+    },
+    {
+      "name": "Generic Lat,Lng",
+      "regExp": "([0-9\\.\\-]+),\\s*([0-9\\.\\-]+)",
+      "ruleType": "latLng",
+      "preset": true
+    },
+    {
+      "name": "Geolocation Link",
+      "regExp": "\\[.*\\]\\(geo:([0-9\\.\\-]+),([0-9\\.\\-]+)\\)",
+      "ruleType": "latLng",
+      "preset": true
+    }
+  ],
+  "mapControlsSections": {
+    "filtersDisplayed": false,
+    "viewDisplayed": false,
+    "linksDisplayed": false,
+    "presetsDisplayed": false,
+    "editDisplayed": true,
+    "minimized": false
+  },
+  "mapControlsMinimized": false,
+  "maxClusterRadiusPixels": 25,
+  "searchProvider": "osm",
+  "osmUser": "",
+  "searchDelayMs": 700,
+  "geocodingApiKey": "",
+  "useGooglePlacesNew2025": false,
+  "googlePlacesDataFields": "",
+  "mapSources": [
+    {
+      "name": "CartoDB",
+      "urlLight": "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
+      "preset": true
+    }
+  ],
+  "frontMatterKey": "location",
+  "chosenMapMode": "dark",
+  "saveHistory": true,
+  "letZoomBeyondMax": true,
+  "queryForFollowActiveNote": "path:\"$PATH$\"",
+  "supportRealTimeGeolocation": true,
+  "autoAddLocationIfEmptyProperty": true,
+  "autoAddLocationExclude": "template",
+  "fixFrontMatterOnPaste": true,
+  "geoHelperPreferApp": false,
+  "geoHelperType": "url",
+  "geoHelperCommand": "chrome",
+  "geoHelperUrl": "https://esm7.github.io/obsidian-geo-helper/",
+  "tagForGeolocationNotes": "#Map",
+  "handleGeolinksInNotes": true,
+  "handlePathEmbeds": true,
+  "showGeolinkPreview": true,
+  "zoomOnGeolinkPreview": 15,
+  "handleGeolinkContextMenu": true,
+  "routingUrl": "https://www.google.com/maps/dir/?api=1&origin={x0},{y0}&destination={x1},{y1}",
+  "routingGraphHopperApiKey": "12eeadb0-353b-459b-9f4b-5d88788fcfb2",
+  "routingGraphHopperProfiles": "foot, bike, car,bus,metro,train,walk,",
+  "routingGraphHopperExtra": {},
+  "cacheAllTiles": true,
+  "offlineMaxTileAgeMonths": 1,
+  "offlineMaxStorageGb": 2,
+  "loadLayersAhead": true,
+  "handleGeoJsonCodeBlocks": true
+}
