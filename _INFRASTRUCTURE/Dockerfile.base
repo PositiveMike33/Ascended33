@@ -1,0 +1,25 @@
+# Base Image for All Python Services
+# Consolidates common dependencies and setup
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1
+
+# Install common runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create base non-root user (can be overridden in child images)
+RUN useradd -m -u 1000 appuser
+
+WORKDIR /app
+
+# Default health check (can be overridden)
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:${PORT:-8000}/health || exit 1
+
+# Non-root user
+USER appuser

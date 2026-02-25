@@ -56299,7 +56299,11 @@ var require_map2 = __commonJS({
       let endMarker = 0;
       marked.walkTokens(tokens, (token) => {
         const blockReferenceRegex = /[^\S\r\n]*\^([a-zA-Z0-9_-]+)\s*$/;
-        startContent = document2.indexOf(token.raw, startContent);
+        const found = document2.indexOf(token.raw, startContent);
+        if (found === -1) {
+          return;
+        }
+        startContent = found;
         const match = blockReferenceRegex.exec(token.raw);
         endContent = startContent + (match ? match.index : token.raw.length);
         const startMarker = match ? startContent + match.index : -1;
@@ -56334,10 +56338,16 @@ var require_map2 = __commonJS({
           };
         }
         if (constants_js_1.TARGETABLE_BY_ISOLATED_BLOCK_REFERENCE.includes(token.type)) {
+          let adjustedEndContent = endContent;
+          if (document2.slice(adjustedEndContent - 1, adjustedEndContent) !== "\n" && document2.slice(adjustedEndContent, adjustedEndContent + 1) === "\n") {
+            adjustedEndContent += 1;
+          } else if (document2.slice(adjustedEndContent - 2, adjustedEndContent) !== "\r\n" && document2.slice(adjustedEndContent, adjustedEndContent + 2) === "\r\n") {
+            adjustedEndContent += 2;
+          }
           lastBlockDetails = {
             token,
             start: startContent,
-            end: endContent - 1
+            end: adjustedEndContent - 1
           };
         }
       });
@@ -56501,10 +56511,14 @@ var require_patch = __commonJS({
     };
     exports.MergeNotPossible = MergeNotPossible;
     var replaceText = (document2, instruction, target) => {
+      const suffix = document2.slice(target.content.end);
+      const lineEnding = suffix.startsWith("\r\n") ? "\r\n" : "\n";
+      const hasSingleLeadingNewline = suffix.startsWith(lineEnding) && !suffix.startsWith(lineEnding + lineEnding);
+      const content = hasSingleLeadingNewline && typeof instruction.content === "string" && !instruction.content.endsWith("\n") && !instruction.content.endsWith("\r\n") ? instruction.content + lineEnding : instruction.content;
       return [
         document2.slice(0, target.content.start),
-        instruction.content,
-        document2.slice(target.content.end)
+        content,
+        suffix
       ].join("");
     };
     var prependText = (document2, instruction, target) => {

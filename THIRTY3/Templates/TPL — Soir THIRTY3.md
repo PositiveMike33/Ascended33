@@ -96,4 +96,4 @@ Pour chaque red line franchie, note ce qui s'est passé — sans jugement, avec 
 
 ---
 
-*Protocole Soir complété — 09:31 — Retour vers [[2026-02-20|Note du Jour]]*
+*Protocole Soir complété — 09:31 — Retour vers [[2026-02-22 Synthèse Holistique|Note du Jour]]*

@@ -1,0 +1,66 @@
+# Multi-stage Dockerfile for Kali Integration Labs
+# Stage 1: Builder
+FROM python:3.11-slim AS builder
+
+WORKDIR /build
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    sqlite3 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Stage 2: Runtime
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    VAULT_PATH=/vault \
+    WORKSPACE=/workspace \
+    LAB_DATA=/app/labs
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    sqlite3 \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user
+RUN useradd -m -u 1000 kalilab
+
+WORKDIR /app
+
+# Copy Python dependencies from builder
+COPY --from=builder /root/.local /home/kalilab/.local
+
+# Copy application files
+COPY --chown=kalilab:kalilab KALI_PIECES_SYNC_SCRIPT.py .
+COPY --chown=kalilab:kalilab test_runner.py .
+
+# Create lab directories
+RUN mkdir -p /app/labs /workspace /vault && \
+    chown -R kalilab:kalilab /app /workspace /vault
+
+# Copy lab files if they exist
+COPY --chown=kalilab:kalilab hacking_labs/ /app/labs/
+
+# Switch to non-root user
+USER kalilab
+
+# Update PATH
+ENV PATH=/home/kalilab/.local/bin:$PATH
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:5000/health || exit 1
+
+# Expose port for API
+EXPOSE 5000
+
+# Default command: run the sync script
+CMD ["python", "KALI_PIECES_SYNC_SCRIPT.py"]

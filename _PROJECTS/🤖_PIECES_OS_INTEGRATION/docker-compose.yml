@@ -1,0 +1,126 @@
+version: '3.9'
+
+services:
+  # Core Pieces OS Synchronization Service
+  piecessync:
+    build:
+      context: .
+      dockerfile: Dockerfile.pieces-sync
+    container_name: piecessync
+    ports:
+      - "8003:8003"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SERVICE_NAME=piecessync
+      - SERVICE_PORT=8003
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - pieces_network
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config:ro
+
+  # Webhook Handler Service
+  webhook_handler:
+    build:
+      context: .
+      dockerfile: Dockerfile.webhook-handler
+    container_name: webhook_handler
+    ports:
+      - "8004:8004"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SERVICE_NAME=webhook_handler
+      - SERVICE_PORT=8004
+      - PIECESSYNC_URL=http://piecessync:8003
+    depends_on:
+      piecessync:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8004/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - pieces_network
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config:ro
+
+  # Search API Service
+  search_api:
+    build:
+      context: .
+      dockerfile: Dockerfile.search-api
+    container_name: search_api
+    ports:
+      - "8005:8005"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SERVICE_NAME=search_api
+      - SERVICE_PORT=8005
+      - PIECESSYNC_URL=http://piecessync:8003
+    depends_on:
+      piecessync:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8005/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - pieces_network
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config:ro
+
+  # Report API Service
+  report_api:
+    build:
+      context: .
+      dockerfile: Dockerfile.report-api
+    container_name: report_api
+    ports:
+      - "8006:8006"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SERVICE_NAME=report_api
+      - SERVICE_PORT=8006
+      - PIECESSYNC_URL=http://piecessync:8003
+      - SEARCH_API_URL=http://search_api:8005
+    depends_on:
+      piecessync:
+        condition: service_healthy
+      search_api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8006/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - pieces_network
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+      - ./config:/app/config:ro
+
+networks:
+  pieces_network:
+    driver: bridge
+    name: pieces_network
+
+volumes:
+  logs:
+  config:

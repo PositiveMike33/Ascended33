@@ -1,13 +1,18 @@
 ---
-title: "OSINT Investigation: [INVESTIGATION_NAME]"
-date: 2026-02-19
+category: Reconnaissance
+title: "OSINT Investigation: [MICHAEL GAUTHIER GUILLET]"
+date: 2026-02-23
 status: ACTIVE | CLOSED | ARCHIVED
-investigation_id: "OSI-2026-[XXX]"
+investigation_id: OSI-2026-[XXX]
 classification: CONFIDENTIAL | PUBLIC | LEGAL
-authorization_type: "Pentesting | CTF | Bug Bounty | Law Enforcement Coordination"
+authorization_type: Pentesting | CTF | Bug Bounty | Law Enforcement Coordination
 confidence_level: HIGH | MEDIUM | LOW
-target_type: "Cybercriminal | Phishing Campaign | Malware Distribution | Data Breach | Ransomware Gang"
+target_type: Cybercriminal | Phishing Campaign | Malware Distribution | Data Breach | Ransomware Gang
 priority: P1 | P2 | P3
+hexstrike_actif: true
+tags:
+  - _brain
+  - "#test"
 ---
 
 # OSINT Investigation: [INVESTIGATION_NAME]
@@ -326,4 +331,4 @@ rule [MALWARE_FAMILY] {
 
 ---
 
-**Tags:** #osint #ioc #timeline #profiling #attribution #[TARGET_TYPE] #[classification]
+**Tags:** [[osint]] [[ioc]] [[timeline]] [[profiling]] [[attribution]] #[TARGET_TYPE] #[classification]

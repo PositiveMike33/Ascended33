@@ -1,4 +1,4 @@
-#03-02-2026 
+[[03-02-2026]] 
 ### Tâches principales et projets
 
 - Discussion et planification de l'intégration d'un bot Telegram (`@Th3_thirty3_bot`) avec une instance AnythïngLLM pour activer "Direct Ligne" pour les rapports d'incidents (par exemple, les problèmes de KeelCIïp) et "Capture Idées" pour ajouter des idées techniques à une base de connaissances.

@@ -1,0 +1,27 @@
+[2026-02-25_061702] [INFO] Synchronisation Starting - Direction: VaultToGitHub
+[2026-02-25_061702] [INFO] Vault Path: D:\Vault\Vault
+[2026-02-25_061702] [INFO] GitHub Path: C:\Users\th3th\OneDrive\Documents\GitHub\Ascended33
+[2026-02-25_061702] [INFO] DRY RUN MODE - No files will be copied
+[2026-02-25_061702] [INFO] Starting sync: Vault ‚Üí GitHub (Primary Backup)
+[2026-02-25_061702] [INFO] Source: D:\Vault\Vault
+[2026-02-25_061702] [INFO] Destination: C:\Users\th3th\OneDrive\Documents\GitHub\Ascended33
+[2026-02-25_061702] [WARNING] Sync encountered errors (exit code: 16)
+
+Remarque†: il est possible que la sÈcuritÈ ne soit pas copiÈe. La source ne prend peut-Ítre pas en charge les ACL persistantes.
+
+ERREUR : vous ne disposez pas du droit de gestion d'audit.
+*****  Il est requis pour copier les informations d'audit (/COPY:U ou /COPYALL).
+
+                   Syntaxe simple :: ROBOCOPY source destination /MIR
+
+                          source :: rÈpertoire source (lecteur:\chemin ou
+                                    \\serveur\partage\chemin).
+                     destination :: rÈp. de destination (lecteur:\chemin ou
+                                    \\serveur\partage\chemin).
+                            /MIR :: met en miroir une arborescence complËte.
+
+    Pour plus d'informations sur son utilisation, exÈcutez ROBOCOPY /?
+
+                                                          
+****  /MIR peut SUPPRIMER des fichiers en plus de les copier !
+[2026-02-25_061702] [ERROR] ‚ùå Synchronisation FAILED - Check logs

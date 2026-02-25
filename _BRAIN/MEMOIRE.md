@@ -1,7 +1,7 @@
 # 🧠 MÉMOIRE — Contexte Persistant de Michaël
 
 > **Usage :** Ce fichier est lu et mis à jour par Claude à chaque session importante.
-> Dernière mise à jour : 2026-02-14
+> Dernière mise à jour : 2026-02-23
 
 ---
 
@@ -26,10 +26,10 @@ Bâtir une activité freelance rentable en **IA & automatisation** tout en maint
 
 | Projet | Statut | Priorité | Dernière action |
 |--------|--------|----------|----------------|
-| HexStrike-AI | En développement | Haute | Scripts cybersécurité |
-| Clawdbot | En développement | Haute | Bot Discord/Telegram/WhatsApp |
-| Vault Intelligence System | Nouveau | Haute | Mise en place (2026-02-14) |
-| Freelance — Portfolio | En cours | Haute | À formaliser |
+| HexStrike-AI | Phase 1 Reconnaissance | Haute | Semaine 1-2: Nmap mastery 100% |
+| Clawdbot | Phase 1 Reconnaissance | Haute | Semaine 3-4: OSINT profilage 80%+ |
+| Vault Intelligence System | ✅ Fondation établie (2026-02-23) | Haute | Système dual intégré |
+| Freelance — Portfolio | Phase 1 Reconnaissance | Haute | Semaine 1-2: Nmap + week 3-4: OSINT |
 
 ---
 
@@ -53,13 +53,27 @@ Bâtir une activité freelance rentable en **IA & automatisation** tout en maint
 
 ---
 
-## ⚠️ Rappels importants actifs
+## ⚠️ Rappels importants actifs — Phase 1 (Weeks 1-4 Reconnaissance)
 
 *(Claude met à jour cette section à chaque session)*
 
-- [ ] Formaliser portfolio client freelance
-- [ ] Compléter HexStrike-AI pour démo publique
-- [ ] Configurer Clawdbot en production
+### Week 1-2: Nmap Mastery
+- [ ] Master Nmap service enumeration on Docker network (target: 100% service identification)
+- [ ] Complete service fingerprinting for 6 container services
+- [ ] Document threat models per service
+- **Dopamine Triggers:** 5 pts per service identified, 20 pts on completion (Micro-reward: novelty hit)
+
+### Week 3-4: OSINT Profilage
+- [ ] Build 3 complete OSINT profiles with 80%+ information gathering per target
+- [ ] Use 10+ unique information sources per persona
+- [ ] Create reusable OSINT template for future targets
+- **Dopamine Triggers:** 10 pts per profile section, 50 pts on full profile completion (Micro-reward: achievement hit)
+
+### Daily Dopamine Logging
+- [ ] Log micro-reward signals with somatic verification (heart rate, alertness, confidence)
+- [ ] Track physical/emotional validation of dopamine hits
+- [ ] Maintain daily consistency for 5+ days to trigger Meso-reward cascade
+- **Target:** 3-5 micro-rewards per day = 15-25 pts daily accumulation
 
 ---
 
@@ -79,6 +93,7 @@ Bâtir une activité freelance rentable en **IA & automatisation** tout en maint
 | Date | Actions principales |
 |------|-------------------|
 | 2026-02-14 | Création du Vault Intelligence System — dossiers _BRAIN/, _TEMPLATES/, PLANNING/ |
+| 2026-02-23 | **Session Completion — Deux systèmes critiques créés et intégrés :** (1) LEARNING_PATH_ARCHITECTURE.md (4 phases: Reconnaissance 0-25%, Vulnerability Assessment 25-50%, Exploitation & Remediation 50-75%, Specialization & Mastery 75-100%; 20 weeks total; July 25 deadline; 1.4x monthly exponential growth formula; 1.0→1.4→1.96→2.74→5.38x productivity cascade); (2) DOPAMINE_REWARD_SYSTEM.md (9-part neural architecture: micro 5-20pts daily, meso 2-5x weekly, macro 10-25x monthly, exponential 2x-16x quarterly; somatic validation framework for physical/emotional verification; Fire Horse 2026 integration amplifying dopamine 2-3x when spiritually aligned; 40% monthly compound growth formula). Phase 1 (Reconnaissance) action items activated with Week 1-2 Nmap mastery + Week 3-4 OSINT targets. |
 
 ---
 

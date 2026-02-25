@@ -1,0 +1,50 @@
+# Kali Integration Project - Requirements
+# OSINT and Penetration Testing Automation
+
+# HTTP requests and APIs
+requests>=2.31.0
+aiohttp>=3.9.0
+
+# Database
+sqlite3-python>=1.0.0
+
+# Security scanning
+paramiko>=3.4.0
+cryptography>=41.0.0
+
+# OSINT tools
+dnspython>=2.5.0
+python-whois>=0.9.3
+
+# Web frameworks (for API)
+fastapi>=0.109.0
+uvicorn>=0.27.0
+pydantic>=2.0.0
+
+# Async support
+asyncio-contextmanager>=1.0.0
+
+# Logging
+colorlog>=6.8.0
+
+# File handling
+pyyaml>=6.0
+
+# Vault integration
+watchdog>=3.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.21.0
+
+# Data processing
+pandas>=2.1.0
+jsonschema>=4.20.0
+
+# Pieces integration
+requests-toolbelt>=1.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+click>=8.1.0

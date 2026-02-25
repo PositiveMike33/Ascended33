@@ -1,8 +1,7 @@
- 
+ # **📝 Ce que fait cette commande  
 ---  
   
-**📝 Ce que fait cette commande  
-La commande `sherlock -o results.txt username` lance une recherche automatisée à travers plus de 350 sites web et réseaux sociaux pour vérifier l'existence d'un compte utilisateur spécifique (`username`).  
+  La commande `sherlock -o results.txt username` lance une recherche automatisée à travers plus de 350 sites web et réseaux sociaux pour vérifier l'existence d'un compte utilisateur spécifique (`username`).  
   
 L'option `-o results.txt` demande à l'outil de ne pas seulement afficher les résultats dans ton terminal, mais de les **exporter et de les sauvegarder** dans un fichier texte nommé `results.txt`.  
   

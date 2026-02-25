@@ -1,10 +1,10 @@
-#Cours
+[[Cours]]
 
 Créez un site web d'une page sous la forme d'un fichier HTML avec CSS et JavaScript intégrés. 
 Incluez des fonctions interactives telles que des menus déroulants, du texte et du contenu dynamiques, des boutons cliquables, etc.
 Veillez à ce que la conception soit visuellement attrayante, réactive et conviviale. Veillez à ce que votre code soit organisé, lisible et bien commenté.
 
-#Détaillés
+[[Détaillés]]
 **Créez un site web d'une page pour une plateforme d'apprentissage en ligne appelée "EduQuest" avec les caractéristiques et les sections suivantes :** 
 1. Une barre de navigation fixe avec des liens vers les catégories de cours (mathématiques, sciences, langues, arts) et une barre de recherche.
 2. Une section "héros" avec un arrière-plan vidéo d'étudiants en train d'apprendre en ligne. Ajoutez un slogan dynamique qui alterne toutes les 3 secondes entre "Apprenez à votre rythme", "Découvrez de nouvelles passions" et "Élargissez vos horizons", ainsi qu'un bouton "Commencez" menant à un catalogue de cours.

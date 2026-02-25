@@ -1,0 +1,156 @@
+{
+  "savedSettings": [
+    {
+      "id": "a54cc02a-246d-4d5c-95a6-d22552382000",
+      "title": "30 Décembre 2025",
+      "setting": {
+        "filter": {
+          "searchQuery": "",
+          "showOrphans": true,
+          "showAttachments": true
+        },
+        "groups": [
+          {
+            "query": "path:OSINT  ",
+            "color": "#815c54"
+          },
+          {
+            "query": "path:\"Lois et Ordres\"  ",
+            "color": "#06ac27"
+          },
+          {
+            "query": "path:\"Th3 Thirty3 App\"  ",
+            "color": "#560606"
+          },
+          {
+            "query": "path:\"Supplément Naturelles\"  ",
+            "color": "#2145f4"
+          },
+          {
+            "query": "path:Prompts  ",
+            "color": "#83aadf"
+          },
+          {
+            "query": "path:\"Th3 Thirty3 App\"  ",
+            "color": "#3a23da"
+          },
+          {
+            "query": "path:\"Hacking Tips\"  ",
+            "color": "#b875b1"
+          },
+          {
+            "query": "path:\"Livres et Livre audio\"  ",
+            "color": "#d61af2"
+          }
+        ],
+        "display": {
+          "nodeSize": 4.2,
+          "linkThickness": 2.5,
+          "linkDistance": 83,
+          "nodeRepulsion": 3000,
+          "distanceFromFocal": 250,
+          "nodeHoverColor": "#768042",
+          "nodeHoverNeighbourColor": "#42d742",
+          "linkHoverColor": "#050551",
+          "showExtension": true,
+          "showFullPath": true,
+          "showCenterCoordinates": true,
+          "showLinkArrow": true,
+          "dontMoveWhenDrag": true,
+          "dagOrientation": "radialin"
+        }
+      },
+      "type": "global"
+    }
+  ],
+  "temporaryLocalGraphSetting": {
+    "filter": {
+      "searchQuery": "",
+      "showOrphans": true,
+      "showAttachments": false,
+      "depth": 1,
+      "linkType": "both"
+    },
+    "groups": [],
+    "display": {
+      "nodeSize": 3,
+      "linkThickness": 2,
+      "linkDistance": 100,
+      "nodeRepulsion": 2800,
+      "distanceFromFocal": 300,
+      "nodeHoverColor": "#ff0000",
+      "nodeHoverNeighbourColor": "#00ff00",
+      "linkHoverColor": "#0000ff",
+      "showExtension": false,
+      "showFullPath": false,
+      "showCenterCoordinates": true,
+      "showLinkArrow": true,
+      "dontMoveWhenDrag": false,
+      "dagOrientation": "null"
+    }
+  },
+  "temporaryGlobalGraphSetting": {
+    "filter": {
+      "searchQuery": "",
+      "showOrphans": true,
+      "showAttachments": true
+    },
+    "groups": [
+      {
+        "query": "path:OSINT  ",
+        "color": "#815c54"
+      },
+      {
+        "query": "path:\"Lois et Ordres\"  ",
+        "color": "#06ac27"
+      },
+      {
+        "query": "path:\"Th3 Thirty3 App\"  ",
+        "color": "#560606"
+      },
+      {
+        "query": "path:\"Supplément Naturelles\"  ",
+        "color": "#2145f4"
+      },
+      {
+        "query": "path:Prompts  ",
+        "color": "#83aadf"
+      },
+      {
+        "query": "path:\"Th3 Thirty3 App\"  ",
+        "color": "#3a23da"
+      },
+      {
+        "query": "path:\"Hacking Tips\"  ",
+        "color": "#b875b1"
+      },
+      {
+        "query": "path:\"Livres et Livre audio\"  ",
+        "color": "#d61af2"
+      }
+    ],
+    "display": {
+      "nodeSize": 4.2,
+      "linkThickness": 2.5,
+      "linkDistance": 83,
+      "nodeRepulsion": 3000,
+      "distanceFromFocal": 250,
+      "nodeHoverColor": "#768042",
+      "nodeHoverNeighbourColor": "#42d742",
+      "linkHoverColor": "#050551",
+      "showExtension": true,
+      "showFullPath": true,
+      "showCenterCoordinates": true,
+      "showLinkArrow": true,
+      "dontMoveWhenDrag": true,
+      "dagOrientation": "radialin"
+    }
+  },
+  "pluginSetting": {
+    "maxNodeNumber": 1000,
+    "searchEngine": "default",
+    "rightClickToPan": true,
+    "commandLeftClickNode": "openNodeInNewTab",
+    "commandRightClickNode": "focusNode"
+  }
+}

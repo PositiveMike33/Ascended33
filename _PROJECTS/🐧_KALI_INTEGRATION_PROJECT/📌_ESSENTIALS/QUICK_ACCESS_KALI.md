@@ -9,7 +9,7 @@
 ### 1️⃣ **INTEGRATION GUIDE**
 ```
 FILE: ../PHASE_3_INTEGRATION_GUIDE.md
-TAG: #phase-3-guide
+TAG: [[phase-3-guide]]
 WHAT: Detailed step-by-step execution in Kali terminal
 WHY: Know EXACTLY what to do when you go to Kali
 WHEN: Read BEFORE executing script (Feb 21)
@@ -18,7 +18,7 @@ WHEN: Read BEFORE executing script (Feb 21)
 ### 2️⃣ **COMPLETION REPORT**
 ```
 FILE: ../PHASE_3_COMPLETION_REPORT.md
-TAG: #phase-3-report
+TAG: [[phase-3-report]]
 WHAT: What was delivered + what you get + timeline
 WHY: Understand what Phase 3 accomplished
 WHEN: Reference for context before Phase 4
@@ -110,14 +110,14 @@ Hashtags for searching
 
 | Tag | What | File |
 |-----|------|------|
-| #phase-1-verification | Environment check ✅ | PHASE_1_VERIFICATION.md |
-| #phase-2-integration | Kali setup ✅ | PHASE_2_INTEGRATION.md |
-| #phase-3-guide | Execution steps | PHASE_3_INTEGRATION_GUIDE.md |
-| #phase-3-report | Deliverables summary | PHASE_3_COMPLETION_REPORT.md |
-| #sql-injection | SQL injection lab docs | SQL_INJECTION_LAB.md |
-| #xss | XSS lab docs | XSS_LAB.md |
-| #overview | Project overview | README_KALI_PROJECT.md |
-| #owasp-learning | Learning path structure | LEARNING_PATH.md |
+| [[phase-1-verification]] | Environment check ✅ | PHASE_1_VERIFICATION.md |
+| [[phase-2-integration]] | Kali setup ✅ | PHASE_2_INTEGRATION.md |
+| [[phase-3-guide]] | Execution steps | PHASE_3_INTEGRATION_GUIDE.md |
+| [[phase-3-report]] | Deliverables summary | PHASE_3_COMPLETION_REPORT.md |
+| [[sql-injection]] | SQL injection lab docs | SQL_INJECTION_LAB.md |
+| [[xss]] | XSS lab docs | XSS_LAB.md |
+| [[overview]] | Project overview | README_KALI_PROJECT.md |
+| [[owasp-learning]] | Learning path structure | LEARNING_PATH.md |
 
 ---
 
@@ -230,7 +230,7 @@ Documentation: CTF walkthroughs + defense guides
 Once Phase 4 completes (late Feb):
 
 ### Week 1 (Mar 1-7): SQL Injection
-- Learn: OWASP #A03
+- Learn: OWASP [[A03]]
 - Practice: 3 CTFs on TryHackMe/PortSwigger
 - Document: 3 walkthroughs
 - Defense: Create defense guide
@@ -278,4 +278,4 @@ LEARNING_PATH.md — OWASP learning structure (to create)
 
 ---
 
-**Tags:** #kali #essentials #phases #quick-access #phase4 #labs #execution #hacking
+**Tags:** [[kali]] [[essentials]] [[phases]] [[quick-access]] [[phase4]] [[labs]] [[execution]] [[hacking]]

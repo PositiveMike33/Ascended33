@@ -1,0 +1,32 @@
+{
+  "sessionId": "20260224-125700",
+  "startedAt": "2026-02-24T17:57:00.663Z",
+  "pluginVersion": "4.14.0",
+  "vaultName": "Vault",
+  "obsidianConfigDir": ".obsidian",
+  "enabledPlugins": [
+    "obsidian-excel-to-markdown-table",
+    "mcp-tools",
+    "open-in-terminal",
+    "vscode-editor",
+    "open-vscode",
+    "calendar",
+    "deepl",
+    "obsidian-local-rest-api",
+    "excel",
+    "pieces-for-developers",
+    "terminal",
+    "habit-calendar",
+    "obsidian42-brat",
+    "obsidian-meta-bind-plugin",
+    "metadata-extractor",
+    "obsidian-map-view",
+    "obsidian42-strange-new-worlds",
+    "templater-obsidian",
+    "maps",
+    "telegram-sync",
+    "ca-sync",
+    "dashboard-navigator",
+    "api-request"
+  ]
+}

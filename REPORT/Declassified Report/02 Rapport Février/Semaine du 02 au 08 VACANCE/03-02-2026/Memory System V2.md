@@ -1,6 +1,6 @@
 
 ### Tâches principales et projets
-#03-02-2026 
+[[03-02-2026]] 
 - **Intégration du "Memory System V2" dans le conteneur Docker `th3_kali`:** Planification et exécution actives du déploiement d'un système de mémoire sémantique basé sur des fichiers pour les agents d'intelligence artificielle. Cela a impliqué la révision de la documentation détaillée, l'installation de la dépendance `jq` dans le conteneur, la création et le déploiement du script `memory-cli.sh` et de la documentation `SKILL_memory.md`, et la mise en place de la structure de répertoire requise (`index`, `daily`, `consolidated`).
 - Vérification de la fonctionnalité du système de mémoire :** Testé avec succès le système de mémoire V2 nouvellement intégré en capturant un événement de test (`Système de mémoire V2 installé sur Kali`) et en confirmant sa présence via la commande `stats` dans le conteneur Docker `th3_kali`.
 

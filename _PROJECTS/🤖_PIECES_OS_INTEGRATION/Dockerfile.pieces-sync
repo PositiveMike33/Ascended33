@@ -1,0 +1,65 @@
+# Multi-stage Dockerfile for Pieces Sync Service
+# Stage 1: Builder
+FROM python:3.11-slim AS builder
+
+WORKDIR /build
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Stage 2: Runtime
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    VAULT_PATH=/vault \
+    PIECES_API_URL=http://host.docker.internal:39300 \
+    SYNC_INTERVAL=300
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user
+RUN useradd -m -u 1000 piecessync
+
+WORKDIR /app
+
+# Copy Python dependencies from builder
+COPY --from=builder /root/.local /home/piecessync/.local
+
+# Create data directories
+RUN mkdir -p /app/data /app/sync /vault && \
+    chown -R piecessync:piecessync /app /vault
+
+# Copy application files
+COPY --chown=piecessync:piecessync pieces_sync.py .
+COPY --chown=piecessync:piecessync webhook_handler.py .
+COPY --chown=piecessync:piecessync config/ /app/config/
+COPY --chown=piecessync:piecessync utils/ /app/utils/
+
+# Switch to non-root user
+USER piecessync
+
+# Update PATH
+ENV PATH=/home/piecessync/.local/bin:$PATH
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:8003/health || exit 1
+
+# Expose ports
+# 8003 for webhook handler
+# 8004 for sync status API
+EXPOSE 8003 8004
+
+# Run Pieces sync service
+CMD ["python", "-m", "uvicorn", "webhook_handler:app", "--host", "0.0.0.0", "--port", "8003"]

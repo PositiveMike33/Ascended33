@@ -325,4 +325,4 @@ This project enables:
 
 ---
 
-**Tags:** #claude #mastery #automation #skills #mcp #prompting #14-02-2026
+**Tags:** [[claude]] [[mastery]] [[automation]] [[skills]] [[mcp]] [[prompting]] [[14-02-2026]]

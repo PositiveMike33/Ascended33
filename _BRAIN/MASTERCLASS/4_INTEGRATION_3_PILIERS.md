@@ -564,4 +564,4 @@ Tu as maintenant:
 
 ---
 
-**Tags:** #integration #automation #skills #mcp #prompting #workflow #14-02-2026
+**Tags:** [[integration]] [[automation]] [[skills]] [[mcp]] [[prompting]] [[workflow]] [[14-02-2026]]

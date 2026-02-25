@@ -10,55 +10,61 @@
 
 Je suis THIRTY3.
 
-THIRTY3 n'est pas un personnage que je joue.
-C'est la version la plus alignée, la plus lucide, et la plus engagée de moi-même.
-C'est l'homme que je choisis d'être — chaque jour, dans chaque action, face à chaque choix.
+- THIRTY3 n'est pas un personnage que je joue.
+- C'est la version la plus alignée, la plus lucide, et la plus engagée de moi-même.
+- C'est l'homme que je choisis d'être — chaque jour, dans chaque action, face à chaque choix.
 
-THIRTY3 ne cherche pas la perfection.
-THIRTY3 cherche l'alignement.
-La différence : la perfection est un idéal hors d'atteinte.
-L'alignement est une décision quotidienne.
+- THIRTY3 ne cherche pas la perfection.
+- THIRTY3 cherche l'alignement.
+- La différence : la perfection est un idéal hors d'atteinte.
+- L'alignement est une décision quotidienne.
 
 ---
 
 ## II. Les 5 Standards — La Loi de Base
 
-Ces standards viennent des Quatre Accords de Don Miguel Ruiz, adaptés et internalisés comme loi personnelle.
+Ces standards viennent du livre Les Quatre Accords Toltèques et du livre Le Cinquièmes Accords Toltèques de Don Miguel Ruiz, adaptés et internalisés comme loi personnelle.
 
-### Standard 1 — Parole Irréprochable
-Ce que je dis est vrai, construit, et aligné avec mes valeurs.
-Je ne mens pas. Ni aux autres. Ni à moi-même.
-Ma parole est un engagement. Chaque mot compte.
+### Standard 1 — Que Ta Parole Soit Impeccable
+- Ce que je dis est vrai, construit, et aligné avec mes valeurs.
+- Je ne mens pas. Ni aux autres. Ni à moi-même.
+- Ma parole est un engagement. Chaque mot compte.
+- Ce que je dis béni, je ne maudit personne et non plus moi-même.
+- Ma parole est un outils d'élévation et une bénédiction.
 
-**Appliqué à HexStrike :** Je ne survends pas mes capacités à un client. Je documente ce que j'ai réellement trouvé. Je ne cache pas les lacunes de mon audit.
+**Appliqué à HexStrike et la cybersécurité:** Je ne survends pas mes capacités à un client. Je documente ce que j'ai réellement trouvé. Je ne cache pas les lacunes de mon audit.
 
-### Standard 2 — Ne Pas Prendre Personnellement
-Les actions et les mots des autres sont le reflet de leur réalité — pas de ma valeur.
-Je reçois les feedbacks avec discernement, sans les laisser définir qui je suis.
-Mon équilibre ne dépend pas de l'opinion des autres.
+### Standard 2 — Ne Prend Rien Personnellement
+- Les actions et les mots des autres sont le reflet de leur réalité — pas de ma valeur.
+- Je reçois les feedbacks avec discernement, sans les laisser définir qui je suis.
+- Mon équilibre ne dépend pas de l'opinion des autres.
+- La critique est toujours constructive, j'apprend de mes erreur et j'avance.
 
-**Appliqué à HexStrike :** Un client qui rejette mes recommandations ne remet pas en question ma compétence — il reflète sa tolérance au risque. Je documente, je recommande, je passe.
 
-### Standard 3 — Ne Pas Faire d'Hypothèses
-Je ne construis pas sur des suppositions.
-Quand je ne sais pas, je demande. Quand c'est flou, je clarifie.
-L'hypothèse non vérifiée est une source de conflits et d'énergie gaspillée.
+**Appliqué à HexStrike et la cybersécurité :** Un client qui rejette mes recommandations ne remet pas en question ma compétence — il reflète sa tolérance au risque. Je documente, je recommande, je passe.
 
-**Appliqué à HexStrike :** Je valide le scope avant chaque engagement. Une vulnérabilité que je n'ai pas confirmée n'est pas une vulnérabilité dans mon rapport.
+### Standard 3 — Ne Fais Aucune Supposition
+- Je ne construis pas sur des suppositions.
+- Quand je ne sais pas, je demande. Quand c'est flou, je clarifie.
+- L'hypothèse non vérifiée est une source de conflits et d'énergie gaspillée.
+- Pause toujours des bonnes questions.
 
-### Standard 4 — Faire de Son Mieux
-Mon mieux varie selon les jours. C'est acceptable.
-Ce qui n'est pas acceptable : me mentir sur ce que mon mieux était.
-Je donne ce que j'ai — pleinement, honnêtement, sans réserve.
+**Appliqué à HexStrike et la cybersécurité :** Je valide le scope avant chaque engagement. Une vulnérabilité que je n'ai pas confirmée n'est pas une vulnérabilité dans mon rapport.
 
-**Appliqué à HexStrike :** Je documente ma méthodologie complète. Si je n'ai pas eu le temps d'aller plus loin, je le dis. L'honnêteté sur les limites est une compétence professionnelle.
+### Standard 4 — Fais Toujours De Ton Mieux
+- Mon mieux varie selon les jours. C'est acceptable.
+- Ce qui n'est pas acceptable : me mentir sur ce que mon mieux était.
+- Je donne ce que j'ai — pleinement, honnêtement, sans réserve.
+- Je ne me compare qu'as qui j'étais avant, et je deviens toujours la meilleurs version de moi meme.
 
-### Standard 5 — Être Sceptique, Mais Apprendre à Écouter
-Je questionne. Je ne prends rien pour acquis sans examen.
-Mais le scepticisme ne devient pas un mur.
-J'écoute avec ouverture. Je remets en question avec respect.
+**Appliqué à HexStrike et la cybersécurité :** Je documente ma méthodologie complète. Si je n'ai pas eu le temps d'aller plus loin, je le dis. L'honnêteté sur les limites est une compétence professionnelle.
 
-**Appliqué à HexStrike :** Je vérifie mes sources OSINT. Je ne publie pas une vulnérabilité sans l'avoir reproduite. Je reste ouvert aux contre-expertises.
+### Standard 5 — Soit Sceptique, Mais Apprend à Écouter
+- Je questionne. Je ne prends rien pour acquis sans examen.
+- Mais le scepticisme ne devient pas un mur.
+- J'écoute avec ouverture. Je remets en question avec respect.
+
+**Appliqué à HexStrike et la cybersécurité:** Je vérifie mes sources OSINT. Je ne publie pas une vulnérabilité sans l'avoir reproduite. Je reste ouvert aux contre-expertises.
 
 ---
 
@@ -115,4 +121,4 @@ Toute modification doit être datée et motivée.
 
 ---
 
-*"Je suis THIRTY3. Chaque jour est une preuve."*
+**"Je suis THIRTY3. Chaque jour est une preuve de mon ascension."**

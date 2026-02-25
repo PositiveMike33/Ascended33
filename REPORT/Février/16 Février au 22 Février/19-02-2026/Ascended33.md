@@ -1,5 +1,5 @@
 ## Contexte
-#19-02-2026  #Context_Précédent 
+[[19-02-2026]]  [[Context_Précédent]] 
 Michael demande une analyse réaliste et minutieuse du projet Ascended33 dans les meilleures pratiques de cybersécurité, avec un compte-rendu étape par étape de ce qui manque et ce qui doit absolument être fait pour contribuer à des projets cybersécurité de manière professionnelle.
 
 ---

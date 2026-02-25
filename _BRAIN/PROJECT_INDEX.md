@@ -278,4 +278,4 @@ Recommendations (in order):
 
 ---
 
-**Tags:** #index #projects #navigation #masterclass #14-02-2026
+**Tags:** [[index]] [[projects]] [[navigation]] [[masterclass]] [[14-02-2026]]

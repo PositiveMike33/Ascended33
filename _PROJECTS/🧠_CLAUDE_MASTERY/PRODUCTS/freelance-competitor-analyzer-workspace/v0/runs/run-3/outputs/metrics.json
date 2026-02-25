@@ -1,0 +1,56 @@
+{
+  "execution_metadata": {
+    "test_case_id": 3,
+    "test_case_name": "Fractional CTO Market (Canada)",
+    "execution_date": "2026-02-21",
+    "skill_version": "v0",
+    "execution_mode": "run",
+    "total_execution_time_seconds": 48
+  },
+  "tool_call_counts": {
+    "Read": 3,
+    "Write": 2,
+    "Bash": 0,
+    "Edit": 0,
+    "Glob": 0,
+    "Grep": 0
+  },
+  "total_tool_calls": 5,
+  "execution_steps": 5,
+  "output_files_created": [
+    "competitive-analysis-report.md",
+    "metrics.json"
+  ],
+  "files_created_count": 2,
+  "output_characters": 15234,
+  "transcript_characters": 2195,
+  "output_sections_included": [
+    "Executive Summary",
+    "Competitor Profiles (10 profiles)",
+    "Pricing Benchmark Analysis",
+    "Capability Mapping Matrix",
+    "Market Positioning Analysis",
+    "Market Opportunities & Gaps (6 gaps identified)",
+    "Strategic Recommendations (6 recommendations)",
+    "Market Saturation Assessment"
+  ],
+  "assertions_addressed": [
+    "Report includes ≥6 profiles with rates/service models",
+    "Pricing shows retainer ranges by startup stage",
+    "Profiles include tech stack specializations/client types",
+    "Market saturation assessment included",
+    "Recommendations address positioning opportunities",
+    "Identifies underserved startup segments"
+  ],
+  "errors_encountered": [],
+  "warnings": [],
+  "data_quality": {
+    "competitor_profiles_count": 10,
+    "pricing_models_covered": 3,
+    "capability_matrix_rows": 10,
+    "market_gaps_identified": 6,
+    "recommendations_count": 6,
+    "startup_stage_segments": 3,
+    "tech_specializations": 6
+  }
+}

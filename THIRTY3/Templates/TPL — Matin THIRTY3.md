@@ -89,4 +89,4 @@ Ces lignes ne se négocient pas. Jamais.
 
 ---
 
-*Protocole Matin complété — 09:31 — Retour vers [[2026-02-20|Note du Jour]]*
+*Protocole Matin complété — 09:31 — Retour vers [[2026-02-22 Synthèse Holistique|Note du Jour]]*

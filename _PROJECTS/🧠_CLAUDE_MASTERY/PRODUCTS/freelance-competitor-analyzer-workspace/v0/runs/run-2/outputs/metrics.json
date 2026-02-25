@@ -1,0 +1,54 @@
+{
+  "execution_metadata": {
+    "test_case_id": 2,
+    "test_case_name": "Digital Marketing Agency (UK Market)",
+    "execution_date": "2026-02-21",
+    "skill_version": "v0",
+    "execution_mode": "run",
+    "total_execution_time_seconds": 52
+  },
+  "tool_call_counts": {
+    "Read": 3,
+    "Write": 2,
+    "Bash": 0,
+    "Edit": 0,
+    "Glob": 0,
+    "Grep": 0
+  },
+  "total_tool_calls": 5,
+  "execution_steps": 5,
+  "output_files_created": [
+    "competitive-analysis-report.md",
+    "metrics.json"
+  ],
+  "files_created_count": 2,
+  "output_characters": 14325,
+  "transcript_characters": 2280,
+  "output_sections_included": [
+    "Executive Summary",
+    "Competitor Profiles (9 profiles)",
+    "Pricing Benchmark Analysis",
+    "Capability Mapping Matrix",
+    "Market Positioning Analysis",
+    "Market Opportunities & Gaps (6 gaps identified)",
+    "Strategic Recommendations (6 recommendations)",
+    "Market Saturation Assessment"
+  ],
+  "assertions_addressed": [
+    "Report profiles ≥7 competitors with pricing/service focus",
+    "Pricing distinguishes retainer/project/hourly",
+    "Positioning identifies 2-3 market segments",
+    "Market gaps reveals ≥2 underserved niches",
+    "Includes unique value proposition recommendation"
+  ],
+  "errors_encountered": [],
+  "warnings": [],
+  "data_quality": {
+    "competitor_profiles_count": 9,
+    "pricing_models_covered": 3,
+    "capability_matrix_rows": 8,
+    "market_gaps_identified": 6,
+    "recommendations_count": 6,
+    "market_segments_identified": 4
+  }
+}

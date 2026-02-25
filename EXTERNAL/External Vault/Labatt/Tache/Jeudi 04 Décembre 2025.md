@@ -1,0 +1,3 @@
+- ~~Amenez mon laptop au travail pour faire des tags et des 5p au travail~~
+- ~~Créé un dossier Labatt~~
+- ~~Avec Éric Dubé, Utilisée  Pieces pour faire les Tags en liens avec les 5P~~

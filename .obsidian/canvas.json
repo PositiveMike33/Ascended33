@@ -1,5 +1,6 @@
 {
   "snapToObjects": true,
   "snapToGrid": true,
-  "defaultModDragBehavior": "webpage"
+  "defaultModDragBehavior": "webpage",
+  "zoomBreakpoint": 1.04
 }

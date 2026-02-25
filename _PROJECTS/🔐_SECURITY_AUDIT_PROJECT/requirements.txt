@@ -1,0 +1,61 @@
+# Security Audit Project - Requirements
+# Lead management, proposal generation, report creation
+
+# Web framework
+fastapi>=0.109.0
+uvicorn>=0.27.0
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# HTTP clients
+requests>=2.31.0
+aiohttp>=3.9.0
+httpx>=0.25.0
+
+# PDF generation
+weasyprint>=60.0
+reportlab>=4.0.0
+PyPDF2>=3.0.0
+
+# Email handling
+python-multipart>=0.0.6
+email-validator>=2.0.0
+
+# Data processing
+pandas>=2.1.0
+openpyxl>=3.1.0
+
+# JSON and YAML
+pyyaml>=6.0
+jsonschema>=4.20.0
+
+# Date/time handling
+python-dateutil>=2.8.0
+
+# Security
+cryptography>=41.0.0
+python-jose>=3.3.0
+
+# Authentication/Authorization
+passlib>=1.7.4
+python-dotenv>=1.0.0
+
+# Logging and monitoring
+colorlog>=6.8.0
+python-json-logger>=2.0.7
+
+# Template rendering
+jinja2>=3.1.0
+
+# Database (for prospects/leads tracking)
+sqlalchemy>=2.0.0
+alembic>=1.13.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.21.0
+
+# Utilities
+click>=8.1.0
+typer>=0.9.0

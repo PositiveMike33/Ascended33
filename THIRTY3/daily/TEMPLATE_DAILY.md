@@ -6,40 +6,40 @@ tags: [learning, phase-X, ctf, osint, owasp, tryhackme]
 status: active
 ---
 
-# Daily Learning Progress — [Date]
+# Progrès quotidiens en matière d'apprentissage - [Date]
 
-## 🎯 Phase Current
-- Phase: 2 (Intermediate)
-- Focus: OWASP Top 10 + Exploitation
-- Time logged today: [X minutes]
-- Cumulative phase time: [Total hours]
+## 🎯 Phase actuelle
+- Phase : 2 (Intermédiaire)
+- Focus : OWASP Top 10 + Exploitation
+- Temps enregistré aujourd'hui : [X minutes]
+- Temps de phase cumulé : [Nombre total d'heures]
 
-## 📚 Today's Activities
-- [ ] Challenge: [Platform] - [Name] — Time: [X min] — Status: [Solved|In Progress]
-- [ ] Concept: [Topic] — Time: [X min] — Evidence: [[Link]]
-- [ ] OSINT investigation: [Campaign] — Time: [X min] — Status: [Complete|Active]
+## 📚 Activités d'aujourd'hui
+- Défi : [Plateforme] - [Nom] - Durée : [X min] - Statut : [Résolu|En cours]
+- [ ] Concept : [Sujet] - Temps : [X min] - Preuve : [[Link]]
+- [ ] Enquête OSINT : [Campagne] - Durée : [X min] - Statut : [Complet|Actif]
 
-## ✅ Concepts Mastered Today
-- Concept 1: [Brief explanation]
-- Concept 2: [[Evidence link]]
+## ✅ Concepts maîtrisés aujourd'hui
+- Concept 1 : [Brève explication]
+- Concept 2 : [[Evidence link]]
 
-## 🚧 Blockers
-- Blocker 1: [Description] — Attempted: [Solution] — Status: [Resolved|Pending]
+## 🚧 Bloqueurs
+- Bloqueur 1 : [Description] - Tentative : [Solution] - Statut : [Résolu|En attente]
 
-## 📊 Progress Against Phase
-- ✅ Goal 1: [Completed]
-- 🟡 Goal 2: 60% complete
-- ⬜ Goal 3: Not started
-- Phase completion: XX%
+## 📊 Progrès par rapport à la phase
+- ✅ Objectif 1 : [Terminé]
+- 🟡 Objectif 2 : 60 % de réalisation
+- ⬜ Objectif 3 : Non commencé
+- Achèvement de la phase : XX%
 
-## 🔗 Links Created Today
+## 🔗 Liens créés aujourd'hui
 - [[ENQUETES_OSINT/ACTIVES/Campaign_Name]]
 - [[HACKERGPT/RESSOURCES_LEARNING#Phase-2]]
 
-## 📝 Next Session Goals
-1. [Activity]
-2. [Activity]
-3. [Activity]
+## 📝 Objectifs de la prochaine session
+1. [Activité]
+2. [Activité]
+3. [Activité]
 
 ---
-*Auto-tracked by Learning Tracker subagent*
+*Auto-tracked by Learning Tracker subagent* (suivi automatique par le sous-agent Learning Tracker)

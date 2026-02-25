@@ -1,5 +1,5 @@
-#09-02-2026
-# #Personnel
+[[09-02-2026]]
+# [[Personnel]]
 
 Nouvel agentCtrl+K[Boîte de réception](https://www.continue.dev/inbox)[Tâches](https://www.continue.dev/tasks)[Agents](https://www.continue.dev/agents)[Intégrations](EZEYJRDDJLMUXL)[Mesures](https://www.continue.dev/metrics)
 

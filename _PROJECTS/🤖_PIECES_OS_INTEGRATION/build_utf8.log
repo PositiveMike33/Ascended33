@@ -1,0 +1,444 @@
+﻿docker : #0 building with "desktop-linux" instance using docker driver
+Au caractère Ligne:1 : 1
++ docker build -f Dockerfile.pieces-sync -t piecessync:latest . 2>&1 |  ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (#0 building wit...g docker driver:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+#1 [internal] load build definition from Dockerfile.pieces-sync
+#1 transferring dockerfile:
+#1 transferring dockerfile: 1.78kB 0.3s done
+#1 DONE 0.3s
+
+#2 [internal] load metadata for docker.io/library/python:3.11-slim
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [builder 1/5] FROM 
+docker.io/library/python:3.11-slim@sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf
+#4 resolve docker.io/library/python:3.11-slim@sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf
+#4 resolve docker.io/library/python:3.11-slim@sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf 
+0.0s done
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 1.92kB 0.0s done
+#5 DONE 0.1s
+
+#6 [builder 2/5] WORKDIR /build
+#6 CACHED
+
+#7 [builder 3/5] RUN apt-get update && apt-get install -y --no-install-recommends     build-essential     && rm -rf 
+/var/lib/apt/lists/*
+#7 CACHED
+
+#8 [builder 4/5] COPY requirements.txt .
+#8 DONE 0.1s
+
+#9 [stage-1  2/10] RUN apt-get update && apt-get install -y --no-install-recommends     curl     ca-certificates     
+&& rm -rf /var/lib/apt/lists/*
+#9 0.999 Hit:1 http://deb.debian.org/debian trixie InRelease
+#9 1.004 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+#9 1.036 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+#9 1.063 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9670 kB]
+#9 2.620 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+#9 2.633 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [112 kB]
+#9 3.290 Fetched 9879 kB in 3s (3535 kB/s)
+#9 3.290 Reading package lists...
+#9 3.917 Reading package lists...
+#9 4.451 Building dependency tree...
+#9 4.602 Reading state information...
+#9 4.805 ca-certificates is already the newest version (20250419).
+#9 4.805 The following additional packages will be installed:
+#9 4.805   libbrotli1 libcom-err2 libcurl4t64 libgnutls30t64 libgssapi-krb5-2 libidn2-0
+#9 4.805   libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap2 libnghttp2-14
+#9 4.806   libnghttp3-9 libp11-kit0 libpsl5t64 librtmp1 libsasl2-2 libsasl2-modules-db
+#9 4.806   libssh2-1t64 libtasn1-6 libunistring5
+#9 4.807 Suggested packages:
+#9 4.807   gnutls-bin krb5-doc krb5-user
+#9 4.807 Recommended packages:
+#9 4.807   bash-completion krb5-locales libldap-common publicsuffix libsasl2-modules
+#9 4.917 The following NEW packages will be installed:
+#9 4.917   curl libbrotli1 libcom-err2 libcurl4t64 libgnutls30t64 libgssapi-krb5-2
+#9 4.917   libidn2-0 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap2
+#9 4.918   libnghttp2-14 libnghttp3-9 libp11-kit0 libpsl5t64 librtmp1 libsasl2-2
+#9 4.918   libsasl2-modules-db libssh2-1t64 libtasn1-6 libunistring5
+#9 5.036 0 upgraded, 22 newly installed, 0 to remove and 0 not upgraded.
+#9 5.036 Need to get 4885 kB of archives.
+#9 5.036 After this operation, 14.7 MB of additional disk space will be used.
+#9 5.036 Get:1 http://deb.debian.org/debian trixie/main amd64 libbrotli1 amd64 1.1.0-2+b7 [307 kB]
+#9 5.354 Get:2 http://deb.debian.org/debian trixie/main amd64 libkrb5support0 amd64 1.21.3-5 [33.0 kB]
+#9 5.505 Get:3 http://deb.debian.org/debian trixie/main amd64 libcom-err2 amd64 1.47.2-3+b7 [25.0 kB]
+#9 5.533 Get:4 http://deb.debian.org/debian trixie/main amd64 libk5crypto3 amd64 1.21.3-5 [81.5 kB]
+#9 5.563 Get:5 http://deb.debian.org/debian trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+#9 5.564 Get:6 http://deb.debian.org/debian trixie/main amd64 libkrb5-3 amd64 1.21.3-5 [326 kB]
+#9 5.649 Get:7 http://deb.debian.org/debian trixie/main amd64 libgssapi-krb5-2 amd64 1.21.3-5 [138 kB]
+#9 5.669 Get:8 http://deb.debian.org/debian trixie/main amd64 libunistring5 amd64 1.3-2 [477 kB]
+#9 5.724 Get:9 http://deb.debian.org/debian trixie/main amd64 libidn2-0 amd64 2.3.8-2 [109 kB]
+#9 5.733 Get:10 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9 [19.8 kB]
+#9 5.733 Get:11 http://deb.debian.org/debian trixie/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9 [57.5 kB]
+#9 5.736 Get:12 http://deb.debian.org/debian trixie/main amd64 libldap2 amd64 2.6.10+dfsg-1 [194 kB]
+#9 5.754 Get:13 http://deb.debian.org/debian trixie/main amd64 libnghttp2-14 amd64 1.64.0-1.1 [76.0 kB]
+#9 5.755 Get:14 http://deb.debian.org/debian trixie/main amd64 libnghttp3-9 amd64 1.8.0-1 [67.7 kB]
+#9 5.761 Get:15 http://deb.debian.org/debian trixie/main amd64 libpsl5t64 amd64 0.21.2-1.1+b1 [57.2 kB]
+#9 5.769 Get:16 http://deb.debian.org/debian trixie/main amd64 libp11-kit0 amd64 0.25.5-3 [425 kB]
+#9 5.812 Get:17 http://deb.debian.org/debian trixie/main amd64 libtasn1-6 amd64 4.20.0-2 [49.9 kB]
+#9 5.814 Get:18 http://deb.debian.org/debian-security trixie-security/main amd64 libgnutls30t64 amd64 3.8.9-3+deb13u2 
+[1468 kB]
+#9 5.911 Get:19 http://deb.debian.org/debian trixie/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b5 [58.8 kB]
+#9 5.915 Get:20 http://deb.debian.org/debian trixie/main amd64 libssh2-1t64 amd64 1.11.1-1 [245 kB]
+#9 5.923 Get:21 http://deb.debian.org/debian trixie/main amd64 libcurl4t64 amd64 8.14.1-2+deb13u2 [391 kB]
+#9 5.936 Get:22 http://deb.debian.org/debian trixie/main amd64 curl amd64 8.14.1-2+deb13u2 [270 kB]
+#9 6.131 debconf: unable to initialize frontend: Dialog
+#9 6.131 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#9 6.131 debconf: falling back to frontend: Readline
+#9 6.131 debconf: unable to initialize frontend: Readline
+#9 6.131 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC 
+entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 
+/usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base 
+/usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at 
+/usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 22.)
+#9 6.131 debconf: falling back to frontend: Teletype
+#9 6.135 debconf: unable to initialize frontend: Teletype
+#9 6.135 debconf: (This frontend requires a controlling tty.)
+#9 6.135 debconf: falling back to frontend: Noninteractive
+#9 6.745 Fetched 4885 kB in 1s (4828 kB/s)
+#9 6.783 Selecting previously unselected package libbrotli1:amd64.
+#9 6.783 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 5645 files and directories currently installed.)
+#9 6.830 Preparing to unpack .../00-libbrotli1_1.1.0-2+b7_amd64.deb ...
+#9 6.842 Unpacking libbrotli1:amd64 (1.1.0-2+b7) ...
+#9 6.921 Selecting previously unselected package libkrb5support0:amd64.
+#9 6.921 Preparing to unpack .../01-libkrb5support0_1.21.3-5_amd64.deb ...
+#9 6.928 Unpacking libkrb5support0:amd64 (1.21.3-5) ...
+#9 6.981 Selecting previously unselected package libcom-err2:amd64.
+#9 6.981 Preparing to unpack .../02-libcom-err2_1.47.2-3+b7_amd64.deb ...
+#9 6.988 Unpacking libcom-err2:amd64 (1.47.2-3+b7) ...
+#9 7.046 Selecting previously unselected package libk5crypto3:amd64.
+#9 7.046 Preparing to unpack .../03-libk5crypto3_1.21.3-5_amd64.deb ...
+#9 7.053 Unpacking libk5crypto3:amd64 (1.21.3-5) ...
+#9 7.115 Selecting previously unselected package libkeyutils1:amd64.
+#9 7.116 Preparing to unpack .../04-libkeyutils1_1.6.3-6_amd64.deb ...
+#9 7.123 Unpacking libkeyutils1:amd64 (1.6.3-6) ...
+#9 7.174 Selecting previously unselected package libkrb5-3:amd64.
+#9 7.175 Preparing to unpack .../05-libkrb5-3_1.21.3-5_amd64.deb ...
+#9 7.189 Unpacking libkrb5-3:amd64 (1.21.3-5) ...
+#9 7.272 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#9 7.273 Preparing to unpack .../06-libgssapi-krb5-2_1.21.3-5_amd64.deb ...
+#9 7.279 Unpacking libgssapi-krb5-2:amd64 (1.21.3-5) ...
+#9 7.340 Selecting previously unselected package libunistring5:amd64.
+#9 7.340 Preparing to unpack .../07-libunistring5_1.3-2_amd64.deb ...
+#9 7.352 Unpacking libunistring5:amd64 (1.3-2) ...
+#9 7.435 Selecting previously unselected package libidn2-0:amd64.
+#9 7.436 Preparing to unpack .../08-libidn2-0_2.3.8-2_amd64.deb ...
+#9 7.443 Unpacking libidn2-0:amd64 (2.3.8-2) ...
+#9 7.494 Selecting previously unselected package libsasl2-modules-db:amd64.
+#9 7.494 Preparing to unpack .../09-libsasl2-modules-db_2.1.28+dfsg1-9_amd64.deb ...
+#9 7.502 Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#9 7.564 Selecting previously unselected package libsasl2-2:amd64.
+#9 7.564 Preparing to unpack .../10-libsasl2-2_2.1.28+dfsg1-9_amd64.deb ...
+#9 7.578 Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#9 7.645 Selecting previously unselected package libldap2:amd64.
+#9 7.646 Preparing to unpack .../11-libldap2_2.6.10+dfsg-1_amd64.deb ...
+#9 7.653 Unpacking libldap2:amd64 (2.6.10+dfsg-1) ...
+#9 7.717 Selecting previously unselected package libnghttp2-14:amd64.
+#9 7.718 Preparing to unpack .../12-libnghttp2-14_1.64.0-1.1_amd64.deb ...
+#9 7.726 Unpacking libnghttp2-14:amd64 (1.64.0-1.1) ...
+#9 7.794 Selecting previously unselected package libnghttp3-9:amd64.
+#9 7.795 Preparing to unpack .../13-libnghttp3-9_1.8.0-1_amd64.deb ...
+#9 7.803 Unpacking libnghttp3-9:amd64 (1.8.0-1) ...
+#9 7.868 Selecting previously unselected package libpsl5t64:amd64.
+#9 7.869 Preparing to unpack .../14-libpsl5t64_0.21.2-1.1+b1_amd64.deb ...
+#9 7.877 Unpacking libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#9 7.940 Selecting previously unselected package libp11-kit0:amd64.
+#9 7.940 Preparing to unpack .../15-libp11-kit0_0.25.5-3_amd64.deb ...
+#9 7.950 Unpacking libp11-kit0:amd64 (0.25.5-3) ...
+#9 8.029 Selecting previously unselected package libtasn1-6:amd64.
+#9 8.030 Preparing to unpack .../16-libtasn1-6_4.20.0-2_amd64.deb ...
+#9 8.037 Unpacking libtasn1-6:amd64 (4.20.0-2) ...
+#9 8.100 Selecting previously unselected package libgnutls30t64:amd64.
+#9 8.100 Preparing to unpack .../17-libgnutls30t64_3.8.9-3+deb13u2_amd64.deb ...
+#9 8.107 Unpacking libgnutls30t64:amd64 (3.8.9-3+deb13u2) ...
+#9 8.198 Selecting previously unselected package librtmp1:amd64.
+#9 8.199 Preparing to unpack .../18-librtmp1_2.4+20151223.gitfa8646d.1-2+b5_amd64.deb ...
+#9 8.205 Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#9 8.266 Selecting previously unselected package libssh2-1t64:amd64.
+#9 8.266 Preparing to unpack .../19-libssh2-1t64_1.11.1-1_amd64.deb ...
+#9 8.273 Unpacking libssh2-1t64:amd64 (1.11.1-1) ...
+#9 8.333 Selecting previously unselected package libcurl4t64:amd64.
+#9 8.333 Preparing to unpack .../20-libcurl4t64_8.14.1-2+deb13u2_amd64.deb ...
+#9 8.340 Unpacking libcurl4t64:amd64 (8.14.1-2+deb13u2) ...
+#9 8.401 Selecting previously unselected package curl.
+#9 8.401 Preparing to unpack .../21-curl_8.14.1-2+deb13u2_amd64.deb ...
+#9 8.408 Unpacking curl (8.14.1-2+deb13u2) ...
+#9 8.469 Setting up libkeyutils1:amd64 (1.6.3-6) ...
+#9 8.487 Setting up libbrotli1:amd64 (1.1.0-2+b7) ...
+#9 8.506 Setting up libnghttp2-14:amd64 (1.64.0-1.1) ...
+#9 8.527 Setting up libcom-err2:amd64 (1.47.2-3+b7) ...
+#9 8.555 Setting up libkrb5support0:amd64 (1.21.3-5) ...
+#9 8.577 Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+#9 8.598 Setting up libp11-kit0:amd64 (0.25.5-3) ...
+#9 8.617 Setting up libunistring5:amd64 (1.3-2) ...
+#9 8.640 Setting up libk5crypto3:amd64 (1.21.3-5) ...
+#9 8.660 Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+#9 8.680 Setting up libnghttp3-9:amd64 (1.8.0-1) ...
+#9 8.697 Setting up libtasn1-6:amd64 (4.20.0-2) ...
+#9 8.716 Setting up libkrb5-3:amd64 (1.21.3-5) ...
+#9 8.736 Setting up libssh2-1t64:amd64 (1.11.1-1) ...
+#9 8.755 Setting up libldap2:amd64 (2.6.10+dfsg-1) ...
+#9 8.776 Setting up libidn2-0:amd64 (2.3.8-2) ...
+#9 8.796 Setting up libgssapi-krb5-2:amd64 (1.21.3-5) ...
+#9 8.818 Setting up libgnutls30t64:amd64 (3.8.9-3+deb13u2) ...
+#9 8.838 Setting up libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+#9 8.860 Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+#9 8.886 Setting up libcurl4t64:amd64 (8.14.1-2+deb13u2) ...
+#9 8.907 Setting up curl (8.14.1-2+deb13u2) ...
+#9 8.928 Processing triggers for libc-bin (2.41-12+deb13u1) ...
+#9 DONE 9.2s
+
+#10 [builder 5/5] RUN pip install --user --no-cache-dir -r requirements.txt
+#10 2.802 Collecting fastapi>=0.109.0 (from -r requirements.txt (line 5))
+#10 2.918   Downloading fastapi-0.133.0-py3-none-any.whl.metadata (30 kB)
+#10 2.971 Collecting uvicorn>=0.27.0 (from -r requirements.txt (line 6))
+#10 2.993   Downloading uvicorn-0.41.0-py3-none-any.whl.metadata (6.7 kB)
+#10 3.149 Collecting pydantic>=2.0.0 (from -r requirements.txt (line 7))
+#10 3.165   Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+#10 3.188      ÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔö
+üÔöüÔöüÔöüÔöüÔöü 90.6/90.6 kB 4.3 MB/s eta 0:00:00
+#10 3.230 Collecting requests>=2.31.0 (from -r requirements.txt (line 10))
+#10 3.249   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+#10 3.754 Collecting aiohttp>=3.9.0 (from -r requirements.txt (line 11))
+#10 3.899   Downloading 
+aiohttp-3.13.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+#10 3.948 Collecting httpx>=0.25.0 (from -r requirements.txt (line 12))
+#10 3.999   Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+#10 4.136 Collecting watchdog>=3.0.0 (from -r requirements.txt (line 15))
+#10 4.153   Downloading watchdog-6.0.0-py3-none-manylinux2014_x86_64.whl.metadata (44 kB)
+#10 4.162      ÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔö
+üÔöüÔöüÔöüÔöüÔöü 44.3/44.3 kB 5.7 MB/s eta 0:00:00
+#10 4.353 Collecting jsonschema>=4.20.0 (from -r requirements.txt (line 19))
+#10 4.392   Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+#10 4.520 Collecting simplejson>=3.19.0 (from -r requirements.txt (line 20))
+#10 4.543   Downloading simplejson-3.20.2-cp311-cp311-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.many
+linux2014_x86_64.whl.metadata (3.2 kB)
+#10 4.610 Collecting pyyaml>=6.0 (from -r requirements.txt (line 23))
+#10 4.634   Downloading 
+pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+#10 4.679 Collecting asyncio-contextmanager>=1.0.0 (from -r requirements.txt (line 26))
+#10 4.705   Downloading asyncio-contextmanager-1.0.1.tar.gz (2.1 kB)
+#10 4.707   Preparing metadata (setup.py): started
+#10 5.064   Preparing metadata (setup.py): finished with status 'done'
+#10 5.851 Collecting sqlalchemy>=2.0.0 (from -r requirements.txt (line 29))
+#10 5.868   Downloading 
+sqlalchemy-2.0.46-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+#10 5.907 Collecting colorlog>=6.8.0 (from -r requirements.txt (line 32))
+#10 5.920   Downloading colorlog-6.10.1-py3-none-any.whl.metadata (11 kB)
+#10 5.959 Collecting python-json-logger>=2.0.7 (from -r requirements.txt (line 33))
+#10 5.977   Downloading python_json_logger-4.0.0-py3-none-any.whl.metadata (4.0 kB)
+#10 6.013 Collecting python-dotenv>=1.0.0 (from -r requirements.txt (line 36))
+#10 6.034   Downloading python_dotenv-1.2.1-py3-none-any.whl.metadata (25 kB)
+#10 6.063 Collecting python-dateutil>=2.8.0 (from -r requirements.txt (line 39))
+#10 6.084   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+#10 6.121 Collecting click>=8.1.0 (from -r requirements.txt (line 42))
+#10 6.140   Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+#10 6.185 Collecting typer>=0.9.0 (from -r requirements.txt (line 43))
+#10 6.207   Downloading typer-0.24.1-py3-none-any.whl.metadata (16 kB)
+#10 6.289 Collecting pytest>=7.4.0 (from -r requirements.txt (line 46))
+#10 6.304   Downloading pytest-9.0.2-py3-none-any.whl.metadata (7.6 kB)
+#10 6.338 Collecting pytest-cov>=4.1.0 (from -r requirements.txt (line 47))
+#10 6.353   Downloading pytest_cov-7.0.0-py3-none-any.whl.metadata (31 kB)
+#10 6.394 Collecting pytest-asyncio>=0.21.0 (from -r requirements.txt (line 48))
+#10 6.413   Downloading pytest_asyncio-1.3.0-py3-none-any.whl.metadata (4.1 kB)
+#10 6.449 Collecting markdown>=3.5.0 (from -r requirements.txt (line 51))
+#10 6.776   Downloading markdown-3.10.2-py3-none-any.whl.metadata (5.1 kB)
+#10 6.881 Collecting frontmatter>=1.0.0 (from -r requirements.txt (line 52))
+#10 6.904   Downloading frontmatter-3.0.8.tar.gz (5.3 kB)
+#10 6.917   Preparing metadata (setup.py): started
+#10 7.045   Preparing metadata (setup.py): finished with status 'done'
+#10 7.077 Collecting pygments>=2.16.0 (from -r requirements.txt (line 55))
+#10 7.091   Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+#10 7.148 Collecting starlette>=0.40.0 (from fastapi>=0.109.0->-r requirements.txt (line 5))
+#10 7.165   Downloading starlette-0.52.1-py3-none-any.whl.metadata (6.3 kB)
+#10 7.207 Collecting typing-extensions>=4.8.0 (from fastapi>=0.109.0->-r requirements.txt (line 5))
+#10 7.227   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+#10 7.249 Collecting typing-inspection>=0.4.2 (from fastapi>=0.109.0->-r requirements.txt (line 5))
+#10 7.267   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+#10 7.293 Collecting annotated-doc>=0.0.2 (from fastapi>=0.109.0->-r requirements.txt (line 5))
+#10 7.307   Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+#10 7.341 Collecting h11>=0.8 (from uvicorn>=0.27.0->-r requirements.txt (line 6))
+#10 7.363   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#10 7.398 Collecting annotated-types>=0.6.0 (from pydantic>=2.0.0->-r requirements.txt (line 7))
+#10 7.422   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+#10 8.112 Collecting pydantic-core==2.41.5 (from pydantic>=2.0.0->-r requirements.txt (line 7))
+#10 8.238   Downloading pydantic_core-2.41.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 
+kB)
+#10 8.585 Collecting charset_normalizer<4,>=2 (from requests>=2.31.0->-r requirements.txt (line 10))
+#10 8.602   Downloading 
+charset_normalizer-3.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 
+kB)
+#10 8.642 Collecting idna<4,>=2.5 (from requests>=2.31.0->-r requirements.txt (line 10))
+#10 8.664   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+#10 8.715 Collecting urllib3<3,>=1.21.1 (from requests>=2.31.0->-r requirements.txt (line 10))
+#10 8.741   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+#10 8.785 Collecting certifi>=2017.4.17 (from requests>=2.31.0->-r requirements.txt (line 10))
+#10 8.802   Downloading certifi-2026.1.4-py3-none-any.whl.metadata (2.5 kB)
+#10 8.850 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp>=3.9.0->-r requirements.txt (line 11))
+#10 8.874   Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+#10 8.911 Collecting aiosignal>=1.4.0 (from aiohttp>=3.9.0->-r requirements.txt (line 11))
+#10 8.936   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+#10 8.985 Collecting attrs>=17.3.0 (from aiohttp>=3.9.0->-r requirements.txt (line 11))
+#10 9.002   Downloading attrs-25.4.0-py3-none-any.whl.metadata (10 kB)
+#10 9.095 Collecting frozenlist>=1.1.1 (from aiohttp>=3.9.0->-r requirements.txt (line 11))
+#10 9.116   Downloading 
+frozenlist-1.8.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+#10 9.381 Collecting multidict<7.0,>=4.5 (from aiohttp>=3.9.0->-r requirements.txt (line 11))
+#10 9.411   Downloading 
+multidict-6.7.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+#10 ...
+
+#11 [stage-1  3/10] RUN useradd -m -u 1000 piecessync
+#11 DONE 0.6s
+
+#12 [stage-1  4/10] WORKDIR /app
+#12 DONE 0.1s
+
+#10 [builder 5/5] RUN pip install --user --no-cache-dir -r requirements.txt
+#10 10.03 Collecting propcache>=0.2.0 (from aiohttp>=3.9.0->-r requirements.txt (line 11))
+#10 10.05   Downloading 
+propcache-0.4.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)
+#10 10.37 Collecting yarl<2.0,>=1.17.0 (from aiohttp>=3.9.0->-r requirements.txt (line 11))
+#10 10.38   Downloading 
+yarl-1.22.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (75 kB)
+#10 10.39      ÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔöüÔö
+üÔöüÔöüÔöüÔöüÔöü 75.1/75.1 kB 16.0 MB/s eta 0:00:00
+#10 10.44 Collecting anyio (from httpx>=0.25.0->-r requirements.txt (line 12))
+#10 10.46   Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+#10 10.50 Collecting httpcore==1.* (from httpx>=0.25.0->-r requirements.txt (line 12))
+#10 10.52   Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+#10 10.57 Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.20.0->-r requirements.txt (line 19))
+#10 10.60   Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+#10 10.64 Collecting referencing>=0.28.4 (from jsonschema>=4.20.0->-r requirements.txt (line 19))
+#10 10.66   Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+#10 10.96 Collecting rpds-py>=0.25.0 (from jsonschema>=4.20.0->-r requirements.txt (line 19))
+#10 10.98   Downloading rpds_py-0.30.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+#10 11.69 Collecting greenlet>=1 (from sqlalchemy>=2.0.0->-r requirements.txt (line 29))
+#10 11.70   Downloading greenlet-3.3.2-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+#10 11.76 Collecting six>=1.5 (from python-dateutil>=2.8.0->-r requirements.txt (line 39))
+#10 11.78   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#10 11.82 Collecting shellingham>=1.3.0 (from typer>=0.9.0->-r requirements.txt (line 43))
+#10 11.84   Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+#10 11.92 Collecting rich>=12.3.0 (from typer>=0.9.0->-r requirements.txt (line 43))
+#10 11.94   Downloading rich-14.3.3-py3-none-any.whl.metadata (18 kB)
+#10 11.99 Collecting iniconfig>=1.0.1 (from pytest>=7.4.0->-r requirements.txt (line 46))
+#10 12.01   Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+#10 12.06 Collecting packaging>=22 (from pytest>=7.4.0->-r requirements.txt (line 46))
+#10 12.08   Downloading packaging-26.0-py3-none-any.whl.metadata (3.3 kB)
+#10 12.11 Collecting pluggy<2,>=1.5 (from pytest>=7.4.0->-r requirements.txt (line 46))
+#10 12.12   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+#10 12.67 Collecting coverage>=7.10.6 (from coverage[toml]>=7.10.6->pytest-cov>=4.1.0->-r requirements.txt (line 47))
+#10 12.88   Downloading 
+coverage-7.13.4-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (8.5 kB)
+#10 12.92 INFO: pip is looking at multiple versions of frontmatter to determine which version is compatible with other 
+requirements. This could take a while.
+#10 12.93 Collecting frontmatter>=1.0.0 (from -r requirements.txt (line 52))
+#10 12.98   Downloading frontmatter-3.0.7-py2.py3-none-any.whl.metadata (2.5 kB)
+#10 13.07   Downloading frontmatter-3.0.6-py2.py3-none-any.whl.metadata (2.5 kB)
+#10 13.14   Downloading frontmatter-3.0.5-py2.py3-none-any.whl.metadata (2.5 kB)
+#10 13.18   Downloading frontmatter-3.0.4-py2.py3-none-any.whl.metadata (2.5 kB)
+#10 13.22   Downloading frontmatter-3.0.3-py2.py3-none-any.whl.metadata (2.5 kB)
+#10 13.27   Downloading frontmatter-3.0.2-py2.py3-none-any.whl.metadata (2.5 kB)
+#10 13.31   Downloading frontmatter-3.0.1-py2.py3-none-any.whl.metadata (2.5 kB)
+#10 13.31 INFO: pip is still looking at multiple versions of frontmatter to determine which version is compatible with 
+other requirements. This could take a while.
+#10 13.35   Downloading frontmatter-3.0.0-py2.py3-none-any.whl.metadata (2.5 kB)
+#10 13.39   Downloading frontmatter-2.1.0-py2.py3-none-any.whl.metadata (1.6 kB)
+#10 13.42   Downloading frontmatter-2.0.1-py2.py3-none-any.whl.metadata (1.6 kB)
+#10 13.47   Downloading frontmatter-2.0.0-py2.py3-none-any.whl.metadata (1.5 kB)
+#10 13.50   Downloading frontmatter-1.0.1.tar.gz (4.6 kB)
+#10 13.51   Preparing metadata (setup.py): started
+#10 13.67   Preparing metadata (setup.py): finished with status 'done'
+#10 13.67 INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter 
+constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this 
+run, press Ctrl + C.
+#10 13.71   Downloading frontmatter-1.0.0.tar.gz (4.6 kB)
+#10 13.72   Preparing metadata (setup.py): started
+#10 13.82   Preparing metadata (setup.py): finished with status 'error'
+#10 13.83   error: subprocess-exited-with-error
+#10 13.83   
+#10 13.83   ├ù python setup.py egg_info did not run successfully.
+#10 13.83   Ôöé exit code: 1
+#10 13.83   Ôò░ÔöÇ> [8 lines of output]
+#10 13.83       Traceback (most recent call last):
+#10 13.83         File "<string>", line 2, in <module>
+#10 13.83         File "<pip-setuptools-caller>", line 34, in <module>
+#10 13.83         File "/tmp/pip-install-d1k1qr96/frontmatter_998601f8f8fb4ee995dff43c9bd646d3/setup.py", line 13, in 
+<module>
+#10 13.83           with open(path.join(here, 'VERSION'), encoding='utf-8') as f:
+#10 13.83                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#10 13.83         File "<frozen codecs>", line 918, in open
+#10 13.83       FileNotFoundError: [Errno 2] No such file or directory: 
+'/tmp/pip-install-d1k1qr96/frontmatter_998601f8f8fb4ee995dff43c9bd646d3/VERSION'
+#10 13.83       [end of output]
+#10 13.83   
+#10 13.83   note: This error originates from a subprocess, and is likely not a problem with pip.
+#10 13.83 error: metadata-generation-failed
+#10 13.83 
+#10 13.83 ├ù Encountered error while generating package metadata.
+#10 13.83 Ôò░ÔöÇ> See above for output.
+#10 13.83 
+#10 13.83 note: This is an issue with the package mentioned above, not pip.
+#10 13.83 hint: See above for details.
+#10 13.97 
+#10 13.97 [notice] A new release of pip is available: 24.0 -> 26.0.1
+#10 13.97 [notice] To update, run: pip install --upgrade pip
+#10 ERROR: process "/bin/sh -c pip install --user --no-cache-dir -r requirements.txt" did not complete successfully: 
+exit code: 1
+------
+ > [builder 5/5] RUN pip install --user --no-cache-dir -r requirements.txt:
+13.83 error: metadata-generation-failed
+13.83 
+13.83 ├ù Encountered error while generating package metadata.
+13.83 Ôò░ÔöÇ> See above for output.
+13.83 
+13.83 note: This is an issue with the package mentioned above, not pip.
+13.83 hint: See above for details.
+13.97 
+13.97 [notice] A new release of pip is available: 24.0 -> 26.0.1
+13.97 [notice] To update, run: pip install --upgrade pip
+------
+Dockerfile.pieces-sync:14
+--------------------
+  12 |     # Copy requirements
+  13 |     COPY requirements.txt .
+  14 | >>> RUN pip install --user --no-cache-dir -r requirements.txt
+  15 |     
+  16 |     # Stage 2: Runtime
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c pip install --user --no-cache-dir -r requirements.txt" 
+did not complete successfully: exit code: 1
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/gtnlxbxtp7hkeus6wevelh2t7

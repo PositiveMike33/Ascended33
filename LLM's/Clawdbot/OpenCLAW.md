@@ -12,7 +12,7 @@ Français
 
 ![OpenClaw](https://www.hostinger.com/cdn-cgi/imagedelivery/LqiWLm-3MGbYHtFuUbcBtA/hvps-docker-app-icon-openclaw/public)
 
-#10-02-2026 
+[[10-02-2026]] 
 # OpenClaw
 
 Personal AI assistant with multi-channel messaging support (formerly Moltbot/Clawdbot)

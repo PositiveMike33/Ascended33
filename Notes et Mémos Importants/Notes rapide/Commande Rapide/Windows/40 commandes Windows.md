@@ -5,7 +5,7 @@ tags:
 mise a jour: 12-02-2026
 source: 40 commandes Windows
 ---
-#10-02-2026 
+[[10-02-2026]] 
 ##  « 40 Windows Commands you NEED to know (in 10 Minutes) » 
 [[youtube](https://www.youtube.com/watch?v=Jfvg3CS1X3A)]​[linkedin+1](https://www.linkedin.com/posts/networkchuck_40-windows-commands-you-need-to-know-in-activity-7295245665964630017-1Wbd)
 ---

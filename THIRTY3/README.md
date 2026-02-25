@@ -17,7 +17,7 @@ Bienvenue dans le système THIRTY3 de Michael.
 2. Utilise le raccourci Daily Notes (`Ctrl/Cmd + P` → "Open today's daily note")
 3. La note du jour est auto-créée avec le template THIRTY3 complet
 4. Complète la section **Matin** avant de commencer à travailler
-5. Consulte [[MATIN — Activation THIRTY3]] pour le protocole complet
+5. Consulte [[MATIN — Activation Énergétique]] pour le protocole complet
 
 ## Comment clore chaque journée
 
@@ -33,7 +33,7 @@ Le tableau des 7 derniers jours dans chaque Daily Note se remplit automatiquemen
 ## Documents fondamentaux
 
 - [[Constitution THIRTY3]] — Qui tu es et pourquoi
-- [[MATIN — Activation THIRTY3]] — Protocole matin permanent
+- [[MATIN — Activation Énergétique]] — Protocole matin permanent
 - [[SOIR — Bilan THIRTY3]] — Protocole soir permanent
 
 ---

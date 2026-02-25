@@ -4,78 +4,33 @@
     "type": "split",
     "children": [
       {
-        "id": "8bb5dda6c3e75a4a",
+        "id": "da338b8e2cb526d0",
         "type": "tabs",
         "children": [
           {
-            "id": "b3b4e4d749296871",
+            "id": "89c28c4c8dfc41d1",
             "type": "leaf",
             "pinned": true,
             "state": {
               "type": "webviewer",
               "state": {
-                "url": "https://osintframework.com/",
-                "title": "OSINT Framework",
+                "url": "https://www.myinstants.com/en/index/us/",
+                "title": "Myinstants | The largest instant sound buttons website in United States!",
                 "mode": "webview"
               },
               "pinned": true,
               "icon": "globe-2",
-              "title": "OSINT Framework"
+              "title": "Myinstants | The largest instant sound buttons website in United States!"
             }
           },
           {
-            "id": "2f3f750413ef0347",
+            "id": "955bcb3c500bf5c8",
             "type": "leaf",
             "pinned": true,
-            "state": {
-              "type": "map",
-              "state": {
-                "name": "Default",
-                "mapZoom": 12,
-                "mapCenter": {
-                  "lat": 46.09585272412611,
-                  "lng": -73.32103729248048
-                },
-                "query": "path:\"README.md\"",
-                "queryError": false,
-                "chosenMapSource": 0,
-                "forceHistorySave": false,
-                "followActiveNote": true,
-                "followMyLocation": true,
-                "embeddedHeight": 300,
-                "autoFit": false,
-                "lock": false,
-                "showLinks": true,
-                "linkColor": "green",
-                "markerLabels": "right",
-                "editMode": true
-              },
-              "pinned": true,
-              "icon": "map-pin",
-              "title": "Interactive Map View"
-            }
-          },
-          {
-            "id": "c7adb5eb724117a4",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "excel-view",
-              "state": {
-                "file": "REPORT/Février/16 Février au 22 Février/20-02-2026/Excel/Prèts et Paiements 2026.sheet.md"
-              },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "Prèts et Paiements 2026.sheet"
-            }
-          },
-          {
-            "id": "f77ec08071ed75a8",
-            "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Identité de marque THIRTY3 — Diagnostic & Stratégie.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -89,12 +44,77 @@
                   "unlinkedCollapsed": true
                 }
               },
+              "pinned": true,
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Identité de marque THIRTY3 — Diagnostic & Stratégie"
+            }
+          },
+          {
+            "id": "d23a6f5af4b531bf",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "REPORT/Declassified Report/02 Rapport Février/Semaine du 23 au 01 mars/(2026-02-25) Résumé Exclusif.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "(2026-02-25) Résumé Exclusif"
+            }
+          },
+          {
+            "id": "67a01202106d443e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "THIRTY3/daily/(2026-02-25)Création du dossier LAW OF ONE.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "pinned": true,
+              "icon": "lucide-file",
+              "title": "(2026-02-25)Création du dossier LAW OF ONE"
+            }
+          },
+          {
+            "id": "d915dbcc5ff595f3",
+            "type": "leaf",
+            "state": {
+              "type": "vscode-editor",
+              "state": {
+                "file": "streamlit_app.py"
+              },
+              "icon": "lucide-file",
+              "title": "streamlit_app"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -126,7 +146,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#TODO",
+                "query": "[\"tags\"]#20-02",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -151,7 +171,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 336.5
+    "width": 495.5
   },
   "right": {
     "id": "5328173d6c2a1011",
@@ -160,7 +180,7 @@
       {
         "id": "d056a19152f47e80",
         "type": "tabs",
-        "dimension": 34.22131147540984,
+        "dimension": 25.0968992248062,
         "children": [
           {
             "id": "1fa5663d2c6d5597",
@@ -229,13 +249,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pieces_setup_guide recapitulatifs.md",
+                "file": "KNOWLEDGE/MINDVALLEY/Devenir concentré et imperturbable/TPL — Focus Block 45 min.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Plan de Pieces_setup_guide recapitulatifs"
+              "title": "Plan de TPL — Focus Block 45 min"
             }
           },
           {
@@ -247,17 +267,15 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
-          },
-          {
-            "id": "0763769147d6679e",
-            "type": "leaf",
-            "state": {
-              "type": "pieces-plugin-view",
-              "state": {},
-              "icon": "pieces-logo",
-              "title": "Pieces for Developers"
-            }
-          },
+          }
+        ],
+        "currentTab": 5
+      },
+      {
+        "id": "3bebb8bc751e8814",
+        "type": "tabs",
+        "dimension": 20.44573643410853,
+        "children": [
           {
             "id": "aa9808e2f1fba1c8",
             "type": "leaf",
@@ -268,16 +286,15 @@
               "title": "Strange New Worlds"
             }
           }
-        ],
-        "currentTab": 7
+        ]
       },
       {
-        "id": "6a7b69312a32a095",
+        "id": "c6bcfb648d780e59",
         "type": "tabs",
-        "dimension": 65.77868852459017,
+        "dimension": 54.45736434108527,
         "children": [
           {
-            "id": "8e40dfdf7f0ee6ca",
+            "id": "249c0f8e7091ddf1",
             "type": "leaf",
             "state": {
               "type": "pieces-plugin-view",
@@ -290,8 +307,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 508.5,
-    "collapsed": true
+    "width": 429.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -309,47 +325,68 @@
       "pieces-for-developers:Pieces for Developers": false,
       "terminal:Open terminal": false,
       "obsidian42-brat:BRAT": false,
-      "obsidian-map-view:Open map view": false
+      "obsidian-map-view:Open map view": false,
+      "dashboard-navigator:Open dashboard navigator": false,
+      "zk-prefixer:Créer une nouvelle note unique": false,
+      "audio-recorder:Démarrer / arrêter l'enregistrement": false,
+      "workspaces:Gérer les espaces de travail": false,
+      "markdown-importer:Ouvrir l'importateur Markdown": false,
+      "random-note:Ouvre une note au hasard": false,
+      "publish:Publier les modifications": false,
+      "hydrate:Open hydrate pane": false
     }
   },
   "active": "54d817625ca28cfd",
   "lastOpenFiles": [
-    "_INFRASTRUCTURE/Ascended33/mcp/hexstrike_api.py",
-    "_INFRASTRUCTURE/Ascended33/workers/hexstrike_worker_api.py",
-    "CREATE_DESKTOP_SHORTCUT.vbs",
-    "CREATE_DESKTOP_SHORTCUT.vbs.tmp.38980.1771629122179",
-    "LAUNCH_VAULT.bat",
-    "LAUNCH_VAULT.bat.tmp.38980.1771629110782",
-    "LAUNCH_VAULT.ps1",
-    "streamlit_app.py",
-    "Instructions Claude — HexStrike THIRTY3.md",
-    "HEXSTRIKE_PR_COMPLETION_GUIDE.md",
-    "CLEANUP_COMPLETED.md",
-    "BRAT-log.md",
-    "THIRTY3/Constitution THIRTY3.md",
-    "ASCENDED33_INTEGRATION_COMPLETE.md",
-    "THIRTY3/README.md",
-    "LLM's/Claude/Claude code/Skills/Créer et configurer une nouvelle application Claude Agent SDK.md",
-    "Apprentissage/Ressources/Labs et Plateformes.md",
-    "Apprentissage/Parcours HexStrike.md",
-    "Apprentissage/Certifications/OSCP — Offensive Security.md",
-    "Apprentissage/Modules/05 — Introduction au Pentest.md",
-    "Apprentissage/Modules/04 — Securite Web — OWASP Top 10.md",
-    "Apprentissage/Modules/03 — Introduction OSINT.md",
-    "Apprentissage/Modules/02 — Linux pour la Securite.md",
-    "Apprentissage/Modules/01 — Fondamentaux Reseaux TCP-IP.md",
-    "Apprentissage/Certifications/CompTIA Security+.md",
-    "Apprentissage/Certifications/CEH — Certified Ethical Hacker.md",
-    "THIRTY3/daily/2026/INDEX.md",
-    "_TEMPLATES/CAPTURE_RAPIDE.md",
-    "LEARNING/COURSERA_CERTIFICATES/05_Participation_RSBIQOHLXEJQ.pdf",
-    "LEARNING/COURSERA_CERTIFICATES/03_Prompting.pdf",
-    "LEARNING/COURSERA_CERTIFICATES/02_Introduction_à_l_IA.pdf",
-    "_TEMPLATES/CLAUDE_WORKFLOW.md",
-    "_TEMPLATES/NOTE_PRODUCTIVE_REVENU.md",
-    "_TEMPLATES/ETHICAL_HACKING_NOTE.md",
-    "_TEMPLATES/RECHERCHE.md",
-    "THIRTY3/daily/2026-02-20.md",
+    "Surveillance numerique.png",
+    "Magnétisme_Mindmap.png",
+    "REPORT/Classified Report/02 Février/25-02-2026/INVESTIGATION REPORT/Investigation Report de Michael Gauthier Guillet.md",
+    "REPORT/Classified Report/02 Février/25-02-2026/INVESTIGATION REPORT",
+    "REPORT/Classified Report/02 Février/25-02-2026",
+    "THIRTY3/daily/2026-02-19.md",
+    "THIRTY3/daily/(2026-02-25)Création du dossier LAW OF ONE.md",
+    "REPORT/Declassified Report/02 Rapport Février/Semaine du 23 au 01 mars/(2026-02-25) Résumé Exclusif.md",
+    "KNOWLEDGE/LAW OF ONE",
+    "KNOWLEDGE/Dr Olivier Madelrieux/Affirmations positives du Dr Olivier Madelrieux.md",
+    "REPORT/RAPPORT_JOURNEE_2026-02-25.md",
+    "LAUNCH_VAULT.ps1.backup",
+    "_PROJECTS/🧠_CLAUDE_MASTERY/README_CLAUDE_MASTERY.md",
+    "EXTERNAL/External Vault 3",
+    "_BRAIN/DAILY_REPORTS/Orchestration multi-agent des sagesse ancienne du kybalion.md",
+    "EXTERNAL/External Vault/Supplément Naturelles/Acétyl-L-Carnitine (ALCAR).md",
+    "EXTERNAL/External Vault/Supplément Naturelles/B100 Complex.md",
+    "EXTERNAL/External Vault/Supplément Naturelles/Lion's Mane.md",
+    "EXTERNAL/External Vault/th3thirty3@gmail.com/Mot de passe de secour.md",
+    "EXTERNAL/External Vault/2025-12-30.md",
+    "EXTERNAL/External Vault/Important.md",
+    "EXTERNAL/External Vault/Pasted image 20251214115040.png",
+    "EXTERNAL/External Vault/Untitled.base",
+    "EXTERNAL/External Vault/Untitled.canvas",
+    "EXTERNAL/External Vault/Untitled.md",
+    "EXTERNAL/External Vault/Analyste Psychologique/2025-12-03.md",
+    "REPORT/MICHAEL GAUTHIER GUILLET.md",
+    "_BRAIN/MEMOIRE.md",
+    "_BRAIN/GUIDE_CLAUDE_OPTIMAL.md",
+    "_BRAIN/FINAL_SUMMARY.md",
+    "_BRAIN/DASHBOARD.md",
+    "_TEMPLATES/OSINT_INVESTIGATION.md",
+    "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/George Vanier(Secondaire)/George- Vanier.canvas",
+    "Identité de marque THIRTY3 — Diagnostic & Stratégie.md",
+    "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/St Arsène(Primaire)",
+    "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/George Vanier(Secondaire)",
+    "LEARNING/HACKERGPT/Kali Linux/Gemini-cli & Hexstrike/Rapport Hackernews.md",
+    "LEARNING/HACKERGPT/Kali Linux/Gemini-cli & Hexstrike/Rapport.md",
+    "REPORT/Declassified Report/02 Rapport Février/Semaine du 16 au 22 VACANCE/21-02-2026",
+    "THIRTY3/Preuves/Pasted image 20260225091055.png",
+    "THIRTY3/daily/(2026-01-31).pdf",
+    "EXTERNAL/External Vault/Th3 Thirty3 App/Th3 Thirty3.canvas",
+    "EXTERNAL/External Vault/Th3 Thirty3 App/MindMap.canvas",
+    "Saturne et son influences.png",
+    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/snowflake.JU2jBHL8.svg",
+    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/flake-2.BnWSExPC.png",
+    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/flake-1.B2r5AHMK.png",
+    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/flake-0.DgWaVvm5.png",
+    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/fireworks.B4d-_KUe.gif",
     "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/Labatt/Réseaux de Labatt.canvas",
     "LEARNING/HACKERGPT/MindMap.canvas"
   ]

@@ -1,0 +1,45 @@
+{
+  "skill_name": "freelance-competitor-analyzer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm launching an AI consulting practice focused on prompt engineering and AI integration for enterprises. I want to understand the competitive landscape on Upwork and LinkedIn. Analyze competitors offering similar AI consulting services in the US market, focusing on pricing, positioning, and what differentiates top performers.",
+      "expected_output": "A competitive analysis report containing: 5-10 AI consultant profiles with rates ($150-$300/hr range), their specializations (prompt engineering, fine-tuning, implementation), geographic presence, client reviews, years of experience, and identified market gaps. Pricing benchmarks showing average daily rates for different experience levels. Strategic recommendations for differentiation in the AI consulting space.",
+      "files": [],
+      "assertions": [
+        "The report includes at least 5 competitor profiles with names, rates, and specializations",
+        "Pricing benchmark analysis shows hourly and daily rate ranges for AI consultants",
+        "Capability mapping identifies key skills that top performers have",
+        "Report identifies at least 2-3 market gaps or positioning opportunities",
+        "Strategic recommendations are specific and actionable for positioning in AI consulting"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My digital marketing agency specializes in LinkedIn content strategy and personal branding for B2B executives. I need competitive intelligence on similar agencies and freelancers in the UK market. Show me who's winning, their pricing models, and where I can differentiate.",
+      "expected_output": "A competitive analysis report containing: 7-10 digital marketing profiles including their service packages (monthly retainers, project-based), pricing ($2,000-$10,000/month range typical), client industries they serve, LinkedIn engagement metrics if available, case studies or testimonials mentioned, years in business. Capability matrix comparing service breadth (content creation, strategy, analytics). Market positioning analysis showing which competitors target C-suite vs mid-market. Identified white space for differentiation.",
+      "files": [],
+      "assertions": [
+        "Report profiles include at least 7 digital marketing competitors with pricing and service focus",
+        "Pricing model analysis distinguishes between retainer, project-based, and hourly approaches",
+        "Competitive positioning identifies 2-3 distinct market segments being served",
+        "Market gaps analysis reveals at least 2 underserved niches or service combinations",
+        "Report includes recommendation for positioning unique value proposition"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm a full-stack developer wanting to transition to fractional CTO work for early-stage startups in Canada. Who are my competitors? What rates do fractional CTOs charge? What's their go-to-market, and where can I build a defensible position?",
+      "expected_output": "A competitive analysis report containing: 6-10 fractional CTO/tech lead profiles with specialization areas (tech stack, startup stage preference - seed/Series A), pricing models ($5,000-$15,000/month retainer typical), geographic coverage, portfolio companies they've worked with, and differentiation factors. Analysis of whether they focus on tech strategy, team building, or execution. Market saturation assessment for fractional CTO space. Recommendations for building unique positioning based on underserved startup types or specific technical stacks.",
+      "files": [],
+      "assertions": [
+        "Report includes 6+ fractional CTO profiles with rates and service models",
+        "Pricing analysis shows typical retainer ranges and value props for different startup stages",
+        "Competitor profiles include their tech stack specializations and client types",
+        "Market saturation assessment evaluates competition level in fractional CTO space",
+        "Recommendations address specific positioning opportunities for differentiation",
+        "Report identifies underserved startup segments or technical specializations"
+      ]
+    }
+  ]
+}

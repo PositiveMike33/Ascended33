@@ -1,4 +1,4 @@
-#12-02-2026 
+[[12-02-2026]] 
 ### Diagnostic et maintenance du système
 
 - Lancement d'un bilan de santé à l'aide de Microsoft PC Manager, qui a identifié un état "Réseau déconnecté" et des problèmes de service DNS.

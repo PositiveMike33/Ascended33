@@ -1,0 +1,41 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "streamlit",
+      "runtimeExecutable": "streamlit",
+      "runtimeArgs": ["run", "streamlit_app.py"],
+      "port": 8501
+    },
+    {
+      "name": "vault-indexer",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["_INFRASTRUCTURE/vault_indexer.py"],
+      "port": 8004
+    },
+    {
+      "name": "search-api",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["_INFRASTRUCTURE/search_api.py"],
+      "port": 8004
+    },
+    {
+      "name": "crawler",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["_INFRASTRUCTURE/crawler.py"],
+      "port": 8004
+    },
+    {
+      "name": "report-api",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["_INFRASTRUCTURE/report_api.py"],
+      "port": 8005
+    },
+    {
+      "name": "report-generator",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["_INFRASTRUCTURE/report_generator.py"],
+      "port": 8005
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-#12-02-2026
+[[12-02-2026]]
 Michael Gauthier Guillet | THIRTY3
 
 Fevrier 2026
@@ -296,7 +296,7 @@ Va dans Profil > Modifier le profil public et l'URL > Modifier. Change pour :
 |---|---|
 |Parametre|Action|
 |Mode Createur (Creator Mode)|ACTIVER — Permet de publier des newsletters, ajoute le bouton "Suivre" au lieu de "Se connecter", et affiche tes sujets en haut du profil|
-|Sujets Creator Mode|Ajouter : #PromptEngineering #IntelligenceArtificielle #BuildInPublic #AgentsIA #Automatisation|
+|Sujets Creator Mode|Ajouter : [[PromptEngineering]] [[IntelligenceArtificielle]] [[BuildInPublic]] [[AgentsIA]] [[Automatisation]]|
 |Profil public|Rendre TOUT visible publiquement (photo, a propos, experiences, competences)|
 |Section En vedette (Featured)|Pour l'instant vide — on la remplira quand tu auras ton premier thread viral ou ton premier lead magnet|
 
@@ -314,7 +314,7 @@ Post de lancement — Version complete
 
 |   |
 |---|
-|POST DE LANCEMENT<br><br>POST LINKEDIN #1 — COPIER TEL QUEL<br><br>(Publie un lundi ou mardi entre 8h-9h ET)<br><br>  <br><br>Je travaille dans une brasserie.<br><br>  <br><br>Vendredi soir, 23h, je rentre a l'usine. Je passe 12 heures a<br><br>operer des machines d'empaquetage chez Labatt. Je fais ca depuis<br><br>plus de 3 ans.<br><br>  <br><br>Mais le lundi matin, quand les autres dorment encore, moi je suis<br><br>devant mon ecran en train de construire des agents IA.<br><br>  <br><br>Ca fait plus de 2 ans que je fais ca. Chaque jour de conge. Chaque<br><br>heure libre. Prompt engineering, agents IA, automatisation. Des<br><br>outils comme Cursor, Claude Code, Fabric. Des contributions open<br><br>source sur Hexstrike-AI.<br><br>  <br><br>Personne dans mon entourage ne comprend vraiment ce que je fais.<br><br>Et c'est correct.<br><br>  <br><br>J'ai pas de diplome en informatique. J'ai pas de titre fancy. J'ai<br><br>2 ans de pratique acharnee, un horaire atypique, et la conviction<br><br>que l'IA n'est pas reservee a ceux qui ont un Master du MIT.<br><br>  <br><br>A partir d'aujourd'hui, je documente tout. Publiquement.<br><br>  <br><br>Les outils que je teste. Les prompts qui marchent (et ceux qui<br><br>marchent pas). Les lecons d'un gars de 35 ans qui se reinvente<br><br>entre deux quarts de nuit.<br><br>  <br><br>Si tu es une PME curieuse de l'IA, un createur qui explore, ou<br><br>juste quelqu'un qui croit qu'il n'est jamais trop tard pour<br><br>apprendre — on va bien s'entendre.<br><br>  <br><br>Suivez-moi. La ride commence.<br><br>  <br><br>#BuildInPublic #PromptEngineering #IA #IntelligenceArtificielle<br><br>#Reconversion #AgentsIA #Montreal|
+|POST DE LANCEMENT<br><br>POST LINKEDIN #1 — COPIER TEL QUEL<br><br>(Publie un lundi ou mardi entre 8h-9h ET)<br><br>  <br><br>Je travaille dans une brasserie.<br><br>  <br><br>Vendredi soir, 23h, je rentre a l'usine. Je passe 12 heures a<br><br>operer des machines d'empaquetage chez Labatt. Je fais ca depuis<br><br>plus de 3 ans.<br><br>  <br><br>Mais le lundi matin, quand les autres dorment encore, moi je suis<br><br>devant mon ecran en train de construire des agents IA.<br><br>  <br><br>Ca fait plus de 2 ans que je fais ca. Chaque jour de conge. Chaque<br><br>heure libre. Prompt engineering, agents IA, automatisation. Des<br><br>outils comme Cursor, Claude Code, Fabric. Des contributions open<br><br>source sur Hexstrike-AI.<br><br>  <br><br>Personne dans mon entourage ne comprend vraiment ce que je fais.<br><br>Et c'est correct.<br><br>  <br><br>J'ai pas de diplome en informatique. J'ai pas de titre fancy. J'ai<br><br>2 ans de pratique acharnee, un horaire atypique, et la conviction<br><br>que l'IA n'est pas reservee a ceux qui ont un Master du MIT.<br><br>  <br><br>A partir d'aujourd'hui, je documente tout. Publiquement.<br><br>  <br><br>Les outils que je teste. Les prompts qui marchent (et ceux qui<br><br>marchent pas). Les lecons d'un gars de 35 ans qui se reinvente<br><br>entre deux quarts de nuit.<br><br>  <br><br>Si tu es une PME curieuse de l'IA, un createur qui explore, ou<br><br>juste quelqu'un qui croit qu'il n'est jamais trop tard pour<br><br>apprendre — on va bien s'entendre.<br><br>  <br><br>Suivez-moi. La ride commence.<br><br>  <br><br>#BuildInPublic [[PromptEngineering]] [[IA]] [[IntelligenceArtificielle]]<br><br>#Reconversion [[AgentsIA]] [[Montreal]]|
 
   
 

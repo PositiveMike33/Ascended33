@@ -3,8 +3,8 @@
     "win": "cmd.exe"
   },
   "enableClaude": true,
-  "enableCodex": false,
+  "enableCodex": true,
   "enableCursor": true,
-  "enableGemini": false,
+  "enableGemini": true,
   "enableOpencode": true
 }

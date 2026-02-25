@@ -1,0 +1,345 @@
+version: '3.9'
+
+services:
+  # ============================================================================
+  # EXISTING SERVICES
+  # ============================================================================
+
+  # Th3-Tor: Isolated Tor network for anonymity
+  th3-tor:
+    container_name: th3-tor
+    image: th3-tor:latest
+    build:
+      context: ./_INFRASTRUCTURE/Ascended33
+      dockerfile: dockerfiles/Dockerfile.tor
+    restart: unless-stopped
+    ports:
+      - "9050:9050"  # Tor SOCKS5
+      - "9051:9051"  # Tor control port
+    volumes:
+      - tor-data:/var/lib/tor
+    networks:
+      - ascended33-network
+    labels:
+      - "com.ascended33.service=tor"
+      - "com.ascended33.critical=true"
+
+  # Th3-Kali: Penetration testing & OSINT base
+  th3-kali:
+    container_name: th3-kali
+    image: th3-kali:latest
+    build:
+      context: ./_INFRASTRUCTURE/Ascended33
+      dockerfile: dockerfiles/Dockerfile.kali
+    restart: unless-stopped
+    volumes:
+      - kali-tools:/opt/tools
+      - kali-workspace:/workspace
+      - ./:/vault:rw
+    networks:
+      - ascended33-network
+    environment:
+      - TOR_PROXY=socks5://th3-tor:9050
+      - WORKSPACE=/workspace
+      - VAULT_PATH=/vault
+    labels:
+      - "com.ascended33.service=kali"
+      - "com.ascended33.critical=true"
+
+  # Th3-HackerGPT: Claude integration with OSINT capabilities
+  th3-hackergpt:
+    container_name: th3-hackergpt
+    image: th3-hackergpt:latest
+    build:
+      context: ./_INFRASTRUCTURE/Ascended33
+      dockerfile: dockerfiles/Dockerfile.hackergpt
+    restart: unless-stopped
+    volumes:
+      - hackergpt-data:/app/data
+      - ./:/vault:rw
+      - kali-workspace:/workspace:ro
+    networks:
+      - ascended33-network
+    environment:
+      - CLAUDE_ENABLED=true
+      - TOR_PROXY=socks5://th3-tor:9050
+      - VAULT_PATH=/vault
+      - WORKSPACE=/workspace
+      - ANONYMITY_MODE=enabled
+      - LOG_ANONYMOUS=true
+    ports:
+      - "8000:8000"
+    labels:
+      - "com.ascended33.service=hackergpt"
+      - "com.ascended33.claude=true"
+      - "com.ascended33.critical=true"
+
+  # Th3-Hexstrike: Hexstrike AI running on Kali via Tor
+  th3-hexstrike:
+    container_name: th3-hexstrike
+    image: th3-hexstrike:latest
+    build:
+      context: ./_INFRASTRUCTURE/Ascended33
+      dockerfile: dockerfiles/Dockerfile.hexstrike
+    restart: unless-stopped
+    volumes:
+      - hexstrike-data:/app/data
+      - ./:/vault:rw
+      - kali-workspace:/workspace:rw
+    networks:
+      - ascended33-network
+    environment:
+      - KALI_HOST=th3-kali
+      - HACKERGPT_HOST=th3-hackergpt
+      - TOR_PROXY=socks5://th3-tor:9050
+      - VAULT_PATH=/vault
+      - WORKSPACE=/workspace
+      - ANONYMITY_ENABLED=true
+      - AUTO_REPORT_GENERATION=true
+      - REPORT_DESTINATION=/vault/REPORT
+      - CLAUDE_INTEGRATION=enabled
+    ports:
+      - "8001:8001"
+    depends_on:
+      - th3-tor
+      - th3-kali
+    labels:
+      - "com.ascended33.service=hexstrike"
+      - "com.ascended33.critical=true"
+
+  # Th3-Streamlit: Mission Control dashboard (Ascended33 frontend)
+  th3-streamlit:
+    container_name: th3-streamlit
+    image: th3-streamlit:latest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./streamlit_app.py:/app/streamlit_app.py:ro
+      - streamlit-cache:/home/streamlit/.streamlit
+      - ./:/vault:rw
+    networks:
+      - ascended33-network
+    environment:
+      - HEXSTRIKE_URL=http://th3-hexstrike:8001
+      - HACKERGPT_URL=http://th3-hackergpt:8000
+      - VAULT_API_URL=http://host.docker.internal:27123
+      - VAULT_PATH=/vault
+      - KALI_LABS_URL=http://kali-labs:5000
+      - AUDIT_API_URL=http://audit-api:8002
+      - PIECES_SYNC_URL=http://pieces-sync:8003
+      - VAULT_INDEXER_URL=http://vault-indexer:8004
+      - REPORT_GENERATOR_URL=http://report-generator:8005
+    ports:
+      - "8501:8501"
+    depends_on:
+      - th3-hexstrike
+      - th3-hackergpt
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    labels:
+      - "com.ascended33.service=streamlit-dashboard"
+      - "com.ascended33.ui=true"
+
+  # ============================================================================
+  # NEW CONTAINERIZED SERVICES
+  # ============================================================================
+
+  # Kali Integration Labs Service
+  kali-labs:
+    container_name: kali-labs
+    image: kali-labs:latest
+    build:
+      context: ./_PROJECTS/🐧_KALI_INTEGRATION_PROJECT
+      dockerfile: Dockerfile.kali-labs
+    restart: unless-stopped
+    volumes:
+      - kali-labs-data:/app/data
+      - kali-labs-workspace:/app/labs
+      - ./:/vault:rw
+    networks:
+      - ascended33-network
+    environment:
+      - VAULT_PATH=/vault
+      - WORKSPACE=/app/labs
+      - LAB_DATA=/app/data
+      - PIECES_API_URL=http://host.docker.internal:39300
+    ports:
+      - "5000:5000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+    labels:
+      - "com.ascended33.service=kali-labs"
+      - "com.ascended33.type=learning"
+
+  # Security Audit API Service
+  audit-api:
+    container_name: audit-api
+    image: audit-api:latest
+    build:
+      context: ./_PROJECTS/🔐_SECURITY_AUDIT_PROJECT
+      dockerfile: Dockerfile.audit-api
+    restart: unless-stopped
+    volumes:
+      - audit-data:/app/data
+      - ./:/vault:rw
+    networks:
+      - ascended33-network
+    environment:
+      - VAULT_PATH=/vault
+      - AUDIT_DATA_PATH=/app/data
+      - LOG_LEVEL=info
+      - DATABASE_URL=sqlite:////app/data/audit.db
+    ports:
+      - "8002:8002"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+    labels:
+      - "com.ascended33.service=audit-api"
+      - "com.ascended33.type=backend"
+
+  # Pieces OS Sync Service
+  pieces-sync:
+    container_name: pieces-sync
+    image: pieces-sync:latest
+    build:
+      context: ./_PROJECTS/🤖_PIECES_OS_INTEGRATION
+      dockerfile: Dockerfile.pieces-sync
+    restart: unless-stopped
+    volumes:
+      - pieces-data:/app/data
+      - ./:/vault:rw
+    networks:
+      - ascended33-network
+    environment:
+      - VAULT_PATH=/vault
+      - PIECES_API_URL=http://host.docker.internal:39300
+      - SYNC_INTERVAL=300
+      - LOG_LEVEL=info
+    ports:
+      - "8003:8003"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+    labels:
+      - "com.ascended33.service=pieces-sync"
+      - "com.ascended33.type=integration"
+
+  # Vault Indexer & Search Service
+  vault-indexer:
+    container_name: vault-indexer
+    image: vault-indexer:latest
+    build:
+      context: ./_INFRASTRUCTURE
+      dockerfile: Dockerfile.vault-indexer
+    restart: unless-stopped
+    volumes:
+      - vault-index-data:/app/data
+      - ./:/vault:ro
+    networks:
+      - ascended33-network
+    environment:
+      - VAULT_PATH=/vault
+      - INDEX_DATA_PATH=/app/data
+      - SEARCH_PORT=8004
+      - CRAWLER_INTERVAL=3600
+      - LOG_LEVEL=info
+    ports:
+      - "8004:8004"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8004/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+    labels:
+      - "com.ascended33.service=vault-indexer"
+      - "com.ascended33.type=search"
+
+  # Report Generator Service
+  report-generator:
+    container_name: report-generator
+    image: report-generator:latest
+    build:
+      context: ./_INFRASTRUCTURE
+      dockerfile: Dockerfile.report-generator
+    restart: unless-stopped
+    volumes:
+      - report-data:/app/data
+      - ./:/vault:rw
+    networks:
+      - ascended33-network
+    environment:
+      - VAULT_PATH=/vault
+      - REPORT_OUTPUT_PATH=/app/reports
+      - LEGAL_FRAMEWORK=THIRTY3
+      - LOG_LEVEL=info
+    ports:
+      - "8005:8005"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8005/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+    labels:
+      - "com.ascended33.service=report-generator"
+      - "com.ascended33.type=reporting"
+
+# ============================================================================
+# VOLUMES
+# ============================================================================
+
+volumes:
+  # Existing volumes
+  tor-data:
+    driver: local
+  kali-tools:
+    driver: local
+  kali-workspace:
+    driver: local
+  hackergpt-data:
+    driver: local
+  hexstrike-data:
+    driver: local
+  streamlit-cache:
+    driver: local
+
+  # New volumes
+  kali-labs-data:
+    driver: local
+  kali-labs-workspace:
+    driver: local
+  audit-data:
+    driver: local
+  pieces-data:
+    driver: local
+  vault-index-data:
+    driver: local
+  report-data:
+    driver: local
+
+# ============================================================================
+# NETWORKS
+# ============================================================================
+
+networks:
+  ascended33-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16

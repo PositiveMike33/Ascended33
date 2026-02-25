@@ -1,4 +1,4 @@
-#04-02-2026
+[[04-02-2026]]
 - Poursuite du développement et de l'intégration des capacités des agents d'IA au sein de la "Th3 Thirty3 - Elite Cyber Platform", en se concentrant sur l'affinement de l'intégration de l'IDE pour des modèles tels que Claude Haiku 4.5 et Gemini-3-flash-preview, afin de rationaliser les tâches de cyberespionnage basées sur l'IA.
 - Recherche et exploration de nouvelles configurations de modèles d'IA et de stratégies de gestion des clés API, y compris OpenRouter et les déploiements de modèles locaux, avec un engagement actif dans l'application Ollama pour trouver et gérer divers modèles locaux et dans le nuage.
 - Mise à jour des utilitaires JavaScript, en particulier dans `anythingllm_utils.js`, pour affiner la logique des points d'extrémité de l'API et la récupération des configurations, garantissant une infrastructure robuste pour la plate-forme d'IA.

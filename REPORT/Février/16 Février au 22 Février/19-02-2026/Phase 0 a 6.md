@@ -1,4 +1,4 @@
-#20-02-2026 #Update #ascended33 
+[[20-02-2026]] [[Update]] [[ascended33]] 
 ~~PHASE 0 — IMMÉDIAT (avant tout autre chose)~~
   ~~0.1  git log pour vérifier secrets dans historique~~
   ~~0.2  Rotation credentials si trouvés~~

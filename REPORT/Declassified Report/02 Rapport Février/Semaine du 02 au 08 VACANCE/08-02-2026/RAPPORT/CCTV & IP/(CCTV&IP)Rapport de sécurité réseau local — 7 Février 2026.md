@@ -1,8 +1,8 @@
-#CCTV
-#CAM_IP
-#Hexstrike
-#Claude_code
-#08-02-2026
+[[CCTV]]
+[[CAM_IP]]
+[[Hexstrike]]
+[[Claude_code]]
+[[08-02-2026]]
 Audit de sécurité réseau local — 7 Février 2026
 
 ---

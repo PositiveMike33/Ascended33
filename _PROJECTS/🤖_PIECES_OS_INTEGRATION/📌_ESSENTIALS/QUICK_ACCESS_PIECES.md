@@ -9,7 +9,7 @@
 ### 1️⃣ **SETUP GUIDE**
 ```
 FILE: ../PIECES_SETUP_GUIDE.md
-TAG: #pieces-setup
+TAG: [[pieces-setup]]
 WHAT: Step-by-step installation + configuration
 WHY: Know HOW to setup Pieces
 WHEN: Read FIRST (before populating)
@@ -18,7 +18,7 @@ WHEN: Read FIRST (before populating)
 ### 2️⃣ **REVENUE PROMPTS**
 ```
 FILE: ../PIECES_REVENUE_PROMPTS.md
-TAG: #revenue-prompts
+TAG: [[revenue-prompts]]
 WHAT: 7 ready-to-use prompts for revenue projects
 WHY: Reusable prompts for sales/marketing/proposals
 WHEN: Copy/paste into Pieces revenue-prompts collection
@@ -27,7 +27,7 @@ WHEN: Copy/paste into Pieces revenue-prompts collection
 ### 3️⃣ **HACKING SNIPPETS**
 ```
 FILE: ../PIECES_HACKING_SNIPPETS.md
-TAG: #hacking-exploits
+TAG: [[hacking-exploits]]
 WHAT: 15 SQL injection + XSS + XXE + Auth payloads
 WHY: Quick reference for CTF/pentesting
 WHEN: Copy/paste into Pieces hacking-exploits collection
@@ -107,11 +107,11 @@ Hashtags for searching
 
 | Tag | What | File |
 |-----|------|------|
-| #pieces-setup | How to setup Pieces | PIECES_SETUP_GUIDE.md |
-| #revenue-prompts | 7 ready-to-use prompts | PIECES_REVENUE_PROMPTS.md |
-| #hacking-exploits | 15 exploit snippets | PIECES_HACKING_SNIPPETS.md |
-| #overview | Project overview | README_PIECES_PROJECT.md |
-| #sync-tracking | What's been synced | SYNC_STATUS.md |
+| [[pieces-setup]] | How to setup Pieces | PIECES_SETUP_GUIDE.md |
+| [[revenue-prompts]] | 7 ready-to-use prompts | PIECES_REVENUE_PROMPTS.md |
+| [[hacking-exploits]] | 15 exploit snippets | PIECES_HACKING_SNIPPETS.md |
+| [[overview]] | Project overview | README_PIECES_PROJECT.md |
+| [[sync-tracking]] | What's been synced | SYNC_STATUS.md |
 
 ---
 
@@ -249,4 +249,4 @@ SYNC_STATUS.md — Track what's synced (create)
 
 ---
 
-**Tags:** #pieces #essentials #quick-access #prompts #snippets #memory #revenue #hacking
+**Tags:** [[pieces]] [[essentials]] [[quick-access]] [[prompts]] [[snippets]] [[memory]] [[revenue]] [[hacking]]

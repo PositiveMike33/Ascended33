@@ -1,0 +1,370 @@
+{
+  "main": {
+    "id": "5687dd1da59bb0e7",
+    "type": "split",
+    "children": [
+      {
+        "id": "186ecb40fc2b157a",
+        "type": "split",
+        "children": [
+          {
+            "id": "7812eb09ec69e6ee",
+            "type": "split",
+            "children": [
+              {
+                "id": "c00b7d670049f709",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "e1de3c910d207c90",
+                    "type": "leaf",
+                    "state": {
+                      "type": "3d-graph-view-global",
+                      "state": {},
+                      "icon": "orbit",
+                      "title": "Global 3D Graph"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "1733dde667f80807",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "795307eaa169bbf2",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Prompts/Optimisation des requêtes.md",
+                        "mode": "source",
+                        "source": false,
+                        "backlinks": true,
+                        "backlinkOpts": {
+                          "collapseAll": false,
+                          "extraContext": false,
+                          "sortOrder": "alphabetical",
+                          "showSearch": false,
+                          "searchQuery": "",
+                          "backlinkCollapsed": false,
+                          "unlinkedCollapsed": true
+                        }
+                      },
+                      "icon": "lucide-file",
+                      "title": "Optimisation des requêtes"
+                    }
+                  }
+                ]
+              }
+            ],
+            "direction": "horizontal"
+          },
+          {
+            "id": "9057606825b28d6b",
+            "type": "split",
+            "children": [
+              {
+                "id": "e6c074d2e17456f1",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "81b0777826881971",
+                    "type": "leaf",
+                    "pinned": true,
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "Th3 Thirty3 App/Login/Tout les compte.md",
+                        "mode": "source",
+                        "source": false,
+                        "backlinks": true,
+                        "backlinkOpts": {
+                          "collapseAll": false,
+                          "extraContext": false,
+                          "sortOrder": "alphabetical",
+                          "showSearch": false,
+                          "searchQuery": "",
+                          "backlinkCollapsed": false,
+                          "unlinkedCollapsed": true
+                        }
+                      },
+                      "pinned": true,
+                      "icon": "lucide-file",
+                      "title": "Tout les compte"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "7af1c7cde0399f97",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "e0a35bdf058a105a",
+                    "type": "leaf",
+                    "state": {
+                      "type": "pdf",
+                      "state": {
+                        "file": "Lois et Ordres/Travail/CNESST/normes-du-travail-quebec.pdf"
+                      },
+                      "icon": "lucide-file-text",
+                      "title": "normes-du-travail-quebec"
+                    }
+                  },
+                  {
+                    "id": "e04c6df5c64e7aad",
+                    "type": "leaf",
+                    "state": {
+                      "type": "empty",
+                      "state": {},
+                      "icon": "lucide-file",
+                      "title": "New tab"
+                    }
+                  }
+                ],
+                "currentTab": 1
+              }
+            ],
+            "direction": "horizontal"
+          }
+        ],
+        "direction": "vertical"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b2ac3dc57b484a10",
+    "type": "split",
+    "children": [
+      {
+        "id": "dac39aa9d6ef81fc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "55dce4f97306af62",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "f9c322fdb90efd6d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#chat",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Rechercher"
+            }
+          },
+          {
+            "id": "1b07d3d336231176",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Signets"
+            }
+          },
+          {
+            "id": "c612321e66269387",
+            "type": "leaf",
+            "state": {
+              "type": "notebook-navigator",
+              "state": {},
+              "icon": "notebook",
+              "title": "Notebook Navigator"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 283
+  },
+  "right": {
+    "id": "1d70684a0d528757",
+    "type": "split",
+    "children": [
+      {
+        "id": "b01821b0219d99c2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c2b027c0dafa70d3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Lois et Ordres/Travail/CNESST/normes-du-travail-quebec.pdf",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for normes-du-travail-quebec"
+            }
+          },
+          {
+            "id": "589349f0b8f37468",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Sans titre.base",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Liens sortants de Sans titre"
+            }
+          },
+          {
+            "id": "765fa221a69779e5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Mots-clés"
+            }
+          },
+          {
+            "id": "f5fd17386becde46",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Toutes les propriétés"
+            }
+          },
+          {
+            "id": "08e67aced4a229a3",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Lois et Ordres/Travail/CNESST/normes-du-travail-quebec.pdf",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of normes-du-travail-quebec"
+            }
+          },
+          {
+            "id": "342872eea81fd98c",
+            "type": "leaf",
+            "state": {
+              "type": "pieces-plugin-view",
+              "state": {},
+              "icon": "pieces-logo",
+              "title": "Pieces for Developers"
+            }
+          },
+          {
+            "id": "fc11fb6ecc374aff",
+            "type": "leaf",
+            "state": {
+              "type": "example-view",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Chat View"
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "horizontal",
+    "width": 655
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "notebook-navigator:Notebook Navigator": false,
+      "pieces-for-developers:Pieces for Developers": false,
+      "3d-graph-new:Global 3D Graph": false,
+      "ai_llm:Local LLM Chat": false
+    }
+  },
+  "active": "fc11fb6ecc374aff",
+  "lastOpenFiles": [
+    "Prompts/Optimisation des requêtes.md",
+    "Untitled.canvas",
+    "Untitled.base",
+    "Th3 Thirty3 App/Login/Tout les compte.md",
+    "Lois et Ordres/Travail/CNESST/normes-du-travail-quebec.pdf",
+    "Hacking Tips/8 Commandes essentiels.md",
+    "Lois et Ordres/Travail/E-12.001_loi_sur_les_salaires.pdf",
+    "OSINT/Shodan.md",
+    "OSINT/Aikido.md",
+    "Chats/chat-2025-11-21T03-00-53-731Z.md",
+    "Untitled.md",
+    "conclusion.md",
+    "Important.md",
+    "Pasted image 20251214115040.png",
+    "Th3 Thirty3 App/Introduction/Business Model.md",
+    "MODÈLE D'ENTRAÎNEMENT  SHODAN A I M.md",
+    "2025-12-30.md",
+    "Labatt/Tache/Jeudi 04 Décembre 2025.md",
+    "Th3 Thirty3 App/Requetes.md",
+    "Th3 Thirty3 App/Th3 Thirty3.canvas",
+    "Hacking Tips/Windows + R/Possible issue.md",
+    "Hacking Tips/Windows + R/NETPLWIZ.md",
+    "Hacking Tips/Windows + R/mdsched.exe.md",
+    "Chats/URIDINE MONOPHOSPHATE.md",
+    "Analyste Psychologique/2025-12-03.md",
+    "Prompts/Recherchiste.md",
+    "Prompts/humanize_ai.md",
+    "Sans titre.base",
+    "Sans titre 1.base",
+    "Prompts/Expert en résumé de contenu.md",
+    "Th3 Thirty3 App/Gemini 3-pro VS Claude Opus 4.5.md",
+    "Th3 Thirty3 App/Task list/Task list Th3 Thirty3.md",
+    "Th3 Thirty3 App/MindMap.canvas",
+    "Th3 Thirty3 App/Task list/04-12-2025.md",
+    "Th3 Thirty3 App/Login",
+    "OSINT",
+    "Labatt/Tache/desktop.ini",
+    "Analyste Psychologique/desktop.ini",
+    "desktop.ini"
+  ]
+}

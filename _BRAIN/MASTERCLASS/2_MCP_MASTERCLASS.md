@@ -289,7 +289,7 @@ Si tu veux la version ULTRA (Obsidian MCP):
 ```
 
 Alors Claude peut:
-- Lire notes par tag (#revenu, #hacking)
+- Lire notes par tag (#revenu, [[hacking]])
 - Créer notes formatées avec templates
 - Générer liens bidirectionnels
 - Mettre à jour le DASHBOARD en temps réel
@@ -315,4 +315,4 @@ Voir: [[4_INTEGRATION_3_PILIERS]] — Combiner Skills + MCP + Prompts
 
 ---
 
-**Tags:** #mcp #automation #claude #tools #integration #14-02-2026
+**Tags:** [[mcp]] [[automation]] [[claude]] [[tools]] [[integration]] [[14-02-2026]]

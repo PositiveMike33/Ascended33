@@ -1,4 +1,4 @@
-#10-02-2026 
+[[10-02-2026]] 
 # [Applications](https://discord.com/developers/applications) [Équipes](https://discord.com/developers/teams) [Débogueur intégré](https://discord.com/developers/embeds) [Documentation](https://discord.com/developers/docs)
 
 - [

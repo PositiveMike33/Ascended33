@@ -342,14 +342,14 @@ Vous pouvez voir les connections en temps réel avec Dataview :
 ### Query 1: Show all Revenue ideas created
 ```dataview
 TABLE title, status, revenu_potentiel
-FROM "NOTE_PRODUCTIVE_REVENU" OR tag: #revenu
+FROM "NOTE_PRODUCTIVE_REVENU" OR tag: [[revenu]]
 SORT file.ctime DESC
 ```
 
 ### Query 2: Show all CTF walkthroughs (Learning progress)
 ```dataview
 TABLE level, platform, solved
-FROM "ETHICAL_HACKING_NOTE" OR tag: #ctf
+FROM "ETHICAL_HACKING_NOTE" OR tag: [[ctf]]
 GROUP BY level
 SORT file.ctime DESC
 ```
@@ -357,7 +357,7 @@ SORT file.ctime DESC
 ### Query 3: Show all Claude workflows (Automation built)
 ```dataview
 TABLE category, inputs, outputs, status
-FROM "CLAUDE_WORKFLOW" OR tag: #automation
+FROM "CLAUDE_WORKFLOW" OR tag: [[automation]]
 SORT file.ctime DESC
 ```
 

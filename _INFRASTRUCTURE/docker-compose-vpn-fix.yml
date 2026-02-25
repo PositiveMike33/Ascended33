@@ -1,0 +1,84 @@
+version: '3.9'
+
+services:
+  # ==========================================
+  # PRIVOXY - DNS/SOCKS Converter
+  # Routes through Tor safely
+  # ==========================================
+  th3-privoxy:
+    image: alpine:latest
+    container_name: th3-privoxy
+    ports:
+      - "8118:8118"  # HTTP/HTTPS proxy
+      - "9051:9051"  # Tor control port (forwarded)
+    volumes:
+      - ./privoxy-config.conf:/etc/privoxy/config:ro
+    networks:
+      - ascended33_ascended33-network
+    restart: unless-stopped
+    command: >
+      sh -c "
+        apk add --no-cache privoxy &&
+        privoxy --no-daemon /etc/privoxy/config
+      "
+    depends_on:
+      - th3-tor
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost:8118"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ==========================================
+  # TH3 HEXSTRIKE (Updated to use Privoxy)
+  # ==========================================
+  th3-hexstrike:
+    image: th3-hexstrike:latest
+    container_name: th3-hexstrike
+    ports:
+      - "8001:8001"
+    volumes:
+      - ascended33_kali-workspace:/workspace:rw
+      - ascended33_hexstrike-data:/app/data:rw
+      - D:/Vault/Vault:/vault:rw
+    environment:
+      # Vault Configuration
+      - VAULT_PATH=/vault
+      
+      # NEW: Use Privoxy instead of direct Tor
+      - HTTP_PROXY=http://th3-privoxy:8118
+      - HTTPS_PROXY=http://th3-privoxy:8118
+      - http_proxy=http://th3-privoxy:8118
+      - https_proxy=http://th3-privoxy:8118
+      
+      # Integration
+      - KALI_HOST=th3-kali
+      - HACKERGPT_HOST=th3-hackergpt
+      - REPORT_DESTINATION=/vault/_BRAIN/hexstrike_reports
+      - AUTO_REPORT_GENERATION=true
+      - WORKSPACE=/workspace
+      - CLAUDE_INTEGRATION=enabled
+    networks:
+      - th3-brain-network
+      - ascended33-network
+    restart: unless-stopped
+    depends_on:
+      - th3-privoxy
+      - th3-tor
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  th3-brain-network:
+    driver: bridge
+  ascended33-network:
+    driver: bridge
+
+volumes:
+  ascended33_kali-workspace:
+    driver: local
+  ascended33_hexstrike-data:
+    driver: local

@@ -1,4 +1,4 @@
-#07-02-2026
+[[07-02-2026]]
 # Résumé de la journée - 7 février 2026
 
 ## Tâches principales

@@ -1,7 +1,5 @@
 ---
-date: 2026-02-20
-semaine: 8
-jour: vendredi
+date:
 tags:
   - daily
   - THIRTY3
@@ -12,13 +10,13 @@ preuve_du_jour:
 hexstrike_actif: false
 ---
 
-# vendredi 20 février 2026
+#  DATE/MOIS/ANNÉE
 > *THIRTY3 — Chaque jour est une preuve.*
 
 ---
 
 ## Liens rapides
-- [[MATIN — Activation THIRTY3]] — Protocole matin
+- [[MATIN — Activation Énergétique]] — Protocole matin
 - [[SOIR — Bilan THIRTY3]] — Protocole soir
 - [[Constitution THIRTY3]] — Les fondations
 - [[HexStrike/README|HexStrike]] — Base opérationnelle cyber
@@ -27,7 +25,7 @@ hexstrike_actif: false
 
 ## MATIN — Activation
 
-> Complète le [[MATIN — Activation THIRTY3|Protocole Matin]] avant de commencer ta journée.
+> Complète le [[MATIN — Activation Énergétique|Protocole Matin]] avant de commencer ta journée.
 
 ### Checklist d'activation
 - [ ] Protocole matin complété

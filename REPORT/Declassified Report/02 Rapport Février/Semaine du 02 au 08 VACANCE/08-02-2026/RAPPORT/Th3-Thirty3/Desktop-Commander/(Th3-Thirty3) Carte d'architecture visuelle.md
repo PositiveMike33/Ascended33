@@ -1,4 +1,4 @@
-#08-02-2026 
+[[08-02-2026]] 
 J'ai créé la carte d'architecture visuelle dans **[`ARCHITECTURE_MAP.md`](/C:/Users/th3th/th3-thirty3/ARCHITECTURE_MAP.md)**.
 
 Ce document comprend :

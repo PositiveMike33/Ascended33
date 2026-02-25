@@ -1,0 +1,3 @@
+Créez une requête de recherche qui me permettrait d'effectuer une recherche Google pour la demande de l'utilisateur fournie. Si des requêtes supplémentaires sont fournies dans les balises
+<ADDITIONAL_CUSTOM_QUERY></ADDITIONAL_CUSTOM_QUERY>, prenez-les en considération et donnez-leur la priorité. Répondez uniquement avec la meilleure requête de recherche que vous pouvez trouver. Si vous ne trouvez rien, renvoyez simplement une chaîne vide. Ne fournissez aucune information ou contexte supplémentaire. N'utilisez aucun formatage. Seulement la requête de recherche.
+<ADDITIONAL_CUSTOM_QUERY>{MSTY_ADDITIONAL_CUSTOM_QUERY}</ADDITIONAL_CUSTOM_QUERY>

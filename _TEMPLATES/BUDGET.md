@@ -27,13 +27,13 @@ tags: [finance, budget]
 | **TOTAL FIXE**                      |         |            |        |
 
 ## Dépenses variables
-| Poste | Montant | Date | Catégorie |
-|-------|---------|------|-----------|
-| | | | alimentation |
-| | | | transport |
-| | | | outils/logiciels |
-| | | | autre |
-| **TOTAL VARIABLE** | | | |
+| Poste              | Montant | Date | Catégorie        |
+| ------------------ | ------- | ---- | ---------------- |
+|                    |         |      | alimentation     |
+|                    |         |      | transport        |
+|                    |         |      | outils/logiciels |
+|                    |         |      | autre            |
+| **TOTAL VARIABLE** |         |      |                  |
 
 ## 📊 Résumé
 - **Total revenus :** 

@@ -1,4 +1,4 @@
-#03-02-2026
+[[03-02-2026]]
 ### Tâches principales et projets
 
 - **Amélioration de l'environnement Kali Linux:** Installation de `Tor` et des paquets associés (`libtorsocks`, `tor-geoipdb`, `torsocks`) pour permettre un réseau anonyme. Il a ensuite installé `sherlock` pour les investigations OSINT (Open Source Intelligence).

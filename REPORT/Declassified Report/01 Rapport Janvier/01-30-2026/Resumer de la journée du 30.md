@@ -1,4 +1,4 @@
-#30-01-2026
+[[30-01-2026]]
 Les efforts d'hier se sont concentrés sur la gestion de la plateforme d'IA via le plugin Obsidian Terminal, la recherche de nouveaux outils OSINT et d'IA, et l'optimisation des performances du système. Les priorités d'aujourd'hui comprennent l'ajustement des paramètres NVIDIA pour les jeux, la mise en place d'un environnement dédié aux "tests de piratage" et la désactivation de la génération automatique de réponses dans HexStrike pour permettre un contrôle manuel, tout en révisant la facturation dans le nuage.
 
 ### Ce que j'ai fait hier

@@ -119,7 +119,7 @@ Code/Content:
 
 Language: SQL
 Collection: Hacking-Exploits
-Tags: #sql-injection #payload #tested #union-based
+Tags: [[sql-injection]] [[payload]] [[tested]] [[union-based]]
 ```
 
 ---
@@ -174,7 +174,7 @@ Once done, verify:
 - [ ] 15 snippets in Hacking-Exploits collection
 - [ ] 5-7 snippets in Revenue-Prompts collection
 - [ ] All snippets tagged with 2-3+ tags
-- [ ] Can search by tag (try: #sql-injection, #prompt, #revenue)
+- [ ] Can search by tag (try: [[sql-injection]], [[prompt]], [[revenue]])
 - [ ] Blended mode syncing (should sync to cloud)
 
 ---

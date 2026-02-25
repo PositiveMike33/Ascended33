@@ -9,7 +9,7 @@
 ### 1️⃣ **SERVICE DEFINITION**
 ```
 FILE: ../SECURITY_AUDIT_SERVICE.md
-TAG: #audit-service
+TAG: [[audit-service]]
 WHAT: Description complète de ton offre
 WHY: Understand what you're selling
 WHEN: Read FIRST (before prospecting)
@@ -18,7 +18,7 @@ WHEN: Read FIRST (before prospecting)
 ### 2️⃣ **PRICING MODELS**
 ```
 FILE: ../SECURITY_AUDIT_PRICING.md
-TAG: #pricing
+TAG: [[pricing]]
 WHAT: 3 pricing tiers ($3.5K, $5.5K, $8K, $12K)
 WHY: Know what to quote
 WHEN: Reference when prospects ask "How much?"
@@ -27,7 +27,7 @@ WHEN: Reference when prospects ask "How much?"
 ### 3️⃣ **LEAD STRATEGY**
 ```
 FILE: ../SECURITY_AUDIT_LEADS.md
-TAG: #leads-strategy
+TAG: [[leads-strategy]]
 WHAT: ICP definition + where to find prospects
 WHY: Know who to target
 WHEN: Read BEFORE starting LinkedIn search
@@ -103,13 +103,13 @@ Hashtags for searching
 
 | Tag | What | File |
 |-----|------|------|
-| #audit-service | Service description | SECURITY_AUDIT_SERVICE.md |
-| #pricing | All pricing models | SECURITY_AUDIT_PRICING.md |
-| #leads-strategy | ICP + where to find | SECURITY_AUDIT_LEADS.md |
-| #service-plan | Full plan + timeline | IDEA_REVENU_COMPLETE.md |
-| #overview | Project overview | README_SECURITY_PROJECT.md |
-| #tracking | Prospect responses | TRACKING_LINKEDIN.md |
-| #emails | Personalized messages | EMAILS_PERSONALIZED.md |
+| [[audit-service]] | Service description | SECURITY_AUDIT_SERVICE.md |
+| [[pricing]] | All pricing models | SECURITY_AUDIT_PRICING.md |
+| [[leads-strategy]] | ICP + where to find | SECURITY_AUDIT_LEADS.md |
+| [[service-plan]] | Full plan + timeline | IDEA_REVENU_COMPLETE.md |
+| [[overview]] | Project overview | README_SECURITY_PROJECT.md |
+| [[tracking]] | Prospect responses | TRACKING_LINKEDIN.md |
+| [[emails]] | Personalized messages | EMAILS_PERSONALIZED.md |
 
 ---
 
@@ -180,4 +180,4 @@ EMAILS_PERSONALIZED.md — Save personalized emails (create)
 
 ---
 
-**Tags:** #security-audit #essentials #quick-access #hashtags #security #sales #revenue
+**Tags:** [[security-audit]] [[essentials]] [[quick-access]] [[hashtags]] [[security]] [[sales]] [[revenue]]

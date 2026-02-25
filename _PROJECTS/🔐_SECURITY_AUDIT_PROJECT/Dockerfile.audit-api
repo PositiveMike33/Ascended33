@@ -1,0 +1,66 @@
+# Multi-stage Dockerfile for Security Audit API
+# Stage 1: Builder
+FROM python:3.11-slim AS builder
+
+WORKDIR /build
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libffi-dev \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Stage 2: Runtime
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    VAULT_PATH=/vault \
+    AUDIT_DATA_PATH=/app/data
+
+# Install runtime dependencies for PDF generation (weasyprint/reportlab)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    fontconfig \
+    fonts-liberation \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user
+RUN useradd -m -u 1000 auditapi
+
+WORKDIR /app
+
+# Copy Python dependencies from builder
+COPY --from=builder /root/.local /home/auditapi/.local
+
+# Create data directories
+RUN mkdir -p /app/data /app/templates /vault && \
+    chown -R auditapi:auditapi /app /vault
+
+# Copy application files
+COPY --chown=auditapi:auditapi api/ /app/api/
+COPY --chown=auditapi:auditapi templates/ /app/templates/
+COPY --chown=auditapi:auditapi models/ /app/models/
+COPY --chown=auditapi:auditapi utils/ /app/utils/
+
+# Switch to non-root user
+USER auditapi
+
+# Update PATH
+ENV PATH=/home/auditapi/.local/bin:$PATH
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8002/health || exit 1
+
+# Expose port for API
+EXPOSE 8002
+
+# Run FastAPI application
+CMD ["uvicorn", "api.audit_api:app", "--host", "0.0.0.0", "--port", "8002", "--reload"]

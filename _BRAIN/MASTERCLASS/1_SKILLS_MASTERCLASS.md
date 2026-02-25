@@ -21,11 +21,10 @@
 
 ### C'est quoi exactement un Skill?
 
-**Un Skill = Un dossier avec Skill.md**
-
+**Un Skill = instruction pour Claude, nom et description avec des exemple et des cas d'usage** 
 ```
 mon-skill/
-├── Skill.md          ← Le fichier MAGIQUE (c'est tout ce que tu dois pour commencer!)
+├── Skill.md          ← Le fichier MAGIQUE (c'est tout ce que tu dois savoir pour commencer!)
 ├── REFERENCE.md      ← Documentation optionnelle
 └── assets/           ← Templates, exemples (optionnel)
 ```
@@ -203,7 +202,7 @@ PROFESSIONELLE prête pour ton portfolio + learning path OWASP.
    - Defense: [comment défendre contre ça]
    - Resources: [liens utiles]
 3. **Ajouter liens** vers OWASP Top 10 categoria
-4. **Tagging** automatique (#ctf #hacking #learning #[category])
+4. **Tagging** automatique (#ctf [[hacking]] [[learning]] #[category])
 
 ## Exemples
 
@@ -227,7 +226,7 @@ Learned: SQL injection, UNION-based injection, comment syntax
 # 🔐 CTF: SQL Injection 101 — TryHackMe
 
 **Difficulty:** 2/10 (Beginner)
-**Category:** OWASP Top 10 #A03:2021 – Injection
+**Category:** OWASP Top 10 [[A03]]:2021 – Injection
 **Date Completed:** 2026-02-14
 **Time Spent:** 45 minutes
 
@@ -244,9 +243,9 @@ Learned: SQL injection, UNION-based injection, comment syntax
 
 ## 📚 Next Steps
 - Try SQL Injection Advanced on HackTheBox
-- Study OWASP Top 10 #A01:2021 (Authentication)
+- Study OWASP Top 10 [[A01]]:2021 (Authentication)
 
-#ctf #sql-injection #hacking #learning #beginner #owasp
+[[ctf]] [[sql-injection]] [[hacking]] [[learning]] [[beginner]] [[owasp]]
 ```
 
 ## Quand utiliser ce skill
@@ -405,4 +404,4 @@ Voir: [[4_INTEGRATION_3_PILIERS]] — Comment utiliser Skills + MCP + Prompts en
 
 ---
 
-**Tags:** #skills #automation #claude #learning #masterclass #14-02-2026
+**Tags:** [[skills]] [[automation]] [[claude]] [[learning]] [[masterclass]] [[14-02-2026]]

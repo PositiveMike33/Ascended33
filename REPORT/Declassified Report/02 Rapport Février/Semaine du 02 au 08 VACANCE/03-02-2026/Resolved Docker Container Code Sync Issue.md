@@ -1,4 +1,4 @@
-#03-02-2026 
+[[03-02-2026]] 
 # Tâches principales et projets
 
 - **Résolution du problème de synchronisation du code du conteneur Docker** : Identification et mise en place d'un correctif pour un problème critique où les modifications du code local n'étaient pas reflétées dans le conteneur Docker `th3-server` en cours d'exécution. La cause première a été déterminée comme étant un montage de volume manquant dans la configuration `docker-compose.yml`, qui a été ajouté par la suite, et une reconstruction de l'image Docker a été lancée.

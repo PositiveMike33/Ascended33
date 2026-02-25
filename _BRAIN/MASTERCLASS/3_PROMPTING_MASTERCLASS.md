@@ -273,7 +273,7 @@ Transforme mon recap brut en un walkthrough PROFESSIONNEL qui inclut:
 
 <constraints>
 - Format MARKDOWN
-- Tagging: #ctf #sql-injection #learning #beginner #owasp
+- Tagging: [[ctf]] [[sql-injection]] [[learning]] [[beginner]] [[owasp]]
 - Link à OWASP Top 10 relevante
 - Tone: Éducatif (expliquer aux débutants)
 - Structure: Utilisable dans portfolio
@@ -438,4 +438,4 @@ Voir: [[1_SKILLS_MASTERCLASS]] — Créer tes skills
 
 ---
 
-**Tags:** #prompting #claude #communication #leverage #automation #14-02-2026
+**Tags:** [[prompting]] [[claude]] [[communication]] [[leverage]] [[automation]] [[14-02-2026]]

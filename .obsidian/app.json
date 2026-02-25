@@ -9,5 +9,14 @@
   "useTab": false,
   "newFileLocation": "folder",
   "newFileFolderPath": "THIRTY3/Daily",
-  "attachmentFolderPath": "THIRTY3/Preuves"
+  "attachmentFolderPath": "THIRTY3/Preuves",
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "alwaysUpdateLinks": true,
+  "showUnsupportedFiles": true
 }

@@ -1,4 +1,4 @@
-#12-02-2026 
+[[12-02-2026]] 
 La vidéo est un cours complet « CS50’s Intro to Cybersecurity » de Harvard (7 h 44) qui introduit les bases de la cybersécurité pour publics techniques et non techniques. [youtube](https://www.youtube.com/watch?v=9HOpanT0GRs)
 
 ### Structure du cours

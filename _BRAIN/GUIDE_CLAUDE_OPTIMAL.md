@@ -365,4 +365,4 @@ Input: ... → Output: ...
 
 ---
 
-#claude #skills #mcp #prompt-engineering #workflow #automation #guide #14-02-2026
+[[claude]] [[skills]] [[mcp]] [[prompt-engineering]] [[workflow]] [[automation]] [[guide]] [[14-02-2026]]

@@ -1,0 +1,56 @@
+# Multi-stage build for webhook_handler microservice
+FROM python:3.11-slim as builder
+
+WORKDIR /build
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install dependencies
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Runtime stage
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install runtime dependencies (curl for healthcheck)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user for security
+RUN groupadd -r appuser && useradd -r -g appuser -u 1000 appuser
+
+# Copy installed packages from builder
+COPY --from=builder /root/.local /home/appuser/.local
+
+# Copy application code
+COPY webhook_handler.py .
+COPY pieces_sync.py .
+COPY config/ ./config/
+COPY utils/ ./utils/
+
+# Set environment variables
+ENV PATH=/home/appuser/.local/bin:$PATH \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app
+
+# Change ownership to appuser
+RUN chown -R appuser:appuser /app
+
+# Switch to non-root user
+USER appuser
+
+# Expose webhook handler port
+EXPOSE 8004
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 --start-period=40s \
+    CMD curl -f http://localhost:8004/health || exit 1
+
+# Run the webhook handler
+CMD ["python", "-m", "uvicorn", "webhook_handler:app", "--host", "0.0.0.0", "--port", "8004"]

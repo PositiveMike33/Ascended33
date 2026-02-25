@@ -1,0 +1,53 @@
+{
+  "execution_metadata": {
+    "test_case_id": 1,
+    "test_case_name": "AI Consultant Market (US)",
+    "execution_date": "2026-02-21",
+    "skill_version": "v0",
+    "execution_mode": "run",
+    "total_execution_time_seconds": 45
+  },
+  "tool_call_counts": {
+    "Read": 3,
+    "Write": 2,
+    "Bash": 0,
+    "Edit": 0,
+    "Glob": 0,
+    "Grep": 0
+  },
+  "total_tool_calls": 5,
+  "execution_steps": 5,
+  "output_files_created": [
+    "competitive-analysis-report.md",
+    "metrics.json"
+  ],
+  "files_created_count": 2,
+  "output_characters": 12847,
+  "transcript_characters": 2150,
+  "output_sections_included": [
+    "Executive Summary",
+    "Competitor Profiles (8 profiles)",
+    "Pricing Benchmark Analysis",
+    "Capability Mapping Matrix",
+    "Market Positioning Analysis",
+    "Market Opportunities & Gaps (6 gaps identified)",
+    "Strategic Recommendations (6 recommendations)",
+    "Market Saturation Assessment"
+  ],
+  "assertions_addressed": [
+    "Report includes ≥5 profiles with names/rates/specializations",
+    "Pricing benchmark shows hourly/daily rate ranges",
+    "Capability mapping identifies key skills",
+    "Report identifies ≥2-3 market gaps",
+    "Strategic recommendations are specific/actionable"
+  ],
+  "errors_encountered": [],
+  "warnings": [],
+  "data_quality": {
+    "competitor_profiles_count": 8,
+    "pricing_data_coverage": "100%",
+    "capability_matrix_rows": 8,
+    "market_gaps_identified": 6,
+    "recommendations_count": 6
+  }
+}

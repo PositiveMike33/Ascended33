@@ -13,7 +13,7 @@ Description:
   Use this when: You want to brainstorm revenue opportunities
   How to use: Paste prompt + provide context + get 5-10 ideas
   Collection: Revenue-Prompts
-Tags: #prompt #revenue #ideation
+Tags: [[prompt]] [[revenue]] [[ideation]]
 ```
 
 **Prompt to paste:**
@@ -64,7 +64,7 @@ Description:
   Use this when: You need to price a new service
   How to use: Paste prompt + provide service details + get 3 pricing models
   Collection: Revenue-Prompts
-Tags: #prompt #revenue #pricing
+Tags: [[prompt]] [[revenue]] [[pricing]]
 ```
 
 **Prompt to paste:**
@@ -126,7 +126,7 @@ Description:
   Use this when: You need to find clients to pitch to
   How to use: Paste prompt + describe service + get targeting strategy
   Collection: Revenue-Prompts
-Tags: #prompt #revenue #leads
+Tags: [[prompt]] [[revenue]] [[leads]]
 ```
 
 **Prompt to paste:**
@@ -201,7 +201,7 @@ Description:
   Use this when: You're about to call a prospect
   How to use: Paste prompt + customize + use during call
   Collection: Revenue-Prompts
-Tags: #prompt #revenue #sales #discovery
+Tags: [[prompt]] [[revenue]] [[sales]] [[discovery]]
 ```
 
 **Prompt to paste:**
@@ -290,7 +290,7 @@ Description:
   Use this when: You've completed an assessment, need to write report
   How to use: Paste prompt + provide vulnerabilities + get report structure
   Collection: Revenue-Prompts
-Tags: #prompt #automation #audit #service
+Tags: [[prompt]] [[automation]] [[audit]] [[service]]
 ```
 
 **Prompt to paste:**
@@ -376,7 +376,7 @@ Description:
   Use this when: You need to send proposal or check-in email
   How to use: Paste prompt + customize + send
   Collection: Revenue-Prompts
-Tags: #prompt #revenue #email #templates
+Tags: [[prompt]] [[revenue]] [[email]] [[templates]]
 ```
 
 **Prompt to paste:**
@@ -490,7 +490,7 @@ Description:
   Use this when: Client says "send me a proposal"
   How to use: Paste prompt + fill details + generate proposal
   Collection: Revenue-Prompts
-Tags: #prompt #revenue #proposal #templates
+Tags: [[prompt]] [[revenue]] [[proposal]] [[templates]]
 ```
 
 **Prompt to paste:**
@@ -617,7 +617,7 @@ DESIGN:
 
 **Workflow:**
 
-1. **Search Pieces:** `#prompt #revenue`
+1. **Search Pieces:** `#prompt [[revenue]]`
 2. **Find relevant prompt:** Ideation / Pricing / Leads / Discovery / etc.
 3. **Copy prompt** from Pieces
 4. **Paste into Claude chat**
@@ -628,7 +628,7 @@ DESIGN:
 **Example:**
 
 ```
-You: [Search Pieces for #prompt #revenue #ideation]
+You: [Search Pieces for [[prompt]] [[revenue]] [[ideation]]]
 Claude: "Here's 10 service ideas ranked by revenue potential"
 You: [Copy one idea]
 You: [Create NOTE_PRODUCTIVE_REVENU with that idea]

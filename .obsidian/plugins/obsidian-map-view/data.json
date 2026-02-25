@@ -198,11 +198,11 @@
   },
   "mapControlsMinimized": false,
   "maxClusterRadiusPixels": 25,
-  "searchProvider": "osm",
+  "searchProvider": "google",
   "osmUser": "",
   "searchDelayMs": 700,
-  "geocodingApiKey": "",
-  "useGooglePlacesNew2025": false,
+  "geocodingApiKey": "AIzaSyAsJtrYf05U0eUIjr99IBvfYEZQox99wCw",
+  "useGooglePlacesNew2025": true,
   "googlePlacesDataFields": "",
   "mapSources": [
     {

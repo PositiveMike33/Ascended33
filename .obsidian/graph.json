@@ -5,75 +5,18 @@
   "showAttachments": true,
   "hideUnresolved": true,
   "showOrphans": true,
-  "collapse-color-groups": false,
-  "colorGroups": [
-    {
-      "query": "path:_BRAIN  ",
-      "color": {
-        "a": 1,
-        "rgb": 14334864
-      }
-    },
-    {
-      "query": "path:_TEMPLATES  ",
-      "color": {
-        "a": 1,
-        "rgb": 10113330
-      }
-    },
-    {
-      "query": "path:ARCHIVE  ",
-      "color": {
-        "a": 1,
-        "rgb": 3997699
-      }
-    },
-    {
-      "query": "path:🔐_SECURITY_AUDIT_PROJECT  ",
-      "color": {
-        "a": 1,
-        "rgb": 1517150
-      }
-    },
-    {
-      "query": "path:🤖_PIECES_OS_INTEGRATION  ",
-      "color": {
-        "a": 1,
-        "rgb": 6627474
-      }
-    },
-    {
-      "query": "path:🐧_KALI_INTEGRATION_PROJECT  ",
-      "color": {
-        "a": 1,
-        "rgb": 4227072
-      }
-    },
-    {
-      "query": "path:🧠_CLAUDE_MASTERY file:",
-      "color": {
-        "a": 1,
-        "rgb": 5413002
-      }
-    },
-    {
-      "query": "path:THIRTY3  ",
-      "color": {
-        "a": 1,
-        "rgb": 4932676
-      }
-    }
-  ],
+  "collapse-color-groups": true,
+  "colorGroups": [],
   "collapse-display": false,
   "showArrow": true,
-  "textFadeMultiplier": -3,
-  "nodeSizeMultiplier": 1.06979166666667,
-  "lineSizeMultiplier": 0.304166666666667,
+  "textFadeMultiplier": -0.4,
+  "nodeSizeMultiplier": 1.15911458333333,
+  "lineSizeMultiplier": 1.66953125,
   "collapse-forces": false,
-  "centerStrength": 0.223958333333333,
-  "repelStrength": 15.3125,
-  "linkStrength": 0.265625,
-  "linkDistance": 30,
-  "scale": 0.02152871844243026,
-  "close": false
+  "centerStrength": 0.1171875,
+  "repelStrength": 13.3854166666667,
+  "linkStrength": 0,
+  "linkDistance": 217,
+  "scale": 0.0078125,
+  "close": true
 }

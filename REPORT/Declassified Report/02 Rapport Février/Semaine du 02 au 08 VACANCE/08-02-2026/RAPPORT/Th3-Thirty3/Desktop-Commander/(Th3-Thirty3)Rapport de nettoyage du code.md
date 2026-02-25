@@ -1,5 +1,5 @@
-#08-02-2026 
-#Gemini-3-pro-preview #Desktop_Commander
+[[08-02-2026]] 
+[[Gemini-3-pro-preview]] [[Desktop_Commander]]
 Je vais analyser la structure de votre projet pour créer un plan de nettoyage sûr. D'après la liste des fichiers, il s'agit d'un projet hybride utilisant **Node.js** (backend & frontend), **Python** (AI/services), et divers **scripts Shell/PowerShell**.
 
 Je commencerai par examiner les fichiers de configuration pour voir quels outils d'analyse sont déjà disponibles et pour comprendre les dépendances.

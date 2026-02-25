@@ -1,4 +1,4 @@
-#07-02-2026 
+[[07-02-2026]] 
 # Contexte
 
 L'utilisateur dispose d'un script bash de base GHOST-PROTOCOL qui réalise l'usurpation de MAC, la randomisation de noms d'hôtes et l'effacement de l'historique bash. La demande consiste à l'améliorer. Le champ d'application a été réduit à **l'anonymisation du réseau** - renforcement défensif de la vie privée pour la recherche de sécurité autorisée sur Kali Linux.

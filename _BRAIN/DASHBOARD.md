@@ -1,8 +1,8 @@
 # 🏠 DASHBOARD — HUB CENTRAL DU VAULT
 
 > **Cerveau virtuel de Michaël** — Orchestration complète  
-> Dernière mise à jour : 2026-02-14  
-> **NEW:** Vault restructuré en 4 projets + masterclass
+> Dernière mise à jour : 2026-02-25  
+> **NEW:** Pieces OS MCP intégré + Bilans quotidiens organisés + OSINT intégré + 660+ notes
 
 ---
 
@@ -56,6 +56,35 @@
 
 ---
 
+## 📅 DAILY REPORTS — BILANS QUOTIDIENS (NEW Feb 2026)
+
+**Système de rapports quotidiens structurés** — Captures journalières de l'alignement THIRTY3
+
+| Composant | Description | Statut | Access |
+|-----------|------------|--------|--------|
+| **Bilan du Matin** | Protocole d'activation + intentions du jour | ✅ Active | [[_BRAIN/DAILY_REPORTS]] |
+| **Bilan du Soir** | Évaluation des standards + audit red lines | ✅ Active | [[_BRAIN/DAILY_REPORTS]] |
+| **Synthèse** | Perspective globale du jour | ✅ Active | [[_BRAIN/DAILY_REPORTS]] |
+| **Archive** | Historique datés (DD-MM-YYYY) | 📚 Complet | `_BRAIN/DAILY_REPORTS/24-02-2026/` |
+
+**Structure:**
+```
+_BRAIN/DAILY_REPORTS/
+├── 24-02-2026/
+│   ├── (2026-02-24) Bilan du Matin.md
+│   ├── (2026-02-24) Bilan du Soir.md
+│   └── SYNTHESE_24-02-2026.md
+```
+
+**Derniers bilans:**
+- **Matin (24-02):** Protocole matin + Breathwork + Intention du jour ✅
+- **Soir (24-02):** Audit standards + Red lines + Perspective ✅
+
+**Quick Start:**
+→ [[_BRAIN/DAILY_REPORTS]] pour accéder à l'historique complet
+
+---
+
 ## 🛠️ HEXSTRIKE — CYBERSECURITY RESEARCH PLATFORM (NEW Feb 2026)
 
 **Complete Red Team Toolkit with 150+ Tools** — Integrated into Ascended33 Docker environment
@@ -67,6 +96,7 @@
 | **API Server** | 🔗 PORT 8001 | HexStrike Backend | http://localhost:8001 |
 | **150+ Tools** | 📦 AVAILABLE | Nmap, Burp, Nuclei, Masscan, etc. | Auto-loaded in UI |
 | **MCP Integration** | 🤖 ENABLED | Claude AI access to tools | Integrated with claude-md |
+| **Pieces OS MCP** | ✅ ACTIVE | Code snippet management | http://localhost:39300 |
 
 **Quick Start:**
 1. Click `HexStrike.lnk` on desktop → Launches Docker + Streamlit
@@ -154,7 +184,7 @@
 
 ### 🌟 Les Projets
 - **[[🔐_SECURITY_AUDIT_PROJECT/README_SECURITY_PROJECT]]** — Revenue project (👈 START HERE for income)
-- **[[🤖_PIECES_OS_INTEGRATION/README_PIECES_PROJECT]]** — Memory system
+- **[[🤖_PIECES_OS_INTEGRATION/README_PIECES_PROJECT]]** — Memory system ✅ MCP intégré
 - **[[🐧_KALI_INTEGRATION_PROJECT/README_KALI_PROJECT]]** — Hacking labs + learning
 - **[[🧠_CLAUDE_MASTERY/README_CLAUDE_MASTERY]]** — Automation mastery (👈 START HERE for skills)
 
@@ -163,7 +193,8 @@
 - **[[_BRAIN/QUICK_START]]** — 5 min setup
 - **[[_BRAIN/GUIDE_CLAUDE_OPTIMAL]]** — Skills + MCP + Prompting overview
 - **[[_BRAIN/PROTOCOLES_VAULT]]** — 30+ commandes déclencheurs
-- **[[ENQUETES_OSINT/INDEX_OSINT]]** 🔍 NEW — OSINT investigations + IOC tracking
+- **[[_BRAIN/DAILY_REPORTS]]** 📅 — Bilans quotidiens + archive
+- **[[ENQUETES_OSINT/INDEX_OSINT]]** 🔍 — OSINT investigations + IOC tracking
 
 ### 🧠 Réseaux de neurones (Documentation)
 - **[[_BRAIN/MEMOIRE]]** — Context persistant & profil
@@ -248,14 +279,16 @@ Sat-Sun: FIRST $5,500 REVENUE 🎉
 
 | Metric | Value |
 |--------|-------|
-| Total Notes | ~650+ |
-| Projects | 4 major |
+| Total Notes | ~660+ |
+| Projects | 6 majeurs |
 | Masterclass Docs | 4 |
 | README Files | 4 |
-| Scripts Ready | 3 (Kali sync, prospect analyzer, test runner) |
-| Templates | 10+ |
+| Scripts Ready | 4 (Kali sync, lead gen Python, prospect analyzer, test runner) |
+| Templates | 10 (7 classiques + 3 productifs) |
 | Prompts | 20+ |
-| Team | You + Claude |
+| Commandes déclencheurs | 5 actives |
+| Team | Michaël + Claude Sonnet 4.6 |
+| Dernier audit | 2026-02-18 ✅ |
 
 ---
 
@@ -318,4 +351,4 @@ Pick a project and go! 💪
 
 ---
 
-**Tags:** #dashboard #hub #projects #navigation #vault #14-02-2026
+**Tags:** [[dashboard]] [[hub]] [[projects]] [[navigation]] [[vault]] [[18-02-2026]]

@@ -1,0 +1,84 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project specific
+.env
+.env.local
+*.log
+node_modules/
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+
+# Documentation
+*.md
+docs/
+
+# Windows
+*.bat
+*.ps1
+CLEANUP*
+BACKUP*
+ANALYSIS*
+
+# Obsidian/Notes
+.obsidian
+.claude
+LEARNING
+KNOWLEDGE
+_PROJECTS
+_TEMPLATES
+_BRAIN
+METADATA
+PLANNING
+REPORT
+SKILLS
+Security
+THIRTY3
+LLM's

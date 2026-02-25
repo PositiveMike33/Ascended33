@@ -16,5 +16,8 @@
   "metadata-extractor",
   "obsidian-map-view",
   "obsidian42-strange-new-worlds",
-  "templater-obsidian"
+  "templater-obsidian",
+  "maps",
+  "telegram-sync",
+  "dashboard-navigator"
 ]

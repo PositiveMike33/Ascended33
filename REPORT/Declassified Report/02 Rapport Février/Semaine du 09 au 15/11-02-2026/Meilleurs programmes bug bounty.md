@@ -1,4 +1,4 @@
-#11-02-2026
+[[11-02-2026]]
 Voici une sélection des **meilleurs programmes bug bounty** en 2026, basée sur des critères comme les payouts élevés, le nombre de programmes disponibles, la facilité pour les débutants, la réponse rapide des entreprises et la popularité dans la communauté (surtout francophone et européenne). Les « meilleurs » dépendent de votre niveau, de votre spécialisation (web, crypto, etc.) et de votre région. Les plateformes principales regroupent la plupart des programmes (publics ou privés sur invitation).
 ### Top plateformes bug bounty en 2026 | Rang | Plateforme | Points forts | Idéal pour | Exemples de payouts / note| 
 |------|------------------|-----------------------------------------------------------------------------|-------------------------------------|-----------------------------------------------------|

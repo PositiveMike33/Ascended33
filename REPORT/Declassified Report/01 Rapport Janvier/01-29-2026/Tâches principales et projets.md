@@ -1,4 +1,4 @@
-#29-01-2026 
+[[29-01-2026]] 
 
 - Surveillance active et dépannage du serveur API de HexStrike AI Tools, y compris le traitement des requêtes pour Nikto et Dalfox, et le traitement des erreurs "pas de réponse" de Gemini.
 - Développement et perfectionnement d'un persona d'IA axé sur la production de rapports de bug bounty concis et reproductibles.

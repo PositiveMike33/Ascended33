@@ -1,4 +1,4 @@
-#18-02-2026
+[[18-02-2026]]
 
 Protocole Méthodologique : Enquêtes Numériques Complexes, OSINT et IA (Édition 2026)
 

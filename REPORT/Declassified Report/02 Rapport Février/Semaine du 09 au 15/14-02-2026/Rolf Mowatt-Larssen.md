@@ -1,5 +1,5 @@
-#### #14-02-26  
-### #CIA  #VoyageDansLeTemps 
+#### [[14-02-26]]  
+### [[CIA]]  [[VoyageDansLeTemps]] 
 
 La vidéo est un extrait d’entretien où l’ex-chef de station CIA Rolf Mowatt-Larssen raconte une expérience mystique vécue sur le Mont Athos, qu’il interprète comme un mélange de rêve lucide, d’état modifié de conscience et de possible « voyage dans le temps ». [youtube](https://www.youtube.com/watch?v=ofBAyw3zi_c)
 

@@ -145,7 +145,7 @@ Use [[🤖_PIECES_OS_INTEGRATION/PIECES_HACKING_SNIPPETS]] — 15 snippets à co
 2. Click "+ New Snippet"
 3. Copy from PIECES_HACKING_SNIPPETS.md
 4. Paste into Pieces
-5. Add tags: #sql-injection, #exploit, #learning
+5. Add tags: [[sql-injection]], [[exploit]], [[learning]]
 6. Repeat for all 15 snippets
 
 **Timeline:** 30 min for 15 snippets
@@ -158,7 +158,7 @@ Use [[🤖_PIECES_OS_INTEGRATION/PIECES_REVENUE_PROMPTS]] — 7 prompts:
 2. Click "+ New Snippet"
 3. Copy each prompt from PIECES_REVENUE_PROMPTS.md
 4. Paste into Pieces
-5. Add tags: #prompt, #revenue, #sales
+5. Add tags: [[prompt]], [[revenue]], [[sales]]
 6. Repeat for 7 prompts
 
 **Timeline:** 20 min for 7 prompts
@@ -282,4 +282,4 @@ This project connects to:
 
 ---
 
-**Tags:** #pieces #memory #automation #integration #project #14-02-2026
+**Tags:** [[pieces]] [[memory]] [[automation]] [[integration]] [[project]] [[14-02-2026]]

@@ -1,4 +1,4 @@
-#15-02-2026
+[[15-02-2026]]
 
 Lois universelles de prospérité et de plénitude selon David Ghiyam
 D'après 1 source

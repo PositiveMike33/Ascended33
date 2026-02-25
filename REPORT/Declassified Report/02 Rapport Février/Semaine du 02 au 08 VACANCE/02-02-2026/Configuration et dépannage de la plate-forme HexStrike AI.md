@@ -1,4 +1,4 @@
-#02-02-2026
+[[02-02-2026]]
 
 - Configuration des services de base de HexStrike AI:** Correction des chemins dans `.gemini/settings.json` pour pointer vers `hexstrike_mcp.py`, configuration du serveur MCP pour communiquer avec le conteneur Docker `th3-hexstrike` sur le port 8888, installation des modules Python nécessaires (`mcp`, `fastmcp`, `requests`), et suppression des serveurs MCP obsolètes (Shodan, VirusTotal, Wazuh, Postgres) de la configuration.
 - Vérifié la santé du service:** Confirmé que tous les conteneurs Docker essentiels (`th3-server`, `th3-hexstrike`, `th3-frontend`, `th3-redis`, `th3-tor`), le contrôle de santé de l'API, et le serveur Node.js (3010) sont opérationnels et en bonne santé.

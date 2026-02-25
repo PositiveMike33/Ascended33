@@ -1,0 +1,115 @@
+{
+  "version": "1.0",
+  "created": "2026-02-25T00:00:00Z",
+  "last_updated": "2026-02-25T00:00:00Z",
+  "taxonomy": {
+    "root": {
+      "name": "METADATA",
+      "description": "Root directory for all organized investigation metadata",
+      "subdirectories": [
+        {
+          "path": "investigations",
+          "name": "Active Investigations",
+          "description": "Organized by investigation_id, contains subdirectories for each investigation"
+        },
+        {
+          "path": "sources",
+          "name": "Source Materials",
+          "description": "Organized by source type: web, documents, media, databases"
+        },
+        {
+          "path": "artifacts",
+          "name": "Extracted Artifacts",
+          "description": "Screenshots, PDFs, parsed data, structured extracts from sources"
+        },
+        {
+          "path": "taxonomy",
+          "name": "Taxonomy Patterns",
+          "description": "Learned patterns from investigation contexts for auto-organization"
+        },
+        {
+          "path": "indexed",
+          "name": "Indexed Metadata",
+          "description": "Quick-access index files and search indices"
+        }
+      ]
+    },
+    "investigation_structure": {
+      "pattern": "investigations/{investigation_id}/{context_type}/{date_collected}",
+      "context_types": [
+        "web_sources",
+        "documents",
+        "screenshots",
+        "parsed_data",
+        "research_notes"
+      ]
+    },
+    "source_taxonomy": {
+      "web": {
+        "path": "sources/web",
+        "subtypes": ["news", "blogs", "social_media", "forums", "documentation"]
+      },
+      "documents": {
+        "path": "sources/documents",
+        "subtypes": ["pdf", "text", "spreadsheets", "presentations"]
+      },
+      "media": {
+        "path": "sources/media",
+        "subtypes": ["images", "videos", "audio"]
+      },
+      "databases": {
+        "path": "sources/databases",
+        "subtypes": ["queries", "exports", "structured_data"]
+      }
+    },
+    "routing_rules": [
+      {
+        "rule_id": "rule_001",
+        "name": "Investigation Context Routing",
+        "description": "Route files based on investigation_id and context_type",
+        "priority": 1,
+        "condition": "Has investigation_id and context_type in metadata"
+      },
+      {
+        "rule_id": "rule_002",
+        "name": "Source Type Detection",
+        "description": "Route based on detected source type",
+        "priority": 2,
+        "condition": "Has source_type detected from content or filename"
+      },
+      {
+        "rule_id": "rule_003",
+        "name": "Content Analysis Routing",
+        "description": "Route based on content analysis and learned patterns",
+        "priority": 3,
+        "condition": "Content can be analyzed for taxonomy placement"
+      },
+      {
+        "rule_id": "rule_004",
+        "name": "Fallback Generic Routing",
+        "description": "Default routing when other rules don't apply",
+        "priority": 4,
+        "destination": "sources/uncategorized"
+      }
+    ]
+  },
+  "index": {
+    "total_entries": 0,
+    "last_organized": null,
+    "organization_stats": {
+      "by_investigation": {},
+      "by_source_type": {},
+      "by_date": {}
+    }
+  },
+  "service_config": {
+    "docker": {
+      "metadata_router_service": "metadata-router:8001",
+      "metadata_organizer_service": "metadata-organizer:8003",
+      "volume_mounts": {
+        "metadata": "/metadata",
+        "cache": "/cache"
+      }
+    }
+  }
+}

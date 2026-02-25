@@ -1,5 +1,5 @@
 # Plan Structuré - Ascended33 OSINT Platform v3.0
-#20-02-2026 #ascended33 #Update
+[[20-02-2026]] [[ascended33]] [[Update]]
 
 
 ## Phases de Développement (Demain et après)

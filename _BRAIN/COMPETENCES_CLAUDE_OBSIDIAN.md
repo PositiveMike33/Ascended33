@@ -340,23 +340,23 @@ Vault/
 
 ```markdown
 Tags primaires (toujours ajouter 1) :
-- #revenu — générer du revenu
-- #learning — apprentissage
-- #security — sécurité/hacking
-- #productivity — productivité
-- #archive — old content
+- [[revenu]] — générer du revenu
+- [[learning]] — apprentissage
+- [[security]] — sécurité/hacking
+- [[productivity]] — productivité
+- [[archive]] — old content
 
 Tags secondaires (contexte) :
-- #claude — Claude-specific
-- #code — code/technique
-- #research — research
-- #personal — personnel
-- #project/[name] — lié à un projet
+- [[claude]] — Claude-specific
+- [[code]] — code/technique
+- [[research]] — research
+- [[personal]] — personnel
+- [[project/]][name] — lié à un projet
 
 Tags de statut :
-- #draft — en cours
-- #done — complété
-- #waiting — en attente
+- [[draft]] — en cours
+- [[done]] — complété
+- [[waiting]] — en attente
 ```
 
 ---

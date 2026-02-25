@@ -1,6 +1,6 @@
 {
   "command_timeout": 5,
-  "templates_folder": "THIRTY3/Templates",
+  "templates_folder": "_TEMPLATES",
   "templates_pairs": [],
   "trigger_on_file_creation": true,
   "auto_jump_to_cursor": true,
@@ -18,8 +18,48 @@
       "template": "THIRTY3/Templates/TPL — Soir THIRTY3.md"
     },
     {
-      "folder": "THIRTY3",
+      "folder": "THIRTY3/Templates",
       "template": "THIRTY3/Templates/TPL — Matin THIRTY3.md"
+    },
+    {
+      "folder": "THIRTY3/Preuves",
+      "template": "_TEMPLATES/RECHERCHE.md"
+    },
+    {
+      "folder": "_TEMPLATES",
+      "template": "_TEMPLATES/NOTE_PRODUCTIVE_REVENU.md"
+    },
+    {
+      "folder": "EXTERNAL",
+      "template": "_TEMPLATES/PROJET.md"
+    },
+    {
+      "folder": "PLANNING",
+      "template": "_TEMPLATES/PLANNING_HEBDO.md"
+    },
+    {
+      "folder": "METADATA",
+      "template": "_TEMPLATES/OSINT_INVESTIGATION.md"
+    },
+    {
+      "folder": "REPORT/Declassified Report",
+      "template": "_TEMPLATES/ETHICAL_HACKING_NOTE.md"
+    },
+    {
+      "folder": "REPORT/Classified Report",
+      "template": "_TEMPLATES/ETHICAL_HACKING_NOTE.md"
+    },
+    {
+      "folder": "PLANNING/Planning quotidien",
+      "template": "_TEMPLATES/TODO.md"
+    },
+    {
+      "folder": "Notes et Mémos Importants",
+      "template": "_TEMPLATES/CAPTURE_RAPIDE.md"
+    },
+    {
+      "folder": "THIRTY3",
+      "template": "_TEMPLATES/BUDGET.md"
     }
   ],
   "enable_file_templates": false,
@@ -30,7 +70,18 @@
     "THIRTY3/Templates/TPL — Daily Note THIRTY3.md"
   ],
   "startup_templates": [
-    "THIRTY3/Templates/TPL — Matin THIRTY3.md"
+    "THIRTY3/Templates/TPL — Matin THIRTY3.md",
+    "_TEMPLATES/BUDGET.md",
+    "_TEMPLATES/CAPTURE_RAPIDE.md",
+    "_TEMPLATES/CLAUDE_WORKFLOW.md",
+    "_TEMPLATES/ETHICAL_HACKING_NOTE.md",
+    "_TEMPLATES/NOTE_PRODUCTIVE_REVENU.md",
+    "_TEMPLATES/OSINT_INVESTIGATION.md",
+    "_TEMPLATES/PROJET.md",
+    "_TEMPLATES/RAPPORT_QUOTIDIEN.md",
+    "_TEMPLATES/RECHERCHE.md",
+    "_TEMPLATES/TODO.md",
+    "_TEMPLATES/TPL — Rapport Quotidien.md"
   ],
   "intellisense_render": 1,
   "template_hotkeys": []

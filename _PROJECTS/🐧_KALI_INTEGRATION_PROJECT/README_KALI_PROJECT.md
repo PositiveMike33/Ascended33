@@ -235,13 +235,13 @@ python3 /tmp/claude_workspace/python_scripts/test_runner.py
 After Phase 4 completes, start structured OWASP Top 10 learning:
 
 ### Week 1: SQL Injection
-- [ ] Complete OWASP Top 10 #A03 module
+- [ ] Complete OWASP Top 10 [[A03]] module
 - [ ] Solve 3 SQL injection CTFs (TryHackMe or PortSwigger)
 - [ ] Document 3 walkthroughs
 - [ ] Create defense guide
 
 ### Week 2: Authentication
-- [ ] OWASP Top 10 #A07 module
+- [ ] OWASP Top 10 [[A07]] module
 - [ ] Solve 3 CTFs
 - [ ] Document walkthroughs
 - [ ] Create defense guide
@@ -325,4 +325,4 @@ After Phase 4 completes, start structured OWASP Top 10 learning:
 
 ---
 
-**Tags:** #kali #hacking #learning #automation #security #ctf #14-02-2026
+**Tags:** [[kali]] [[hacking]] [[learning]] [[automation]] [[security]] [[ctf]] [[14-02-2026]]

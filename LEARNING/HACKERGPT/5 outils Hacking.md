@@ -1,4 +1,4 @@
-#hack
+[[hack]]
 Voici les points clés de la vidéo.
 [[youtube](https://www.youtube.com/watch?v=Kt_js-gpVg0)]​
 

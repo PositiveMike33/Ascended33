@@ -1,0 +1,10 @@
+{
+  "ai-agent:switch-model": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "S"
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+version: '3.9'
+
+# ==================================================
+# UNIFIED DOCKER COMPOSE - All Services
+# Consolidates docker-compose.yml + docker-compose-vpn-fix.yml
+# ==================================================
+
+services:
+  # ==========================================
+  # TOR NETWORK - Anonymous routing
+  # ==========================================
+  th3-tor:
+    image: osminogin/tor-simple:latest
+    container_name: th3-tor
+    ports:
+      - "9050:9050"  # SOCKS5
+      - "9051:9051"  # Control port
+    volumes:
+      - tor-data:/var/lib/tor
+      - ./hexstrike-tor-config.conf:/etc/tor/torrc:ro
+    networks:
+      - th3-brain-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-s", "http://localhost:9051"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ==========================================
+  # PRIVOXY - SOCKS to HTTP proxy converter
+  # ==========================================
+  th3-privoxy:
+    image: alpine:3.18
+    container_name: th3-privoxy
+    ports:
+      - "8118:8118"  # HTTP proxy
+    volumes:
+      - ./privoxy-config.conf:/etc/privoxy/config:ro
+    networks:
+      - th3-brain-network
+    restart: unless-stopped
+    depends_on:
+      - th3-tor
+    command: >
+      sh -c "
+        apk add --no-cache privoxy &&
+        privoxy --no-daemon /etc/privoxy/config
+      "
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O-", "http://localhost:8118"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ==========================================
+  # STREAMLIT - Dashboard UI
+  # ==========================================
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hexstrike-streamlit
+    image: hexstrike-streamlit:latest
+    ports:
+      - "8501:8501"
+    volumes:
+      - ../streamlit_app.py:/app/streamlit_app.py:ro
+      - streamlit-cache:/home/streamlit/.streamlit
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_LOGGER_LEVEL=info
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 5s
+      retries: 3
+    networks:
+      - th3-brain-network
+    security_opt:
+      - no-new-privileges:true
+
+  # ==========================================
+  # VAULT INDEXER - Full-text search service
+  # ==========================================
+  vault-indexer:
+    build:
+      context: .
+      dockerfile: Dockerfile.vault-indexer
+    container_name: vault-indexer
+    image: vault-indexer:latest
+    ports:
+      - "8004:8004"
+    volumes:
+      - D:/Vault/Vault:/vault:ro
+      - indexer-data:/app/data:rw
+      - indexer-index:/app/index:rw
+    environment:
+      - VAULT_PATH=/vault
+      - INDEX_DATA_PATH=/app/data
+      - SEARCH_PORT=8004
+      - CRAWLER_INTERVAL=3600
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8004/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+    networks:
+      - th3-brain-network
+    security_opt:
+      - no-new-privileges:true
+
+  # ==========================================
+  # REPORT GENERATOR - Audit report service
+  # ==========================================
+  report-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile.report-generator
+    container_name: report-generator
+    image: report-generator:latest
+    ports:
+      - "8005:8005"
+    volumes:
+      - D:/Vault/Vault:/vault:ro
+      - report-output:/app/reports:rw
+      - report-templates:/app/templates:ro
+    environment:
+      - VAULT_PATH=/vault
+      - REPORT_OUTPUT_PATH=/app/reports
+      - LEGAL_FRAMEWORK=THIRTY3
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8005/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+    networks:
+      - th3-brain-network
+    security_opt:
+      - no-new-privileges:true
+
+  # ==========================================
+  # HEXSTRIKE - Main security tool suite
+  # ==========================================
+  th3-hexstrike:
+    image: th3-hexstrike:latest
+    container_name: th3-hexstrike
+    ports:
+      - "8001:8001"
+      - "8888:8888"  # MCP server
+    volumes:
+      - kali-workspace:/workspace:rw
+      - hexstrike-data:/app/data:rw
+      - D:/Vault/Vault:/vault:rw
+    environment:
+      # Core Configuration
+      - VAULT_PATH=/vault
+      - WORKSPACE=/workspace
+      
+      # Proxy Configuration
+      - HTTP_PROXY=http://th3-privoxy:8118
+      - HTTPS_PROXY=http://th3-privoxy:8118
+      - http_proxy=http://th3-privoxy:8118
+      - https_proxy=http://th3-privoxy:8118
+      
+      # Service Integration
+      - KALI_HOST=th3-kali
+      - HACKERGPT_HOST=th3-hackergpt
+      - REPORT_DESTINATION=/vault/_BRAIN/hexstrike_reports
+      - AUTO_REPORT_GENERATION=true
+      - CLAUDE_INTEGRATION=enabled
+    restart: unless-stopped
+    depends_on:
+      - th3-privoxy
+      - th3-tor
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8001"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - th3-brain-network
+    security_opt:
+      - no-new-privileges:true
+
+# ==================================================
+# VOLUMES
+# ==================================================
+volumes:
+  streamlit-cache:
+    driver: local
+  indexer-data:
+    driver: local
+  indexer-index:
+    driver: local
+  report-output:
+    driver: local
+  report-templates:
+    driver: local
+  kali-workspace:
+    driver: local
+  hexstrike-data:
+    driver: local
+  tor-data:
+    driver: local
+
+# ==================================================
+# NETWORKS
+# ==================================================
+networks:
+  th3-brain-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16

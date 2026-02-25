@@ -1,4 +1,4 @@
-#17-02-2026
+[[17-02-2026]]
 
 - Lancement et révision des activités d'optimisation du système, en effectuant un boost du PC qui a libéré 305 Mo de fichiers temporaires et en analysant les options de nettoyage du disque pour le lecteur C :.
 - Gestion active des processus applicatifs en cours, examen de l'utilisation de la mémoire pour des applications telles que IPCamViewer, MicrosoftSecurityApp.exe et SpotifyWidgetProvider, et examen de la possibilité de mettre fin à certains processus.

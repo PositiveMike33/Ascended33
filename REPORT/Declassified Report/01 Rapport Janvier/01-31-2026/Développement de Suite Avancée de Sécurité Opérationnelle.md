@@ -1,4 +1,4 @@
-#31-01-2026
+[[31-01-2026]]
 # (OpSec)
 
 Développé et peaufiné le script kali-tor-ghost-launcher.sh, un menu interactif pour gérer un conteneur Docker combiné Kali, Tor et GHOST-PROTOCOL. Ce script comprend des options pour construire, démarrer, arrêter, consulter les journaux, exécuter des commandes et nettoyer les ressources Docker.

@@ -1,0 +1,12 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "statut": "checkbox",
+    "exampleProperty": "date",
+    "preuve_du_jour": "checkbox",
+    "Breathwork": "checkbox",
+    "date": "datetime"
+  }
+}

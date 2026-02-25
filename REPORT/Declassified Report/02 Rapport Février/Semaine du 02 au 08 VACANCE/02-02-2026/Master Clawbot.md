@@ -1,4 +1,4 @@
-#02-02-2026 
+[[02-02-2026]] 
 La vidéo présente un guide complet (≈35 minutes) pour installer, configurer et utiliser OpenClaw/Clawdbot (ex‑Moltbot), un agent IA capable de piloter votre ordinateur, vos apps et des services externes de façon autonome. [youtube](https://www.youtube.com/watch?v=4evf5YqVzOM)
 
 ## Ce qu’est OpenClaw / Clawdbot

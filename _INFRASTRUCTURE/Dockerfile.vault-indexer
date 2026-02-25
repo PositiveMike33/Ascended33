@@ -1,0 +1,66 @@
+# Multi-stage Dockerfile for Vault Indexer Service
+# Provides full-text search and indexing for vault content
+# Stage 1: Builder
+FROM python:3.11-slim AS builder
+
+WORKDIR /build
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+RUN pip install --user --no-cache-dir -r requirements.txt
+
+# Stage 2: Runtime
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    VAULT_PATH=/vault \
+    INDEX_DATA_PATH=/app/data \
+    SEARCH_PORT=8004 \
+    CRAWLER_INTERVAL=3600
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create non-root user
+RUN useradd -m -u 1000 vaultindex
+
+WORKDIR /app
+
+# Copy Python dependencies from builder
+COPY --from=builder /root/.local /home/vaultindex/.local
+
+# Create data directories
+RUN mkdir -p /app/data /app/index /vault && \
+    chown -R vaultindex:vaultindex /app /vault
+
+# Copy application files
+COPY --chown=vaultindex:vaultindex vault_indexer.py .
+COPY --chown=vaultindex:vaultindex search_api.py .
+COPY --chown=vaultindex:vaultindex crawler.py .
+COPY --chown=vaultindex:vaultindex config/ /app/config/
+COPY --chown=vaultindex:vaultindex utils/ /app/utils/
+
+# Switch to non-root user
+USER vaultindex
+
+# Update PATH
+ENV PATH=/home/vaultindex/.local/bin:$PATH
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:8004/health || exit 1
+
+# Expose port for search API
+EXPOSE 8004
+
+# Run Vault Indexer Service
+CMD ["python", "-m", "uvicorn", "search_api:app", "--host", "0.0.0.0", "--port", "8004"]

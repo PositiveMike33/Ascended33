@@ -1,4 +1,4 @@
-#02-02-2026 
+[[02-02-2026]] 
 - Résolution des problèmes de connectivité de connexion du frontend:** Investigation et correction d'une erreur "Connection failed" pendant la connexion de l'utilisateur en corrigeant les mauvaises configurations dans l'API et les URLs WebSocket.
 - Correction des rapports d'état des conteneurs du backend : résolution des divergences entre l'état réel des conteneurs Docker et l'affichage de l'interface utilisateur de l'application pour les conteneurs Kali, Tor et HexStrike.
 - Amélioration de l'interface utilisateur du cadre OSINT Mind Map:** Début de la planification des modifications du tableau de bord OSINT pour donner la priorité à un affichage plein écran de la carte mentale.

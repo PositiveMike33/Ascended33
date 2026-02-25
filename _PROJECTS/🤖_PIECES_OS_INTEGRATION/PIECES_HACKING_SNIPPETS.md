@@ -19,7 +19,7 @@ Description:
   
 Language: SQL
 Collection: Hacking-Exploits
-Tags: #sql-injection #payload #tested #union-based
+Tags: [[sql-injection]] [[payload]] [[tested]] [[union-based]]
 ```
 
 **Code to paste:**
@@ -55,7 +55,7 @@ Description:
   
 Language: SQL
 Collection: Hacking-Exploits
-Tags: #sql-injection #payload #tested #boolean-based
+Tags: [[sql-injection]] [[payload]] [[tested]] [[boolean-based]]
 ```
 
 **Code to paste:**
@@ -97,7 +97,7 @@ Description:
   
 Language: SQL
 Collection: Hacking-Exploits
-Tags: #sql-injection #payload #tested #error-based
+Tags: [[sql-injection]] [[payload]] [[tested]] [[error-based]]
 ```
 
 **Code to paste:**
@@ -139,7 +139,7 @@ Description:
   
 Language: SQL
 Collection: Hacking-Exploits
-Tags: #sql-injection #payload #tested #time-based
+Tags: [[sql-injection]] [[payload]] [[tested]] [[time-based]]
 ```
 
 **Code to paste:**
@@ -185,7 +185,7 @@ Description:
   
 Language: SQL
 Collection: Hacking-Exploits
-Tags: #sql-injection #payload #tested #stacked-queries #advanced
+Tags: [[sql-injection]] [[payload]] [[tested]] [[stacked-queries]] [[advanced]]
 ```
 
 **Code to paste:**
@@ -232,7 +232,7 @@ Description:
   
 Language: JavaScript
 Collection: Hacking-Exploits
-Tags: #xss #payload #tested #basic
+Tags: [[xss]] [[payload]] [[tested]] [[basic]]
 ```
 
 **Code to paste:**
@@ -280,7 +280,7 @@ Description:
   
 Language: JavaScript
 Collection: Hacking-Exploits
-Tags: #xss #payload #waf-bypass #advanced
+Tags: [[xss]] [[payload]] [[waf-bypass]] [[advanced]]
 ```
 
 **Code to paste:**
@@ -333,7 +333,7 @@ Description:
   
 Language: JavaScript
 Collection: Hacking-Exploits
-Tags: #xss #payload #dom-based #javascript
+Tags: [[xss]] [[payload]] [[dom-based]] [[javascript]]
 ```
 
 **Code to paste:**
@@ -381,7 +381,7 @@ Description:
   
 Language: XML
 Collection: Hacking-Exploits
-Tags: #xxe #payload #tested #file-read
+Tags: [[xxe]] [[payload]] [[tested]] [[file-read]]
 ```
 
 **Code to paste:**
@@ -440,7 +440,7 @@ Description:
   
 Language: XML
 Collection: Hacking-Exploits
-Tags: #xxe #payload #blind-xxe #out-of-band #advanced
+Tags: [[xxe]] [[payload]] [[blind-xxe]] [[out-of-band]] [[advanced]]
 ```
 
 **Code to paste:**
@@ -506,7 +506,7 @@ Description:
   
 Language: SQL
 Collection: Hacking-Exploits
-Tags: #auth-bypass #payload #tested #sql-injection
+Tags: [[auth-bypass]] [[payload]] [[tested]] [[sql-injection]]
 ```
 
 **Code to paste:**
@@ -567,7 +567,7 @@ Description:
   
 Language: Plain text
 Collection: Hacking-Exploits
-Tags: #auth-bypass #default-credentials #tested
+Tags: [[auth-bypass]] [[default-credentials]] [[tested]]
 ```
 
 **Code to paste:**
@@ -635,7 +635,7 @@ Description:
   
 Language: HTML
 Collection: Hacking-Exploits
-Tags: #csrf #payload #advanced
+Tags: [[csrf]] [[payload]] [[advanced]]
 ```
 
 **Code to paste:**
@@ -701,7 +701,7 @@ Description:
   
 Language: Bash
 Collection: Hacking-Exploits
-Tags: #reconnaissance #testing #bash
+Tags: [[reconnaissance]] [[testing]] [[bash]]
 ```
 
 **Code to paste:**
@@ -758,7 +758,7 @@ Description:
   
 Language: Markdown
 Collection: Hacking-Exploits
-Tags: #reference #template #learning
+Tags: [[reference]] [[template]] [[learning]]
 ```
 
 **Code to paste:**

@@ -1,5 +1,5 @@
 {
-  "folder": "/",
+  "folder": "/REPORT",
   "excelFilenamePrefix": "Excel ",
   "excelFilenameDateTime": "YYYY-MM-DD HH.mm.ss",
   "sheetHeight": "300",

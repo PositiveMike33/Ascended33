@@ -1,0 +1,38 @@
+
+
+services:
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hexstrike-streamlit
+    image: hexstrike-streamlit:latest
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./streamlit_app.py:/app:ro
+      - streamlit-cache:/home/streamlit/.streamlit
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - STREAMLIT_LOGGER_LEVEL=info
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 5s
+      retries: 3
+    networks:
+      - app-network
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  streamlit-cache:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
