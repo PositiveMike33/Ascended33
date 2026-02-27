@@ -1,0 +1,28 @@
+# Binaires lourds (dépassent la limite GitHub 100MB)
+*.exe
+*.dll
+*.bin
+*.dmg
+*.pkg
+
+# Obsidian cache & binaires
+.obsidian/plugins/*/bin/
+.obsidian/plugins/mcp-tools/bin/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+
+# Logs volumieux
+firebase-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
