@@ -50,4 +50,3 @@ Respirez profondément et réfléchissez étape par étape à la meilleure faço
 
 INPUT :
 
-*** Traduit avec www.DeepL.com/Translator (version gratuite) ***

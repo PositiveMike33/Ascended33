@@ -4,117 +4,204 @@
     "type": "split",
     "children": [
       {
-        "id": "da338b8e2cb526d0",
-        "type": "tabs",
+        "id": "7b55c351413b5a67",
+        "type": "split",
         "children": [
           {
-            "id": "89c28c4c8dfc41d1",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "webviewer",
-              "state": {
-                "url": "https://www.myinstants.com/en/index/us/",
-                "title": "Myinstants | The largest instant sound buttons website in United States!",
-                "mode": "webview"
-              },
-              "pinned": true,
-              "icon": "globe-2",
-              "title": "Myinstants | The largest instant sound buttons website in United States!"
-            }
-          },
-          {
-            "id": "955bcb3c500bf5c8",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Identité de marque THIRTY3 — Diagnostic & Stratégie.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
+            "id": "da338b8e2cb526d0",
+            "type": "tabs",
+            "dimension": 53.677932405566594,
+            "children": [
+              {
+                "id": "89c28c4c8dfc41d1",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "webviewer",
+                  "state": {
+                    "url": "https://www.myinstants.com/en/index/us/",
+                    "title": "Myinstants | The largest instant sound buttons website in United States!",
+                    "mode": "webview"
+                  },
+                  "pinned": true,
+                  "icon": "globe-2",
+                  "title": "Myinstants | The largest instant sound buttons website in United States!"
                 }
               },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "Identité de marque THIRTY3 — Diagnostic & Stratégie"
-            }
-          },
-          {
-            "id": "d23a6f5af4b531bf",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "REPORT/Declassified Report/02 Rapport Février/Semaine du 23 au 01 mars/(2026-02-25) Résumé Exclusif.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
+              {
+                "id": "b8aec854d6ce1045",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "LLM's/Prompts/System Prompt/System Prompt Personnel/Th3-Thirty3/(Système Prompts) Th3-Thirty3 01%.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": false,
+                      "extraContext": false,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "(Système Prompts) Th3-Thirty3 01%"
                 }
               },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "(2026-02-25) Résumé Exclusif"
-            }
-          },
-          {
-            "id": "67a01202106d443e",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "THIRTY3/daily/(2026-02-25)Création du dossier LAW OF ONE.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
+              {
+                "id": "955bcb3c500bf5c8",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Identité de marque THIRTY3 — Diagnostic & Stratégie.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": false,
+                      "extraContext": false,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "lucide-file",
+                  "title": "Identité de marque THIRTY3 — Diagnostic & Stratégie"
                 }
               },
-              "pinned": true,
-              "icon": "lucide-file",
-              "title": "(2026-02-25)Création du dossier LAW OF ONE"
-            }
+              {
+                "id": "f947cf701cc7ff10",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "webviewer",
+                  "state": {
+                    "url": "https://remotedesktop.google.com/access/session/cd3626e0-d843-08ed-71ab-ec4b4a906954",
+                    "title": "MSI-GAMING-PRO",
+                    "mode": "webview"
+                  },
+                  "pinned": true,
+                  "icon": "globe-2",
+                  "title": "MSI-GAMING-PRO"
+                }
+              },
+              {
+                "id": "fe92e90c01009768",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "webviewer",
+                  "state": {
+                    "url": "https://www.facebook.com/",
+                    "title": "Facebook",
+                    "mode": "webview"
+                  },
+                  "pinned": true,
+                  "icon": "globe-2",
+                  "title": "Facebook"
+                }
+              },
+              {
+                "id": "9c29e39eee5bf12e",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "webviewer",
+                  "state": {
+                    "url": "https://x.com/home",
+                    "title": "(2) Accueil / X",
+                    "mode": "webview"
+                  },
+                  "pinned": true,
+                  "icon": "globe-2",
+                  "title": "(2) Accueil / X"
+                }
+              },
+              {
+                "id": "918538a57dd4623a",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "REPORT/Classified/BLACK-HAT/README.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": true,
+                    "backlinkOpts": {
+                      "collapseAll": false,
+                      "extraContext": false,
+                      "sortOrder": "alphabetical",
+                      "showSearch": false,
+                      "searchQuery": "",
+                      "backlinkCollapsed": false,
+                      "unlinkedCollapsed": true
+                    }
+                  },
+                  "icon": "lucide-file",
+                  "title": "README"
+                }
+              }
+            ],
+            "currentTab": 6
           },
           {
-            "id": "d915dbcc5ff595f3",
-            "type": "leaf",
-            "state": {
-              "type": "vscode-editor",
-              "state": {
-                "file": "streamlit_app.py"
-              },
-              "icon": "lucide-file",
-              "title": "streamlit_app"
-            }
+            "id": "b01c6903f7e53ca0",
+            "type": "tabs",
+            "dimension": 46.3220675944334,
+            "children": [
+              {
+                "id": "cb68add3fecf542f",
+                "type": "leaf",
+                "pinned": true,
+                "state": {
+                  "type": "terminal:terminal",
+                  "state": {
+                    "terminal:terminal": {
+                      "cwd": "D:\\Vault\\Vault",
+                      "focus": false,
+                      "profile": {
+                        "args": [],
+                        "executable": "C:\\Windows\\System32\\cmd.exe",
+                        "followTheme": true,
+                        "name": "",
+                        "platforms": {
+                          "win32": true
+                        },
+                        "pythonExecutable": "python3",
+                        "restoreHistory": false,
+                        "rightClickAction": "copyPaste",
+                        "successExitCodes": [
+                          "0",
+                          "SIGINT",
+                          "SIGTERM"
+                        ],
+                        "terminalOptions": {
+                          "documentOverride": null
+                        },
+                        "type": "integrated",
+                        "useWin32Conhost": true
+                      },
+                      "serial": null
+                    }
+                  },
+                  "pinned": true,
+                  "icon": "terminal",
+                  "title": "Terminal: ✳ MCP Server Repair"
+                }
+              }
+            ]
           }
         ],
-        "currentTab": 4
+        "direction": "horizontal"
       }
     ],
     "direction": "vertical"
@@ -171,7 +258,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 495.5
+    "width": 634.5
   },
   "right": {
     "id": "5328173d6c2a1011",
@@ -180,7 +267,6 @@
       {
         "id": "d056a19152f47e80",
         "type": "tabs",
-        "dimension": 25.0968992248062,
         "children": [
           {
             "id": "1fa5663d2c6d5597",
@@ -267,17 +353,9 @@
               "icon": "calendar-with-checkmark",
               "title": "Calendar"
             }
-          }
-        ],
-        "currentTab": 5
-      },
-      {
-        "id": "3bebb8bc751e8814",
-        "type": "tabs",
-        "dimension": 20.44573643410853,
-        "children": [
+          },
           {
-            "id": "aa9808e2f1fba1c8",
+            "id": "cbed360b92e8e193",
             "type": "leaf",
             "state": {
               "type": "Strange New Worlds",
@@ -286,28 +364,12 @@
               "title": "Strange New Worlds"
             }
           }
-        ]
-      },
-      {
-        "id": "c6bcfb648d780e59",
-        "type": "tabs",
-        "dimension": 54.45736434108527,
-        "children": [
-          {
-            "id": "249c0f8e7091ddf1",
-            "type": "leaf",
-            "state": {
-              "type": "pieces-plugin-view",
-              "state": {},
-              "icon": "pieces-logo",
-              "title": "Pieces for Developers"
-            }
-          }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 429.5
+    "width": 418.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -331,54 +393,53 @@
       "audio-recorder:Démarrer / arrêter l'enregistrement": false,
       "workspaces:Gérer les espaces de travail": false,
       "markdown-importer:Ouvrir l'importateur Markdown": false,
-      "random-note:Ouvre une note au hasard": false,
-      "publish:Publier les modifications": false,
-      "hydrate:Open hydrate pane": false
+      "random-note:Ouvre une note au hasard": false
     }
   },
   "active": "54d817625ca28cfd",
   "lastOpenFiles": [
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/summary_output.txt",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/countermeasures_output.txt",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/vulnerabilities_output.txt",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/recon_output.txt",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/06_validation.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/05_countermeasures.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/04_analysis.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/03_exploitation.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/02_vulnerabilities.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/01_recon.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/00_metadata.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/05_countermeasures.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/03_exploitation.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/04_analysis.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/06_validation.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/01_recon.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/02_vulnerabilities.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/00_metadata.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/countermeasures_output.txt",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/summary_output.txt",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/recon_output.txt",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/vulnerabilities_output.txt",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw",
+    "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/06_validation.md",
+    "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/05_countermeasures.md",
+    "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/04_analysis.md",
+    "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/03_exploitation.md",
+    "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/02_vulnerabilities.md",
+    "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/01_recon.md",
+    "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/00_metadata.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-08_vuln-assessment_th3-kali/06_validation.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-08_vuln-assessment_th3-kali/05_countermeasures.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-08_vuln-assessment_th3-kali/04_analysis.md",
+    "REPORT/Classified/WHITE-HAT/2026-02-27_13-08_vuln-assessment_th3-kali/03_exploitation.md",
     "Surveillance numerique.png",
     "Magnétisme_Mindmap.png",
-    "REPORT/Classified Report/02 Février/25-02-2026/INVESTIGATION REPORT/Investigation Report de Michael Gauthier Guillet.md",
-    "REPORT/Classified Report/02 Février/25-02-2026/INVESTIGATION REPORT",
-    "REPORT/Classified Report/02 Février/25-02-2026",
-    "THIRTY3/daily/2026-02-19.md",
-    "THIRTY3/daily/(2026-02-25)Création du dossier LAW OF ONE.md",
-    "REPORT/Declassified Report/02 Rapport Février/Semaine du 23 au 01 mars/(2026-02-25) Résumé Exclusif.md",
-    "KNOWLEDGE/LAW OF ONE",
-    "KNOWLEDGE/Dr Olivier Madelrieux/Affirmations positives du Dr Olivier Madelrieux.md",
-    "REPORT/RAPPORT_JOURNEE_2026-02-25.md",
-    "LAUNCH_VAULT.ps1.backup",
-    "_PROJECTS/🧠_CLAUDE_MASTERY/README_CLAUDE_MASTERY.md",
-    "EXTERNAL/External Vault 3",
-    "_BRAIN/DAILY_REPORTS/Orchestration multi-agent des sagesse ancienne du kybalion.md",
-    "EXTERNAL/External Vault/Supplément Naturelles/Acétyl-L-Carnitine (ALCAR).md",
-    "EXTERNAL/External Vault/Supplément Naturelles/B100 Complex.md",
-    "EXTERNAL/External Vault/Supplément Naturelles/Lion's Mane.md",
-    "EXTERNAL/External Vault/th3thirty3@gmail.com/Mot de passe de secour.md",
-    "EXTERNAL/External Vault/2025-12-30.md",
-    "EXTERNAL/External Vault/Important.md",
     "EXTERNAL/External Vault/Pasted image 20251214115040.png",
-    "EXTERNAL/External Vault/Untitled.base",
     "EXTERNAL/External Vault/Untitled.canvas",
-    "EXTERNAL/External Vault/Untitled.md",
-    "EXTERNAL/External Vault/Analyste Psychologique/2025-12-03.md",
-    "REPORT/MICHAEL GAUTHIER GUILLET.md",
-    "_BRAIN/MEMOIRE.md",
-    "_BRAIN/GUIDE_CLAUDE_OPTIMAL.md",
-    "_BRAIN/FINAL_SUMMARY.md",
-    "_BRAIN/DASHBOARD.md",
-    "_TEMPLATES/OSINT_INVESTIGATION.md",
     "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/George Vanier(Secondaire)/George- Vanier.canvas",
-    "Identité de marque THIRTY3 — Diagnostic & Stratégie.md",
-    "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/St Arsène(Primaire)",
-    "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/George Vanier(Secondaire)",
-    "LEARNING/HACKERGPT/Kali Linux/Gemini-cli & Hexstrike/Rapport Hackernews.md",
-    "LEARNING/HACKERGPT/Kali Linux/Gemini-cli & Hexstrike/Rapport.md",
-    "REPORT/Declassified Report/02 Rapport Février/Semaine du 16 au 22 VACANCE/21-02-2026",
     "THIRTY3/Preuves/Pasted image 20260225091055.png",
-    "THIRTY3/daily/(2026-01-31).pdf",
     "EXTERNAL/External Vault/Th3 Thirty3 App/Th3 Thirty3.canvas",
     "EXTERNAL/External Vault/Th3 Thirty3 App/MindMap.canvas",
     "Saturne et son influences.png",

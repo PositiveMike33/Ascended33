@@ -1,4 +1,12 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(git branch:*)",
+      "Bash(lsof:*)",
+      "Bash(head:*)",
+      "Bash(python:*)"
+    ]
+  },
   "enabledPlugins": {
     "Notion@claude-plugins-official": true
   }

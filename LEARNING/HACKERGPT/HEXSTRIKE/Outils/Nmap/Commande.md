@@ -61,4 +61,7 @@ nmap -oA scan_results <target> # Exporte dans les 3 formats simultanément
 
 #### 📋 Quick Commands
 
-`nmap -sS -sV -O``nmap -sC -sV``nmap -p- -T4``nmap --script vuln`
+- `nmap -sS -sV -O`
+- `nmap -sC -sV`
+- `nmap -p- -T4`
+- `nmap --script vuln`

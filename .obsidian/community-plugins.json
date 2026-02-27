@@ -19,5 +19,7 @@
   "templater-obsidian",
   "maps",
   "telegram-sync",
-  "dashboard-navigator"
+  "dashboard-navigator",
+  "obsidian-icons-plugin",
+  "writing-goals"
 ]

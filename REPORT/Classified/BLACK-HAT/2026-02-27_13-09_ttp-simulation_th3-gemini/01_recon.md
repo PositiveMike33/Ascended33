@@ -1,0 +1,25 @@
+# 01 — Reconnaissance
+
+## Summary
+
+See raw output below.
+
+## Open ports & services
+
+```
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-02-27 13:09 +0000
+Nmap scan report for th3-gemini (172.24.0.3)
+Host is up (0.000018s latency).
+rDNS record for 172.24.0.3: th3-gemini.th3-thirty3_th3-network
+All 1026 scanned ports on th3-gemini (172.24.0.3) are in ignored states.
+Not shown: 1026 closed tcp ports (reset)
+MAC Address: 12:1E:AE:70:FB:E5 (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 1.18 seconds
+
+```
+
+## OS fingerprint
+
+Not detected.

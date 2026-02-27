@@ -1,0 +1,10 @@
+Starting Nmap 7.98 ( https://nmap.org ) at 2026-02-27 13:07 +0000
+Nmap scan report for th3-kali (172.24.0.5)
+Host is up (0.0000070s latency).
+rDNS record for 172.24.0.5: th3-kali.th3-thirty3_th3-network
+All 1000 scanned ports on th3-kali (172.24.0.5) are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 02:9F:04:05:2D:6E (Unknown)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 11.27 seconds

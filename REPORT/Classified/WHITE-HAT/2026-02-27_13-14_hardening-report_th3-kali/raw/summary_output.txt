@@ -1,0 +1,6 @@
+target: th3-kali
+checks_run: 10
+issues_flagged: 0
+flagged_checks: []
+job_id: cli-test-001
+pipeline: iptables → sshd → services → perms → sysctl → suid → cron → docker → env

@@ -26,8 +26,8 @@
       "template": "_TEMPLATES/RECHERCHE.md"
     },
     {
-      "folder": "_TEMPLATES",
-      "template": "_TEMPLATES/NOTE_PRODUCTIVE_REVENU.md"
+      "folder": "REPORT",
+      "template": "_TEMPLATES/ETHICAL_HACKING_NOTE.md"
     },
     {
       "folder": "EXTERNAL",
@@ -47,7 +47,7 @@
     },
     {
       "folder": "REPORT/Classified Report",
-      "template": "_TEMPLATES/ETHICAL_HACKING_NOTE.md"
+      "template": "_TEMPLATES/OSINT_INVESTIGATION.md"
     },
     {
       "folder": "PLANNING/Planning quotidien",

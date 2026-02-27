@@ -1,0 +1,7 @@
+{
+  "enableRis": true,
+  "enableRir": true,
+  "enableFas": true,
+  "enableFar": true,
+  "aliasMapping": "money=fas:Money\ncash=fas:Cash\n"
+}

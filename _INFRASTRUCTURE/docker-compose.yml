@@ -10,7 +10,7 @@ services:
     ports:
       - "8501:8501"
     volumes:
-      - ./streamlit_app.py:/app:ro
+      - ./streamlit_app.py:/app/streamlit_app.py:ro
       - streamlit-cache:/home/streamlit/.streamlit
     environment:
       - STREAMLIT_SERVER_HEADLESS=true
