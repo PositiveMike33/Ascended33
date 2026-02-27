@@ -102,12 +102,12 @@
                   "type": "webviewer",
                   "state": {
                     "url": "https://www.facebook.com/",
-                    "title": "Facebook",
+                    "title": "(1) Facebook",
                     "mode": "webview"
                   },
                   "pinned": true,
                   "icon": "globe-2",
-                  "title": "Facebook"
+                  "title": "(1) Facebook"
                 }
               },
               {
@@ -151,7 +151,7 @@
                 }
               }
             ],
-            "currentTab": 6
+            "currentTab": 4
           },
           {
             "id": "b01c6903f7e53ca0",
@@ -396,8 +396,9 @@
       "random-note:Ouvre une note au hasard": false
     }
   },
-  "active": "54d817625ca28cfd",
+  "active": "fe92e90c01009768",
   "lastOpenFiles": [
+    "REPORT/Classified/BLACK-HAT/README.md",
     "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/summary_output.txt",
     "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/countermeasures_output.txt",
     "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/vulnerabilities_output.txt",
@@ -422,7 +423,6 @@
     "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/summary_output.txt",
     "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/recon_output.txt",
     "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/vulnerabilities_output.txt",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw",
     "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/06_validation.md",
     "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/05_countermeasures.md",
     "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/04_analysis.md",
