@@ -193,27 +193,41 @@ if nav_option == "📊 Dashboard":
     
     st.markdown("---")
     
-    # Recent Activity
+    # Recent Activity — live from REPORT/Classified
     st.subheader("📋 Recent Activity")
-    
-    activity_data = {
-        "Timestamp": [
-            datetime.now() - timedelta(hours=2),
-            datetime.now() - timedelta(hours=4),
-            datetime.now() - timedelta(hours=6),
-            datetime.now() - timedelta(hours=8),
-        ],
-        "Event": [
-            "Investigation Report Generated",
-            "Tor Circuit Renewed",
-            "New OSINT Data Collected",
-            "Team Member Added",
-        ],
-        "Status": ["✅ Success", "✅ Success", "✅ Success", "✅ Success"],
-    }
-    
-    df_activity = pd.DataFrame(activity_data)
-    st.dataframe(df_activity, use_container_width=True, hide_index=True)
+
+    _recent = _load_investigations(vault_path)[:8]
+    if _recent:
+        _hat_icons = {"RED-HAT": "🔴", "GRAY-HAT": "⚪", "WHITE-HAT": "🔵", "BLACK-HAT": "⚫"}
+        _rows = []
+        for inv in _recent:
+            _rep = inv.get("report", "")
+            _folder = _rep.split("](./")[-1].split("/00_metadata")[0] if "](./" in _rep else None
+            _uri = (
+                f"obsidian://open?vault=Vault&file=REPORT/Classified/{inv['hat']}/{_folder}/00_metadata.md"
+                if _folder else ""
+            )
+            _rows.append({
+                "Timestamp": inv["date"],
+                "Event": f"{_hat_icons.get(inv['hat'], '•')} {inv['type']} on {inv['target']}",
+                "Hat": inv["hat"],
+                "Status": "✅ Success",
+                "Open": _uri,
+            })
+        st.dataframe(
+            pd.DataFrame(_rows),
+            use_container_width=True,
+            hide_index=True,
+            column_config={
+                "Open": st.column_config.LinkColumn(
+                    "Report",
+                    display_text="📂 Open",
+                    help="Open in Obsidian",
+                ),
+            },
+        )
+    else:
+        st.info("📂 No activity found in REPORT/Classified yet.")
     
     st.markdown("---")
     
