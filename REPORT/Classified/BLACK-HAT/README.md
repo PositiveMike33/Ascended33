@@ -7,7 +7,7 @@
 
 ## 1. Définition
 
-Le chapeau noir (usage simulé) représente les **émulations d'acteurs de menace** : reproduction fidèle des TTPs documentés dans le framework MITRE ATT&CK pour entraîner les équipes de défense, tester les capacités de détection SIEM/EDR, et valider les playbooks de réponse à incident.
+Le Black-Hat (usage simulé) représente les **émulations d'acteurs de menace** : reproduction fidèle des TTPs documentés dans le framework MITRE ATT&CK pour entraîner les équipes de défense, tester les capacités de détection SIEM/EDR, et valider les playbooks de réponse à incident.
 
 **Ce n'est PAS du hacking malveillant** — c'est de la simulation contrôlée dans un lab isolé.
 

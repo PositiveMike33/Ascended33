@@ -1,17 +1,17 @@
-# 06 — Validation (Post-Remediation Re-Test)
+# 06 - Validation (test de rattrapage après la remédiation)
 
-## Status
+## Statut
 
-- [ ] Countermeasures applied
-- [ ] Re-scan executed
-- [ ] Findings confirmed resolved
+- Contre-mesures appliquées
+- Re-scan exécuté
+- Constatations confirmées résolues
 
-## Re-test results
+## Résultats du nouveau test
 
-> Run the same attack after applying 05_countermeasures.md and paste output here.
+> Exécutez la même attaque après avoir appliqué 05_countermeasures.md et collez les résultats ici.
 
 ## Verdict
 
-| Finding | Pre-patch | Post-patch |
+| Le résultat de l'attaque est le suivant : - Recherche - Pré-patch - Post-patch - Pré-patch - Post-patch - Pré-patch - Post-patch
 |---------|-----------|------------|
-| (fill in) | Vulnerable | Pending |
+| (remplir) | Vulnérable | En suspens |

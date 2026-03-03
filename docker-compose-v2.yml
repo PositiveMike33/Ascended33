@@ -32,6 +32,8 @@ services:
       context: ./_INFRASTRUCTURE/Ascended33
       dockerfile: dockerfiles/Dockerfile.kali
     restart: unless-stopped
+    ports:
+      - "5901:5901"  # VNC Server
     volumes:
       - kali-tools:/opt/tools
       - kali-workspace:/workspace
@@ -42,6 +44,9 @@ services:
       - TOR_PROXY=socks5://th3-tor:9050
       - WORKSPACE=/workspace
       - VAULT_PATH=/vault
+      - VNC_ENABLED=true
+      - VNC_PASSWORD=kali123
+      - VNC_PORT=5901
     labels:
       - "com.ascended33.service=kali"
       - "com.ascended33.critical=true"

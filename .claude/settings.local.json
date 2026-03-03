@@ -4,7 +4,18 @@
       "Bash(git branch:*)",
       "Bash(lsof:*)",
       "Bash(head:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo:*)",
+      "Bash(git:*)",
+      "Bash(PowerShell:*)",
+      "mcp__MCP_DOCKER__read_file",
+      "mcp__MCP_DOCKER__start_search",
+      "mcp__MCP_DOCKER__list_searches",
+      "mcp__MCP_DOCKER__list_directory",
+      "mcp__MCP_DOCKER__start_process",
+      "mcp__MCP_DOCKER__read_process_output",
+      "mcp__MCP_DOCKER__get_more_search_results"
     ]
   },
   "enabledPlugins": {

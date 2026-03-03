@@ -4,204 +4,85 @@
     "type": "split",
     "children": [
       {
-        "id": "7b55c351413b5a67",
-        "type": "split",
+        "id": "57d8293ec1cd70e3",
+        "type": "tabs",
         "children": [
           {
-            "id": "da338b8e2cb526d0",
-            "type": "tabs",
-            "dimension": 53.677932405566594,
-            "children": [
-              {
-                "id": "89c28c4c8dfc41d1",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "webviewer",
-                  "state": {
-                    "url": "https://www.myinstants.com/en/index/us/",
-                    "title": "Myinstants | The largest instant sound buttons website in United States!",
-                    "mode": "webview"
-                  },
-                  "pinned": true,
-                  "icon": "globe-2",
-                  "title": "Myinstants | The largest instant sound buttons website in United States!"
-                }
+            "id": "f1bf27d3fc928a84",
+            "type": "leaf",
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://www.facebook.com/",
+                "title": "Facebook",
+                "mode": "webview"
               },
-              {
-                "id": "b8aec854d6ce1045",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "LLM's/Prompts/System Prompt/System Prompt Personnel/Th3-Thirty3/(Système Prompts) Th3-Thirty3 01%.md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": true,
-                    "backlinkOpts": {
-                      "collapseAll": false,
-                      "extraContext": false,
-                      "sortOrder": "alphabetical",
-                      "showSearch": false,
-                      "searchQuery": "",
-                      "backlinkCollapsed": false,
-                      "unlinkedCollapsed": true
-                    }
-                  },
-                  "icon": "lucide-file",
-                  "title": "(Système Prompts) Th3-Thirty3 01%"
-                }
-              },
-              {
-                "id": "955bcb3c500bf5c8",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "Identité de marque THIRTY3 — Diagnostic & Stratégie.md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": true,
-                    "backlinkOpts": {
-                      "collapseAll": false,
-                      "extraContext": false,
-                      "sortOrder": "alphabetical",
-                      "showSearch": false,
-                      "searchQuery": "",
-                      "backlinkCollapsed": false,
-                      "unlinkedCollapsed": true
-                    }
-                  },
-                  "pinned": true,
-                  "icon": "lucide-file",
-                  "title": "Identité de marque THIRTY3 — Diagnostic & Stratégie"
-                }
-              },
-              {
-                "id": "f947cf701cc7ff10",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "webviewer",
-                  "state": {
-                    "url": "https://remotedesktop.google.com/access/session/cd3626e0-d843-08ed-71ab-ec4b4a906954",
-                    "title": "MSI-GAMING-PRO",
-                    "mode": "webview"
-                  },
-                  "pinned": true,
-                  "icon": "globe-2",
-                  "title": "MSI-GAMING-PRO"
-                }
-              },
-              {
-                "id": "fe92e90c01009768",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "webviewer",
-                  "state": {
-                    "url": "https://www.facebook.com/",
-                    "title": "(1) Facebook",
-                    "mode": "webview"
-                  },
-                  "pinned": true,
-                  "icon": "globe-2",
-                  "title": "(1) Facebook"
-                }
-              },
-              {
-                "id": "9c29e39eee5bf12e",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "webviewer",
-                  "state": {
-                    "url": "https://x.com/home",
-                    "title": "(2) Accueil / X",
-                    "mode": "webview"
-                  },
-                  "pinned": true,
-                  "icon": "globe-2",
-                  "title": "(2) Accueil / X"
-                }
-              },
-              {
-                "id": "918538a57dd4623a",
-                "type": "leaf",
-                "state": {
-                  "type": "markdown",
-                  "state": {
-                    "file": "REPORT/Classified/BLACK-HAT/README.md",
-                    "mode": "source",
-                    "source": false,
-                    "backlinks": true,
-                    "backlinkOpts": {
-                      "collapseAll": false,
-                      "extraContext": false,
-                      "sortOrder": "alphabetical",
-                      "showSearch": false,
-                      "searchQuery": "",
-                      "backlinkCollapsed": false,
-                      "unlinkedCollapsed": true
-                    }
-                  },
-                  "icon": "lucide-file",
-                  "title": "README"
-                }
-              }
-            ],
-            "currentTab": 4
+              "icon": "globe-2",
+              "title": "Facebook"
+            }
           },
           {
-            "id": "b01c6903f7e53ca0",
-            "type": "tabs",
-            "dimension": 46.3220675944334,
-            "children": [
-              {
-                "id": "cb68add3fecf542f",
-                "type": "leaf",
-                "pinned": true,
-                "state": {
-                  "type": "terminal:terminal",
-                  "state": {
-                    "terminal:terminal": {
-                      "cwd": "D:\\Vault\\Vault",
-                      "focus": false,
-                      "profile": {
-                        "args": [],
-                        "executable": "C:\\Windows\\System32\\cmd.exe",
-                        "followTheme": true,
-                        "name": "",
-                        "platforms": {
-                          "win32": true
-                        },
-                        "pythonExecutable": "python3",
-                        "restoreHistory": false,
-                        "rightClickAction": "copyPaste",
-                        "successExitCodes": [
-                          "0",
-                          "SIGINT",
-                          "SIGTERM"
-                        ],
-                        "terminalOptions": {
-                          "documentOverride": null
-                        },
-                        "type": "integrated",
-                        "useWin32Conhost": true
-                      },
-                      "serial": null
-                    }
-                  },
-                  "pinned": true,
-                  "icon": "terminal",
-                  "title": "Terminal: ✳ MCP Server Repair"
-                }
-              }
-            ]
+            "id": "9c29e39eee5bf12e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://x.com/notifications",
+                "title": "(1) Notifications / X",
+                "mode": "webview"
+              },
+              "pinned": true,
+              "icon": "globe-2",
+              "title": "(1) Notifications / X"
+            }
+          },
+          {
+            "id": "59c5a544c8e5ded8",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://us1.scheduleproweb.com/Schedule.aspx?employeeId=DwTkFPPHHqkfZeUgzJ6z6g2",
+                "title": "UKG Shiftboard - workforce employee scheduling software",
+                "mode": "blank"
+              },
+              "pinned": true,
+              "icon": "globe-2",
+              "title": "UKG Shiftboard - workforce employee scheduling software"
+            }
+          },
+          {
+            "id": "cc55bc59af896c2d",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "webviewer",
+              "state": {
+                "url": "https://www.accountkiller.com/en/all-sites",
+                "title": "All Sites - ACCOUNTKILLER.COM",
+                "mode": "webview"
+              },
+              "pinned": true,
+              "icon": "globe-2",
+              "title": "All Sites - ACCOUNTKILLER.COM"
+            }
+          },
+          {
+            "id": "b58f8fab5aab9c2f",
+            "type": "leaf",
+            "state": {
+              "type": "vscode-editor",
+              "state": {
+                "file": "streamlit_app.py"
+              },
+              "icon": "lucide-file",
+              "title": "streamlit_app"
+            }
           }
         ],
-        "direction": "horizontal"
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -258,7 +139,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 634.5
+    "width": 247.5
   },
   "right": {
     "id": "5328173d6c2a1011",
@@ -363,16 +244,28 @@
               "icon": "file-digit",
               "title": "Strange New Worlds"
             }
+          },
+          {
+            "id": "fa1fd8d84264135c",
+            "type": "leaf",
+            "state": {
+              "type": "pieces-plugin-view",
+              "state": {},
+              "icon": "pieces-logo",
+              "title": "Pieces for Developers"
+            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
-    "width": 418.5
+    "width": 418.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Créer une nouvelle base": false,
       "templater-obsidian:Templater": false,
       "switcher:Ouvrir le sélecteur rapide": false,
       "graph:Ouvrir la vue graphique": false,
@@ -380,7 +273,6 @@
       "daily-notes:Ouvrir la note quotidienne": false,
       "templates:Insérer le modèle": false,
       "command-palette:Ouvrir la palette de commandes": false,
-      "bases:Create new base": false,
       "vscode-editor:Create Code File": false,
       "open-vscode:VSCode": false,
       "excel:Create Excel File": false,
@@ -396,33 +288,27 @@
       "random-note:Ouvre une note au hasard": false
     }
   },
-  "active": "fe92e90c01009768",
+  "active": "b58f8fab5aab9c2f",
   "lastOpenFiles": [
+    "Surveillance numerique.png",
+    "Scripts Hextrike-ai.md",
+    "streamlit_app.py",
+    "REPORT/Classified Report/02 Février/25-02-2026/INVESTIGATION REPORT/Investigation Report de Michael Gauthier Guillet.md",
+    "EXTERNAL/External Vault/Untitled.base",
+    "KNOWLEDGE/Les 10 Suppléments Alimentaires pour le Cerveau.md",
+    "LLM's/Prompts/(MCP)Extraction du modèle de serveur contextuelle.md",
+    "EXTERNAL/External Vault/Untitled.md",
+    "EXTERNAL/External Vault/Untitled.canvas",
     "REPORT/Classified/BLACK-HAT/README.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/summary_output.txt",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/countermeasures_output.txt",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/vulnerabilities_output.txt",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw/recon_output.txt",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/06_validation.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/05_countermeasures.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/04_analysis.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/03_exploitation.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/02_vulnerabilities.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/01_recon.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/00_metadata.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali/raw",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-17_hardening-report_th3-kali",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/05_countermeasures.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/03_exploitation.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/04_analysis.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/06_validation.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/01_recon.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/02_vulnerabilities.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/00_metadata.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/countermeasures_output.txt",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/summary_output.txt",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/recon_output.txt",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-14_hardening-report_th3-kali/raw/vulnerabilities_output.txt",
+    "_TEMPLATES/files/LEGAL_AUTHORIZATION_TEMPLATE.md",
+    "_TEMPLATES/files/TOR_OPSEC_CHECKLIST.md",
+    "_TEMPLATES/files/PENTEST_ENGAGEMENT_TEMPLATE.md",
+    "_TEMPLATES/files/OSINT_INVESTIGATION_TEMPLATE.md",
+    "_TEMPLATES/files/github_vault_sync.sh",
+    "_TEMPLATES/files/streamlit_app_v2.py",
+    "_TEMPLATES/files",
+    "_TEMPLATES/files.zip",
+    "REPORT/Classified/BLACK-HAT/INDEX.md",
     "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/06_validation.md",
     "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/05_countermeasures.md",
     "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/04_analysis.md",
@@ -430,24 +316,30 @@
     "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/02_vulnerabilities.md",
     "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/01_recon.md",
     "REPORT/Classified/BLACK-HAT/2026-02-27_13-09_ttp-simulation_th3-gemini/00_metadata.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-08_vuln-assessment_th3-kali/06_validation.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-08_vuln-assessment_th3-kali/05_countermeasures.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-08_vuln-assessment_th3-kali/04_analysis.md",
-    "REPORT/Classified/WHITE-HAT/2026-02-27_13-08_vuln-assessment_th3-kali/03_exploitation.md",
-    "Surveillance numerique.png",
-    "Magnétisme_Mindmap.png",
-    "EXTERNAL/External Vault/Pasted image 20251214115040.png",
-    "EXTERNAL/External Vault/Untitled.canvas",
+    "ARCHIVES/SYNC_LOGS_OLD/sync_2026-03-01_020004.log",
+    "ARCHIVES/SYNC_LOGS_OLD/sync_2026-02-28_020004.log",
+    "ARCHIVES/SYNC_LOGS_OLD/sync_2026-03-02_020002.log",
+    "ARCHIVES/SYNC_LOGS_OLD/sync_2026-03-03_022141.log",
+    "LEARNING/HACKERGPT/Waybackcurls command.md",
+    "THIRTY3/daily/(2026-03-03)Contre rendu des derniers travaux.md",
+    "LLM's/Prompts/System Prompt/System Prompt Personnel/Prompts Ultime.md",
+    "THIRTY3/daily/(2026-02-27)BILAN.md",
+    "_PSYCHE/TEMPLATES/TPL_SHADOW.md",
+    "_PSYCHE/TEMPLATES/TPL_IFS_SEANCE.md",
+    "_PSYCHE/TEMPLATES/TPL_JOURNAL.md",
+    "Photos/coup coté droit.jpg",
+    "Photos/coup coter gauche.jpg",
+    "Photos/Coup avant.jpg",
+    "Photos/Epaule Gauche.jpg",
+    "Photos/epaule droit.jpg",
+    "Photos/avant bras droit.jpg",
+    "Photos/Avant bras et main droite.jpg",
+    "Photos/Avant bras main gauche.jpg",
+    "Photos/Avant bras gauche.jpg",
+    "Photos/Bras droit.jpg",
     "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/George Vanier(Secondaire)/George- Vanier.canvas",
-    "THIRTY3/Preuves/Pasted image 20260225091055.png",
     "EXTERNAL/External Vault/Th3 Thirty3 App/Th3 Thirty3.canvas",
     "EXTERNAL/External Vault/Th3 Thirty3 App/MindMap.canvas",
-    "Saturne et son influences.png",
-    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/snowflake.JU2jBHL8.svg",
-    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/flake-2.BnWSExPC.png",
-    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/flake-1.B2r5AHMK.png",
-    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/flake-0.DgWaVvm5.png",
-    "_INFRASTRUCTURE/Ascended33/venv/Lib/site-packages/streamlit/static/static/media/fireworks.B4d-_KUe.gif",
     "LEARNING/HACKERGPT/OSINT Profilage/Réseaux/Labatt/Réseaux de Labatt.canvas",
     "LEARNING/HACKERGPT/MindMap.canvas"
   ]

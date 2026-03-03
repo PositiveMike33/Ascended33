@@ -1,7 +1,7 @@
 ---
-date: 2026-02-22
+date: 2026-02-22T02:22:00
 title: ARGENT ZEN
-domaine: Développement Personnel
+domaine: DÉVELOPEMENT PERSONNEL
 tags:
   - "#Mindvalley"
   - budget
@@ -11,6 +11,9 @@ tags:
   - audit
   - context
   - "#Money_talk"
+Sujets clés: PSYCHOLOGIE
+auteur: KEN HONDA
+certification: MINDVALLEY
 ---
 # RÉSUMÉ COMPLET DE LA FORMATION "ARGENT ZEN" - KEN HONDA
 

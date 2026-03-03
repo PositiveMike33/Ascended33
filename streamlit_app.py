@@ -84,6 +84,74 @@ if 'vault_writer' not in st.session_state:
     st.session_state.vault_writer = VaultReportWriter() if OPENWEBUI_AVAILABLE else None
 
 # ============================================================================
+# INVESTIGATION LOG HELPERS
+# ============================================================================
+
+def _load_investigations(vp: Path) -> list:
+    """Scan INDEX.md files across all hat categories and return a list of investigation dicts."""
+    classified = vp / "REPORT" / "Classified"
+    investigations = []
+    for hat in ["RED-HAT", "GRAY-HAT", "WHITE-HAT", "BLACK-HAT"]:
+        index_file = classified / hat / "INDEX.md"
+        if not index_file.exists():
+            continue
+        for line in index_file.read_text(encoding="utf-8").splitlines():
+            if (line.startswith("|")
+                    and "---" not in line
+                    and "Date (UTC)" not in line
+                    and "auto-rempli" not in line):
+                parts = [p.strip() for p in line.split("|")[1:-1]]
+                if len(parts) >= 4 and parts[0]:
+                    investigations.append({
+                        "hat": hat,
+                        "date": parts[0],
+                        "type": parts[1],
+                        "target": parts[2],
+                        "routing": parts[3],
+                        "report": parts[4] if len(parts) > 4 else "",
+                    })
+    return sorted(investigations, key=lambda x: x["date"], reverse=True)
+
+
+def _create_investigation(vp: Path, hat: str, op_type: str, target: str, job_id: str, notes: str) -> Path:
+    """Create the investigation folder + 00_metadata.md and append a row to INDEX.md."""
+    from datetime import timezone
+    now = datetime.now(timezone.utc)
+    ts = now.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+    folder_name = now.strftime("%Y-%m-%d_%H-%M") + f"_{op_type}_{target}"
+    folder = vp / "REPORT" / "Classified" / hat / folder_name
+    folder.mkdir(parents=True, exist_ok=True)
+    (folder / "raw").mkdir(exist_ok=True)
+
+    metadata = f"""# 00 — Operation Metadata
+
+| Field | Value |
+|-------|-------|
+| **Hat color** | `{hat.split('-')[0]}` ({hat}) |
+| **Operation type** | `{op_type}` |
+| **Target** | `{target}` |
+| **Timestamp (UTC)** | `{ts}` |
+| **Job ID** | `{job_id or 'manual'}` |
+| **Traffic routing** | Manual entry |
+| **Internal target** | Unknown |
+| **Authorization** | Manually logged |
+
+## Notes
+
+{notes or '_No notes provided._'}
+"""
+    (folder / "00_metadata.md").write_text(metadata, encoding="utf-8")
+
+    index_file = vp / "REPORT" / "Classified" / hat / "INDEX.md"
+    report_link = f"[{folder_name}](./{folder_name}/00_metadata.md)"
+    row = f"| {now.strftime('%Y-%m-%d %H:%M')} | `{op_type}` | `{target}` | Manual | {report_link} |\n"
+    if index_file.exists():
+        with index_file.open("a", encoding="utf-8") as f:
+            f.write(row)
+
+    return folder
+
+# ============================================================================
 # 1. MAIN DASHBOARD
 # ============================================================================
 if nav_option == "📊 Dashboard":
@@ -125,27 +193,46 @@ if nav_option == "📊 Dashboard":
     
     st.markdown("---")
     
-    # Recent Activity
+    # Recent Activity — live from REPORT/Classified
     st.subheader("📋 Recent Activity")
-    
-    activity_data = {
-        "Timestamp": [
-            datetime.now() - timedelta(hours=2),
-            datetime.now() - timedelta(hours=4),
-            datetime.now() - timedelta(hours=6),
-            datetime.now() - timedelta(hours=8),
-        ],
-        "Event": [
-            "Investigation Report Generated",
-            "Tor Circuit Renewed",
-            "New OSINT Data Collected",
-            "Team Member Added",
-        ],
-        "Status": ["✅ Success", "✅ Success", "✅ Success", "✅ Success"],
-    }
-    
-    df_activity = pd.DataFrame(activity_data)
-    st.dataframe(df_activity, use_container_width=True, hide_index=True)
+
+    _recent = _load_investigations(vault_path)[:8]
+    if _recent:
+        _hat_icons = {"RED-HAT": "🔴", "GRAY-HAT": "⚪", "WHITE-HAT": "🔵", "BLACK-HAT": "⚫"}
+        _table_rows = ""
+        for inv in _recent:
+            _rep = inv.get("report", "")
+            _folder = _rep.split("](./")[-1].split("/00_metadata")[0] if "](./" in _rep else None
+            _uri = (
+                f"obsidian://open?vault=Vault&file=REPORT%2FClassified%2F{inv['hat']}%2F{_folder}%2F00_metadata.md"
+                if _folder else ""
+            )
+            _link = f'<a href="{_uri}" style="color:#4FC3F7;text-decoration:none;">📂 Open</a>' if _uri else "—"
+            _icon = _hat_icons.get(inv["hat"], "•")
+            _table_rows += (
+                f"<tr>"
+                f"<td style='padding:6px 12px;color:#aaa;white-space:nowrap;'>{inv['date']}</td>"
+                f"<td style='padding:6px 12px;'>{_icon} {inv['type']} on {inv['target']}</td>"
+                f"<td style='padding:6px 12px;color:#aaa;'>{inv['hat']}</td>"
+                f"<td style='padding:6px 12px;'>✅ Success</td>"
+                f"<td style='padding:6px 12px;text-align:center;'>{_link}</td>"
+                f"</tr>"
+            )
+        st.markdown(
+            f"""<table style="width:100%;border-collapse:collapse;font-size:14px;">
+  <thead><tr style="border-bottom:1px solid #333;">
+    <th style="padding:6px 12px;text-align:left;color:#888;">Timestamp</th>
+    <th style="padding:6px 12px;text-align:left;color:#888;">Event</th>
+    <th style="padding:6px 12px;text-align:left;color:#888;">Hat</th>
+    <th style="padding:6px 12px;text-align:left;color:#888;">Status</th>
+    <th style="padding:6px 12px;text-align:center;color:#888;">Report</th>
+  </tr></thead>
+  <tbody>{_table_rows}</tbody>
+</table>""",
+            unsafe_allow_html=True,
+        )
+    else:
+        st.info("📂 No activity found in REPORT/Classified yet.")
     
     st.markdown("---")
     
@@ -247,7 +334,43 @@ elif nav_option == "🔍 Investigations":
     
     with tab3:
         st.subheader("Investigation Log")
-        st.info("📝 Investigation logs and notes will appear here")
+        classified_path = vault_path / "REPORT" / "Classified"
+
+        # ── Display existing investigations ──────────────────────────────────
+        investigations = _load_investigations(vault_path)
+        if investigations:
+            hat_filter = st.selectbox(
+                "Filter by Hat",
+                ["All", "RED-HAT", "GRAY-HAT", "WHITE-HAT", "BLACK-HAT"],
+                key="inv_filter"
+            )
+            rows = investigations if hat_filter == "All" else [i for i in investigations if i["hat"] == hat_filter]
+            hat_icons = {"RED-HAT": "🔴", "GRAY-HAT": "⚪", "WHITE-HAT": "🔵", "BLACK-HAT": "⚫"}
+            for inv in rows:
+                icon = hat_icons.get(inv["hat"], "•")
+                st.markdown(f"{icon} **{inv['date']}** — `{inv['type']}` on `{inv['target']}` ({inv['hat']})")
+        else:
+            st.info(f"📂 No investigations found in `{classified_path}`")
+
+        st.divider()
+
+        # ── Log new investigation ─────────────────────────────────────────────
+        with st.expander("➕ Log New Investigation"):
+            col1, col2 = st.columns(2)
+            with col1:
+                new_hat = st.selectbox("Hat Color", ["RED-HAT", "GRAY-HAT", "WHITE-HAT", "BLACK-HAT"], key="new_hat")
+                new_op = st.text_input("Operation Type", placeholder="network_pentest", key="new_op")
+            with col2:
+                new_target = st.text_input("Target", placeholder="th3-kali", key="new_target")
+                new_job = st.text_input("Job ID (optional)", key="new_job")
+            new_notes = st.text_area("Notes", key="new_notes")
+            if st.button("💾 Save Investigation", key="save_inv"):
+                if new_op and new_target:
+                    folder = _create_investigation(vault_path, new_hat, new_op, new_target, new_job, new_notes)
+                    st.success(f"Investigation saved to `{folder}`")
+                    st.rerun()
+                else:
+                    st.warning("Operation type and target are required.")
 
 # ============================================================================
 # 3. VAULT INTELLIGENCE

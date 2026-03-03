@@ -1,6 +1,6 @@
 ---
 title: Les 10 Suppléments Alimentaires pour le Cerveau
-date: 2026-02-22
+date: 2026-02-22T22:22:00
 tags:
   - daily
   - THIRTY3
@@ -32,6 +32,6 @@ La vidéo explique les compléments dont l’effet sur le cerveau est le plus so
     
 
 La vidéo rappelle aussi que ces explications simplifient des mécanismes complexes et qu’il faut voir un professionnel de santé avant de supplémenter.[[youtube](https://www.youtube.com/watch?v=PAd6VZM7qFc)]​
-> *THIRTY3 — Chaque jour est une preuve.*
+> *THIRTY3 — Chaque jour est une preuve que je reste qui je suis.*
 
 ---
