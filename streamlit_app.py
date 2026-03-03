@@ -199,32 +199,37 @@ if nav_option == "📊 Dashboard":
     _recent = _load_investigations(vault_path)[:8]
     if _recent:
         _hat_icons = {"RED-HAT": "🔴", "GRAY-HAT": "⚪", "WHITE-HAT": "🔵", "BLACK-HAT": "⚫"}
-        _rows = []
+        _table_rows = ""
         for inv in _recent:
             _rep = inv.get("report", "")
             _folder = _rep.split("](./")[-1].split("/00_metadata")[0] if "](./" in _rep else None
             _uri = (
-                f"obsidian://open?vault=Vault&file=REPORT/Classified/{inv['hat']}/{_folder}/00_metadata.md"
+                f"obsidian://open?vault=Vault&file=REPORT%2FClassified%2F{inv['hat']}%2F{_folder}%2F00_metadata.md"
                 if _folder else ""
             )
-            _rows.append({
-                "Timestamp": inv["date"],
-                "Event": f"{_hat_icons.get(inv['hat'], '•')} {inv['type']} on {inv['target']}",
-                "Hat": inv["hat"],
-                "Status": "✅ Success",
-                "Open": _uri,
-            })
-        st.dataframe(
-            pd.DataFrame(_rows),
-            use_container_width=True,
-            hide_index=True,
-            column_config={
-                "Open": st.column_config.LinkColumn(
-                    "Report",
-                    display_text="📂 Open",
-                    help="Open in Obsidian",
-                ),
-            },
+            _link = f'<a href="{_uri}" style="color:#4FC3F7;text-decoration:none;">📂 Open</a>' if _uri else "—"
+            _icon = _hat_icons.get(inv["hat"], "•")
+            _table_rows += (
+                f"<tr>"
+                f"<td style='padding:6px 12px;color:#aaa;white-space:nowrap;'>{inv['date']}</td>"
+                f"<td style='padding:6px 12px;'>{_icon} {inv['type']} on {inv['target']}</td>"
+                f"<td style='padding:6px 12px;color:#aaa;'>{inv['hat']}</td>"
+                f"<td style='padding:6px 12px;'>✅ Success</td>"
+                f"<td style='padding:6px 12px;text-align:center;'>{_link}</td>"
+                f"</tr>"
+            )
+        st.markdown(
+            f"""<table style="width:100%;border-collapse:collapse;font-size:14px;">
+  <thead><tr style="border-bottom:1px solid #333;">
+    <th style="padding:6px 12px;text-align:left;color:#888;">Timestamp</th>
+    <th style="padding:6px 12px;text-align:left;color:#888;">Event</th>
+    <th style="padding:6px 12px;text-align:left;color:#888;">Hat</th>
+    <th style="padding:6px 12px;text-align:left;color:#888;">Status</th>
+    <th style="padding:6px 12px;text-align:center;color:#888;">Report</th>
+  </tr></thead>
+  <tbody>{_table_rows}</tbody>
+</table>""",
+            unsafe_allow_html=True,
         )
     else:
         st.info("📂 No activity found in REPORT/Classified yet.")
