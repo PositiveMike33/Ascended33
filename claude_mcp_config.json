@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "MCP_DOCKER": {
+      "command": "docker",
+      "args": [
+        "mcp",
+        "gateway",
+        "run"
+      ],
+      "env": {
+        "LOCALAPPDATA": "C:\\Users\\th3th\\AppData\\Local",
+        "ProgramData": "C:\\ProgramData",
+        "ProgramFiles": "C:\\Program Files"
+      }
+    },
+    "n8n-docs": {
+      "type": "http",
+      "url": "https://n8n.mcp.kapa.ai/",
+      "headers": {}
+    }
+  }
+}

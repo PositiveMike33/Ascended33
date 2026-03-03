@@ -1,0 +1,336 @@
+{
+  "tool_name": "AMASS",
+  "version": "4.2",
+  "description": "OWASP AMASS - Complete OSINT reconnaissance and DNS enumeration",
+  
+  "parameters": {
+    "domains": {
+      "type": "array",
+      "description": "Target domains to enumerate",
+      "required": true,
+      "example": ["example.com", "target.com"],
+      "default": []
+    },
+    
+    "brute_force": {
+      "type": "boolean",
+      "description": "Enable subdomain brute forcing",
+      "required": false,
+      "default": true,
+      "note": "Can be slow but more comprehensive"
+    },
+    
+    "wordlist": {
+      "type": "string",
+      "description": "Wordlist for brute forcing",
+      "required": false,
+      "default": "/usr/share/amass/wordlists/subdomains-top1million-5000.txt",
+      "options": [
+        "/usr/share/amass/wordlists/subdomains-top1million-5000.txt",
+        "/usr/share/amass/wordlists/subdomains-top1million-110000.txt",
+        "/usr/share/amass/wordlists/all.txt"
+      ]
+    },
+    
+    "dns_resolvers": {
+      "type": "array",
+      "description": "Custom DNS resolvers",
+      "required": false,
+      "default": [
+        "8.8.8.8",
+        "1.1.1.1",
+        "9.9.9.9"
+      ],
+      "options": [
+        "8.8.8.8",
+        "8.8.4.4",
+        "1.1.1.1",
+        "1.0.0.1",
+        "9.9.9.9",
+        "208.67.222.123",
+        "208.67.220.123"
+      ]
+    },
+    
+    "max_workers": {
+      "type": "integer",
+      "description": "Maximum concurrent workers",
+      "required": false,
+      "default": 50,
+      "min": 1,
+      "max": 500
+    },
+    
+    "timeout": {
+      "type": "integer",
+      "description": "Query timeout in seconds",
+      "required": false,
+      "default": 30,
+      "min": 5,
+      "max": 300
+    },
+    
+    "active_scan": {
+      "type": "boolean",
+      "description": "Enable active scanning (requires caution)",
+      "required": false,
+      "default": false,
+      "warning": "May trigger IDS/WAF"
+    },
+    
+    "port_scan": {
+      "type": "boolean",
+      "description": "Scan ports of discovered hosts",
+      "required": false,
+      "default": false
+    },
+    
+    "ports": {
+      "type": "array",
+      "description": "Ports to scan",
+      "required": false,
+      "default": [80, 443, 8080, 8443],
+      "example": [22, 80, 443, 3306, 5432, 6379, 8080, 8443]
+    },
+    
+    "tor_proxy": {
+      "type": "string",
+      "description": "Tor SOCKS5 proxy URL for anonymity",
+      "required": false,
+      "example": "socks5://th3-tor:9050",
+      "note": "Routes all traffic through Tor"
+    },
+    
+    "output_dir": {
+      "type": "string",
+      "description": "Output directory for results",
+      "required": false,
+      "default": "/vault/REPORT/Classified/amass",
+      "note": "Must be writable"
+    },
+    
+    "output_format": {
+      "type": "array",
+      "description": "Output formats",
+      "required": false,
+      "default": ["json", "txt"],
+      "options": ["json", "txt", "csv", "html", "markdown"]
+    },
+    
+    "include_sources": {
+      "type": "boolean",
+      "description": "Include source information in results",
+      "required": false,
+      "default": true
+    },
+    
+    "recursive_brute": {
+      "type": "boolean",
+      "description": "Enable recursive brute forcing",
+      "required": false,
+      "default": true,
+      "note": "Brute force on discovered subdomains"
+    },
+    
+    "api_keys": {
+      "type": "object",
+      "description": "API keys for premium sources",
+      "required": false,
+      "properties": {
+        "shodan": {
+          "type": "string",
+          "description": "Shodan API key",
+          "required": false
+        },
+        "virustotal": {
+          "type": "string",
+          "description": "VirusTotal API key",
+          "required": false
+        },
+        "passivetotal": {
+          "type": "string",
+          "description": "PassiveTotal API key",
+          "required": false
+        }
+      }
+    },
+    
+    "verbose": {
+      "type": "boolean",
+      "description": "Verbose output",
+      "required": false,
+      "default": true
+    },
+    
+    "cache_results": {
+      "type": "boolean",
+      "description": "Cache results in Obsidian",
+      "required": false,
+      "default": true
+    },
+    
+    "notify_on_complete": {
+      "type": "boolean",
+      "description": "Send notification when complete",
+      "required": false,
+      "default": false
+    }
+  },
+  
+  "presets": {
+    "quick_scan": {
+      "name": "Quick Scan",
+      "description": "Fast passive enumeration",
+      "parameters": {
+        "brute_force": false,
+        "active_scan": false,
+        "timeout": 15,
+        "max_workers": 25
+      }
+    },
+    
+    "comprehensive": {
+      "name": "Comprehensive",
+      "description": "Complete enumeration with brute force",
+      "parameters": {
+        "brute_force": true,
+        "wordlist": "/usr/share/amass/wordlists/subdomains-top1million-5000.txt",
+        "recursive_brute": true,
+        "timeout": 30,
+        "max_workers": 100
+      }
+    },
+    
+    "thorough": {
+      "name": "Thorough",
+      "description": "Exhaustive enumeration with active scanning",
+      "parameters": {
+        "brute_force": true,
+        "wordlist": "/usr/share/amass/wordlists/all.txt",
+        "recursive_brute": true,
+        "active_scan": true,
+        "port_scan": true,
+        "timeout": 60,
+        "max_workers": 200
+      }
+    },
+    
+    "anonymous": {
+      "name": "Anonymous (Tor)",
+      "description": "Enumeration routed through Tor",
+      "parameters": {
+        "brute_force": true,
+        "tor_proxy": "socks5://th3-tor:9050",
+        "timeout": 45,
+        "max_workers": 50
+      }
+    },
+    
+    "minimal": {
+      "name": "Minimal",
+      "description": "Minimal passive enumeration only",
+      "parameters": {
+        "brute_force": false,
+        "active_scan": false,
+        "timeout": 10,
+        "max_workers": 10
+      }
+    }
+  },
+  
+  "examples": {
+    "basic": {
+      "description": "Basic enumeration",
+      "code": "python3 amass_orchestrator.py --domains example.com"
+    },
+    
+    "brute_force": {
+      "description": "With brute forcing",
+      "code": "python3 amass_orchestrator.py --domains example.com --brute-force"
+    },
+    
+    "anonymous": {
+      "description": "Anonymous via Tor",
+      "code": "python3 amass_orchestrator.py --domains example.com --tor-proxy socks5://th3-tor:9050"
+    },
+    
+    "multiple_domains": {
+      "description": "Multiple domains",
+      "code": "python3 amass_orchestrator.py --domains example.com target.com staging.com"
+    },
+    
+    "custom_config": {
+      "description": "Custom configuration file",
+      "code": "python3 amass_orchestrator.py --config amass_config.yaml"
+    }
+  },
+  
+  "output": {
+    "formats": ["json", "txt", "csv", "html", "markdown"],
+    "location": "/vault/REPORT/Classified/amass/",
+    "files": {
+      "subdomains": "{domain}_subdomains.txt",
+      "results": "amass_results_{timestamp}.json",
+      "report": "amass_report_{timestamp}.md",
+      "log": "amass.log"
+    }
+  },
+  
+  "requirements": {
+    "system": ["amass >= 4.2"],
+    "python": ["pyyaml", "requests"],
+    "network": ["DNS", "HTTPS"],
+    "optional": ["tor", "proxychains"]
+  },
+  
+  "permissions": {
+    "read": ["/usr/share/amass/wordlists/"],
+    "write": ["/vault/REPORT/Classified/amass/"],
+    "network": ["outbound DNS", "outbound HTTPS", "optional SOCKS5"]
+  },
+  
+  "security": {
+    "warning": "DNS enumeration can be detected. Use Tor for anonymity.",
+    "legal": "Ensure you have authorization before scanning domains.",
+    "opsec": "Results stored in Vault with timestamps"
+  },
+  
+  "performance": {
+    "estimated_time": {
+      "quick": "2-5 minutes",
+      "comprehensive": "10-30 minutes",
+      "thorough": "30-120 minutes"
+    },
+    "resources": {
+      "cpu": "low-medium",
+      "memory": "medium (512MB-2GB)",
+      "disk": "low (depends on results)"
+    }
+  },
+  
+  "integration": {
+    "hexstrike": {
+      "enabled": true,
+      "callback_url": "http://th3-hexstrike:8001/results/amass",
+      "report_path": "/vault/REPORT/Classified/amass/"
+    },
+    "obsidian": {
+      "enabled": true,
+      "vault_path": "/vault/.obsidian",
+      "cache": true
+    },
+    "tor": {
+      "enabled": true,
+      "socks5": "socks5://th3-tor:9050"
+    }
+  },
+  
+  "metadata": {
+    "author": "OWASP",
+    "category": "OSINT",
+    "tags": ["reconnaissance", "dns", "enumeration", "subdomain", "osint"],
+    "created": "2025-02-25",
+    "updated": "2025-02-25",
+    "support_url": "https://github.com/OWASP/Amass"
+  }
+}

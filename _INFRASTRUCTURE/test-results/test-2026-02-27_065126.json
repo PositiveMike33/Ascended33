@@ -1,0 +1,174 @@
+{
+  "timestamp": "2026-02-27T06:51:40.137866",
+  "total_time_seconds": 13.542979001998901,
+  "summary": {
+    "total": 23,
+    "success": 12,
+    "failure": 2,
+    "warning": 9,
+    "success_rate_percent": 52.17391304347826
+  },
+  "tests": [
+    {
+      "name": "Container th3-hexstrike",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 0.09508061408996582,
+      "details": null
+    },
+    {
+      "name": "Container th3-tor",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 0.08680057525634766,
+      "details": null
+    },
+    {
+      "name": "Container th3-kali",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 0.07572364807128906,
+      "details": null
+    },
+    {
+      "name": "Container th3-hackergpt",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 0.06696081161499023,
+      "details": null
+    },
+    {
+      "name": "Container th3-streamlit",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 3.0586869716644287,
+      "details": null
+    },
+    {
+      "name": "HexStrike Health Check",
+      "status": "FAILURE",
+      "message": "No response",
+      "duration_seconds": 0.45635271072387695,
+      "details": "-s: 1: Syntax error: Unterminated quoted string\n"
+    },
+    {
+      "name": "Redis Connectivity",
+      "status": "WARNING",
+      "message": "Redis not reachable (optional)",
+      "duration_seconds": 0.22770142555236816,
+      "details": null
+    },
+    {
+      "name": "Docker Network (ascended33-network)",
+      "status": "SUCCESS",
+      "message": "Network accessible",
+      "duration_seconds": 0.0662539005279541,
+      "details": null
+    },
+    {
+      "name": "Vault Volume",
+      "status": "SUCCESS",
+      "message": "Mounted at D:\\Vault\\Vault",
+      "duration_seconds": 6.127357482910156e-05,
+      "details": null
+    },
+    {
+      "name": "Vault Write Permission",
+      "status": "SUCCESS",
+      "message": "Can write to Vault",
+      "duration_seconds": 0.0038521289825439453,
+      "details": null
+    },
+    {
+      "name": "REPORT/Classified Directory",
+      "status": "SUCCESS",
+      "message": "Exists with 0 items",
+      "duration_seconds": 0,
+      "details": null
+    },
+    {
+      "name": "HexStrike AI (8888) \u2014 ping",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.04630613327026367,
+      "details": null
+    },
+    {
+      "name": "HexStrike AI (8888) \u2014 full health",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 1.7336671352386475,
+      "details": null
+    },
+    {
+      "name": "Streamlit Dashboard (8501)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.08684325218200684,
+      "details": null
+    },
+    {
+      "name": "GPU Trainer API (5000)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.44680261611938477,
+      "details": null
+    },
+    {
+      "name": "Obsidian REST API (27123)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.053130388259887695,
+      "details": null
+    },
+    {
+      "name": "Pieces MCP (39300)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 2.0481717586517334,
+      "details": null
+    },
+    {
+      "name": "Tor SOCKS5 (9050)",
+      "status": "FAILURE",
+      "message": "Tor not working",
+      "duration_seconds": 0.7081692218780518,
+      "details": "-s: 1: Syntax error: Unterminated quoted string\n"
+    },
+    {
+      "name": "HexStrike Logs",
+      "status": "SUCCESS",
+      "message": "Logs retrieved",
+      "duration_seconds": 0.08058285713195801,
+      "details": "2026-02-27 11:42:48,780 CRIT Supervisor is running as root.  Privileges were not dropped because no "
+    },
+    {
+      "name": "Docker Volumes",
+      "status": "WARNING",
+      "message": "Cannot list volumes",
+      "duration_seconds": 0.055475711822509766,
+      "details": "docker: 'docker volume ls' accepts no arguments\n\nUsage:  docker volume ls [OPTIONS]\n\nRun 'docker vol"
+    },
+    {
+      "name": "Pieces OS (39300)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 2.0482757091522217,
+      "details": null
+    },
+    {
+      "name": "Obsidian API (3123)",
+      "status": "WARNING",
+      "message": "Not accessible",
+      "duration_seconds": 2.0400805473327637,
+      "details": null
+    },
+    {
+      "name": "HexStrike MCP Script",
+      "status": "WARNING",
+      "message": "Script not found",
+      "duration_seconds": 0,
+      "details": null
+    }
+  ]
+}

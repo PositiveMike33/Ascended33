@@ -1,3 +1,7 @@
 views:
   - type: table
     name: Table
+  - type: map-view-plugin
+    name: Vue
+    mapCenter: 45.484325981582735,-73.61599043011665
+    mapZoom: 12

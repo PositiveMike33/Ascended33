@@ -1,0 +1,174 @@
+{
+  "timestamp": "2026-02-27T06:52:52.157904",
+  "total_time_seconds": 10.403811931610107,
+  "summary": {
+    "total": 23,
+    "success": 16,
+    "failure": 1,
+    "warning": 6,
+    "success_rate_percent": 69.56521739130434
+  },
+  "tests": [
+    {
+      "name": "Container th3-hexstrike",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 0.06801080703735352,
+      "details": null
+    },
+    {
+      "name": "Container th3-tor",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 0.06270432472229004,
+      "details": null
+    },
+    {
+      "name": "Container th3-kali",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 0.05820488929748535,
+      "details": null
+    },
+    {
+      "name": "Container th3-hackergpt",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 0.06066489219665527,
+      "details": null
+    },
+    {
+      "name": "Container th3-streamlit",
+      "status": "WARNING",
+      "message": "Status: 'running'",
+      "duration_seconds": 3.0607247352600098,
+      "details": null
+    },
+    {
+      "name": "HexStrike Health Check",
+      "status": "SUCCESS",
+      "message": "Health endpoint responding",
+      "duration_seconds": 0.159346342086792,
+      "details": "{\"message\":\"HexStrike AI Tools API Server is operational\",\"status\":\"healthy\",\"version\":\"6.0.0\"}\n"
+    },
+    {
+      "name": "Redis Connectivity",
+      "status": "WARNING",
+      "message": "Redis not reachable (optional)",
+      "duration_seconds": 0.14444255828857422,
+      "details": null
+    },
+    {
+      "name": "Docker Network (ascended33-network)",
+      "status": "SUCCESS",
+      "message": "Network accessible",
+      "duration_seconds": 0.06553387641906738,
+      "details": null
+    },
+    {
+      "name": "Vault Volume",
+      "status": "SUCCESS",
+      "message": "Mounted at D:\\Vault\\Vault",
+      "duration_seconds": 0.00010323524475097656,
+      "details": null
+    },
+    {
+      "name": "Vault Write Permission",
+      "status": "SUCCESS",
+      "message": "Can write to Vault",
+      "duration_seconds": 0.003398895263671875,
+      "details": null
+    },
+    {
+      "name": "REPORT/Classified Directory",
+      "status": "SUCCESS",
+      "message": "Exists with 0 items",
+      "duration_seconds": 0,
+      "details": null
+    },
+    {
+      "name": "HexStrike AI (8888) \u2014 ping",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.019115924835205078,
+      "details": null
+    },
+    {
+      "name": "HexStrike AI (8888) \u2014 full health",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 1.2829761505126953,
+      "details": null
+    },
+    {
+      "name": "Streamlit Dashboard (8501)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.018141984939575195,
+      "details": null
+    },
+    {
+      "name": "GPU Trainer API (5000)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.0493311882019043,
+      "details": null
+    },
+    {
+      "name": "Obsidian REST API (27123)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.005803585052490234,
+      "details": null
+    },
+    {
+      "name": "Pieces MCP (39300)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 2.03670334815979,
+      "details": null
+    },
+    {
+      "name": "Tor SOCKS5 (9050)",
+      "status": "FAILURE",
+      "message": "Tor not working",
+      "duration_seconds": 1.0755398273468018,
+      "details": "{\"IsTor\":true,\"IP\":\"185.220.101.171\"}"
+    },
+    {
+      "name": "HexStrike Logs",
+      "status": "SUCCESS",
+      "message": "Logs retrieved",
+      "duration_seconds": 0.06461977958679199,
+      "details": "2026-02-27 11:42:48,780 CRIT Supervisor is running as root.  Privileges were not dropped because no "
+    },
+    {
+      "name": "Docker Volumes",
+      "status": "SUCCESS",
+      "message": "Volumes listed",
+      "duration_seconds": 0.05526614189147949,
+      "details": "DRIVER    VOLUME NAME\nlocal     1bd499d56f8be4eece6f242a8c9db88bb01bdf07893f7f0e4f6a22a04d90c4ed\nloc"
+    },
+    {
+      "name": "Pieces OS (39300)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 2.044088840484619,
+      "details": null
+    },
+    {
+      "name": "Obsidian API (27123)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.014040946960449219,
+      "details": null
+    },
+    {
+      "name": "HexStrike MCP Script",
+      "status": "SUCCESS",
+      "message": "Script found",
+      "duration_seconds": 0,
+      "details": null
+    }
+  ]
+}

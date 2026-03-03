@@ -1,0 +1,393 @@
+# ============================================================================
+# AMASS Configuration for HexStrike Ascended33
+# Complete DNS enumeration and reconnaissance configuration
+# ============================================================================
+
+# ============================================================================
+# OUTPUT SETTINGS
+# ============================================================================
+
+output:
+  # Data format for output
+  format: json          # json, text, csv
+  
+  # Output file path (optional)
+  file: /vault/REPORT/amass_results.json
+  
+  # Directory for results
+  directory: /vault/REPORT/Classified/amass
+  
+  # Include source information in results
+  sources: true
+  
+  # Verbose output
+  verbose: true
+
+# ============================================================================
+# SCOPE SETTINGS
+# ============================================================================
+
+scope:
+  # Primary domain to enumerate
+  domains:
+    - example.com
+    - target.com
+  
+  # Include subdomains
+  include_subdomains: true
+  
+  # Ports to check
+  ports:
+    - 80
+    - 443
+    - 8080
+    - 8443
+    - 3000
+    - 5000
+    - 8001
+    - 8002
+  
+  # Exclude these domains
+  blacklist:
+    - localhost
+    - 127.0.0.1
+    - internal
+
+# ============================================================================
+# DNS ENUMERATION SETTINGS
+# ============================================================================
+
+dns:
+  # DNS resolver addresses
+  resolvers:
+    - 8.8.8.8           # Google
+    - 8.8.4.4           # Google
+    - 1.1.1.1           # Cloudflare
+    - 1.0.0.1           # Cloudflare
+    - 9.9.9.9           # Quad9
+    - 208.67.222.123    # OpenDNS
+  
+  # Port for DNS queries
+  port: 53
+  
+  # Query timeout in seconds
+  timeout: 15
+  
+  # Enable DNS zone transfer attempts
+  zone_transfer: true
+  
+  # Query types to perform
+  query_types:
+    - A
+    - AAAA
+    - CNAME
+    - MX
+    - NS
+    - TXT
+    - SOA
+    - SPF
+    - SRV
+  
+  # Enable recursive DNS queries
+  recursive: true
+  
+  # Maximum concurrent DNS queries
+  max_dns_queries: 200
+
+# ============================================================================
+# DATA SOURCE CONFIGURATION
+# ============================================================================
+
+sources:
+  # Enable/disable specific sources
+  enabled:
+    # Certificate Transparency Logs
+    - certdb          # Certificate database
+    - crtsh           # CT search
+    - censys          # Censys
+    - circl           # CIRCL passive DNS
+    
+    # Search Engines
+    - baidu           # Baidu
+    - bing            # Bing
+    - yahoo           # Yahoo
+    - google          # Google
+    
+    # DNS Databases
+    - dnsdumpster     # DNS Dumpster
+    - dnsdb           # Farsight SecurityDNS DB
+    
+    # Passive Sources
+    - netcraft        # Netcraft
+    - passivetotal    # RiskIQ PassiveTotal
+    - ptrarchive      # PTR Archive
+    - riddns          # Riddns
+    - robtex          # Robtex
+    - threatcrowd     # ThreatCrowd
+    - trello          # Trello
+    - twitter         # Twitter
+    - virustotal      # VirusTotal
+    - whoisxmlapi     # WhoisXML API
+    
+    # Other Sources
+    - ask             # Ask.com
+    - dogpile         # Dogpile
+    - exalead         # Exalead
+    - shodan          # Shodan
+    - urlscan         # URLscan.io
+  
+  # API credentials for paid services (if applicable)
+  credentials:
+    # Shodan API key (optional)
+    shodan_key: ""
+    
+    # VirusTotal API key (optional)
+    virustotal_key: ""
+    
+    # PassiveTotal credentials (optional)
+    passivetotal_user: ""
+    passivetotal_key: ""
+    
+    # WhoisXML API key (optional)
+    whoisxml_key: ""
+
+# ============================================================================
+# BRUTE FORCE SETTINGS
+# ============================================================================
+
+brute_force:
+  # Enable subdomain brute forcing
+  enabled: true
+  
+  # Wordlist for brute forcing
+  wordlist: /usr/share/amass/wordlists/subdomains-top1million-5000.txt
+  
+  # Alternative wordlists
+  wordlists:
+    - /usr/share/amass/wordlists/subdomains-top1million-110000.txt
+    - /usr/share/amass/wordlists/all.txt
+  
+  # Maximum brute force workers
+  max_workers: 100
+  
+  # Recursive brute forcing
+  recursive: true
+  
+  # Minimum depth for recursive brute forcing
+  min_for_recursive: 2
+  
+  # Maximum DNS query retries
+  retries: 3
+
+# ============================================================================
+# ACTIVE ENUMERATION SETTINGS
+# ============================================================================
+
+active:
+  # Enable active enumeration (requires caution)
+  enabled: false
+  
+  # Port scanning
+  port_scan:
+    enabled: false
+    ports: [80, 443, 8080, 8443]
+    timeout: 10
+  
+  # Certificate grabbing
+  cert_grab:
+    enabled: false
+    timeout: 10
+  
+  # HTTP requests
+  http_requests:
+    enabled: false
+    timeout: 10
+    user_agent: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+
+# ============================================================================
+# GRAPH DATABASE SETTINGS
+# ============================================================================
+
+graphdb:
+  # Database system
+  system: neo4j          # neo4j, postgres, mysql
+  
+  # Connection settings
+  host: localhost
+  port: 7687
+  username: neo4j
+  password: password
+  database: amass
+  
+  # Enable graph updates
+  update: true
+  
+  # Cache results
+  cache: true
+
+# ============================================================================
+# FILTERING SETTINGS
+# ============================================================================
+
+filter:
+  # Remove duplicate records
+  deduplication: true
+  
+  # Minimum domain length
+  min_domain_length: 3
+  
+  # Filter private IPs
+  remove_private_ips: true
+  
+  # Private IP ranges to filter
+  private_ip_ranges:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+    - 127.0.0.0/8
+    - fc00::/7
+  
+  # Regex patterns to exclude
+  exclude_patterns:
+    - "^test.*"
+    - "^tmp.*"
+    - ".*\.local$"
+    - ".*\.internal$"
+
+# ============================================================================
+# PERFORMANCE SETTINGS
+# ============================================================================
+
+performance:
+  # Maximum concurrent operations
+  max_concurrent: 50
+  
+  # Number of workers
+  workers: 25
+  
+  # Request timeout in seconds
+  timeout: 30
+  
+  # Memory limit (MB)
+  memory_limit: 2048
+  
+  # Enable parallelization
+  parallel: true
+  
+  # Rate limiting (requests per second)
+  rate_limit: 100
+
+# ============================================================================
+# LOGGING SETTINGS
+# ============================================================================
+
+logging:
+  # Log level (error, warning, info, debug, trace)
+  level: info
+  
+  # Log file path
+  file: /vault/REPORT/Classified/amass/amass.log
+  
+  # Log format
+  format: json
+  
+  # Rotate logs
+  rotate:
+    enabled: true
+    max_size: 10        # MB
+    max_backups: 5
+    max_age: 30         # days
+
+# ============================================================================
+# ADVANCED SETTINGS
+# ============================================================================
+
+advanced:
+  # Disable DNSSEC validation
+  disable_dnssec: false
+  
+  # Trust DNS servers in /etc/resolv.conf
+  trust_system_resolvers: true
+  
+  # Use proxy (optional)
+  proxy: ""             # http://proxy:8080
+  
+  # TLS verification
+  tls_verify: true
+  
+  # Custom headers for HTTP requests
+  headers:
+    User-Agent: "AMASS/4.2"
+    Accept-Language: "en-US"
+  
+  # SNI (Server Name Indication) for HTTPS
+  enable_sni: true
+  
+  # Maximum response body size (bytes)
+  max_response_size: 10485760  # 10MB
+
+# ============================================================================
+# INTEGRATION SETTINGS (HexStrike/Ascended33)
+# ============================================================================
+
+integration:
+  # Enable Vault integration
+  vault_enabled: true
+  vault_path: /vault
+  vault_report_path: /vault/REPORT/Classified/amass
+  
+  # Enable Tor routing (for anonymity)
+  tor_enabled: false
+  tor_socks5: socks5://th3-tor:9050
+  tor_proxy: http://th3-tor:8118
+  
+  # Enable Obsidian vault sync
+  obsidian_enabled: false
+  obsidian_vault: /vault/.obsidian
+  
+  # Enable Claude Code integration
+  claude_integration: false
+  claude_output: /vault/REPORT/Classified/amass/claude-analysis.md
+  
+  # HexStrike callback
+  hexstrike_callback: http://th3-hexstrike:8001/results/amass
+  
+  # Enable webhook notifications
+  webhooks:
+    enabled: false
+    url: ""
+    method: POST
+
+# ============================================================================
+# REPORT SETTINGS
+# ============================================================================
+
+report:
+  # Generate comprehensive report
+  enabled: true
+  
+  # Report format
+  formats:
+    - json
+    - html
+    - markdown
+    - csv
+  
+  # Report path
+  output_path: /vault/REPORT/Classified/amass/
+  
+  # Include statistics
+  include_stats: true
+  
+  # Include methodology
+  include_methodology: true
+  
+  # Include timeline
+  include_timeline: true
+  
+  # Include visualizations
+  include_charts: true
+
+# ============================================================================
+# END OF CONFIGURATION
+# ============================================================================

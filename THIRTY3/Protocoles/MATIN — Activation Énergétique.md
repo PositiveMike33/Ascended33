@@ -17,7 +17,7 @@ THIRTY3 ne s'improvise pas. Il se décide.
 ## Séquence d'activation (33 min)
 
 1. **Ouvre ta note du jour** dans `THIRTY3/Daily`(30 sec)
-2. **Breathwork**- [Youtube](https://www.youtube.com/watch?v=LzR0uz61MYw) (18 min)
+2. **Breathwork**- [https://music.youtube.com/watch?v=2KbiSXF-yGA&si=mR1rZvALXzne4lhG]
 3. **Bénédiction** - 4 domaines, gratitude sincère (2 min)
 4. **Mantra** -  choisis en un, dis-le 3x à voix haute (1 min)
 5. **5 Standards** -  revue honnête de la veille (5 min)

@@ -1,0 +1,90 @@
+{
+  "timestamp": "2026-02-27T14:46:31.780386",
+  "total_time_seconds": 8.178215026855469,
+  "summary": {
+    "total": 11,
+    "success": 9,
+    "failure": 2,
+    "warning": 0,
+    "success_rate_percent": 81.81818181818183
+  },
+  "tests": [
+    {
+      "name": "Container th3-hexstrike",
+      "status": "SUCCESS",
+      "message": "Is RUNNING",
+      "duration_seconds": 0.13997936248779297,
+      "details": null
+    },
+    {
+      "name": "Container th3-tor",
+      "status": "SUCCESS",
+      "message": "Is RUNNING",
+      "duration_seconds": 0.08341550827026367,
+      "details": null
+    },
+    {
+      "name": "Container th3-kali",
+      "status": "SUCCESS",
+      "message": "Is RUNNING",
+      "duration_seconds": 0.0799872875213623,
+      "details": null
+    },
+    {
+      "name": "Container th3-hackergpt",
+      "status": "SUCCESS",
+      "message": "Is RUNNING",
+      "duration_seconds": 0.06476402282714844,
+      "details": null
+    },
+    {
+      "name": "Container th3-streamlit",
+      "status": "SUCCESS",
+      "message": "Is RUNNING",
+      "duration_seconds": 3.06990385055542,
+      "details": null
+    },
+    {
+      "name": "HexStrike Health Check",
+      "status": "FAILURE",
+      "message": "No response",
+      "duration_seconds": 0.37096190452575684,
+      "details": null
+    },
+    {
+      "name": "Vault Volume",
+      "status": "SUCCESS",
+      "message": "Mounted at D:\\Vault\\Vault",
+      "duration_seconds": 8.106231689453125e-05,
+      "details": null
+    },
+    {
+      "name": "HexStrike API (8001)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.1382756233215332,
+      "details": null
+    },
+    {
+      "name": "HackerGPT API (8000)",
+      "status": "FAILURE",
+      "message": "No response",
+      "duration_seconds": 4.085252285003662,
+      "details": null
+    },
+    {
+      "name": "Streamlit (8501)",
+      "status": "SUCCESS",
+      "message": "Responding",
+      "duration_seconds": 0.05970025062561035,
+      "details": null
+    },
+    {
+      "name": "HexStrike Logs",
+      "status": "SUCCESS",
+      "message": "Logs retrieved",
+      "duration_seconds": 0.08564543724060059,
+      "details": null
+    }
+  ]
+}
